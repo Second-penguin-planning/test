@@ -1,295 +1,229 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-
-export default [
-  { ignores: ['dist', 'node_modules'] },
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    files: ['src/**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
-]
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://public.readdy.ai/ai/img_res/f6025562-0e56-4372-b67e-d605ef6eeec7.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OPASギャラリー - 油彩画芸術作品展示</title>
-    <meta name="description" content="OPASギャラリーは油彩画技能を展示するオンラインギャラリーです。德永卓磨をはじめとする作家による異人館、神戸街並み、スペイン田舎をテーマにした油彩画作品をご覧いただけます。セコンドペンギン企画が運営しています。" />
-    <meta name="keywords" content="OPASギャラリー,油彩画,芸術作品,德永卓磨,異人館,神戸,セコンドペンギン企画" />
-    <link rel="canonical" href="https://readdy.ai/" />
-    <meta name="last-modified" content="2024-01-01" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Penguin Planning | 行政書士徳永法務事務所</title>
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="OPASギャラリー - 油彩画芸術作品展示" />
-    <meta property="og:description" content="OPASギャラリーは油彩画技能を展示するオンラインギャラリーです。德永卓磨をはじめとする作家による作品をご覧いただけます。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://public.readdy.ai/ai/img_res/f6025562-0e56-4372-b67e-d605ef6eeec7.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OPASギャラリー - 油彩画芸術作品展示" />
-    <meta name="twitter:description" content="OPASギャラリーは油彩画技能を展示するオンラインギャラリーです。" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome and Remix Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#E3F2FD', 
+                            DEFAULT: '#90CAF9',
+                            dark: '#42A5F5',
+                            text: '#1E3A8A', 
+                        },
+                        accent: {
+                            DEFAULT: '#9B2E35', 
+                            hover: '#7a2228',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        .hero-text-anim { opacity: 0; transform: translateY(30px); animation: heroFadeUp 1s ease-out forwards; }
+        .hero-delay-1 { animation-delay: 0.2s; }
+        .hero-delay-2 { animation-delay: 0.6s; }
+        @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased bg-white">
+
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex flex-col font-serif font-bold text-brand-text leading-tight group">
+                <span class="text-lg md:text-2xl group-hover:text-accent transition-colors">Second Penguin Planning</span>
+                <span class="text-xs md:text-sm text-gray-500 font-normal">行政書士徳永法務事務所</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-gray-600 hover:text-accent text-xs tracking-widest font-bold">ABOUT</a>
+                <a href="#services" class="text-gray-600 hover:text-accent text-xs tracking-widest font-bold">SERVICES</a>
+                <a href="#fees" class="text-gray-600 hover:text-accent text-xs tracking-widest font-bold">FEES</a>
+                <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" target="_blank" class="px-5 py-2 bg-accent text-white rounded-full hover:bg-accent-hover transition shadow-md text-sm font-bold">
+                    Free Consultation / 無料相談
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center bg-brand-light/30 pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="hero-text-anim hero-delay-1">
+                <span class="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded mb-4">Certified Administrative Scrivener / 申請取次行政書士</span>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                    Your Bridge to <br><span class="text-brand-dark">Life in Japan</span>
+                    <span class="block text-xl md:text-2xl mt-4 font-sans text-gray-600 font-normal">日本での新しい一歩を、確かな実務経験で支えます。</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    元公務員としての38年の行政実務経験と、日本語教師の専門知識。
+                    ビザ申請から生活設計まで、日本で挑戦するあなたをワンストップでサポートします。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" class="px-8 py-4 bg-accent text-white rounded font-bold text-center hover:shadow-lg transition">Free Consultation / 無料相談</a>
+                    <a href="#fees" class="px-8 py-4 bg-white border-2 border-brand-text text-brand-text rounded font-bold text-center">Service Fees / 料金目安</a>
+                </div>
+            </div>
+            <div class="hidden md:block hero-text-anim hero-delay-2">
+                <img src="https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?auto=format&fit=crop&w=800&q=80" alt="Support" class="rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-xs font-bold text-accent tracking-[.3em] uppercase mb-2">Philosophy</h2>
+                    <h3 class="text-3xl font-serif font-bold mb-6 text-gray-800">なぜ「セカンドペンギン」なのか</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        リスクを恐れず最初に海へ飛び込む「ファーストペンギン」。日本という新天地に挑戦するあなたは、まさにその勇敢なペンギンです。<br><br>
+                        私の役割は、その後に続く<b>「セカンドペンギン」</b>として、あなたが安全に泳ぎ続けられるよう、確かなルートを示し、背中を支えることです。
+                    </p>
+                    <div class="bg-brand-light/50 p-6 rounded-lg border-l-4 border-brand-dark">
+                        <h4 class="font-bold text-brand-text mb-2">元公務員としての「信頼」と「確実性」</h4>
+                        <p class="text-sm text-gray-700">
+                            38年間、行政の内部から制度を支えてきた経験があります。役所の考え方やルールを熟知しているからこそ、複雑なビザ申請においても、精度の高い書類作成とスムーズな折衝が可能です。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                        <span class="text-4xl font-serif font-bold text-accent">38</span>
+                        <p class="text-xs mt-2 text-gray-500 font-bold uppercase">Years of Public Service<br>行政実務経験</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                        <span class="text-4xl font-serif font-bold text-accent">100%</span>
+                        <p class="text-xs mt-2 text-gray-500 font-bold uppercase">Professional Support<br>プロの伴走</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fees" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold text-gray-800">Service Fees / 料金の目安</h2>
+                <p class="mt-4 text-gray-500 italic">やさしい日本語：いくら お金が かかるか、 おしえます。</p>
+                <div class="w-16 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-brand-text text-white text-sm uppercase">
+                        <tr>
+                            <th class="px-6 py-4">Service / サービス内容</th>
+                            <th class="px-6 py-4">Fee (Start from) / 料金目安</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="px-6 py-4">
+                                <span class="block font-bold">Consultation / 初回相談</span>
+                                <span class="text-xs text-gray-400">First 60 minutes / 最初の60分</span>
+                            </td>
+                            <td class="px-6 py-4 font-bold text-accent">Free / 無料</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <span class="block font-bold">Visa Extension / ビザの更新</span>
+                                <span class="text-xs text-gray-400">Status of Residence Extension</span>
+                            </td>
+                            <td class="px-6 py-4">¥33,000〜</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <span class="block font-bold">Change of Status / ビザの変更</span>
+                                <span class="text-xs text-gray-400">e.g. Student to Work Visa</span>
+                            </td>
+                            <td class="px-6 py-4">¥88,000〜</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <span class="block font-bold">Permanent Residency / 永住許可</span>
+                                <span class="text-xs text-gray-400">Application for Permanent Visa</span>
+                            </td>
+                            <td class="px-6 py-4">¥132,000〜</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="p-6 bg-gray-50 text-xs text-gray-500">
+                    ※上記は目安であり、個別の状況（難易度）により変動します。ご依頼前に必ず詳細な見積書を作成いたします。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 border-t pt-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Office Profile / 事務所概要</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex justify-between border-b pb-2">
+                            <span class="text-gray-500 font-bold">Name / 名称</span>
+                            <span class="font-bold">行政書士徳永法務事務所</span>
+                        </li>
+                        <li class="flex justify-between border-b pb-2">
+                            <span class="text-gray-500 font-bold">Registration / 登録番号</span>
+                            <span>日本行政書士会連合会 第23301077号</span>
+                        </li>
+                        <li class="flex justify-between border-b pb-2">
+                            <span class="text-gray-500 font-bold">Location / 場所</span>
+                            <span>神戸ファッションマート 7N-04-01</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-brand-light rounded-xl p-8 flex flex-col justify-center items-center text-center">
+                    <h3 class="text-lg font-bold text-brand-text mb-4">First Step is Free</h3>
+                    <p class="text-sm text-gray-600 mb-6 font-bold">まずは無料で、あなたのお話を聞かせてください。</p>
+                    <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" target="_blank" class="px-8 py-3 bg-brand-text text-white rounded-full font-bold hover:bg-black transition">
+                        Contact Us / お問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center text-xs">
+        <div class="container mx-auto px-6">
+            <p class="mb-2">© 2024 Second Penguin Planning / Tokunaga Legal Administrative Scrivener Office.</p>
+            <p>Certified Administrative Scrivener (Gyoseishoshi) is a national legal qualification in Japan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for Fade-in Effect
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+    </script>
+</body>
 </html>
-{
-  "name": "react",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "type-check": "tsc --noEmit --project tsconfig.app.json"
-  },
-  "dependencies": {
-    "i18next": "^25.3.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-i18next": "^15.6.0",
-    "react-router-dom": "^7.6.3",
-    "i18next-browser-languagedetector": "^8.2.0",
-    "firebase": "12.0.0",
-    "@supabase/supabase-js": "2.57.4",
-    "@stripe/react-stripe-js": "4.0.2",
-    "recharts": "3.2.0",
-    "lucide-react": "^0.469.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react-swc": "^3.10.2",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.3",
-    "unplugin-auto-import": "^19.3.0",
-    "source-map": "^0.7.6",
-    "jiti": "^2.6.1"
-  }
-}
-export default {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    }
-  }
-import type { Config } from 'tailwindcss'
-
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        serif: ['Playfair Display', 'Noto Serif JP', 'serif'],
-      },
-    },
-  },
-  plugins: [],
-} satisfies Config
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": false,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
-    "strictFunctionTypes": false,
-    "strictBindCallApply": false,
-    "strictPropertyInitialization": false,
-    "noImplicitThis": false,
-    "useUnknownInCatchVariables": false,
-    "alwaysStrict": false,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": false,
-    "noUncheckedSideEffectImports": false,
-    "paths": {
-      "@/*": ["./src/*"],
-    }
-  },
-  "include": ["src", "vite-env.d.ts"]
-}
-{
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-}
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
-}
-/// <reference types="vite/client" />
-
-declare const __BASE_PATH__: string;
-declare const __IS_PREVIEW__: boolean;
-declare const __READDY_PROJECT_ID__: string;
-declare const __READDY_VERSION_ID__: string;
-declare const __READDY_AI_DOMAIN__: string;
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import { resolve } from "node:path";
-import AutoImport from "unplugin-auto-import/vite";
-
-const base = process.env.BASE_PATH || "/";
-const isPreview = process.env.IS_PREVIEW ? true : false;
-// https://vite.dev/config/
-export default defineConfig({
-  define: {
-    __BASE_PATH__: JSON.stringify(base),
-    __IS_PREVIEW__: JSON.stringify(isPreview),
-    __READDY_PROJECT_ID__: JSON.stringify(process.env.PROJECT_ID || ""),
-    __READDY_VERSION_ID__: JSON.stringify(process.env.VERSION_ID || ""),
-    __READDY_AI_DOMAIN__: JSON.stringify(process.env.READDY_AI_DOMAIN || ""),
-  },
-  plugins: [
-    react(),
-    AutoImport({
-      imports: [
-        {
-          react: [
-            "React",
-            "useState",
-            "useEffect",
-            "useContext",
-            "useReducer",
-            "useCallback",
-            "useMemo",
-            "useRef",
-            "useImperativeHandle",
-            "useLayoutEffect",
-            "useDebugValue",
-            "useDeferredValue",
-            "useId",
-            "useInsertionEffect",
-            "useSyncExternalStore",
-            "useTransition",
-            "startTransition",
-            "lazy",
-            "memo",
-            "forwardRef",
-            "createContext",
-            "createElement",
-            "cloneElement",
-            "isValidElement",
-          ],
-        },
-        {
-          "react-router-dom": [
-            "useNavigate",
-            "useLocation",
-            "useParams",
-            "useSearchParams",
-            "Link",
-            "NavLink",
-            "Navigate",
-            "Outlet",
-          ],
-        },
-        // React i18n
-        {
-          "react-i18next": ["useTranslation", "Trans"],
-        },
-      ],
-      dts: true,
-    }),
-  ],
-  base,
-  build: {
-    sourcemap: true,
-    outDir: "out",
-  },
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-    },
-  },
-  server: {
-    port: 3000,
-    host: "0.0.0.0",
-  },
-});
