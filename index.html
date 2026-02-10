@@ -1,172 +1,391 @@
+ご提示いただいたコードから、ご要望通り「油絵の100年資産」および「ホームページ作成業務」に関する記述をすべて削除し、全体の整合性を整えた修正版コードを作成しました。
+
+主な変更点は以下の通りです：
+
+タイトル・メタタグ: 関連ワードを削除。
+
+ナビゲーション: 「油絵」リンクを削除。
+
+ヒーローセクション: キャッチコピー内の該当業務を削除。
+
+代表者挨拶: 油絵制作に関する一文を削除し、文脈を調整。
+
+該当セクション: #art（油絵）および #web（ホームページ作成）のセクションを丸ごと削除。
+
+修正後のHTMLコード
+HTML
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Penguin Planning | ビザ・就業支援・登録支援機関</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { light: '#E3F2FD', DEFAULT: '#90CAF9', dark: '#42A5F5', text: '#1E3A8A' },
-                        accent: { DEFAULT: '#9B2E35', hover: '#7a2228' }
-                    },
-                    fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'], serif: ['"Noto Serif JP"', 'serif'] }
-                }
-            }
-        }
-    </script>
+    <title>セコンドペンギン企画 | 外国人雇用・生活支援</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-        .fade-in.is-visible { opacity: 1; transform: none; }
+        :root {
+            --main-blue: #005bac;
+            --accent-green: #006400;
+            --sky-blue: #e0f4ff;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--sky-blue);
+            overflow-x: hidden;
+        }
+
+        /* アニメーション用クラス */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--main-blue);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,91,172,0.6), rgba(0,91,172,0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--main-blue);
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: white;
+        }
+        
+        .hero .sub-text {
+            font-size: 1rem;
+            color: #f0f0f0 !important;
+            font-weight: normal;
+        }
+
+        /* Section Commons */
+        section {
+            padding: 100px 10%;
+            background: var(--white);
+            margin: 20px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--main-blue);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-green);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--sky-blue);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--main-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--main-blue);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            margin-top: 20px;
+            font-weight: bold;
+            border: 2px solid var(--main-blue);
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--main-blue);
+            color: var(--main-blue) !important;
+        }
+        
+        .btn-outline:hover {
+            background: var(--main-blue);
+            color: white !important;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            width: 30%;
+            color: var(--main-blue);
+        }
+
+        .transition-area {
+            background: var(--accent-green);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Representative Section Styles */
+        .representative-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .representative-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .representative-image {
+            flex: 0 0 300px;
+            max-width: 100%;
+        }
+        .representative-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            header { flex-direction: column; }
+            .logo { margin-bottom: 15px; }
+            nav { margin-top: 0; }
+            nav a { margin: 0 10px; font-size: 0.8rem; }
+            .representative-image { flex: 1 1 100%; order: -1; } 
+        }
     </style>
 </head>
-<body class="font-sans text-gray-700 antialiased bg-white">
+<body>
 
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex flex-col font-serif font-bold text-brand-text leading-tight group">
-                <span class="text-lg md:text-2xl group-hover:text-accent transition-colors">Second Penguin Planning</span>
-                <span class="text-[10px] md:text-xs text-gray-500 font-normal">行政書士徳永法務事務所 | 有料職業紹介 | 登録支援機関</span>
-            </a>
-            <nav class="hidden lg:flex space-x-6 items-center text-xs font-bold">
-                <a href="#about" class="text-gray-600 hover:text-accent">ABOUT</a>
-                <a href="#services" class="text-gray-600 hover:text-accent">SERVICES</a>
-                <a href="#fees" class="text-gray-600 hover:text-accent">FEES</a>
-                <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" target="_blank" class="px-5 py-2 bg-accent text-white rounded-full hover:bg-accent-hover transition shadow-md">
-                    CONTACT / お問い合わせ
-                </a>
-            </nav>
+<header>
+    <a href="#" class="logo">
+        <img src="logo.png" alt="セコンドペンギン企画 ロゴ">
+        <span>セコンドペンギン企画</span>
+    </a>
+    <nav>
+        <a href="#message">代表者から</a>
+        <a href="#business">企業様</a>
+        <a href="#foreign">International residents</a>
+        <a href="#company">会社概要</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="fade-in">
+        <h1>架け橋となり、価値を紡ぐ。</h1>
+        <p>企業の外国人雇用、外国人の日本就業/生活支援</p>
+        <p class="sub-text">法務の専門性と現場の視点で、あなたの「挑戦」を伴走支援します。</p>
+        <a href="#contact" class="btn">お問合せはこちら</a>
+    </div>
+</section>
+
+<section id="message" class="fade-in">
+    <h2>代表者から</h2>
+    <div class="representative-container">
+        <div class="representative-text">
+            <p>皆様、こんにちは。セコンドペンギン企画代表の德永と申します。</p>
+            <p style="margin-top: 1.5em;">これまで仕事や海外駐在を通じて、東南アジア・東アジアの多くの方々と出会い、日々の暮らしや仕事を共にしてきました。その中で、日本で学び、働き、日本の文化や習慣を大切にしながら社会の一員として歩みたいと考える、真面目で意欲ある方々が少なからずいることを実感しました。</p>
+            <p style="margin-top: 1.5em;">私は、日本社会のルールや価値観を尊重することを前提に、人と人が無理なく関われる環境づくりに関わりたいと考えています。また、そのような人材を受け入れ、育てておられる企業様や個人の方々と、丁寧に対話を重ねながら協働していくことを大切にしています。</p>
+            <p style="margin-top: 1.5em;">公務員退職後、誠意をもって一つひとつのご縁に向き合ってまいります。どうぞよろしくお願いいたします。</p>
         </div>
-    </header>
-
-    <section id="hero" class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-brand-light/50 to-white pt-20">
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="fade-in is-visible">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="bg-brand-text text-white text-[10px] px-2 py-1 rounded">行政書士</span>
-                    <span class="bg-brand-text text-white text-[10px] px-2 py-1 rounded">登録支援機関</span>
-                    <span class="bg-brand-text text-white text-[10px] px-2 py-1 rounded">有料職業紹介</span>
-                </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
-                    Total Support for <br><span class="text-brand-dark">Immigration & Careers</span>
-                    <span class="block text-xl md:text-2xl mt-4 font-sans text-gray-600 font-normal">「働く」と「ビザ」を、もっとスムーズに。</span>
-                </h1>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    38年の行政実務経験（元公務員）を活かし、外国人の就職支援からビザ申請、採用後の登録支援まで一貫してサポート。日本での挑戦を、法務と実務の両面から支えます。
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" class="px-8 py-4 bg-accent text-white rounded font-bold text-center hover:shadow-lg transition">Free Consultation / 無料相談</a>
-                    <a href="#services" class="px-8 py-4 bg-white border-2 border-brand-text text-brand-text rounded font-bold text-center">Our Services / 業務内容</a>
-                </div>
-            </div>
-            <div class="hidden lg:block relative">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Career Support" class="rounded-2xl shadow-2xl">
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-accent">
-                    <p class="text-sm font-bold text-brand-text italic">"Bridging talents to Japan's future."</p>
-                </div>
-            </div>
+        <div class="representative-image">
+            <img src="79935.png" alt="代表 德永">
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl font-serif font-bold text-gray-800">4 Pillars of Support / 4つの専門領域</h2>
-                <p class="mt-4 text-gray-500 italic text-sm">やさしい日本語：ビザ、しごと、生活。ぜんぶ サポートします。</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-brand-dark hover:shadow-xl transition fade-in">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl shadow-sm mb-6"><i class="fas fa-file-invoice"></i></div>
-                    <h3 class="font-bold text-gray-800 mb-3">行政書士業務</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">就労ビザ、特定技能、永住申請など。元公務員の知見を活かし、確実な書類作成と申請を代行します。</p>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-brand-dark hover:shadow-xl transition fade-in">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl shadow-sm mb-6"><i class="fas fa-user-tie"></i></div>
-                    <h3 class="font-bold text-gray-800 mb-3">有料職業紹介</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">求職者と企業の架け橋に。適性を見極め、長く安定して働ける最適なマッチングを提供します。</p>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-brand-dark hover:shadow-xl transition fade-in">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl shadow-sm mb-6"><i class="fas fa-handshake-angle"></i></div>
-                    <h3 class="font-bold text-gray-800 mb-3">登録支援機関</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">特定技能外国人の義務的支援を請け負います。生活支援や相談体制を構築し、離職を防止します。</p>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-2xl border-b-4 border-brand-dark hover:shadow-xl transition fade-in">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl shadow-sm mb-6"><i class="fas fa-book-open"></i></div>
-                    <h3 class="font-bold text-gray-800 mb-3">就業日本語・研修</h3>
-                    <p class="text-xs text-gray-500 leading-relaxed">現場で使える日本語指導やマナー研修。言葉の壁を越え、日本社会に馴染むための教育を行います。</p>
-                </div>
-            </div>
+<section id="business" class="fade-in">
+    <h2>企業様向けサポート</h2>
+    <p style="text-align: center; margin-bottom: 40px;">法務の専門家、採用の即戦力、定着の伴奏者の面から貴社の外国人雇用をトータルでバックアップします。</p>
+    <div class="grid">
+        <div class="card">
+            <h3>1. 事前相談・リスク確認</h3>
+            <p>外国人雇用に関する不安や法的リスクを、雇用前にクリアにします。</p>
         </div>
-    </section>
-
-    <section class="py-20 bg-brand-text text-white">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div class="md:w-2/3 fade-in">
-                <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4">採用から定着まで、企業のパートナーとして</h2>
-                <p class="text-brand-light/80 leading-relaxed">
-                    「特定技能の受け入れ方がわからない」「優秀な人材を探している」「ビザのリスクを最小限にしたい」<br>
-                    企業の皆様の課題に対し、法務と採用、そして現場支援の三位一体で伴走します。
-                </p>
-            </div>
-            <div class="md:w-1/3 text-center fade-in">
-                <a href="https://airtable.com/app8c8jdnaaohynYE/pagNr42A4FV5qJePV/form" class="inline-block px-10 py-4 bg-accent hover:bg-accent-hover text-white font-bold rounded shadow-lg transition">企業様向けお問い合わせ</a>
-            </div>
+        <div class="card">
+            <h3>2. 特定技能・入管対応</h3>
+            <p>煩雑な受入れ支援手続きや入管への申請をスムーズに代行します。</p>
         </div>
-    </section>
-
-    <section id="access" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="fade-in">
-                    <h3 class="text-xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-info-circle text-accent mr-2"></i> Office Profile / 事務所概要
-                    </h3>
-                    <dl class="space-y-4 text-sm">
-                        <div class="flex border-b pb-2"><dt class="w-40 text-gray-500 font-bold">事務所名</dt><dd class="font-bold text-gray-800">行政書士徳永法務事務所 / Second Penguin Planning</dd></div>
-                        <div class="flex border-b pb-2"><dt class="w-40 text-gray-500 font-bold">行政書士番号</dt><dd>第23301077号</dd></div>
-                        <div class="flex border-b pb-2"><dt class="w-40 text-gray-500 font-bold">有料職業紹介</dt><dd>許可番号：[ここに番号を入力]</dd></div>
-                        <div class="flex border-b pb-2"><dt class="w-40 text-gray-500 font-bold">登録支援機関</dt><dd>登録番号：[ここに番号を入力]</dd></div>
-                        <div class="flex border-b pb-2"><dt class="w-40 text-gray-500 font-bold">所在地</dt><dd>神戸ファッションマート 7N-04-01</dd></div>
-                    </dl>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-2xl fade-in text-center flex flex-col justify-center">
-                    <p class="text-gray-500 mb-2 font-bold uppercase tracking-widest text-xs">Let's connect</p>
-                    <h4 class="text-2xl font-serif font-bold text-brand-text mb-6">あなたの挑戦を、形にする。</h4>
-                    <p class="text-sm text-gray-600 mb-8">
-                        初回のカウンセリングは無料です。個人の方、法人の方、どちらもお気軽にご相談ください。
-                    </p>
-                    <a href="mailto:info@second-penguin.com" class="text-xl font-bold text-accent hover:underline mb-2">info@second-penguin.com</a>
-                    <p class="text-lg font-bold text-gray-800">070-9192-2524</p>
-                </div>
-            </div>
+        <div class="card">
+            <h3>3. トラブル予防サポート</h3>
+            <p>在留資格や雇用に関するトラブルを未然に防ぐ体制を構築します。</p>
         </div>
-    </section>
-
-    <footer class="bg-gray-900 text-gray-500 py-12 text-center text-[10px] md:text-xs">
-        <div class="container mx-auto px-6">
-            <p class="mb-4">© 2024 Second Penguin Planning / Tokunaga Legal Administrative Scrivener Office.</p>
-            <p class="max-w-2xl mx-auto">日本での就労・生活をワンストップで支援。元公務員の確かな実務力と、日本語教師・登録支援機関としての伴走力で、共生社会の実現に貢献します。</p>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="#" class="btn">問合せ・相談する</a>
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed #ccc;">
+            <p style="font-size: 0.95rem; color: #555;">補助金申請などはこちらをご覧ください。</p>
+            <a href="https://jrbuie.readdy.co" class="btn btn-outline" target="_blank" rel="noopener noreferrer">德永行政書士事務所</a>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('is-visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+<section id="foreign" style="background-color: var(--sky-blue);" class="fade-in">
+    <div style="background: white; padding: 50px; border-radius: 20px; text-align: center;">
+        <h2>For International residents</h2>
+        <p>Visa and consulting life in Japan. We support your career and daily life.</p>
+        <a href="https://second-penguin-lanning.github.io/Foreigners-Website/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Visit our specialized site ↗</a>
+    </div>
+</section>
+
+<section id="company" class="fade-in">
+    <h2>会社概要</h2>
+    <table>
+        <tr><th>屋号</th><td>セコンドペンギン企画</td></tr>
+        <tr><th>設立年月日</th><td>2024年6月13日</td></tr>
+        <tr><th>事務所</th><td>神戸市</td></tr>
+        <tr><th>業務エリア</th><td>全国</td></tr>
+        <tr><th>所在地</th><td>神戸ファッションマート（アクセスは下記ボタンより）</td></tr>
+    </table>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="#" class="btn btn-outline">アクセス詳細</a>
+        <a href="#" class="btn" style="margin-left: 10px;">お問合せ</a>
+    </div>
+</section>
+
+<section id="qa" class="fade-in">
+    <h2>Q＆A</h2>
+    <div class="card" style="margin-bottom: 10px;">
+        <p><strong>Q. 全国対応は可能ですか？</strong><br>A. はい、オンライン相談を含め全国の企業様・個人様に対応しております。</p>
+    </div>
+</section>
+
+<div class="transition-area">
+    <p>あなたの「次の一歩」を支えるセコンドペンギン。</p>
+    <a href="#" class="btn" style="background: white; color: var(--accent-green) !important;">個人事業 セコンドペンギン企画について</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 Second Penguin Kikaku. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(section => {
+        observer.observe(section);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const heroContent = document.querySelector('.hero .fade-in');
+        if (heroContent) {
+            heroContent.classList.add('visible');
+        }
+    });
+</script>
 </body>
 </html>
