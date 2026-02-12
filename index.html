@@ -13,6 +13,12 @@
             --text-color: #333;
             --white: #ffffff;
             --accent-orange: #ff8c00;
+            /* カテゴリーカラー */
+            --cat-policy: #e74c3c;    /* 赤 */
+            --cat-procedure: #3498db; /* 青 */
+            --cat-study: #2ecc71;     /* 緑 */
+            --cat-event: #f39c12;     /* オレンジ */
+            --cat-other: #95a5a6;     /* グレー */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,18 +77,18 @@
 
         /* Hero Section */
         .hero {
-            height: 85vh;
+            min-height: 85vh;
             background: linear-gradient(rgba(0,91,172,0.6), rgba(0,91,172,0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
             display: flex;
             position: relative;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 5%;
+            padding: 60px 5%;
             color: white;
         }
 
-        .hero-content { z-index: 2; }
+        .hero-content { z-index: 2; margin-bottom: 50px; }
 
         .hero h1 {
             font-size: 2.5rem;
@@ -102,40 +108,107 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
-        /* News Box */
+        /* --- News Box (Improved) --- */
         .news-box {
-            position: absolute;
-            bottom: 30px;
-            right: 5%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             color: var(--text-color);
-            padding: 15px;
-            border-radius: 10px;
-            width: 300px;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
             text-align: left;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border-left: 5px solid var(--accent-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-top: 5px solid var(--accent-orange);
             z-index: 10;
         }
 
         .news-box h3 {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            color: var(--accent-orange);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--main-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Category Filter Buttons */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-tag {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            cursor: pointer;
+            background: #fff;
+            transition: 0.2s;
+        }
+
+        .filter-tag.active {
+            background: var(--main-blue);
+            color: #fff;
+            border-color: var(--main-blue);
+        }
+
+        /* News List Items */
+        #news-list {
+            max-height: 250px;
+            overflow-y: auto;
         }
 
         .news-item {
             font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
             cursor: pointer;
-            text-decoration: underline;
-            color: var(--main-blue);
-            display: block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            transition: 0.2s;
         }
 
-        /* Sections */
+        .news-item:hover { background: #f9f9f9; }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-label {
+            font-size: 0.65rem;
+            padding: 1px 6px;
+            border-radius: 3px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .news-date { color: #888; font-size: 0.75rem; }
+
+        .news-title {
+            font-weight: bold;
+            color: var(--main-blue);
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Labels Color */
+        .policy { background: var(--cat-policy); }
+        .procedure { background: var(--cat-procedure); }
+        .study { background: var(--cat-study); }
+        .event { background: var(--cat-event); }
+        .other { background: var(--cat-other); }
+
+        /* --- Sections --- */
         section { padding: 100px 10%; background: var(--white); margin: 20px 0; }
         h2 { text-align: center; color: var(--main-blue); margin-bottom: 50px; position: relative; padding-bottom: 10px; }
         h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--accent-green); }
@@ -146,8 +219,6 @@
         /* Buttons */
         .btn { display: inline-block; padding: 12px 30px; background: var(--main-blue); color: white !important; text-decoration: none; border-radius: 50px; transition: 0.3s; margin-top: 20px; font-weight: bold; border: 2px solid var(--main-blue); cursor: pointer; }
         .btn:hover { background: var(--accent-green); border-color: var(--accent-green); transform: scale(1.05); }
-        .btn-outline { background: transparent; border: 2px solid var(--main-blue); color: var(--main-blue) !important; }
-        .btn-outline:hover { background: var(--main-blue); color: white !important; }
 
         /* Modal */
         .modal-overlay {
@@ -173,8 +244,9 @@
         .representative-image img { width: 100%; border-radius: 10px; }
 
         @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
             .hero h1 { font-size: 1.8rem; }
-            .news-box { width: 90%; right: 5%; bottom: 20px; }
+            .news-box { max-width: 100%; }
             header { flex-direction: column; }
             nav { margin-top: 10px; }
             nav a { margin: 0 10px; font-size: 0.8rem; }
@@ -207,6 +279,14 @@
 
     <div class="news-box fade-in">
         <h3>📢 お知らせ</h3>
+        <div class="filter-container">
+            <span class="filter-tag active" onclick="filterNews('all', this)">すべて</span>
+            <span class="filter-tag" onclick="filterNews('policy', this)">外国人政策</span>
+            <span class="filter-tag" onclick="filterNews('procedure', this)">入管手続き</span>
+            <span class="filter-tag" onclick="filterNews('study', this)">日本語学習</span>
+            <span class="filter-tag" onclick="filterNews('event', this)">イベント</span>
+            <span class="filter-tag" onclick="filterNews('other', this)">その他</span>
+        </div>
         <div id="news-list"></div>
     </div>
 </section>
@@ -283,10 +363,13 @@
 </footer>
 
 <script>
+    // ニュースデータの管理
     const newsData = [
         {
+            category: "policy",
+            catName: "外国人政策",
             date: "2024.06.15",
-            title: "【重要】技能実習制度から「育成就労制度」への移行について",
+            title: "育成就労制度への移行について",
             content: `
                 <p>2024年6月、改正出入国管理法が成立し、従来の「技能実習制度」を廃止し、新たに「育成就労制度」が創設されることが決定しました。</p><br>
                 <strong>■ 主な変更点：</strong>
@@ -297,18 +380,68 @@
                 </ul><br>
                 <p>セコンドペンギン企画では、最新の政省令に基づき、制度移行をサポートいたします。</p>
             `
+        },
+        {
+            category: "procedure",
+            catName: "入管手続き",
+            date: "2024.06.10",
+            title: "オンライン申請システムの利用ガイド",
+            content: "<p>在留資格更新のオンライン申請に関する手順をまとめました。マイナンバーカードの活用でスムーズな申請が可能です。</p>"
+        },
+        {
+            category: "study",
+            catName: "日本語学習",
+            date: "2024.06.05",
+            title: "「やさしい日本語」セミナー開催",
+            content: "<p>企業様向けに、現場でのコミュニケーションを円滑にする日本語指導セミナーを開催します。</p>"
+        },
+        {
+            category: "event",
+            catName: "イベント",
+            date: "2024.06.01",
+            title: "地域交流お花見会のお知らせ",
+            content: "<p>多文化共生を目的とした地域交流イベントを開催します。どなたでも参加可能です。</p>"
+        },
+        {
+            category: "other",
+            catName: "その他",
+            date: "2024.05.25",
+            title: "夏季休業のお知らせ",
+            content: "<p>8月13日から15日までを夏季休業とさせていただきます。お問い合わせはメールにて受け付けております。</p>"
         }
     ];
 
-    function renderNews() {
+    // ニュースを表示する関数
+    function renderNews(filter = 'all') {
         const list = document.getElementById('news-list');
+        list.innerHTML = ''; // 一旦クリア
+
         newsData.forEach((news, index) => {
-            const item = document.createElement('a');
-            item.className = 'news-item';
-            item.innerText = `${news.date} ${news.title}`;
-            item.onclick = () => openModal(index);
-            list.appendChild(item);
+            if (filter === 'all' || news.category === filter) {
+                const item = document.createElement('div');
+                item.className = 'news-item';
+                item.onclick = () => openModal(index);
+                
+                item.innerHTML = `
+                    <div class="news-meta">
+                        <span class="cat-label ${news.category}">${news.catName}</span>
+                        <span class="news-date">${news.date}</span>
+                    </div>
+                    <div class="news-title">${news.title}</div>
+                `;
+                list.appendChild(item);
+            }
         });
+    }
+
+    // フィルターを切り替える関数
+    function filterNews(category, element) {
+        // ボタンのスタイル切り替え
+        document.querySelectorAll('.filter-tag').forEach(tag => tag.classList.remove('active'));
+        element.classList.add('active');
+
+        // リストの再描画
+        renderNews(category);
     }
 
     function openModal(index) {
@@ -327,8 +460,9 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(s => observer.observe(s));
+    
     window.addEventListener('DOMContentLoaded', () => {
-        renderNews();
+        renderNews(); // 初回表示
         document.querySelector('.hero-content').classList.add('visible');
         document.querySelector('.news-box').classList.add('visible');
     });
