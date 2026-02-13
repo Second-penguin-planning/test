@@ -81,7 +81,7 @@
             background: linear-gradient(rgba(0,91,172,0.6), rgba(0,91,172,0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
             display: flex;
             position: relative;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             text-align: center;
             padding: 60px 5%;
@@ -120,7 +120,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             border-top: 5px solid var(--accent-orange);
             z-index: 10;
-    　　　  margin-left: 40px; 
+    　　　　 margin-left: auto;
         }
 
         .news-box h3 {
@@ -216,6 +216,67 @@
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .card { background: var(--sky-blue); padding: 30px; border-radius: 15px; border-left: 5px solid var(--main-blue); }
+/* --- Advisor Section --- */
+.advisor-section {
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    padding: 100px 10%;
+}
+
+.advisor-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.advisor-hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.advisor-hero p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.problem-list {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 60px;
+}
+
+.problem-list ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.problem-list li::before {
+    content: "✔ ";
+    color: var(--main-blue);
+    font-weight: bold;
+}
+
+.feature-box {
+    background: var(--sky-blue);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.price-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--main-blue);
+    text-align: center;
+    margin-top: 40px;
+}
+
+.price-box strong {
+    font-size: 1.3rem;
+    color: var(--main-blue);
+}
+
 
         /* Buttons */
         .btn { display: inline-block; padding: 12px 30px; background: var(--main-blue); color: white !important; text-decoration: none; border-radius: 50px; transition: 0.3s; margin-top: 20px; font-weight: bold; border: 2px solid var(--main-blue); cursor: pointer; }
@@ -291,6 +352,69 @@
         <div id="news-list"></div>
     </div>
 </section>
+<section class="advisor-section fade-in">
+
+    <div class="advisor-hero">
+        <h2>外国人雇用を<br>「安心して続けるための顧問・支援サービス」</h2>
+        <p>行政書士<br><strong>セコンドペンギン徳永良雄行政書士事務所</strong></p>
+    </div>
+
+    <div class="problem-list">
+        <h3>こんなお悩みはありませんか？</h3>
+        <ul>
+            <li>どの在留資格が正解なのか分からない</li>
+            <li>書類は通ったが「これで本当に大丈夫か」不安</li>
+            <li>法改正やルール変更についていけない</li>
+            <li>外国人本人との意思疎通が難しい</li>
+            <li>問題が起きてから慌てたくない</li>
+        </ul>
+        <p style="margin-top:20px; font-weight:bold; color:var(--main-blue);">
+            👉 多くのトラブルは「事前の判断不足」から起こります
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <h3>当事務所の考え方</h3>
+        <p>
+        AIやオンライン申請の普及により「書類を作ること」自体は簡単になりました。
+        しかし、在留資格の選択、不許可・是正指導の回避、
+        行政・企業・外国人の考え方の違い、
+        現場トラブルへの対応は今も人の判断が必要です。
+        </p>
+        <p style="margin-top:15px; font-weight:bold;">
+        書類作成ではなく「外国人雇用が問題なく続くこと」を支援します。
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <h3>サービスの特徴</h3>
+        <p><strong>① 書類だけで終わらない</strong><br>
+        採用前診断／更新・変更の事前チェック／リスクの見える化</p>
+
+        <p style="margin-top:20px;"><strong>② 外国人雇用の“かかりつけ”</strong><br>
+        いつでも相談／法改正を分かりやすく説明／問題を未然に防止</p>
+
+        <p style="margin-top:20px;"><strong>③ 外国人対応に強い</strong><br>
+        フィリピン人支援実績／やさしい日本語・英語対応／三者調整</p>
+    </div>
+
+    <div class="price-box">
+        <h3>料金の考え方（概要）</h3>
+        <p><strong>外国人雇用 顧問プラン</strong><br>
+        月額 33,000円〜（税込）</p>
+
+        <p style="margin-top:20px;"><strong>特定技能 登録支援</strong><br>
+        1名あたり 月額 22,000円〜（税込）</p>
+
+        <p style="margin-top:20px; font-size:0.9rem;">
+        ※ 継続支援をご利用の企業様を優先しています。
+        </p>
+
+        <a href="#contact" class="btn">まずは相談する</a>
+    </div>
+
+</section>
+
 
 <div id="newsModal" class="modal-overlay">
     <div class="modal-content">
@@ -306,11 +430,24 @@
     <div class="representative-container">
         <div class="representative-text">
             <p>皆様、こんにちは。セコンドペンギン企画代表の德永と申します。</p>
-            <p style="margin-top: 1.5em;">これまで仕事や海外駐在を通じて、東南アジア・東アジアの多くの方々と出会い、日々の暮らしや仕事を共にしてきました。その中で、日本で学び、働き、日本の文化や習慣を大切にしながら社会の一員として歩みたいと考える、真面目で意欲ある方々が少なからずいることを実感しました。</p>
-            <p style="margin-top: 1.5em;">公務員退職後、誠意をもって一つひとつのご縁に向き合ってまいります。どうぞよろしくお願いいたします。</p>
+            <p style="margin-top: 1.5em;">
+            これまで仕事や海外駐在を通じて、東南アジア・東アジアの多くの方々と出会い、日々の暮らしや仕事を共にしてきました。その中で、日本で学び、働き、日本の文化や習慣を大切にしながら社会の一員として歩みたいと考える、真面目で意欲ある方々が少なからずいることを実感しました。
+            </p>
+            <p style="margin-top: 1.5em;">
+            公務員退職後、誠意をもって一つひとつのご縁に向き合ってまいります。どうぞよろしくお願いいたします。
+            </p>
+            <p style="margin-top: 1.5em;">
+            行政書士業務も行っています。
+            </p>
+            <a href="https://jrbuie.readdy.co/" 
+               class="btn" 
+               target="_blank" 
+               rel="noopener noreferrer">
+               行政書士業務のサイトはこちら ↗
+            </a>
         </div>
         <div class="representative-image">
-            <img src="79935.png" alt="代表 德永">
+            <img src="foto_tokunaga.png" alt="代表 德永">
         </div>
     </div>
 </section>
