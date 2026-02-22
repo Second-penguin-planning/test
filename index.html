@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>セコンドペンギン企画 | 外国人雇用・生活支援</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fdfcf8;      /* StudioYEY風の温かい背景 */
-            --text-main: #2d2d2d;     /* 柔らかい黒 */
-            --accent-gold: #b59461;   /* 上品なゴールド */
-            --accent-orange: #d97706; /* 案内用 */
+            --main-blue: #005bac;
+            --accent-green: #006400;
+            --sky-blue: #e0f4ff;
+            --text-color: #333;
             --white: #ffffff;
-            --gray-light: #f1f1f1;
-            /* カテゴリカラー（彩度を落として馴染ませる） */
-            --cat-policy: #8e9aaf;
-            --cat-procedure: #aebfbe;
-            --cat-study: #92a68a;
-            --cat-event: #d4a373;
-            --cat-other: #adb5bd;
+            --accent-orange: #ff8c00;
+            --cat-policy: #e74c3c;
+            --cat-procedure: #3498db;
+            --cat-study: #2ecc71;
+            --cat-event: #f39c12;
+            --cat-other: #95a5a6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,203 +25,261 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             line-height: 1.8;
-            color: var(--text-main);
-            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-color: var(--sky-blue);
             overflow-x: hidden;
         }
-
-        h1, h2, h3 { font-family: 'Shippori Mincho', serif; letter-spacing: 0.05em; }
 
         /* Fade-in Animation */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Header */
         header {
-            background: rgba(253, 252, 248, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 20px 5%;
+            background: var(--white);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--main-blue);
             text-decoration: none;
-            font-family: 'Shippori Mincho', serif;
         }
-        .logo img { height: 32px; width: auto; }
+        .logo img { height: 40px; width: auto; }
 
         nav a {
             text-decoration: none;
-            color: var(--text-main);
-            margin-left: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
+            color: var(--text-color);
+            margin-left: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
             transition: color 0.3s;
         }
-        nav a:hover { color: var(--accent-gold); }
+        nav a:hover { color: var(--main-blue); }
 
-        .lang-switch { display: flex; gap: 8px; margin-left: 20px; }
-        .lang-switch button {
-            font-size: 0.65rem;
-            padding: 3px 10px;
-            border: 1px solid #ddd;
-            background: transparent;
-            color: #888;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: 0.3s;
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
         }
-        .lang-switch button:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+        .lang-switch button {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border: 1px solid var(--main-blue);
+            background: white;
+            color: var(--main-blue);
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .lang-switch button:hover {
+            background: var(--main-blue);
+            color: white;
+        }
+
+        /* ===== Hamburger Menu & Mobile Nav ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* アニメーション (X印) */
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1050;
+                padding: 0;
+            }
+            nav.active { right: 0; }
+            nav a {
+                margin: 20px 0;
+                font-size: 1.4rem;
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .lang-switch { display: none; }
+        }
 
         /* Hero Section */
         .hero {
-            min-height: 90vh;
-            background: linear-gradient(rgba(253, 252, 248, 0.2), rgba(253, 252, 248, 0.2)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+            min-height: 55vh;
+            background: linear-gradient(rgba(0,91,172,0.5), rgba(0,91,172,0.3)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 100px 5%;
-            text-align: center;
-            gap: 40px;
+            padding: 60px 5%;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        .hero-content { max-width: 900px; }
+        .hero-content { flex: 1; min-width: 300px; color: white; text-align: left; }
 
         .hero-status {
             display: inline-block;
-            background: var(--text-main);
-            color: var(--bg-color);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            padding: 5px 15px;
-            margin-bottom: 25px;
+            background: rgba(255,255,255,0.95);
+            color: var(--main-blue);
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
 
-        .hero-marquee {
-            width: 100%;
-            overflow: hidden;
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--main-blue);
+            background: rgba(255,255,255,0.9);
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: inline-block;
             margin-bottom: 20px;
+            transition: opacity 0.5s, transform 0.5s;
         }
+        .hero-title-hide { opacity: 0; transform: translateY(-10px); }
+        .hero-title-show { opacity: 1; transform: translateY(0); }
+
+        .hero-top-line { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; width: 100%; }
+        .hero-marquee { overflow: hidden; white-space: nowrap; flex: 1; }
         .hero-marquee span {
             display: inline-block;
-            white-space: nowrap;
             padding-left: 100%;
-            font-size: 0.9rem;
-            color: var(--accent-gold);
-            animation: marqueeMove 20s linear infinite;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+            animation: marqueeMove 15s linear infinite;
         }
         @keyframes marqueeMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        .hero h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            color: var(--text-main);
-            margin-bottom: 20px;
-            line-height: 1.3;
-            transition: 0.6s;
-        }
-        .hero-title-hide { opacity: 0; transform: translateY(10px); }
-
         /* News Box */
         .news-box {
-            background: var(--white);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px;
+            border-radius: 12px;
             width: 100%;
-            max-width: 700px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-            text-align: left;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-top: 5px solid var(--accent-orange);
         }
-        .news-box h3 { font-size: 1rem; margin-bottom: 20px; border-bottom: 1px solid var(--gray-light); padding-bottom: 10px; }
-        .filter-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-        .filter-tag { font-size: 0.65rem; padding: 4px 12px; border: 1px solid #eee; cursor: pointer; transition: 0.3s; color: #888; }
-        .filter-tag.active { background: var(--text-main); color: var(--white); border-color: var(--text-main); }
-
-        .news-item { 
-            padding: 12px 0; 
-            border-bottom: 1px solid #f9f9f9; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .news-item:hover { padding-left: 10px; color: var(--accent-gold); }
-        .cat-label { font-size: 0.6rem; padding: 2px 8px; color: #fff; font-weight: bold; text-transform: uppercase; }
+        .news-box h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--main-blue); }
+        .filter-container { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .filter-tag { font-size: 0.7rem; padding: 3px 8px; border: 1px solid #ddd; border-radius: 15px; cursor: pointer; }
+        .filter-tag.active { background: var(--main-blue); color: #fff; border-color: var(--main-blue); }
+        #news-list { max-height: 250px; overflow-y: auto; }
+        .news-item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
+        .cat-label { font-size: 0.65rem; padding: 2px 6px; border-radius: 3px; color: #fff; font-weight: bold; margin-right: 5px; }
+        .news-title { font-weight: bold; font-size: 0.85rem; color: var(--main-blue); }
 
         /* General Sections */
-        section { padding: 120px 10%; background: var(--bg-color); }
-        h2 { text-align: center; font-size: 2rem; margin-bottom: 60px; position: relative; }
-        h2::after { 
-            content: ''; position: absolute; bottom: -15px; left: 50%; 
-            transform: translateX(-50%); width: 30px; height: 1px; background: var(--accent-gold); 
-        }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        section { padding: 80px 10%; background: var(--white); margin: 20px 0; }
+        h2 { text-align: center; color: var(--main-blue); margin-bottom: 40px; position: relative; padding-bottom: 10px; }
+        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--accent-green); }
         
-        .card { 
-            background: var(--white); 
-            padding: 40px; 
-            transition: 0.4s; 
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--sky-blue); padding: 30px; border-radius: 15px; border-left: 5px solid var(--main-blue); }
+        
         .card.recommend {
-            background: #f9f7f2;
-            border: 1px solid var(--accent-gold);
+            background: linear-gradient(135deg, #ffffff, #e6f2ff);
+            border: 2px solid var(--accent-orange);
+            transform: scale(1.05);
             position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         .card.recommend::before {
-            content: "RECOMMEND";
-            position: absolute; top: -10px; left: 20px;
-            background: var(--accent-gold); color: white;
-            font-size: 0.6rem; padding: 2px 10px; letter-spacing: 0.1em;
+            content: "おすすめ";
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: var(--accent-orange);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
         }
 
-        /* Representative Section */
-        .representative-container { display: flex; flex-wrap: wrap; gap: 60px; align-items: center; }
+        /* Representative */
+        .representative-container { display: flex; flex-wrap: wrap; gap: 40px; }
         .representative-text { flex: 1; min-width: 300px; }
-        .representative-image { flex: 0 0 300px; }
-        .representative-image img { width: 100%; filter: grayscale(20%); }
+        .representative-image { flex: 0 0 250px; }
+        .representative-image img { width: 100%; border-radius: 10px; }
 
-        /* Advisor & Price Box */
-        .feature-box { border-left: 2px solid var(--accent-gold); padding-left: 25px; margin-bottom: 40px; }
-        .price-box { border: 1px solid #eee; padding: 60px 20px; text-align: center; background: var(--white); }
+        /* Social Buttons */
+        .hero-social { margin-top: 15px; display: flex; gap: 10px; }
+        .fb-hero-btn, .line-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .fb-hero-btn { color: #1877f2; }
+        .line-hero-btn { color: #06C755; }
+        .fb-hero-btn:hover { background: #1877f2; color: white; transform: translateY(-3px); }
+        .line-hero-btn:hover { background: #06C755; color: white; transform: translateY(-3px); }
+        svg { width: 20px; height: 20px; }
 
         /* Buttons */
-        .btn { 
-            display: inline-block; padding: 15px 40px; 
-            background: var(--text-main); color: white !important; 
-            text-decoration: none; transition: 0.4s; 
-            font-size: 0.8rem; letter-spacing: 0.15em;
-            border: none; cursor: pointer;
-        }
-        .btn:hover { background: var(--accent-gold); }
+        .btn { display: inline-block; padding: 12px 30px; background: var(--main-blue); color: white !important; text-decoration: none; border-radius: 50px; transition: 0.3s; font-weight: bold; cursor: pointer; border: none; }
+        .btn:hover { background: var(--accent-green); transform: scale(1.05); }
 
         /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .modal-content { background: var(--bg-color); padding: 50px; width: 90%; max-width: 700px; position: relative; }
-        .modal-close { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; cursor: pointer; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .modal-content { background: white; padding: 30px; border-radius: 15px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; }
+        .modal-close { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; }
 
-        footer { background: var(--text-main); color: #aaa; text-align: center; padding: 60px; font-size: 0.7rem; letter-spacing: 0.1em; }
+        footer { background: #333; color: white; text-align: center; padding: 30px; }
 
         /* Category Colors */
         .policy { background: var(--cat-policy); }
@@ -234,13 +291,6 @@
         /* Google Translate Hider */
         .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
         body { top: 0px !important; }
-
-        @media (max-width: 768px) {
-            header { padding: 15px 5%; }
-            nav { display: none; } /* スマホでは簡略化 */
-            section { padding: 80px 5%; }
-            .hero { min-height: 70vh; }
-        }
     </style>
 </head>
 <body>
@@ -250,13 +300,21 @@
         <img src="logo.png" alt="Logo">
         <span>セコンドペンギン企画</span>
     </a>
-    <nav>
-        <a href="#message">MESSAGE</a>
-        <a href="#business">SERVICE</a>
-        <a href="#foreign">INTERNATIONAL</a>
-        <a href="#company">COMPANY</a>
-        <a href="#contact">CONTACT</a>
+    
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="mainNav">
+        <a href="#message">代表から</a>
+        <a href="#business">企業様</a>
+        <a href="https://second-penguin-lanning.github.io/Foreigners-Website/">INTERNATIONAL</a>
+        <a href="#company">会社概要</a>
+        <a href="#contact">お問合せ</a>
     </nav>
+
     <div class="lang-switch">
         <button onclick="translatePage('ja')">JP</button>
         <button onclick="translatePage('en')">EN</button>
@@ -266,28 +324,41 @@
 
 <section class="hero" id="top">
     <div class="hero-content">
-        <div class="hero-status">
-            REGISTRATION SUPPORT ORGANIZATION
+        <div class="hero-top-line">
+            <div class="hero-status">
+                登録支援機関（3月登録予定）｜有料職業紹介事業（3月登録予定）
+            </div>
+            <div class="hero-marquee">
+                <span>
+                    お客様のチャレンジをセコンドペンギンが全力で支援いたします！　
+                    お客様のチャレンジをセコンドペンギンが全力で支援いたします！　
+                </span>
+            </div>
         </div>
-        <div class="hero-marquee">
-            <span>私の時間を使っていただけるお客様を探しています！ &nbsp;&nbsp;&nbsp; 私の時間を使っていただけるお客様を探しています！</span>
-        </div>
+
         <h1 id="hero-title">フィリピンなどの優秀な人材を繋ぎます</h1>
-        <p style="font-size: 1rem; margin-bottom: 30px; letter-spacing: 0.05em;">
-            企業様の外国人雇用支援、外国人の日本就業/生活支援<br>
-            <span style="opacity: 0.7; font-size: 0.9rem;">実務と現場の経験を活かし、皆様の「挑戦」を伴走支援します。</span>
-        </p>
-        <a href="#contact" class="btn">CONTACT US</a>
+        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">企業様の外国人雇用支援、外国人の日本就業/生活支援</p>
+        <p style="margin-bottom: 20px; opacity: 0.9;">実務と現場の経験を活かし、皆様の「挑戦」を伴走支援します。</p>
+        <a href="#contact" class="btn">お問合せはこちら</a>
+
+        <div class="hero-social">
+            <a href="https://www.facebook.com/profile.php?id=61560839369037" target="_blank" aria-label="Facebook" class="fb-hero-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.17 8.44 9.93v-7.03H7.9v-2.9h2.54V9.84c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.76 8.44-4.91 8.44-9.93z"/></svg>
+            </a>
+            <a href="https://line.me/R/ti/p/@556fihjp" target="_blank" aria-label="LINE" class="line-hero-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 3H4.635C3.18 3 2 4.18 2 5.635v9.73C2 16.82 3.18 18 4.635 18h4.058l2.64 3.167c.2.24.564.24.764 0L14.737 18h4.628C20.82 18 22 16.82 22 15.365v-9.73C22 4.18 20.82 3 19.365 3z"/></svg>
+            </a>
+        </div>
     </div>
 
-    <div class="news-box fade-in">
-        <h3>NEWS</h3>
+    <div class="news-box">
+        <h3>📢 お知らせ</h3>
         <div class="filter-container">
-            <span class="filter-tag active" onclick="filterNews('all', this)">ALL</span>
-            <span class="filter-tag" onclick="filterNews('policy', this)">POLICY</span>
-            <span class="filter-tag" onclick="filterNews('procedure', this)">PROCEDURE</span>
-            <span class="filter-tag" onclick="filterNews('study', this)">STUDY</span>
-            <span class="filter-tag" onclick="filterNews('other', this)">OTHER</span>    
+            <span class="filter-tag active" onclick="filterNews('all', this)">すべて</span>
+            <span class="filter-tag" onclick="filterNews('policy', this)">外国人政策</span>
+            <span class="filter-tag" onclick="filterNews('procedure', this)">入管手続き</span>
+            <span class="filter-tag" onclick="filterNews('study', this)">日本語学習</span>
+            <span class="filter-tag" onclick="filterNews('other', this)">その他</span>
         </div>
         <div id="news-list"></div>
     </div>
@@ -297,17 +368,11 @@
     <h2>代表から</h2>
     <div class="representative-container">
         <div class="representative-text">
-            <p style="font-family: 'Shippori Mincho', serif; font-size: 1.4rem; margin-bottom: 20px;">
-                <strong>
-                    <a href="https://www.google.com/search?q=徳永良雄" target="_blank" style="color: var(--text-main); text-decoration: none; border-bottom: 1px solid var(--accent-gold);">
-                        徳永 良雄
-                    </a>
-                </strong>
-            </p>
-            <p>31年間の公務員生活を経て、日本で学び、働きたいと願う真面目な若者たちと日本社会を繋ぐため、本事業を立ち上げました。日本語教育や入管手続きの現場経験を活かし、行政書士としても皆様をサポートいたします。</p>
+            <p><strong><a href="https://www.google.com/search?q=徳永良雄" target="_blank" style="color: var(--main-blue); text-decoration: underline;">徳永 良雄</a></strong> と申します。</p>
+            <p style="margin-top: 15px;">31年間の公務員生活を経て、日本で学び、働きたいと願う真面目な若者たちと日本社会を繋ぐため、本事業を立ち上げました。日本語教育や入管手続きの現場経験を活かし、行政書士としても皆様をサポートいたします。</p>
             <p style="margin-top: 15px;">変化する国の政策や現場の実情に合わせ、お客様と共に課題解決に取り組みます。まずはお気軽にご相談ください。</p>
-            <div style="margin-top: 30px;">
-                <a href="https://jrbuie.readdy.co/" class="btn" target="_blank" style="background:none; color:var(--text-main) !important; border:1px solid #ddd;">行政書士業務サイト ↗</a>
+            <div style="margin-top: 20px;">
+                <a href="https://second-penguin-lanning.github.io/Gyoseishoshi-Main-Website/" class="btn" target="_blank">行政書士業務のサイト ↗</a>
             </div>
         </div>
         <div class="representative-image">
@@ -316,109 +381,74 @@
     </div>
 </section>
 
-<section class="advisor-section fade-in" style="background: #f9f7f2;">
+<section class="advisor-section fade-in">
     <h2>外国人雇用 顧問・支援サービス</h2>
     <div class="feature-box">
-        <h3 style="font-size: 1.2rem; margin-bottom: 15px;">外国人雇用をお考えの企業様へ</h3>
-        <p style="font-size: 0.95rem;">
-            現在、外国人の雇用を考える企業様だけでなく、雇用中の企業様のお力になります。<br>
-            国籍はフィリピン、インドネシアについて豊富な経験がございます。
-        </p>
+        <h3>外国人雇用をお考えの企業様・雇用中の企業様へ</h3>
+        <p>現在、外国人の雇用を考える企業様だけでなく、雇用中の企業様のお力になります。<br>国籍はフィリピン、インドネシアについて豊富な経験がございます。<br>他の国の方々につきましてもお気軽にご相談下さい。</p>
     </div>
 
     <div class="grid">
         <div class="card recommend">
-            <h4 style="margin-bottom: 15px; color: var(--accent-gold);">顧問プラン</h4>
-            <p style="font-size: 0.9rem;">求人、各種手続き、入国対応、生活支援まで一気通貫でサポートいたします。</p>
-            <p style="margin-top:20px; font-weight:bold; font-size: 1.1rem;">月額 33,000円～</p>
+            <h4>顧問プラン</h4>
+            <p>外国人の求人、各種手続き、入国対応、生活支援まで一気通貫でサポートいたします。</p>
+            <p style="margin-top:10px; font-weight:bold;">月額 33,000円～</p>
         </div>
         <div class="card">
-            <h4 style="margin-bottom: 15px;">定額プラン</h4>
-            <p style="font-size: 0.9rem;">フィリピン大使館申請、日本語教育、課題解決など個別にサポートいたします。</p>
-            <p style="margin-top:20px; font-weight:bold; font-size: 1.1rem;">定額 25,000円～</p>
+            <h4>定額プラン</h4>
+            <p>フィリピン大使館の申請サポート、各種支援、生活・日本語教育、課題解決など個別にサポートいたします。</p>
+            <p style="margin-top:10px; font-weight:bold;">定額 25,000円～</p>
         </div>
     </div>
 
-    <div class="price-box" style="margin-top: 60px;">
-        <p style="font-weight:bold; font-size:1.2rem; font-family: 'Shippori Mincho', serif;">初回相談無料</p>
-        <p style="margin-top:10px; opacity: 0.7;">お気軽にお問合せフォームでご連絡ください。</p>
-        <a href="#contact" class="btn" style="margin-top:30px;">FREE CONSULTATION</a>
+    <div class="price-box" style="margin-top: 30px; text-align: center; border: 2px solid var(--main-blue); padding: 20px; border-radius: 15px;">
+        <p style="font-weight:bold; font-size:1.1rem;">初回のご相談無料</p>
+        <p>お気軽にお問合せフォームでご連絡ください。</p>
+        <a href="#contact" class="btn" style="margin-top:15px;">お問合せはこちら</a>
     </div>
 </section>
 
 <section id="business" class="fade-in">
     <h2>企業様向けトータルサポート</h2>
-    <div style="max-width:800px; margin:0 auto 60px auto; text-align:center;">
-        <p style="font-size:1.1rem; font-weight:bold; margin-bottom: 20px;">
-            「外国人を雇う」ではなく、「共に成長できる人材を迎える」ために。
-        </p>
-        <p style="opacity: 0.8;">制度の複雑さや受入れ後の不安に対し、実務目線で伴走支援する実践型パートナーです。</p>
-    </div>
-
     <div class="grid">
         <div class="card">
-            <h3>01. 人材発掘</h3>
-            <p style="font-size: 0.85rem; margin-top: 15px;">職場の将来ビジョンをヒアリングし、長く活躍できる人材を提案します。単なる紹介ではなく定着を見据えたマッチングです。</p>
+            <h3>① 良い人材をどう探すか？</h3>
+            <p>単なる紹介ではなく、定着まで見据えたマッチングを行います。</p>
         </div>
         <div class="card">
-            <h3>02. 在留資格の最適化</h3>
-            <p style="font-size: 0.85rem; margin-top: 15px;">特定技能、育成就労、技人国、留学など、企業様に最適な在留資格を選択・案内します。</p>
+            <h3>② 在留資格は何が最適か？</h3>
+            <p>特定技能、育成就労、技人国、留学など最適な選択肢をご案内します。</p>
         </div>
         <div class="card">
-            <h3>03. 受入れ体制構築</h3>
-            <p style="font-size: 0.85rem; margin-top: 15px;">採用から雇用開始後の生活支援まで一気通貫。企業様の負担を軽減し、安心して受け入れられる体制を整えます。</p>
+            <h3>③ 雇用手続きや受入れが不安</h3>
+            <p>採用から生活支援まで一気通貫でサポートします。</p>
         </div>
         <div class="card">
-            <h3>04. 幅広い対応分野</h3>
-            <p style="font-size: 0.85rem; margin-top: 15px;">外食、製造、介護、建設、農業、自動車整備、運転業務など、多様な業種のニーズに柔軟に対応します。</p>
+            <h3>④ 対応可能分野</h3>
+            <p>外食、製造、介護、建設、農業、自動車整備、運転業務など多岐にわたります。</p>
         </div>
     </div>
 </section>
 
-<section id="foreign" class="fade-in" style="background: #2d2d2d; color: #fff; text-align: center;">
-    <h2 style="color: #fff;">For International Residents</h2>
-    <p style="opacity: 0.7; margin-bottom: 40px;">We support your Visa application, Career, and Life in Japan.</p>
-    <a href="https://second-penguin-lanning.github.io/Foreigners-Website/" class="btn" target="_blank" style="background: var(--white); color: var(--text-main) !important;">Multilingual Site ↗</a>
-</section>
-
-<section id="company" class="fade-in">
-    <h2>会社概要</h2>
-    <div style="display:flex; flex-wrap:wrap; gap:60px;">
-        <div style="flex:1; min-width:300px;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-                <tr style="border-bottom: 1px solid #eee;"><th style="padding: 20px 0; text-align: left; width: 30%;">屋号</th><td>セコンドペンギン企画</td></tr>
-                <tr style="border-bottom: 1px solid #eee;"><th style="padding: 20px 0; text-align: left;">設立</th><td>2024年6月13日</td></tr>
-                <tr style="border-bottom: 1px solid #eee;"><th style="padding: 20px 0; text-align: left;">所在地</th><td>〒658-0032 兵庫県神戸市東灘区向洋町中6-9<br>神戸ファッションマート 4N-07-01</td></tr>
-                <tr style="border-bottom: 1px solid #eee;"><th style="padding: 20px 0; text-align: left;">Eメール</th><td><a href="mailto:info@second-penguin.com" style="color:var(--text-main);">info@second-penguin.com</a></td></tr>
-                <tr style="border-bottom: 1px solid #eee;"><th style="padding: 20px 0; text-align: left;">連絡先</th><td><a href="tel:07091922524" style="color:var(--text-main);">070-9192-2524</a></td></tr>
-            </table>
-        </div>
-        <div style="flex:1; min-width:300px; text-align:center;">
-            <img src="fashionmart.png" alt="Office" style="width:100%; border-radius:2px;">
-            <div style="margin-top:20px;"><a href="#" style="color:var(--accent-gold); text-decoration:none; font-size:0.8rem;">VIEW ON GOOGLE MAPS ↗</a></div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="fade-in" style="background: #f9f7f2;">
+<section id="contact" class="fade-in">
     <h2>お問合せ</h2>
     <div style="max-width:600px; margin:0 auto;">
         <form action="https://formsubmit.co/info@second-penguin.com" method="POST">
             <input type="hidden" name="_next" value="https://second-penguin-lanning.github.io/SP-Main-Website/#top">
             <input type="hidden" name="_captcha" value="false">
-            <div style="margin-bottom:25px;">
-                <label style="font-size:0.8rem; display:block; margin-bottom:8px;">NAME</label>
-                <input type="text" name="name" required style="width:100%; padding:12px; border:1px solid #ddd; background:transparent;">
+            <div style="margin-bottom:15px;">
+                <label>お名前（必須）</label><br>
+                <input type="text" name="name" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
             </div>
-            <div style="margin-bottom:25px;">
-                <label style="font-size:0.8rem; display:block; margin-bottom:8px;">EMAIL</label>
-                <input type="email" name="email" required style="width:100%; padding:12px; border:1px solid #ddd; background:transparent;">
+            <div style="margin-bottom:15px;">
+                <label>メールアドレス（必須）</label><br>
+                <input type="email" name="email" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
             </div>
-            <div style="margin-bottom:25px;">
-                <label style="font-size:0.8rem; display:block; margin-bottom:8px;">MESSAGE</label>
-                <textarea name="message" rows="5" required style="width:100%; padding:12px; border:1px solid #ddd; background:transparent;"></textarea>
+            <div style="margin-bottom:15px;">
+                <label>内容（必須）</label><br>
+                <textarea name="message" rows="5" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;"></textarea>
             </div>
-            <button type="submit" class="btn" style="width:100%;">SEND MESSAGE</button>
+            <button type="submit" class="btn">送信する</button>
         </form>
     </div>
 </section>
@@ -430,19 +460,41 @@
 <div id="newsModal" class="modal-overlay">
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal()">×</span>
-        <div id="modalDate" style="color:#888; font-size: 0.7rem; letter-spacing: 0.1em;"></div>
-        <h2 id="modalTitle" style="text-align:left; font-size: 1.3rem; margin: 20px 0; border:none;"></h2>
-        <div id="modalBody" style="font-size: 0.9rem;"></div>
+        <div id="modalDate" style="color:#888; font-size: 0.8rem;"></div>
+        <h2 id="modalTitle" style="text-align:left; font-size: 1.2rem; margin: 10px 0;"></h2>
+        <div id="modalBody"></div>
     </div>
 </div>
 
 <div id="google_translate_element" style="display:none;"></div>
 
 <script>
+/* ================================
+   1. メニュー制御 (スマホ用)
+================================ */
+function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    const toggle = document.querySelector('.menu-toggle');
+    const body = document.body;
+
+    nav.classList.toggle('active');
+    toggle.classList.toggle('active');
+
+    // メニューが開いている時は背面をスクロール不可にする
+    if (nav.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = 'auto';
+    }
+}
+
+/* ================================
+   2. ニュースデータ & 表示
+================================ */
 const newsData = [
-    { category: "policy", catName: "POLICY", date: "2026.02.14", title: "育成就労制度への移行について", content: "<p>2027年開始予定の新制度に関する最新情報です。</p>" },
-    { category: "procedure", catName: "PROCEDURE", date: "2024.06.10", title: "オンライン申請ガイド", content: "<p>手続きの効率化についての解説です。</p>" },
-    { category: "other", catName: "OTHER", date: "2026.02.18", title: "セコンドペンギンの名前について", content: "<p>仕事の主な内容が、主役である企業様と外国籍の若者を支える立場であることから、「セカンド」をあえて「セコンド」と呼び変えることとしました。誠実に伴走していきたいという思いを込めています。</p>" }
+    { category: "policy", catName: "外国人政策", date: "2026.01.10", title: "特定技能2号への移行支援体制の強化", content: "<p>熟練した技能を持つ人材の長期在留を支えるコンサルティングを開始しました。</p>" },
+    { category: "procedure", catName: "入管手続き", date: "2026.01.05", title: "入管オンライン申請の完全義務化への対応", content: "<p>電子署名を用いたスムーズな申請代行体制を整えております。</p>" },
+    { category: "other", catName: "その他", date: "2026.02.18", title: "セコンドペンギンの名前について", content: "<p>主役（企業様と若者）を支える“第二の存在”として、誠実に伴走したいという思いを込めています。</p>" }
 ];
 
 function renderNews(filter = 'all') {
@@ -454,7 +506,7 @@ function renderNews(filter = 'all') {
             const item = document.createElement('div');
             item.className = 'news-item';
             item.onclick = () => openModal(index);
-            item.innerHTML = `<span class="cat-label ${news.category}">${news.catName}</span><span style="font-size:0.7rem; color:#bbb;">${news.date}</span><div class="news-title">${news.title}</div>`;
+            item.innerHTML = `<span class="cat-label ${news.category}">${news.catName}</span><span style="font-size:0.7rem; color:#888;">${news.date}</span><div class="news-title">${news.title}</div>`;
             list.appendChild(item);
         }
     });
@@ -476,40 +528,73 @@ function openModal(index) {
 
 function closeModal() { document.getElementById('newsModal').style.display = 'none'; }
 
+/* ================================
+   3. Heroタイトルアニメーション
+================================ */
 const titles = ["フィリピンなどの優秀な人材を繋ぎます", "外国人雇用を一気通貫サポート", "求職・留学のことお任せください"];
 let currentIndex = 0;
 function rotateHeroTitle() {
     const heroTitle = document.getElementById("hero-title");
+    if (!heroTitle) return;
     setInterval(() => {
         heroTitle.classList.add("hero-title-hide");
         setTimeout(() => {
             currentIndex = (currentIndex + 1) % titles.length;
             heroTitle.textContent = titles[currentIndex];
             heroTitle.classList.remove("hero-title-hide");
+            heroTitle.classList.add("hero-title-show");
         }, 600);
     }, 4000);
 }
 
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'en,id,ja', autoDisplay: false}, 'google_translate_element');
-}
-
-function translatePage(lang) {
-    const select = document.querySelector(".goog-te-combo");
-    if (select) { select.value = lang; select.dispatchEvent(new Event("change")); }
-}
-
+/* ================================
+   4. 初期化処理
+================================ */
 window.addEventListener('DOMContentLoaded', () => {
     renderNews();
     rotateHeroTitle();
+
+    // メニュー内のリンクをクリックしたらメニューを閉じる
+    const navLinks = document.querySelectorAll('#mainNav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        });
+    });
+
+    // Fade-in Observer
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
 
-window.addEventListener("click", e => { if (e.target === document.getElementById("newsModal")) closeModal(); });
+// モーダル外クリックで閉じる
+window.addEventListener("click", (e) => {
+    const modal = document.getElementById('newsModal');
+    if (e.target === modal) closeModal();
+});
 </script>
+
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'en,id,ja', autoDisplay: false}, 'google_translate_element');
+}
+function translatePage(lang) {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+    }
+}
+</script>
+
 </body>
 </html>
