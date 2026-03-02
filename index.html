@@ -23,7 +23,7 @@
  "name": "徳永良雄行政書士事務所",
  "areaServed": "神戸市",
  "serviceType": "在留資格申請・特定技能支援・登録支援業務",
- "telephone": "（ここに電話番号）",
+ "telephone": "070-9192-2524",
  "url": "https://tokunaga-gyosei.jp"
 }
 </script>
@@ -74,6 +74,45 @@ nav a{margin:10px 0;font-size:16px;}
 nav a.business-link{margin-left:0;border-left:none;border-top:1px solid rgba(255,255,255,0.3);padding-top:15px;}
 .menu-toggle{display:block;color:white;}
 .cards{flex-direction:column}}
+.contact-form {
+  max-width: 700px;
+  margin: auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
 </style>
 </head>
 
@@ -84,7 +123,7 @@ nav a.business-link{margin-left:0;border-left:none;border-top:1px solid rgba(255
 <img src="gyosei_logo_192.png" alt="徳永良雄行政書士事務所 ロゴ">
 <h1>徳永良雄行政書士事務所</h1>
 </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="menu-toggle">☰</div>
 <nav id="nav">
 <a href="#services">サービス</a>
 <a href="#strength">強み</a>
@@ -103,7 +142,7 @@ nav a.business-link{margin-left:0;border-left:none;border-top:1px solid rgba(255
 <h2>神戸で外国人雇用・特定技能に強い行政書士</h2>
 <p>特定技能・技能実習から登録支援まで一括対応</p>
 <a href="#contact" class="btn btn-primary">企業向け無料相談</a>
-<a href="https://lin.ee/cMInLe5/?外国人雇用について相談したいです"target="_blank"class="btn btn-line">無料でLINE相談する</a>
+<a href="https://lin.ee/rgTCW18"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
 </section>
 
 <section class="section">
@@ -239,7 +278,53 @@ nav a.business-link{margin-left:0;border-left:none;border-top:1px solid rgba(255
 <h2>お問い合わせ</h2>
 <p class="contact-lead">初回30分無料相談。<br>企業様・外国人の方どちらからもご相談いただけます。</p>
 <div class="form-wrapper">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJPYhr5yeNR1IyZvTHCWVO5s_os7ff83NjhB02nPmMgARSmA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます… </iframe>
+<form action="https://formspree.io/f/xbdaevyb" method="POST" class="contact-form">
+  
+  <div class="form-group">
+    <label>ご相談種別</label>
+    <select name="type" required>
+      <option value="">選択してください</option>
+      <option value="特定技能（企業）">特定技能（企業様）</option>
+      <option value="登録支援">登録支援業務</option>
+      <option value="在留資格（個人）">在留資格（個人）</option>
+      <option value="永住・帰化">永住・帰化</option>
+      <option value="その他">その他</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>お名前</label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>会社名（企業様の場合）</label>
+    <input type="text" name="company">
+  </div>
+
+  <div class="form-group">
+    <label>メールアドレス</label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label>電話番号</label>
+    <input type="tel" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label>ご相談内容</label>
+    <textarea name="message" rows="6" required></textarea>
+  </div>
+
+  <div class="form-group checkbox">
+    <input type="checkbox" required>
+    <span>プライバシーポリシーに同意する</span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">送信する</button>
+
+</form>
 <p style="font-size:14px;color:#666;margin-top:15px;">※通常1営業日以内にご返信いたします。</p>
 </div>
 <div class="contact-alt">
