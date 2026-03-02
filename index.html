@@ -30,13 +30,15 @@
 
 <style>
 body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:#333}
-header{background:#002b55;color:white;padding:20px}
-header h1{margin:0;font-size:22px}
+header{background:#002b55;color:white;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.header-left{display:flex;align-items:center;gap:12px;}
+.header-left img{width:40px;height:40px;object-fit:contain;}
+header h1{margin:0;font-size:20px;}
+nav{display:flex;align-items:center;}
 nav a{color:white;margin-right:15px;text-decoration:none;font-size:14px}
 /* 業務用リンク（控えめ表示） */
-nav a.business-link{font-size:12px;opacity:0.6;margin-left:10px;}
+nav a.business-link{font-size:12px;opacity:0.6;margin-left:auto;padding-left:20px;border-left:1px solid rgba(255,255,255,0.3)}
 nav a.business-link:hover{opacity:1;color:#ffd700;}
-
 .hero{background:#f2f6fb;padding:70px 20px;text-align:center}
 .hero h2{font-size:28px;margin-bottom:15px}
 .btn{display:inline-block;padding:12px 25px;margin:10px;border-radius:5px;text-decoration:none}
@@ -64,14 +66,26 @@ th,td{border:1px solid #ddd;padding:10px}
 th{background:#f0f0f0}
 .blog-card{background:#fafafa;padding:20px;border-radius:6px;margin-bottom:15px}
 @media(max-width:768px){.cards{flex-direction:column}}
+/* ===== ハンバーガーメニュー ===== */
+.menu-toggle{display:none;font-size:26px;cursor:pointer;margin-left:auto;}
+@media(max-width:768px){nav{display:none;flex-direction:column;background:#002b55;width:100%;margin-top:15px;}
+nav.active{display:flex;}
+nav a{margin:10px 0;font-size:16px;}
+nav a.business-link{margin-left:0;border-left:none;border-top:1px solid rgba(255,255,255,0.3);padding-top:15px;}
+.menu-toggle{display:block;color:white;}
+.cards{flex-direction:column}}
 </style>
 </head>
 
 <body>
 
 <header>
+<div class="header-left">
+<img src="gyosei_logo_192.png" alt="徳永良雄行政書士事務所 ロゴ">
 <h1>徳永良雄行政書士事務所</h1>
-<nav>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<nav id="nav">
 <a href="#services">サービス</a>
 <a href="#strength">強み</a>
 <a href="#results">実績</a>
@@ -81,8 +95,9 @@ th{background:#f0f0f0}
 <a href="corporate.html">企業向け</a>
 <a href="en.html">English</a>
 <a href="tl.html">Tagalog</a>
-<a href="https://second-penguin-planning.github.io/member/"target="_blank"class="business-link">🔒 業務用</a>
-</nav></header>
+<a href="https://second-penguin-planning.github.io/member/" target="_blank" class="business-link">🔒 業務用</a>
+</nav>
+</header>
 
 <section class="hero">
 <h2>神戸で外国人雇用・特定技能に強い行政書士</h2>
@@ -220,17 +235,25 @@ th{background:#f0f0f0}
 <a href="https://lin.ee/cMInLe5/?外国人雇用について相談したいです"target="_blank"class="btn btn-line">無料でLINE相談する</a>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="contact-section">
 <h2>お問い合わせ</h2>
-<p>徳永良雄行政書士事務所</p>
-<p>兵庫県行政書士会所属｜登録番号：24303656</p>
-<p>Email：info@tokunaga-gyosei.jp</p>
-<p>電話：070-9192-2524</p>
+<p class="contact-lead">初回30分無料相談。<br>企業様・外国人の方どちらからもご相談いただけます。</p>
+<div class="form-wrapper">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJPYhr5yeNR1IyZvTHCWVO5s_os7ff83NjhB02nPmMgARSmA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます… </iframe>
+<p style="font-size:14px;color:#666;margin-top:15px;">※通常1営業日以内にご返信いたします。</p>
+</div>
+<div class="contact-alt">
+<a href="tel:070-9192-2524" class="btn btn-primary">電話で相談する</a>
+<a href="https://lin.ee/cMInLe5/?外国人雇用について相談したいです" target="_blank" class="btn btn-line">LINEで相談する</a>
+</div>
 </section>
 
 <footer>
 <p>© 2026 Tokunaga Gyosei Office</p>
-<p><a href="#">特定商取引法に基づく表記</a>｜<a href="#">プライバシーポリシー</a></p>
+<p>
+<a href="private.html">特定商取引法に基づく表記</a>｜
+<a href="private.html">プライバシーポリシー</a>
+</p>
 </footer>
 
 </body>
