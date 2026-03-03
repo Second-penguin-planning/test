@@ -28,21 +28,30 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
   margin-left: 20px;
 }
 
-.lang-switch button {
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  margin-left: 15px;
+}
+
+.lang-btn {
   background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: white;
   padding: 4px 10px;
-  border-radius: 20px;
+  font-size: 12px;
+  border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.lang-switch button:hover {
-  background: #fff;
-  color: #1f2f3a;
+.lang-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.lang-btn:hover {
+  background: var(--accent);
 }
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
@@ -182,44 +191,32 @@ footer a:hover{color:var(--accent);}
 <span></span><span></span><span></span>
 </div>
 <nav class="header-nav" id="nav">
-<a href="#for-company"
-data-jp="企業様へ"
-data-en="For Companies"
-data-tl="Para sa mga Kumpanya"
->
-企業様へ
-</a>
-<a href="#for-worker">フィリピン人の方へ</a>
-<a href="#pricing">料金</a>
-<a href="#office">事務所</a>
-<a href="#contact">お問い合わせ</a>
+<a href="#for-company" data-i18n="for_company">企業様へ</a>
+<a href="#for-worker" data-i18n="for_worker">フィリピン人の方へ</a>
+<a href="#pricing" data-i18n="pricing">料金</a>
+<a href="#office" data-i18n="office">事務所</a>
+<a href="#contact" data-i18n="contact">お問い合わせ</a>
 <a href="https://second-penguin-planning.github.io/member/" target="_blank" class="business-link">🔒 業務用</a>
 </nav>
 <div class="lang-switch">
-  <button onclick="switchLang('jp')">JP</button>
-  <button onclick="switchLang('en')">EN</button>
-  <button onclick="switchLang('tl')">TL</button>
+  <button class="lang-btn active" onclick="switchLang('jp')">JP</button>
+  <button class="lang-btn" onclick="switchLang('en')">EN</button>
+  <button class="lang-btn" onclick="switchLang('tl')">TL</button>
 </div>
 </header>
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-left">
-<h1
-data-jp="フィリピン人 特定技能 専門サポート 全国対応 行政書士"
-data-en="Philippine Specified Skilled Worker Visa Support Nationwide"
-data-tl="Suporta sa Specified Skilled Worker Visa para sa mga Pilipino sa buong Japan"
->
+<h1 data-i18n="hero_title">
 フィリピン人 特定技能 専門サポート 全国対応 行政書士
 </h1>
-<p
-data-jp="特定技能・在留資格の申請を一括サポート"
-data-en="Comprehensive support for visa and residence applications"
-data-tl="Komprehensibong suporta para sa visa at residence application"
->
+<p data-i18n="hero_sub">
 特定技能・在留資格の申請を一括サポート
 </p>
 <div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
-<a href="#contact" class="cta-button">無料相談はこちら</a>
+<a href="#contact" class="cta-button" data-i18n="hero_cta">
+無料相談はこちら
+</a>
 <div class="hero-notice">
 <strong>【行政書士＋登録支援機関 ワンストップ対応】</strong><br>
 外国人雇用支援事業（登録支援機関 申請中・2026年3月登録予定）は、
@@ -394,7 +391,7 @@ data-tl="Komprehensibong suporta para sa visa at residence application"
 <a href="https://line.me/R/oaMessage/@556fihjp/" target="_blank" rel="noopener noreferrer" class="sns-btn-wide line-btn" aria-label="LINEで無料相談">
 <i class="fab fa-line"></i> LINEで無料相談
 </a>
-<a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
+<a href="https://https://www.facebook.com/second.penguin/" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
 <i class="fab fa-facebook-f"></i> Facebookページを見る
 </a>
 </div>
@@ -418,27 +415,65 @@ data-tl="Libreng Konsultasyon"
 </div>
 </footer>
 <script>
-const h=document.getElementById("hamburger"),n=document.getElementById("nav");
-h.addEventListener("click",()=>{h.classList.toggle("active");n.classList.toggle("show");});
-document.querySelectorAll("#nav a").forEach(l=>{l.addEventListener("click",()=>{h.classList.remove("active");n.classList.remove("show");});});
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("show");
+});
 </script>
 <script>
+const translations = {
+  jp: {
+    hero_title: "フィリピン人 特定技能 専門サポート 全国対応 行政書士",
+    hero_sub: "特定技能・在留資格の申請を一括サポート",
+    hero_cta: "無料相談はこちら",
+    for_company: "企業様へ",
+    for_worker: "フィリピン人の方へ",
+    pricing: "料金",
+    office: "事務所",
+    contact: "お問い合わせ"
+  },
+  en: {
+    hero_title: "Philippine Specified Skilled Worker Visa Support Nationwide",
+    hero_sub: "Comprehensive support for visa and residence applications",
+    hero_cta: "Free Consultation",
+    for_company: "For Companies",
+    for_worker: "For Filipino Workers",
+    pricing: "Pricing",
+    office: "Office",
+    contact: "Contact"
+  },
+  tl: {
+    hero_title: "Suporta sa Specified Skilled Worker Visa para sa mga Pilipino sa buong Japan",
+    hero_sub: "Komprehensibong suporta para sa visa at residence application",
+    hero_cta: "Libreng Konsultasyon",
+    for_company: "Para sa mga Kumpanya",
+    for_worker: "Para sa mga Pilipino",
+    pricing: "Presyo",
+    office: "Opisina",
+    contact: "Makipag-ugnayan"
+  }
+};
+
 function switchLang(lang) {
 
-  const elements = document.querySelectorAll("[data-jp]");
-
-  elements.forEach(el => {
-    if(lang === "jp") {
-      el.innerHTML = el.getAttribute("data-jp");
-    }
-    if(lang === "en") {
-      el.innerHTML = el.getAttribute("data-en");
-    }
-    if(lang === "tl") {
-      el.innerHTML = el.getAttribute("data-tl");
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
     }
   });
 
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.innerText.toLowerCase() === lang.toLowerCase()) {
+      btn.classList.add('active');
+    }
+  });
+
+  document.documentElement.lang = lang;
 }
 </script>
 </body>
