@@ -12,108 +12,120 @@
 <title>行政書士 サポートオフィス | 徳永良雄行政書士事務所</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-.sns-fixed {position: fixed;bottom: 25px;right: 25px;display: flex;flex-direction: column;gap: 12px;z-index: 1500;}
-.line-btn {background: #06C755;}
-.facebook-btn {background: #3b5998;}
-@media (max-width: 768px){.sns-fixed {right: 15px;bottom: 15px;}}
-@media (max-width: 480px){.sns-btn-wide{min-width: 160px;font-size: 13px;padding: 10px 14px;}}
-.sns-btn-wide {display: flex;align-items: center;gap: 10px;padding: 14px 20px;border-radius: 40px;color: #fff;font-weight: 600;font-size: 15px;text-decoration: none;box-shadow: 0 10px 25px rgba(0,0,0,0.25);transition: 0.3s;min-width: 210px;justify-content: center;}
-.sns-btn-wide i {font-size: 20px;}
-.sns-btn-wide:hover {transform: translateY(-3px);opacity: 0.95;}
-:root {--primary: #1f2f3a;--accent: #b89b5e;--bg-light: #f3f4f5;--text-main: #1a1a1a;--text-sub: #555;--white: #ffffff;--border: #e2e4e7;}
-body {font-family: 'Noto Sans JP', sans-serif;margin: 0;padding: 0;padding-top: 90px;background: var(--bg-light);color: var(--text-main);line-height: 1.8;}
-header {background: var(--primary);color: white;padding: 1rem 1.2rem;display: flex;justify-content: space-between;align-items: center;position: fixed;top: 0;left: 0;width: 100%;box-sizing: border-box;z-index: 1000;}
-.header-logo {display: flex;align-items: center;gap: 15px;font-weight: 700;font-size: 1.1rem;letter-spacing: 1px;}
-.header-logo img {height: 32px;width: auto;}
-.header-nav {display: flex;gap: 1.5rem;flex-wrap: wrap;}
-.header-nav a {text-decoration: none;color: white;font-weight: 600;font-size: 0.95rem;transition: 0.3s;}
-.header-nav a:hover {color: var(--accent);}
-.hero {background: linear-gradient(135deg, #1f2f3a, #2f3f4c);color: white;padding: 5rem 1rem;}
-.hero-inner {max-width: 1200px;margin: auto;display: flex;align-items: stretch;gap: 3rem;}
-.hero-left {flex: 2;display: flex;flex-direction: column;justify-content: center;align-items: center;text-align: center;}
-.hero-left h2 {font-size: 1.8rem;margin-bottom: 1.5rem;line-height: 1.6;}
-.hero-left p {font-size: 1.05rem;opacity: 0.9;}
-.hero-left .btn {display: inline-block;margin-top: 1.5rem;background: var(--accent);color: white;padding: 0.9rem 2rem;border-radius: 30px;font-weight: 600;text-decoration: none;transition: 0.3s;}
-.hero-left .btn:hover {background: #a8894a;}
-.hero-right {flex: 1;}
-.hero h1 {font-size: 2rem;margin-bottom: 1rem;line-height: 1.5;}
-.hero-sub {font-size: 1.1rem;margin-bottom: 1.8rem;opacity: 0.95;}
-.hero-buttons {display: flex;gap: 1rem;flex-wrap: wrap;justify-content: center;}
-.btn-outline {background: transparent;border: 2px solid white;color: white;padding: 0.9rem 2rem;border-radius: 30px;font-weight: 600;text-decoration: none;transition: 0.3s;}
-.btn-outline:hover {background: white;color: var(--primary);}
-.language-switch {margin-top: 1.5rem;font-size: 0.9rem;opacity: 0.8;}
-.language-switch a {color: white;text-decoration: underline;}
-.info-box {background: white;color: var(--text-main);padding: 2rem;height: 100%;border-radius: 12px;box-shadow: 0 10px 25px rgba(0,0,0,0.08);border-left: 5px solid var(--accent);}
-.info-box h3 {margin-top: 0;font-size: 1.2rem;margin-bottom: 1rem;border-bottom: 2px solid var(--accent);padding-bottom: 0.5rem;}
-.info-box a {display: block;text-decoration: none;font-weight: 600;color: var(--primary);padding: 0.5rem 0;transition: 0.3s;}
-.info-box a:hover {color: var(--accent);}
-.office-wrapper {display: grid;grid-template-columns: 1fr 1fr;gap: 2.5rem;align-items: start;margin-top: 2rem;}
-.office-info {list-style: none;padding: 0;margin: 0;}
-.office-info li {margin-bottom: 1.2rem;line-height: 1.6;}
-.map-note {font-size: 0.85rem;margin-top: 0.8rem;color: var(--text-sub);}
-.container {max-width: 1100px;margin: auto;padding: 2.5rem 1.5rem;}
-section {margin-bottom: 4rem;scroll-margin-top: 100px;}
-h2 {font-size: 1.6rem;margin-bottom: 2rem;text-align: center;position: relative;}
-h2::after {content: "";width: 60px;height: 3px;background: var(--accent);display: block;margin: 0.7rem auto 0;}
-.grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(300px,1fr));gap: 2rem;}
-.card {background: white;padding: 2rem;border-radius: 12px;box-shadow: 0 6px 18px rgba(0,0,0,0.04);transition: 0.3s;}
-.card:hover {transform: translateY(-6px);}
-.price-tag {color: var(--accent);font-size: 1.5rem;font-weight: bold;}
-.profile-container {display: grid;grid-template-columns: 1fr 220px;gap: 2rem;align-items: start;}
-.profile-photo img {width: 100%;max-width: 200px;border-radius: 12px;box-shadow: 0 6px 16px rgba(0,0,0,0.08);}
-.profile-main h3 {margin-top: 0;}
-.profile-main p {margin: 0.5rem 0;line-height: 1.6;}
-.profile-compact-list {display: grid;grid-template-columns: 1fr 1fr;gap: 1rem 2rem;margin-top: 1rem;font-size: 0.95rem;}
-.profile-compact-list ul {margin: 0;padding-left: 1.2rem;}
-.info-table {width: 100%;border-collapse: collapse;background: white;border-radius: 12px;overflow: hidden;}
-.info-table th,.info-table td {padding: 1rem;border-bottom: 1px solid var(--border);}
-.info-table th {background: #f8fafc;width: 30%;text-align: left;}
-.office-right img {width: 100%;border-radius: 12px;box-shadow: 0 8px 20px rgba(0,0,0,0.08);transition: 0.3s;}
-.office-right img:hover {transform: scale(1.02);}
-footer {background: var(--primary);color: white;padding: 3rem 1rem;text-align: center;}
-footer p {opacity: 0.85;margin: 0.5rem 0;}
-footer a {color: white;text-decoration: underline;font-weight: 600;}
-footer a:hover {color: var(--accent);}
-.contact-form {background: white;padding: 2rem;margin-top: 2rem;border-radius: 12px;box-shadow: 0 4px 12px rgba(0,0,0,0.04);}
-.contact-form .form-group {margin-bottom: 1.5rem;}
-.contact-form label {display: block;font-weight: 600;margin-bottom: 0.5rem;}
-.contact-form input,.contact-form textarea {width: 100%;padding: 0.8rem;border-radius: 6px;border: 1px solid var(--border);font-size: 1rem;}
-.contact-form textarea {resize: vertical;min-height: 150px;}
-.contact-form button {background: var(--accent);color: white;border: none;padding: 0.9rem 2rem;border-radius: 30px;font-weight: 600;cursor: pointer;transition: 0.3s;}
-.contact-form button:hover {background: #ffb84d;}
-.privacy-note {font-size: 0.85rem;margin-top: 1rem;color: var(--text-sub);}
-.bg-light-section {padding: 3rem 0;}
-.bg-accent-section {padding: 3rem 0;}
-.testimonial-item {background: white;padding: 2rem;border-left: 4px solid var(--accent);border-radius: 10px;margin-bottom: 2rem;box-shadow: 0 8px 20px rgba(0,0,0,0.05);}
-.testimonial-name {display: block;margin-top: 1rem;font-weight: 600;color: var(--primary);}
-.cta-section {background: linear-gradient(135deg, #1f2f3a, #2f3f4c);color: white;text-align: center;padding: 4rem 1rem;}
-.cta-section h2 {color: white;}
-.cta-section .btn-white {background: white;color: var(--primary);padding: 1rem 2.5rem;border-radius: 30px;text-decoration: none;font-weight: 700;display: inline-block;margin-top: 1.5rem;transition: 0.3s;}
-.cta-section .btn-white:hover {background: #f5f5f5;}
-.second-penguin-box {margin-top: 2rem;padding: 1.2rem 1.5rem;background: #fff9e8;border-radius: 8px;text-align: left;border: 1px solid #f3e2b8;}
-.sp-text {font-weight: 600;font-size: 1rem;margin-bottom: 0.8rem;color: #333;}
-.sp-link {display: inline-block;background: #d9eaf7;color: #1a4f7a;font-weight: 600;padding: 0.5rem 1.4rem;border-radius: 20px;text-decoration: none;font-size: 0.95rem;transition: 0.3s;}
-.sp-link:hover {background: #c7def0;}
-.hamburger {display: none;flex-direction: column;cursor: pointer;gap: 5px;}
-.hamburger span {width: 25px;height: 3px;background: white;transition: 0.3s;}
-.hamburger.active span:nth-child(1) {transform: rotate(45deg) translate(5px, 5px);}
-.hamburger.active span:nth-child(2) {opacity: 0;}
-.hamburger.active span:nth-child(3) {transform: rotate(-45deg) translate(6px, -6px);}
-.header-nav a.business-link {font-size: 0.75rem;font-weight: 400;opacity: 0.6;display: flex;align-items: center;gap: 4px;}
-.header-nav a.business-link:hover {opacity: 1;color: var(--accent);}
-@media (max-width: 768px){
-.office-wrapper {grid-template-columns: 1fr;}
-.hero-inner {flex-direction: column;text-align: center;}
-.hero-left {text-align: center;}
-.hero-right {width: 100%;}
-.profile-container {grid-template-columns: 1fr;text-align: center;}
-.profile-compact-list {grid-template-columns: 1fr;}
-.profile-photo {margin: 0 auto;}
-.header-logo img {height: 24px;}
-.hamburger {display: flex;}
-.header-nav {position: absolute;top: 70px;right: 0;background: var(--primary);flex-direction: column;width: 220px;padding: 1rem;display: none;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
-.header-nav a {padding: 0.8rem 0;border-bottom: 1px solid rgba(255,255,255,0.2);}
-.header-nav.show {display: flex;}
+:root{--primary:#1f2f3a;--accent:#b89b5e;--bg-light:#f3f4f5;--text-main:#1a1a1a;--text-sub:#555;--white:#ffffff;--border:#e2e4e7;}
+body{margin:0;padding:90px 0 0 0;font-family:'Noto Sans JP',sans-serif;line-height:1.8;background:var(--bg-light);color:var(--text-main);}
+header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;width:100%;padding:1rem 1.2rem;box-sizing:border-box;background:var(--primary);color:white;}
+.header-logo{display:flex;align-items:center;gap:15px;font-size:1.1rem;font-weight:700;letter-spacing:1px;}
+.header-logo img{height:32px;width:auto;}
+.header-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.header-nav a{font-size:0.95rem;font-weight:600;color:white;text-decoration:none;transition:0.3s;}
+.header-nav a:hover{color:var(--accent);}
+.header-nav a.business-link{display:flex;align-items:center;gap:4px;font-size:0.75rem;font-weight:400;opacity:0.6;}
+.header-nav a.business-link:hover{color:var(--accent);opacity:1;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:25px;height:3px;background:white;transition:0.3s;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+.hero{padding:5rem 1rem;background:linear-gradient(135deg,#1f2f3a,#2f3f4c);color:white;}
+.hero-inner{display:flex;align-items:stretch;gap:3rem;max-width:1200px;margin:auto;}
+.hero-left{flex:2;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero-left h2{margin-bottom:1.5rem;font-size:1.8rem;line-height:1.6;}
+.hero-left p{font-size:1.05rem;opacity:0.9;}
+.hero-right{flex:1;}
+.hero h1{margin-bottom:1rem;font-size:2rem;line-height:1.5;}
+.hero-sub{margin-bottom:1.8rem;font-size:1.1rem;opacity:0.95;}
+.hero-badge{display:inline-block;margin:15px 0;padding:8px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;background:#f4b400;color:#000;}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.hero-buttons a{display:inline-block;min-width:240px;padding:0.9rem 2rem;border-radius:30px;font-weight:600;text-align:center;text-decoration:none;transition:0.3s;}
+.btn-primary{border:2px solid var(--accent);background:var(--accent);color:white;}
+.btn-primary:hover{border-color:#a8894a;background:#a8894a;}
+.btn-outline{border:2px solid white;background:transparent;color:white;}
+.btn-outline:hover{background:white;color:var(--primary);}
+.cta-button{display:inline-block;padding:14px 28px;border-radius:50px;font-size:1.1rem;font-weight:bold;text-decoration:none;background:#d32f2f;color:#fff;transition:0.3s;}
+.cta-button:hover{transform:scale(1.05);background:#b71c1c;}
+.quick-response{margin-top:10px;font-size:0.9rem;color:#555;}
+.language-switch{margin-top:1.5rem;font-size:0.9rem;opacity:0.8;}
+.language-switch a{color:white;text-decoration:underline;}
+.container{max-width:1100px;margin:auto;padding:2.5rem 1.5rem;}
+section{margin-bottom:4rem;scroll-margin-top:100px;}
+h2{margin-bottom:2rem;font-size:1.6rem;text-align:center;position:relative;}
+h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;background:var(--accent);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+.card{padding:2rem;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04);background:white;transition:0.3s;}
+.card:hover{transform:translateY(-6px);}
+.card h3{margin-top:0;}
+.info-box{height:100%;padding:2rem;border-left:5px solid var(--accent);border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.08);background:white;color:var(--text-main);}
+.info-box h3{margin-top:0;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--accent);font-size:1.2rem;}
+.info-box a{display:block;padding:0.5rem 0;font-weight:600;color:var(--primary);text-decoration:none;transition:0.3s;}
+.info-box a:hover{color:var(--accent);}
+.pricing-note{margin-bottom:30px;font-weight:bold;text-align:center;color:#333;}
+.price-tag{font-size:1.5rem;font-weight:bold;color:var(--accent);}
+.testimonial-item{margin-bottom:2rem;padding:2rem;border-left:4px solid var(--accent);border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.05);background:white;}
+.testimonial-name{display:block;margin-top:1rem;font-weight:600;color:var(--primary);}
+.profile-container{display:grid;grid-template-columns:1fr 220px;gap:2rem;align-items:start;}
+.profile-photo img{width:100%;max-width:200px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.08);}
+.profile-main h3{margin-top:0;}
+.profile-main p{margin:0.5rem 0;line-height:1.6;}
+.profile-compact-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;margin-top:1rem;font-size:0.95rem;}
+.profile-compact-list ul{margin:0;padding-left:1.2rem;}
+.second-penguin-box{margin-top:2rem;padding:1.2rem 1.5rem;border:1px solid #f3e2b8;border-radius:8px;text-align:left;background:#fff9e8;}
+.sp-text{margin-bottom:0.8rem;font-size:1rem;font-weight:600;color:#333;}
+.sp-link{display:inline-block;padding:0.5rem 1.4rem;border-radius:20px;font-size:0.95rem;font-weight:600;text-decoration:none;background:#d9eaf7;color:#1a4f7a;transition:0.3s;}
+.sp-link:hover{background:#c7def0;}
+.office-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-top:2rem;}
+.office-info{margin:0;padding:0;list-style:none;}
+.office-info li{margin-bottom:1.2rem;line-height:1.6;}
+.office-right img{width:100%;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s;}
+.office-right img:hover{transform:scale(1.02);}
+.map-note{margin-top:0.8rem;font-size:0.85rem;color:var(--text-sub);}
+.info-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;background:white;}
+.info-table th,.info-table td{padding:1rem;border-bottom:1px solid var(--border);}
+.info-table th{width:30%;text-align:left;background:#f8fafc;}
+.cta-section{padding:4rem 1rem;text-align:center;background:linear-gradient(135deg,#1f2f3a,#2f3f4c);color:white;}
+.cta-section h2{color:white;}
+.cta-section .btn-white{display:inline-block;margin-top:1.5rem;padding:1rem 2.5rem;border-radius:30px;font-weight:700;text-decoration:none;background:white;color:var(--primary);transition:0.3s;}
+.cta-section .btn-white:hover{background:#f5f5f5;}
+.contact-form{margin-top:2rem;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.04);background:white;}
+.contact-form .form-group{margin-bottom:1.5rem;}
+.contact-form label{display:block;margin-bottom:0.5rem;font-weight:600;}
+.contact-form input,.contact-form textarea{width:100%;padding:0.8rem;border:1px solid var(--border);border-radius:6px;font-size:1rem;}
+.contact-form textarea{min-height:150px;resize:vertical;}
+.contact-form button{padding:0.9rem 2rem;border:none;border-radius:30px;font-weight:600;cursor:pointer;background:var(--accent);color:white;transition:0.3s;}
+.contact-form button:hover{background:#ffb84d;}
+.privacy-note{margin-top:1rem;font-size:0.85rem;color:var(--text-sub);}
+.sns-fixed{position:fixed;right:25px;bottom:25px;z-index:1500;display:flex;flex-direction:column;gap:12px;}
+.sns-btn-wide{display:flex;justify-content:center;align-items:center;gap:10px;min-width:210px;padding:14px 20px;border-radius:40px;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.25);color:#fff;transition:0.3s;}
+.sns-btn-wide i{font-size:20px;}
+.sns-btn-wide:hover{transform:translateY(-3px);opacity:0.95;}
+.line-btn{background:#06C755;}
+.facebook-btn{background:#3b5998;}
+.back-to-top{position:fixed;right:25px;bottom:120px;z-index:1500;padding:12px 16px;border-radius:30px;font-size:14px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);background:var(--primary);color:white;transition:0.3s;}
+.back-to-top:hover{background:var(--accent);}
+.floating-cta{position:fixed;right:20px;bottom:20px;z-index:999;padding:14px 22px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,0.3);background:#d32f2f;}
+.floating-cta a{font-weight:bold;text-decoration:none;color:#fff;}
+footer{padding:3rem 1rem;text-align:center;background:var(--primary);color:white;}
+footer p{margin:0.5rem 0;opacity:0.85;}
+footer a{font-weight:600;color:white;text-decoration:underline;}
+footer a:hover{color:var(--accent);}
+.bg-light-section,.bg-accent-section{padding:3rem 0;}
+@media (max-width:768px){
+.hero-inner{flex-direction:column;text-align:center;}
+.hero-left{text-align:center;}
+.hero-right{width:100%;}
+.office-wrapper{grid-template-columns:1fr;}
+.profile-container{grid-template-columns:1fr;text-align:center;}
+.profile-photo{margin:0 auto;}
+.profile-compact-list{grid-template-columns:1fr;}
+.header-logo img{height:24px;}
+.hamburger{display:flex;}
+.header-nav{position:absolute;top:70px;right:0;display:none;flex-direction:column;width:220px;padding:1rem;box-shadow:0 10px 20px rgba(0,0,0,0.1);background:var(--primary);}
+.header-nav.show{display:flex;}
+.header-nav a{padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.2);}
+.sns-fixed{right:15px;bottom:15px;}
+}
+@media (max-width:480px){
+.sns-btn-wide{min-width:160px;padding:10px 14px;font-size:13px;}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"德永良雄行政書士事務所","url":"https://tokunaga-gyosei.jp/","telephone":"+81-70-9192-2524","email":"info@tokunaga-gyosei.jp","address":{"@type":"PostalAddress","streetAddress":"向洋町中6-9 神戸ファッションマート 4N-07-01","addressLocality":"神戸市東灘区","addressRegion":"兵庫県","postalCode":"658-0032","addressCountry":"JP"},"areaServed":{"@type":"Country","name":"Japan"},"founder":{"@type":"Person","name":"德永 良雄"},"serviceType":["特定技能ビザ申請","在留資格申請","組合顧問契約","フィリピン人就労支援"]}</script>
@@ -128,37 +140,80 @@ footer a:hover {color: var(--accent);}
 <span></span><span></span><span></span>
 </div>
 <nav class="header-nav" id="nav">
-<a href="#about">代表から</a>
-<a href="#services">サービス</a>
-<a href="#pricing">料金プラン</a>
-<a href="#testimonials">お客様の声</a>
-<a href="#office">事務所情報</a>
+<a href="#for-company">企業様へ</a>
+<a href="#for-worker">フィリピン人の方へ</a>
+<a href="#pricing">料金</a>
+<a href="#office">事務所</a>
 <a href="#contact">お問い合わせ</a>
-<a href="#links">関係リンク</a>
 <a href="https://second-penguin-planning.github.io/member/" target="_blank" class="business-link">🔒 業務用</a>
 </nav>
 </header>
 <section class="hero">
-<div class="hero-inner">
-<div class="hero-left">
-<h1>Philippines × 特定技能 専門サポート<br>全国対応 行政書士</h1>
-<p class="hero-sub">企業・組合・フィリピン人本人のための<br>在留資格取得・就業支援をトータルサポート</p>
-<div class="hero-buttons">
-<a href="#for-company" class="btn">企業・組合の方はこちら</a>
-<a href="#for-worker" class="btn-outline">フィリピン人の方はこちら</a>
+<div class="container">
+<h1>フィリピン人 特定技能 専門サポート<br>全国対応 行政書士</h1>
+<p>特定技能・在留資格の申請を一括サポート</p>
+<div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
+<a href="#contact" class="cta-button">無料相談はこちら</a>
+<p class="quick-response">通常24時間以内にご返信します</p>
 </div>
-<div class="language-switch"><a href="#">ENGLISH</a> | <a href="#">TAGALOG</a></div>
+</section>
+<section id="for-company" class="bg-light-section">
+<div class="container">
+<h2>企業・組合様向けサポート</h2>
+<div class="grid">
+<div class="card"><h3>組合顧問契約</h3><p>技能実習から特定技能移行、受入体制整備、監査対応まで継続サポート。全国対応可能。</p></div>
+<div class="card"><h3>特定技能フルサポート</h3><p>在留資格認定、変更、更新、支援計画作成、登録支援機関との連携まで一括対応。</p></div>
+<div class="card"><h3>フィリピン送出機関対応</h3><p>フィリピン大使館・POEA関連手続き、契約書確認・調整支援。</p></div>
 </div>
-<div class="hero-right">
-<div class="info-box">
-<h3>対応内容</h3>
-<ul>
-<li>特定技能1号・2号申請</li>
-<li>登録支援機関サポート</li>
-<li>監理団体 顧問契約</li>
-<li>COE申請・変更・更新</li>
-<li>フィリピン送出機関対応</li>
-</ul>
+</div>
+</section>
+<section id="for-worker" class="bg-accent-section">
+<div class="container">
+<h2>フィリピン人の皆様へ</h2>
+<div class="grid">
+<div class="card"><h3>日本で働きたい方へ</h3><p>特定技能ビザ取得サポート。必要書類の確認から申請まで丁寧に対応。</p></div>
+<div class="card"><h3>ビザ更新・変更</h3><p>在留期間更新、転職に伴う変更申請など全国対応。</p></div>
+<div class="card"><h3>相談対応（英語可）</h3><p>英語での相談可能。オンライン面談にも対応しています。</p></div>
+</div>
+</div>
+</section>
+<section class="testimonials">
+<div class="container">
+<h2>お客様の声</h2>
+<div class="testimonial-item">
+<p>「フィリピン人特定技能の手続きを安心して任せることができました。書類作成から入管対応まで丁寧で、企業として非常に助かりました。」</p>
+<span class="testimonial-name">（製造業 企業様）</span>
+</div>
+<div class="testimonial-item">
+<p>「在留資格変更手続きで不安がありましたが、迅速な対応で無事許可を取得できました。」</p>
+<span class="testimonial-name">（本人申請サポート）</span>
+</div>
+</div>
+</section>
+<section id="pricing" class="pricing">
+<div class="container">
+<h2>料金の目安（在留資格専門）</h2>
+<p class="pricing-note">すべて事前見積・明朗会計。追加費用は事前にご説明します。</p>
+<div class="grid">
+<div class="card">
+<h3>在留資格認定証明書交付申請</h3>
+<p class="price-tag">110,000円〜</p>
+<ul><li>特定技能対応</li><li>書類作成一式</li><li>入管対応含む</li></ul>
+</div>
+<div class="card">
+<h3>在留資格変更許可申請</h3>
+<p class="price-tag">88,000円〜</p>
+<ul><li>技能実習→特定技能 など</li><li>必要書類整理</li><li>入管提出代行</li></ul>
+</div>
+<div class="card">
+<h3>在留期間更新許可申請</h3>
+<p class="price-tag">55,000円〜</p>
+<ul><li>更新手続一式</li><li>企業サポート</li><li>迅速対応</li></ul>
+</div>
+<div class="card">
+<h3>企業・組合顧問契約</h3>
+<p class="price-tag">月額 33,000円〜</p>
+<ul><li>特定技能受入サポート</li><li>定期相談対応</li><li>在留管理支援</li></ul>
 </div>
 </div>
 </div>
@@ -184,61 +239,6 @@ footer a:hover {color: var(--accent);}
 </div>
 </div>
 </section>
-<section id="for-company" class="bg-light-section">
-<div class="container">
-<h2>企業・組合様向けサポート</h2>
-<div class="grid">
-<div class="card"><h3>組合顧問契約</h3><p>技能実習から特定技能移行、受入体制整備、監査対応まで継続サポート。全国対応可能。</p></div>
-<div class="card"><h3>特定技能フルサポート</h3><p>在留資格認定、変更、更新、支援計画作成、登録支援機関との連携まで一括対応。</p></div>
-<div class="card"><h3>フィリピン送出機関対応</h3><p>フィリピン大使館・POEA関連手続き、契約書確認・調整支援。</p></div>
-</div>
-</div>
-</section>
-<section id="for-worker" class="bg-accent-section">
-<div class="container">
-<h2>フィリピン人の皆様へ</h2>
-<div class="grid">
-<div class="card"><h3>日本で働きたい方へ</h3><p>特定技能ビザ取得サポート。必要書類の確認から申請まで丁寧に対応。</p></div>
-<div class="card"><h3>ビザ更新・変更</h3><p>在留期間更新、転職に伴う変更申請など全国対応。</p></div>
-<div class="card"><h3>相談対応（英語可）</h3><p>英語での相談可能。オンライン面談にも対応しています。</p></div>
-</div>
-</div>
-</section>
-<section id="services" class="bg-accent-section">
-<div class="container">
-<h2>サービス紹介</h2>
-<p>豊富な経験と専門知識を活かし、お客様のニーズに合わせた最適なサービスを提供いたします。</p>
-<div class="grid">
-<div class="card"><h3>補助金・許認可 申請</h3><p>様々な補助金、助成金の申請、建設業、飲食店営業、古物商許可など、各種申請を専門的にサポート。複雑な手続きもお任せください。</p></div>
-<div class="card"><h3>許認可申請在留資格・ビザ申請</h3><p>外国人の在留資格認定、変更、更新などの入管手続きを専門的にサポート。就労ビザから永住申請まで幅広く対応いたします。</p></div>
-<div class="card"><h3>相続・遺言・その他</h3><p>遺言書の作成、相続手続き、遺産分割協議書の作成をサポート。自動車登録や法人設立支援、契約書作成も承ります。</p></div>
-</div>
-</div>
-</section>
-<section id="pricing" class="bg-light-section">
-<div class="container">
-<h2>料金プラン</h2>
-<p>明確な料金体系で安心してご依頼いただけます。初回相談は無料です。</p>
-<div class="grid">
-<div class="card"><h3>補助金・許認可等の申請</h3><span class="price-tag">50,000円〜</span><ul><li>蓄電池など補助金・助成金申請</li><li>建設業許可申請</li><li>飲食店営業 / 古物商許可</li><li>各種申請</li></ul></div>
-<div class="card"><h3>在留資格・ビザ取得</h3><span class="price-tag">30,000円〜</span><ul><li>在留資格認定証明書交付申請</li><li>在留資格変更許可申請</li><li>在留期間更新許可申請</li><li>永住許可 / 帰化許可サポート</li></ul></div>
-<div class="card"><h3>遺言・相続・その他</h3><span class="price-tag">35,000円〜</span><ul><li>遺言書/遺産分割協議書作成サポート</li><li>相続人調査 / 相続関係説明図作成</li><li>相続手続き代行</li><li>自動車登録や法人設立支援等</li></ul></div>
-</div>
-<p><small>※料金は案件の内容により変動する場合がございます。</small></p>
-</div>
-</section>
-<section id="testimonials" class="bg-accent-section">
-<div class="container">
-<h2>お客様の声</h2>
-<div class="testimonial-item"><p>「当ホテルでは外国人スタッフの採用を積極的に進めており、継続的にお世話になっております。複雑な入管手続きも迅速かつ正確で、スムーズに優秀な人材を確保できています」</p><span class="testimonial-name">株式会社〇〇ホテル 様</span></div>
-<div class="testimonial-item"><p>「太陽光発電事業の立ち立ち上げに伴い、電気工事業の許認可でお世話になりました。必要書類の準備から行政機関との折衝まで、全てを丁寧にサポートしていただきました」</p><span class="testimonial-name">◇◇電気興業株式会社 様</span></div>
-</div>
-</section>
-<section class="cta-section">
-<h2>まずはお気軽にご相談ください</h2>
-<p>初回相談無料。神戸の行政書士が直接対応いたします。</p>
-<a href="tel:070-9192-2524" class="btn-white">今すぐ電話する</a>
-</section>
 <section id="office" class="bg-light-section">
 <div class="container">
 <h2>事務所情報</h2>
@@ -254,18 +254,23 @@ footer a:hover {color: var(--accent);}
 </ul>
 </div>
 <div class="office-right">
-<iframe src="https://www.google.com/maps?q=神戸ファッションマート&output=embed" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.457852107576!2d135.2678!3d34.6896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008d669352e82b%3A0x63327d9237699e12!2z56We5oi444OV44Kh44OD44K344On44Oz44Oe44O844OI!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <p class="map-note">※地図は拡大・ルート検索が可能です</p>
 </div>
 </div>
 </div>
+</section>
+<section class="cta-section">
+<h2>まずはお気軽にご相談ください</h2>
+<p>初回相談無料。神戸の行政書士が直接対応いたします。</p>
+<a href="tel:070-9192-2524" class="btn-white">今すぐ電話する</a>
 </section>
 <section id="contact" class="bg-light-section">
 <div class="container">
 <h2>お問い合わせ</h2>
 <div class="contact-form">
 <h3 style="margin-top:0;">お問い合わせフォーム</h3>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJPYhr5yeNR1IyZvTHCWVO5s_os7ff83NjhB02nPmMgARSmA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJPYhr5yeNR1IyZvTHCWVO5s_os7ff83NjhB02nPmMgARSmA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
 <p class="privacy-note">※通常1営業日以内にご返信いたします。</p>
 </div>
 </div>
@@ -279,7 +284,7 @@ footer a:hover {color: var(--accent);}
 <div class="link-group"><h4>補助金・支援</h4><ul><li><a href="#">ミラサポplus</a></li><li><a href="#">J-Net21 (中小機構)</a></li><li><a href="#">中小企業庁</a></li></ul></div>
 <div class="link-group"><h4>行政機関</h4><ul><li><a href="#">法務局 (登記・供託)</a></li><li><a href="#">出入国在留管理庁 (ビザ)</a></li></ul></div>
 </div>
-<p style="font-size: 0.8rem; color: #888; margin-top: 1.5rem;">※最新の情報については、各機関の公式サイトをご確認ください [5]。</p>
+<p style="font-size: 0.8rem; color: #888; margin-top: 1.5rem;">※最新の情報については、各機関の公式サイトをご確認ください。</p>
 </div>
 </section>
 <div class="sns-fixed">
@@ -290,11 +295,17 @@ footer a:hover {color: var(--accent);}
 <i class="fab fa-facebook-f"></i> Facebookページを見る
 </a>
 </div>
+<a href="#" class="back-to-top">▲ TOP</a>
+<div class="floating-cta"><a href="#contact">無料相談はこちら</a></div>
 <footer>
 <div class="footer-contacts"><p>電話: 070-9192-2524 | メール: info@tokunaga-gyosei.jp</p></div>
 <p><a href="private.html" style="color:white; text-decoration:underline;">プライバシーポリシー</a></p>
 <p>信頼と実績の行政書士事務所として、お客様のビジネスを全力でサポートいたします。</p>
 <p>© 2024 行政書士 サポートオフィス. All rights reserved.</p>
+<div style="margin-top:2rem; font-size:0.8rem; opacity:0.8;">
+<h4 style="margin-bottom:0.5rem;">その他の業務</h4>
+<p>補助金申請 / 建設業許可 / 古物商許可 / 相続・遺言サポート なども対応しております。</p>
+</div>
 </footer>
 <script>
 const h=document.getElementById("hamburger"),n=document.getElementById("nav");
