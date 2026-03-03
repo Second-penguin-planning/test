@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta name="description" content="フィリピン人の特定技能ビザ申請、在留資格取得、組合顧問契約なら全国対応の専門行政書士へ。企業・監理団体・本人をトータルサポート。">
 <link rel="icon" type="image/png" sizes="32x32" href="gyosei_logo_192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="gyosei_logo_192.png">
@@ -11,6 +12,14 @@
 <title>行政書士 サポートオフィス | 徳永良雄行政書士事務所</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+.sns-fixed {position: fixed;bottom: 25px;right: 25px;display: flex;flex-direction: column;gap: 12px;z-index: 1500;}
+.line-btn {background: #06C755;}
+.facebook-btn {background: #3b5998;}
+@media (max-width: 768px){.sns-fixed {right: 15px;bottom: 15px;}}
+@media (max-width: 480px){.sns-btn-wide{min-width: 160px;font-size: 13px;padding: 10px 14px;}}
+.sns-btn-wide {display: flex;align-items: center;gap: 10px;padding: 14px 20px;border-radius: 40px;color: #fff;font-weight: 600;font-size: 15px;text-decoration: none;box-shadow: 0 10px 25px rgba(0,0,0,0.25);transition: 0.3s;min-width: 210px;justify-content: center;}
+.sns-btn-wide i {font-size: 20px;}
+.sns-btn-wide:hover {transform: translateY(-3px);opacity: 0.95;}
 :root {--primary: #1f2f3a;--accent: #b89b5e;--bg-light: #f3f4f5;--text-main: #1a1a1a;--text-sub: #555;--white: #ffffff;--border: #e2e4e7;}
 body {font-family: 'Noto Sans JP', sans-serif;margin: 0;padding: 0;padding-top: 90px;background: var(--bg-light);color: var(--text-main);line-height: 1.8;}
 header {background: var(--primary);color: white;padding: 1rem 1.2rem;display: flex;justify-content: space-between;align-items: center;position: fixed;top: 0;left: 0;width: 100%;box-sizing: border-box;z-index: 1000;}
@@ -222,7 +231,7 @@ footer a:hover {color: var(--accent);}
 <div class="container">
 <h2>お客様の声</h2>
 <div class="testimonial-item"><p>「当ホテルでは外国人スタッフの採用を積極的に進めており、継続的にお世話になっております。複雑な入管手続きも迅速かつ正確で、スムーズに優秀な人材を確保できています」</p><span class="testimonial-name">株式会社〇〇ホテル 様</span></div>
-<div class="testimonial-item"><p>「太陽光発電事業の立ち上げに伴い、電気工事業の許認可でお世話になりました。必要書類の準備から行政機関との折衝まで、全てを丁寧にサポートしていただきました」</p><span class="testimonial-name">◇◇電気興業株式会社 様</span></div>
+<div class="testimonial-item"><p>「太陽光発電事業の立ち立ち上げに伴い、電気工事業の許認可でお世話になりました。必要書類の準備から行政機関との折衝まで、全てを丁寧にサポートしていただきました」</p><span class="testimonial-name">◇◇電気興業株式会社 様</span></div>
 </div>
 </section>
 <section class="cta-section">
@@ -273,6 +282,14 @@ footer a:hover {color: var(--accent);}
 <p style="font-size: 0.8rem; color: #888; margin-top: 1.5rem;">※最新の情報については、各機関の公式サイトをご確認ください [5]。</p>
 </div>
 </section>
+<div class="sns-fixed">
+<a href="https://line.me/ti/p/YOUR_LINE_ID" target="_blank" class="sns-btn-wide line-btn" aria-label="LINEで無料相談">
+<i class="fab fa-line"></i> LINEで無料相談
+</a>
+<a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
+<i class="fab fa-facebook-f"></i> Facebookページを見る
+</a>
+</div>
 <footer>
 <div class="footer-contacts"><p>電話: 070-9192-2524 | メール: info@tokunaga-gyosei.jp</p></div>
 <p><a href="private.html" style="color:white; text-decoration:underline;">プライバシーポリシー</a></p>
