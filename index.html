@@ -38,6 +38,57 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 .hero-badge{display:inline-block;margin:15px 0;padding:8px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;background:#f4b400;color:#000;}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
 .hero-buttons a{display:inline-block;min-width:240px;padding:0.9rem 2rem;border-radius:30px;font-weight:600;text-align:center;text-decoration:none;transition:0.3s;}
+/* ヒーローお知らせ（控えめデザイン） */
+.hero-notice{
+    margin: 1.5rem auto 0;
+    max-width: 700px;
+    padding: 0.8rem 1.2rem;
+    background: #f0f1f3;
+    color: #444;
+    border: 1px solid #dcdfe3;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.hero-notice strong{
+    font-weight: 600;
+}
+.one-stop-support-strong{
+    margin: 4rem auto;
+    padding: 3rem;
+    max-width: 1000px;
+    background: linear-gradient(135deg,#1f2f3a,#2c3e50);
+    color: #fff;
+    border-radius: 12px;
+}
+
+.one-stop-support-strong h2{
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.one-stop-support-strong p{
+    line-height: 1.9;
+    margin-bottom: 1rem;
+}
+
+.one-stop-support-strong .highlight{
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffd966;
+}
+.cta-white{
+    display:inline-block;
+    margin-top:1.5rem;
+    padding:0.9rem 1.6rem;
+    background:#fff;
+    color:#1f2f3a;
+    font-weight:bold;
+    border-radius:30px;
+    text-decoration:none;
+}
 .btn-primary{border:2px solid var(--accent);background:var(--accent);color:white;}
 .btn-primary:hover{border-color:#a8894a;background:#a8894a;}
 .btn-outline{border:2px solid white;background:transparent;color:white;}
@@ -102,7 +153,7 @@ h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;ba
 .facebook-btn{background:#3b5998;}
 .back-to-top{position:fixed;right:25px;bottom:120px;z-index:1500;padding:12px 16px;border-radius:30px;font-size:14px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);background:var(--primary);color:white;transition:0.3s;}
 .back-to-top:hover{background:var(--accent);}
-.floating-cta{position:fixed;right:20px;bottom:20px;z-index:999;padding:14px 22px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,0.3);background:#d32f2f;}
+.floating-cta{position:fixed;right:10px;bottom:20px;z-index:999;padding:14px 22px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,0.3);background:#d32f2f;}
 .floating-cta a{font-weight:bold;text-decoration:none;color:#fff;}
 footer{padding:3rem 1rem;text-align:center;background:var(--primary);color:white;}
 footer p{margin:0.5rem 0;opacity:0.85;}
@@ -154,6 +205,14 @@ footer a:hover{color:var(--accent);}
 <p>特定技能・在留資格の申請を一括サポート</p>
 <div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
 <a href="#contact" class="cta-button">無料相談はこちら</a>
+<div class="hero-notice">
+<strong>【お知らせ】</strong><br>
+外国人雇用支援事業（登録支援機関 申請中・2026年3月登録予定）は、
+<a href="http://second-penguin.com/" target="_blank" style="color:#1f2f3a; text-decoration:underline;">
+セコンドペンギン企画
+</a>
+にて対応予定です。
+</div>
 <p class="quick-response">通常24時間以内にご返信します</p>
 </div>
 </section>
@@ -189,6 +248,29 @@ footer a:hover{color:var(--accent);}
 <span class="testimonial-name">（本人申請サポート）</span>
 </div>
 </div>
+</section>
+<section class="one-stop-support-strong">
+<h2>申請だけで終わらせない。採用から定着まで、すべて任せられる体制。</h2>
+
+<p>
+当事務所は行政書士業務に加え、
+登録支援機関としての登録（名称：セコンドペンギン企画）も行っております。
+</p>
+
+<p>
+そのため、在留資格申請だけでなく、
+雇用契約支援・支援計画作成・生活サポート・企業様の体制整備まで、
+一気通貫で対応可能です。
+</p>
+
+<p class="highlight">
+「申請は行政書士」「支援は別会社」と分断されることなく、
+責任の所在が明確なワンストップ体制を実現しています。
+</p>
+
+<p>
+外国人雇用を“点”ではなく“仕組み”として整えたい企業様に選ばれています。
+</p>
 </section>
 <section id="pricing" class="pricing">
 <div class="container">
@@ -296,6 +378,7 @@ footer a:hover{color:var(--accent);}
 </a>
 </div>
 <a href="#" class="back-to-top">▲ TOP</a>
+<a href="#contact" class="cta-white">ワンストップ相談を申し込む</a>
 <div class="floating-cta"><a href="#contact">無料相談はこちら</a></div>
 <footer>
 <div class="footer-contacts"><p>電話: 070-9192-2524 | メール: info@tokunaga-gyosei.jp</p></div>
