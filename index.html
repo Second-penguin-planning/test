@@ -30,8 +30,8 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 
 .lang-switch button {
   background: transparent;
-  border: 1px solid #1f2f3a;
-  color: #1f2f3a;
+  border: 1px solid #fff;
+  color: #fff;
   font-size: 12px;
   font-weight: 600;
   padding: 4px 10px;
@@ -41,9 +41,10 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 }
 
 .lang-switch button:hover {
-  background: #1f2f3a;
-  color: #fff;
+  background: #fff;
+  color: #1f2f3a;
 }
+
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .hamburger span{width:25px;height:3px;background:white;transition:0.3s;}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
@@ -181,7 +182,13 @@ footer a:hover{color:var(--accent);}
 <span></span><span></span><span></span>
 </div>
 <nav class="header-nav" id="nav">
-<a href="#for-company">企業様へ</a>
+<a href="#for-company"
+data-jp="企業様へ"
+data-en="For Companies"
+data-tl="Para sa mga Kumpanya"
+>
+企業様へ
+</a>
 <a href="#for-worker">フィリピン人の方へ</a>
 <a href="#pricing">料金</a>
 <a href="#office">事務所</a>
@@ -204,7 +211,13 @@ data-tl="Suporta sa Specified Skilled Worker Visa para sa mga Pilipino sa buong 
 >
 フィリピン人 特定技能 専門サポート 全国対応 行政書士
 </h1>
-<p>特定技能・在留資格の申請を一括サポート</p>
+<p
+data-jp="特定技能・在留資格の申請を一括サポート"
+data-en="Comprehensive support for visa and residence applications"
+data-tl="Komprehensibong suporta para sa visa at residence application"
+>
+特定技能・在留資格の申請を一括サポート
+</p>
 <div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
 <a href="#contact" class="cta-button">無料相談はこちら</a>
 <div class="hero-notice">
@@ -387,7 +400,13 @@ data-tl="Suporta sa Specified Skilled Worker Visa para sa mga Pilipino sa buong 
 </div>
 <a href="#" class="back-to-top">▲ TOP</a>
 <a href="#contact" class="cta-white">ワンストップ相談を申し込む</a>
-<div class="floating-cta"><a href="#contact">無料相談はこちら</a></div>
+<div class="floating-cta"><a href="#contact" class="cta-button"
+data-jp="無料相談はこちら"
+data-en="Free Consultation"
+data-tl="Libreng Konsultasyon"
+>
+無料相談はこちら
+</a></div>
 <footer>
 <div class="footer-contacts"><p>電話: 070-9192-2524 | メール: info@tokunaga-gyosei.jp</p></div>
 <p><a href="private.html" style="color:white; text-decoration:underline;">プライバシーポリシー</a></p>
