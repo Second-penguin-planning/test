@@ -32,63 +32,28 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 .hero-left{flex:2;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .hero-left h2{margin-bottom:1.5rem;font-size:1.8rem;line-height:1.6;}
 .hero-left p{font-size:1.05rem;opacity:0.9;}
-.hero-right{flex:1;}
 .hero h1{margin-bottom:1rem;font-size:2rem;line-height:1.5;}
 .hero-sub{margin-bottom:1.8rem;font-size:1.1rem;opacity:0.95;}
 .hero-badge{display:inline-block;margin:15px 0;padding:8px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;background:#f4b400;color:#000;}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
 .hero-buttons a{display:inline-block;min-width:240px;padding:0.9rem 2rem;border-radius:30px;font-weight:600;text-align:center;text-decoration:none;transition:0.3s;}
-/* ヒーローお知らせ（控えめデザイン） */
-.hero-notice{
-    margin: 1.5rem auto 0;
-    max-width: 700px;
-    padding: 0.8rem 1.2rem;
-    background: #f0f1f3;
-    color: #444;
-    border: 1px solid #dcdfe3;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    text-align: left;
-}
-
-.hero-notice strong{
-    font-weight: 600;
-}
-.one-stop-support-strong{
-    margin: 4rem auto;
-    padding: 3rem;
-    max-width: 1000px;
-    background: linear-gradient(135deg,#1f2f3a,#2c3e50);
-    color: #fff;
-    border-radius: 12px;
-}
-
-.one-stop-support-strong h2{
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-}
-
-.one-stop-support-strong p{
-    line-height: 1.9;
-    margin-bottom: 1rem;
-}
-
-.one-stop-support-strong .highlight{
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #ffd966;
-}
-.cta-white{
-    display:inline-block;
-    margin-top:1.5rem;
-    padding:0.9rem 1.6rem;
-    background:#fff;
-    color:#1f2f3a;
-    font-weight:bold;
-    border-radius:30px;
-    text-decoration:none;
-}
+.hero-notice{max-width:700px;margin:1.5rem auto 0;padding:0.8rem 1.2rem;border:1px solid #dcdfe3;border-radius:8px;font-size:0.9rem;text-align:left;background:#f0f1f3;color:#444;}
+.hero-notice strong{font-weight:600;}
+.one-stop-support-strong{max-width:1000px;margin:4rem auto;padding:3rem;border-radius:12px;color:#fff;background:linear-gradient(135deg,#1f2f3a,#2c3e50);}
+.one-stop-support-strong h2{margin-bottom:1.5rem;font-size:1.8rem;line-height:1.5;}
+.one-stop-support-strong p{margin-bottom:1rem;line-height:1.9;}
+.one-stop-support-strong .highlight{font-size:1.1rem;font-weight:bold;color:#ffd966;}
+.cta-white{display:inline-block;margin-top:1.5rem;padding:0.9rem 1.6rem;border-radius:30px;font-weight:bold;text-decoration:none;background:#fff;color:#1f2f3a;}
+.hero-content{flex:1;text-align:left;}
+.hero-news-box{width:360px;padding:25px;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,0.08);background:#ffffff;}
+.hero-news-box h3{margin-bottom:15px;padding-left:10px;border-left:4px solid #c40000;font-size:18px;}
+.hero-news-box ul{margin:0;padding:0;list-style:none;}
+.hero-news-box li{margin-bottom:12px;font-size:14px;line-height:1.5;}
+.hero-news-box .date{display:block;margin-bottom:4px;font-size:12px;color:#888;}
+.hero-tags{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap;}
+.hero-tags span{padding:6px 14px;border-radius:20px;box-shadow:0 3px 8px rgba(0,0,0,0.15);font-size:13px;font-weight:600;letter-spacing:0.5px;}
+.tag-gyosei{background:#1f2f3a;color:#fff;}
+.tag-support{background:#c9a227;color:#fff;}
 .btn-primary{border:2px solid var(--accent);background:var(--accent);color:white;}
 .btn-primary:hover{border-color:#a8894a;background:#a8894a;}
 .btn-outline{border:2px solid white;background:transparent;color:white;}
@@ -150,26 +115,23 @@ h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;ba
 .sns-btn-wide i{font-size:20px;}
 .sns-btn-wide:hover{transform:translateY(-3px);opacity:0.95;}
 .line-btn{background:#06C755;}
-.facebook-btn {
-  background-color: #1877f2;
-  box-shadow: none;
-}
-.back-to-top{position:fixed;right:25px;bottom:120px;z-index:1500;padding:12px 16px;border-radius:30px;font-size:14px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);background:var(--primary);color:white;transition:0.3s;}
+.facebook-btn{background-color:#1877f2;}
+.back-to-top{position:fixed;right:25px;bottom:170px;z-index:1500;padding:12px 16px;border-radius:30px;font-size:14px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);background:var(--primary);color:white;transition:0.3s;}
 .back-to-top:hover{background:var(--accent);}
-.floating-cta{
-  position: static;
-  margin-top: 20px;
-}
+.floating-cta{position:static;margin-top:20px;}
 .floating-cta a{font-weight:bold;text-decoration:none;color:#fff;}
 footer{padding:3rem 1rem;text-align:center;background:var(--primary);color:white;}
 footer p{margin:0.5rem 0;opacity:0.85;}
 footer a{font-weight:600;color:white;text-decoration:underline;}
 footer a:hover{color:var(--accent);}
 .bg-light-section,.bg-accent-section{padding:3rem 0;}
+@media (max-width:900px){
+.hero{flex-direction:column;}
+.hero-news-box{width:100%;}
+}
 @media (max-width:768px){
 .hero-inner{flex-direction:column;text-align:center;}
 .hero-left{text-align:center;}
-.hero-right{width:100%;}
 .office-wrapper{grid-template-columns:1fr;}
 .profile-container{grid-template-columns:1fr;text-align:center;}
 .profile-photo{margin:0 auto;}
@@ -206,7 +168,8 @@ footer a:hover{color:var(--accent);}
 </nav>
 </header>
 <section class="hero">
-<div class="container">
+<div class="hero-inner">
+<div class="hero-left">
 <h1>フィリピン人 特定技能 専門サポート<br>全国対応 行政書士</h1>
 <p>特定技能・在留資格の申請を一括サポート</p>
 <div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
@@ -220,6 +183,28 @@ footer a:hover{color:var(--accent);}
 にて対応予定です。
 </div>
 <p class="quick-response">通常24時間以内にご返信します</p>
+</div>
+<div class="hero-news-box">
+<div class="hero-tags">
+<span class="tag-gyosei">行政書士業務</span>
+<span class="tag-support">登録支援機関</span>
+</div>
+<h3>お知らせ</h3>
+<ul>
+<li>
+<span class="date">2026.03.01</span>
+特定技能ビザ申請の最新情報を更新しました。
+</li>
+<li>
+<span class="date">2026.02.20</span>
+フィリピン人向け在留資格相談を強化しました。
+</li>
+<li>
+<span class="date">2026.02.05</span>
+組合顧問契約の受付を開始しました。
+</li>
+</ul>
+</div>
 </div>
 </section>
 <section id="for-company" class="bg-light-section">
@@ -257,26 +242,10 @@ footer a:hover{color:var(--accent);}
 </section>
 <section class="one-stop-support-strong">
 <h2>申請だけで終わらせない。採用から定着まで、すべて任せられる体制。</h2>
-
-<p>
-当事務所は行政書士業務に加え、
-登録支援機関としての登録（名称：セコンドペンギン企画）も行っております。
-</p>
-
-<p>
-そのため、在留資格申請だけでなく、
-雇用契約支援・支援計画作成・生活サポート・企業様の体制整備まで、
-一気通貫で対応可能です。
-</p>
-
-<p class="highlight">
-「申請は行政書士」「支援は別会社」と分断されることなく、
-責任の所在が明確なワンストップ体制を実現しています。
-</p>
-
-<p>
-外国人雇用を“点”ではなく“仕組み”として整えたい企業様に選ばれています。
-</p>
+<p>当事務所は行政書士業務に加え、登録支援機関としての登録（名称：セコンドペンギン企画）も行っております。</p>
+<p>そのため、在留資格申請だけでなく、雇用契約支援・支援計画作成・生活サポート・企業様の体制整備まで、一気通貫で対応可能です。</p>
+<p class="highlight">「申請は行政書士」「支援は別会社」と分断されることなく、責任の所在が明確なワンストップ体制を実現しています。</p>
+<p>外国人雇用を“点”ではなく“仕組み”として整えたい企業様に選ばれています。</p>
 </section>
 <section id="pricing" class="pricing">
 <div class="container">
@@ -376,7 +345,7 @@ footer a:hover{color:var(--accent);}
 </div>
 </section>
 <div class="sns-fixed">
-<a href="https://line.me/ti/p/YOUR_LINE_ID" target="_blank" class="sns-btn-wide line-btn" aria-label="LINEで無料相談">
+<a href="https://line.me/R/oaMessage/@556fihjp/" target="_blank" rel="noopener noreferrer" class="sns-btn-wide line-btn" aria-label="LINEで無料相談">
 <i class="fab fa-line"></i> LINEで無料相談
 </a>
 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
