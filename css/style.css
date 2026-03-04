@@ -141,21 +141,28 @@ header {
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
-
+/* 不要な要素（赤いボタンやサブの白いボタン等）を完全に消す */
+.hero-badge, 
+.btn-white,
+.hero-notice {
+    display: none !important;
+}
 .cta-button {
     display: inline-block;
-    padding: 14px 28px;
-    background: #d32f2f;
+    padding: 15px 45px;      /* 横幅を少し持たせる */
+    background: var(--accent); /* 黄土色 (#b89b5e) に変更 */
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
+    font-size: 1.1rem;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 影を少し柔らかく */
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    background: #b71c1c;
+    transform: translateY(-2px); /* 少し上に浮く演出 */
+    filter: brightness(1.1);    /* 少し明るくする */
 }
 
 .hero-notice {
@@ -330,15 +337,23 @@ h2::after {
 }
 
 .sns-btn-wide {
-    padding: 12px 24px;
-    border-radius: 50px;
+    padding: 6px 12px;       /* 前回の案よりかなり小さくしました */
+    border-radius: 30px;     /* 角丸も少し控えめに */
     color: white;
     text-decoration: none;
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    font-size: 0.8rem;      /* 文字サイズを小さく */
+}
+
+/* アイコン（もしimgタグなどがある場合）のサイズ制限 */
+.sns-btn-wide img, 
+.sns-btn-wide i {
+    width: 18px;
+    height: 18px;
 }
 
 .line-btn { background: #06C755; }
