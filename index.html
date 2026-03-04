@@ -2,14 +2,18 @@
 <html lang="ja">
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<meta name="description" content="フィリピン人の特定技能ビザ申請、在留資格取得、組合顧問契約なら全国対応の専門行政書士へ。企業・監理団体・本人をトータルサポート。">
+<meta name="description" content="フィリピン人の特定技能ビザ申請、在留資格変更、登録支援機関サポートまで全国対応。フィリピン案件に特化した行政書士が企業様を全面支援します。">
+<link rel="canonical" href="https://tokunaga-gyosei.jp/">
 <link rel="icon" type="image/png" sizes="32x32" href="gyosei_logo_192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="gyosei_logo_192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="gyosei_logo_512.png">
 <link rel="manifest" href="manifest.json">
+<link rel="alternate" hreflang="ja" href="https://tokunaga-gyosei.jp/">
+<link rel="alternate" hreflang="en" href="https://tokunaga-gyosei.jp/en/">
+<link rel="alternate" hreflang="tl" href="https://tokunaga-gyosei.jp/tl/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>行政書士 サポートオフィス | 徳永良雄行政書士事務所</title>
+<title>フィリピン特定技能ビザ申請専門｜全国対応｜徳永行政書士事務所</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--primary:#1f2f3a;--accent:#b89b5e;--bg-light:#f3f4f5;--text-main:#1a1a1a;--text-sub:#555;--white:#ffffff;--border:#e2e4e7;}
@@ -18,42 +22,14 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 .header-logo{display:flex;align-items:center;gap:15px;font-size:1.1rem;font-weight:700;letter-spacing:1px;}
 .header-logo img{height:32px;width:auto;}
 .header-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
-.header-nav a{font-size:0.95rem;font-weight:600;color:white;text-decoration:none;transition:0.3s;}
+.header-nav a{font-size:0.95rem;font-weight:600;text-decoration:none;color:white;transition:0.3s;}
 .header-nav a:hover{color:var(--accent);}
 .header-nav a.business-link{display:flex;align-items:center;gap:4px;font-size:0.75rem;font-weight:400;opacity:0.6;}
-.header-nav a.business-link:hover{color:var(--accent);opacity:1;}
-.lang-switch {
-  display: flex;
-  gap: 8px;
-  margin-left: 20px;
-}
-
-.lang-switch {
-  display: flex;
-  gap: 6px;
-  margin-left: 15px;
-}
-
-.lang-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.6);
-  color: white;
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.lang-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.lang-btn:hover {
-  background: var(--accent);
-}
-
+.header-nav a.business-link:hover{opacity:1;color:var(--accent);}
+.lang-switch{display:flex;gap:6px;margin-left:15px;}
+.lang-btn{padding:4px 10px;border:1px solid rgba(255,255,255,0.6);border-radius:4px;font-size:12px;color:white;background:transparent;cursor:pointer;transition:0.3s;}
+.lang-btn.active{border-color:var(--accent);background:var(--accent);}
+.lang-btn:hover{background:var(--accent);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .hamburger span{width:25px;height:3px;background:white;transition:0.3s;}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
@@ -66,16 +42,16 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 .hero-left p{font-size:1.05rem;opacity:0.9;}
 .hero h1{margin-bottom:1rem;font-size:2rem;line-height:1.5;}
 .hero-sub{margin-bottom:1.8rem;font-size:1.1rem;opacity:0.95;}
-.hero-badge{display:inline-block;margin:15px 0;padding:8px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;background:#f4b400;color:#000;}
+.hero-badge{display:inline-block;margin:15px 0;padding:8px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;color:#000;background:#f4b400;}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
 .hero-buttons a{display:inline-block;min-width:240px;padding:0.9rem 2rem;border-radius:30px;font-weight:600;text-align:center;text-decoration:none;transition:0.3s;}
-.hero-notice{max-width:700px;margin:1.5rem auto 0;padding:0.8rem 1.2rem;border:1px solid #dcdfe3;border-radius:8px;font-size:0.9rem;text-align:left;background:#f0f1f3;color:#444;}
+.hero-notice{max-width:700px;margin:1.5rem auto 0;padding:0.8rem 1.2rem;border:1px solid #dcdfe3;border-radius:8px;font-size:0.9rem;text-align:left;color:#444;background:#f0f1f3;}
 .hero-notice strong{font-weight:600;}
 .one-stop-support-strong{max-width:1000px;margin:4rem auto;padding:3rem;border-radius:12px;color:#fff;background:linear-gradient(135deg,#1f2f3a,#2c3e50);}
 .one-stop-support-strong h2{margin-bottom:1.5rem;font-size:1.8rem;line-height:1.5;}
 .one-stop-support-strong p{margin-bottom:1rem;line-height:1.9;}
 .one-stop-support-strong .highlight{font-size:1.1rem;font-weight:bold;color:#ffd966;}
-.cta-white{display:inline-block;margin-top:1.5rem;padding:0.9rem 1.6rem;border-radius:30px;font-weight:bold;text-decoration:none;background:#fff;color:#1f2f3a;}
+.cta-white{display:inline-block;margin-top:1.5rem;padding:0.9rem 1.6rem;border-radius:30px;font-weight:bold;text-decoration:none;color:#1f2f3a;background:#fff;}
 .hero-content{flex:1;text-align:left;}
 .hero-news-box{width:360px;padding:25px;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,0.08);background:#ffffff;}
 .hero-news-box h3{margin-bottom:15px;padding-left:10px;border-left:4px solid #c40000;font-size:18px;}
@@ -84,28 +60,28 @@ header{position:fixed;top:0;left:0;z-index:1000;display:flex;justify-content:spa
 .hero-news-box .date{display:block;margin-bottom:4px;font-size:12px;color:#888;}
 .hero-tags{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap;}
 .hero-tags span{padding:6px 14px;border-radius:20px;box-shadow:0 3px 8px rgba(0,0,0,0.15);font-size:13px;font-weight:600;letter-spacing:0.5px;}
-.tag-gyosei{background:#1f2f3a;color:#fff;}
-.tag-support{background:#c9a227;color:#fff;}
-.btn-primary{border:2px solid var(--accent);background:var(--accent);color:white;}
+.tag-gyosei{color:#fff;background:#1f2f3a;}
+.tag-support{color:#fff;background:#c9a227;}
+.btn-primary{border:2px solid var(--accent);color:white;background:var(--accent);}
 .btn-primary:hover{border-color:#a8894a;background:#a8894a;}
-.btn-outline{border:2px solid white;background:transparent;color:white;}
-.btn-outline:hover{background:white;color:var(--primary);}
-.cta-button{display:inline-block;padding:14px 28px;border-radius:50px;font-size:1.1rem;font-weight:bold;text-decoration:none;background:#d32f2f;color:#fff;transition:0.3s;}
+.btn-outline{border:2px solid white;color:white;background:transparent;}
+.btn-outline:hover{color:var(--primary);background:white;}
+.cta-button{display:inline-block;padding:14px 28px;border-radius:50px;font-size:1.1rem;font-weight:bold;text-decoration:none;color:#fff;background:#d32f2f;transition:0.3s;}
 .cta-button:hover{transform:scale(1.05);background:#b71c1c;}
 .quick-response{margin-top:10px;font-size:0.9rem;color:#555;}
 .language-switch{margin-top:1.5rem;font-size:0.9rem;opacity:0.8;}
-.language-switch a{color:white;text-decoration:underline;}
+.language-switch a{text-decoration:underline;color:white;}
 .container{max-width:1100px;margin:auto;padding:2.5rem 1.5rem;}
 section{margin-bottom:4rem;scroll-margin-top:100px;}
-h2{margin-bottom:2rem;font-size:1.6rem;text-align:center;position:relative;}
+h2{position:relative;margin-bottom:2rem;font-size:1.6rem;text-align:center;}
 h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;background:var(--accent);}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
 .card{padding:2rem;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04);background:white;transition:0.3s;}
 .card:hover{transform:translateY(-6px);}
 .card h3{margin-top:0;}
-.info-box{height:100%;padding:2rem;border-left:5px solid var(--accent);border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.08);background:white;color:var(--text-main);}
+.info-box{height:100%;padding:2rem;border-left:5px solid var(--accent);border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.08);color:var(--text-main);background:white;}
 .info-box h3{margin-top:0;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--accent);font-size:1.2rem;}
-.info-box a{display:block;padding:0.5rem 0;font-weight:600;color:var(--primary);text-decoration:none;transition:0.3s;}
+.info-box a{display:block;padding:0.5rem 0;font-weight:600;text-decoration:none;color:var(--primary);transition:0.3s;}
 .info-box a:hover{color:var(--accent);}
 .pricing-note{margin-bottom:30px;font-weight:bold;text-align:center;color:#333;}
 .price-tag{font-size:1.5rem;font-weight:bold;color:var(--accent);}
@@ -119,7 +95,7 @@ h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;ba
 .profile-compact-list ul{margin:0;padding-left:1.2rem;}
 .second-penguin-box{margin-top:2rem;padding:1.2rem 1.5rem;border:1px solid #f3e2b8;border-radius:8px;text-align:left;background:#fff9e8;}
 .sp-text{margin-bottom:0.8rem;font-size:1rem;font-weight:600;color:#333;}
-.sp-link{display:inline-block;padding:0.5rem 1.4rem;border-radius:20px;font-size:0.95rem;font-weight:600;text-decoration:none;background:#d9eaf7;color:#1a4f7a;transition:0.3s;}
+.sp-link{display:inline-block;padding:0.5rem 1.4rem;border-radius:20px;font-size:0.95rem;font-weight:600;text-decoration:none;color:#1a4f7a;background:#d9eaf7;transition:0.3s;}
 .sp-link:hover{background:#c7def0;}
 .office-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-top:2rem;}
 .office-info{margin:0;padding:0;list-style:none;}
@@ -130,31 +106,31 @@ h2::after{content:"";display:block;width:60px;height:3px;margin:0.7rem auto 0;ba
 .info-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;background:white;}
 .info-table th,.info-table td{padding:1rem;border-bottom:1px solid var(--border);}
 .info-table th{width:30%;text-align:left;background:#f8fafc;}
-.cta-section{padding:4rem 1rem;text-align:center;background:linear-gradient(135deg,#1f2f3a,#2f3f4c);color:white;}
+.cta-section{padding:4rem 1rem;text-align:center;color:white;background:linear-gradient(135deg,#1f2f3a,#2f3f4c);}
 .cta-section h2{color:white;}
-.cta-section .btn-white{display:inline-block;margin-top:1.5rem;padding:1rem 2.5rem;border-radius:30px;font-weight:700;text-decoration:none;background:white;color:var(--primary);transition:0.3s;}
+.cta-section .btn-white{display:inline-block;margin-top:1.5rem;padding:1rem 2.5rem;border-radius:30px;font-weight:700;text-decoration:none;color:var(--primary);background:white;transition:0.3s;}
 .cta-section .btn-white:hover{background:#f5f5f5;}
 .contact-form{margin-top:2rem;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.04);background:white;}
 .contact-form .form-group{margin-bottom:1.5rem;}
 .contact-form label{display:block;margin-bottom:0.5rem;font-weight:600;}
 .contact-form input,.contact-form textarea{width:100%;padding:0.8rem;border:1px solid var(--border);border-radius:6px;font-size:1rem;}
 .contact-form textarea{min-height:150px;resize:vertical;}
-.contact-form button{padding:0.9rem 2rem;border:none;border-radius:30px;font-weight:600;cursor:pointer;background:var(--accent);color:white;transition:0.3s;}
+.contact-form button{padding:0.9rem 2rem;border:none;border-radius:30px;font-weight:600;color:white;background:var(--accent);cursor:pointer;transition:0.3s;}
 .contact-form button:hover{background:#ffb84d;}
 .privacy-note{margin-top:1rem;font-size:0.85rem;color:var(--text-sub);}
 .sns-fixed{position:fixed;right:25px;bottom:25px;z-index:1500;display:flex;flex-direction:column;gap:12px;}
-.sns-btn-wide{display:flex;justify-content:center;align-items:center;gap:10px;min-width:210px;padding:14px 20px;border-radius:40px;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.25);color:#fff;transition:0.3s;}
+.sns-btn-wide{display:flex;justify-content:center;align-items:center;gap:10px;min-width:210px;padding:14px 20px;border-radius:40px;box-shadow:0 10px 25px rgba(0,0,0,0.25);font-size:15px;font-weight:600;text-decoration:none;color:#fff;transition:0.3s;}
 .sns-btn-wide i{font-size:20px;}
-.sns-btn-wide:hover{transform:translateY(-3px);opacity:0.95;}
+.sns-btn-wide:hover{opacity:0.95;transform:translateY(-3px);}
 .line-btn{background:#06C755;}
 .facebook-btn{background-color:#1877f2;}
-.back-to-top{position:fixed;right:25px;bottom:170px;z-index:1500;padding:12px 16px;border-radius:30px;font-size:14px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);background:var(--primary);color:white;transition:0.3s;}
+.back-to-top{position:fixed;right:25px;bottom:170px;z-index:1500;padding:12px 16px;border-radius:30px;box-shadow:0 6px 15px rgba(0,0,0,0.2);font-size:14px;text-decoration:none;color:white;background:var(--primary);transition:0.3s;}
 .back-to-top:hover{background:var(--accent);}
 .floating-cta{position:static;margin-top:20px;}
 .floating-cta a{font-weight:bold;text-decoration:none;color:#fff;}
-footer{padding:3rem 1rem;text-align:center;background:var(--primary);color:white;}
+footer{padding:3rem 1rem;text-align:center;color:white;background:var(--primary);}
 footer p{margin:0.5rem 0;opacity:0.85;}
-footer a{font-weight:600;color:white;text-decoration:underline;}
+footer a{font-weight:600;text-decoration:underline;color:white;}
 footer a:hover{color:var(--accent);}
 .bg-light-section,.bg-accent-section{padding:3rem 0;}
 @media (max-width:900px){
@@ -179,7 +155,37 @@ footer a:hover{color:var(--accent);}
 .sns-btn-wide{min-width:160px;padding:10px 14px;font-size:13px;}
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"德永良雄行政書士事務所","url":"https://tokunaga-gyosei.jp/","telephone":"+81-70-9192-2524","email":"info@tokunaga-gyosei.jp","address":{"@type":"PostalAddress","streetAddress":"向洋町中6-9 神戸ファッションマート 4N-07-01","addressLocality":"神戸市東灘区","addressRegion":"兵庫県","postalCode":"658-0032","addressCountry":"JP"},"areaServed":{"@type":"Country","name":"Japan"},"founder":{"@type":"Person","name":"德永 良雄"},"serviceType":["特定技能ビザ申請","在留資格申請","組合顧問契約","フィリピン人就労支援"]}</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LegalService",
+"image":"https://tokunaga-gyosei.jp/myfoto.png",
+"priceRange":"¥¥"
+ "name":"德永良雄行政書士事務所",
+ "alternateName":"Tokunaga Administrative Scrivener Office",
+ "url":"https://tokunaga-gyosei.jp/",
+ "telephone":"+81-70-9192-2524",
+ "email":"info@tokunaga-gyosei.jp",
+ "address":{
+   "@type":"PostalAddress",
+   "streetAddress":"向洋町中6-9 神戸ファッションマート 4N-07-01",
+   "addressLocality":"神戸市東灘区",
+   "addressRegion":"兵庫県",
+   "postalCode":"658-0032",
+   "addressCountry":"JP"
+ },
+ "areaServed":"JP",
+ "founder":{
+   "@type":"Person",
+   "name":"德永 良雄"
+ },
+ "serviceType":[
+   "特定技能ビザ申請",
+   "Specified Skilled Worker Visa Application",
+   "Philippine Worker Support"
+ ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -199,30 +205,22 @@ footer a:hover{color:var(--accent);}
 <a href="https://second-penguin-planning.github.io/member/" target="_blank" class="business-link">🔒 業務用</a>
 </nav>
 <div class="lang-switch">
-  <button class="lang-btn active" onclick="switchLang('jp')">JP</button>
-  <button class="lang-btn" onclick="switchLang('en')">EN</button>
-  <button class="lang-btn" onclick="switchLang('tl')">TL</button>
+<a href="/" class="lang-btn active">JP</a>
+<a href="/en/" class="lang-btn">EN</a>
+<a href="/tl/" class="lang-btn">TL</a>
 </div>
 </header>
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-left">
-<h1 data-i18n="hero_title">
-フィリピン人 特定技能 専門サポート 全国対応 行政書士
-</h1>
-<p data-i18n="hero_sub">
-特定技能・在留資格の申請を一括サポート
-</p>
+<h1 data-i18n="hero_title">フィリピン人特定技能ビザ申請専門｜全国対応の行政書士</h1>
+<p data-i18n="hero_sub">特定技能・在留資格の申請を一括サポート</p>
 <div class="hero-badge">初回相談 無料｜全国オンライン対応</div>
-<a href="#contact" class="cta-button" data-i18n="hero_cta">
-無料相談はこちら
-</a>
+<a href="#contact" class="cta-button" data-i18n="hero_cta">無料相談はこちら</a>
 <div class="hero-notice">
 <strong>【行政書士＋登録支援機関 ワンストップ対応】</strong><br>
 外国人雇用支援事業（登録支援機関 申請中・2026年3月登録予定）は、
-<a href="http://second-penguin.com/" target="_blank" style="color:#1f2f3a; text-decoration:underline;">
-セコンドペンギン企画
-</a>
+<a href="http://second-penguin.com/" target="_blank" style="color:#1f2f3a; text-decoration:underline;">セコンドペンギン企画</a>
 にて対応予定です。
 </div>
 <p class="quick-response">通常24時間以内にご返信します</p>
@@ -256,7 +254,7 @@ footer a:hover{color:var(--accent);}
 <div class="grid">
 <div class="card"><h3>組合顧問契約</h3><p>技能実習から特定技能移行、受入体制整備、監査対応まで継続サポート。全国対応可能。</p></div>
 <div class="card"><h3>特定技能フルサポート</h3><p>在留資格認定、変更、更新、支援計画作成、登録支援機関との連携まで一括対応。</p></div>
-<div class="card"><h3>フィリピン送出機関対応</h3><p>フィリピン大使館・POEA関連手続き、契約書確認・調整支援。</p></div>
+<div class="card"><h3>フィリピン送出機関対応</h3><p>フィリピン大使館・DMW（旧POEA）関連手続き、契約書確認・調整支援。</p></div>
 </div>
 </div>
 </section>
@@ -264,7 +262,7 @@ footer a:hover{color:var(--accent);}
 <div class="container">
 <h2>フィリピン人の皆様へ</h2>
 <div class="grid">
-<div class="card"><h3>日本で働きたい方へ</h3><p>特定技能ビザ取得サポート。必要書類の確認から申請まで丁寧に対応。</p></div>
+<div class="card"><h3>日本で働きたい方へ</h3><p>特定技能ビザ取得サポート. 必要書類の確認から申請まで丁寧に対応。</p></div>
 <div class="card"><h3>ビザ更新・変更</h3><p>在留期間更新、転職に伴う変更申請など全国対応。</p></div>
 <div class="card"><h3>相談対応（英語可）</h3><p>英語での相談可能。オンライン面談にも対応しています。</p></div>
 </div>
@@ -391,19 +389,13 @@ footer a:hover{color:var(--accent);}
 <a href="https://line.me/R/oaMessage/@556fihjp/" target="_blank" rel="noopener noreferrer" class="sns-btn-wide line-btn" aria-label="LINEで無料相談">
 <i class="fab fa-line"></i> LINEで無料相談
 </a>
-<a href="https://https://www.facebook.com/second.penguin/" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
+<a href="https://www.facebook.com/second.penguin/" target="_blank" class="sns-btn-wide facebook-btn" aria-label="Facebookページを見る">
 <i class="fab fa-facebook-f"></i> Facebookページを見る
 </a>
 </div>
 <a href="#" class="back-to-top">▲ TOP</a>
 <a href="#contact" class="cta-white">ワンストップ相談を申し込む</a>
-<div class="floating-cta"><a href="#contact" class="cta-button"
-data-jp="無料相談はこちら"
-data-en="Free Consultation"
-data-tl="Libreng Konsultasyon"
->
-無料相談はこちら
-</a></div>
+<div class="floating-cta"><a href="#contact" class="cta-button" data-jp="無料相談はこちら" data-en="Free Consultation" data-tl="Libreng Konsultasyon">無料相談はこちら</a></div>
 <footer>
 <div class="footer-contacts"><p>電話: 070-9192-2524 | メール: info@tokunaga-gyosei.jp</p></div>
 <p><a href="private.html" style="color:white; text-decoration:underline;">プライバシーポリシー</a></p>
@@ -413,68 +405,15 @@ data-tl="Libreng Konsultasyon"
 <h4 style="margin-bottom:0.5rem;">その他の業務</h4>
 <p>補助金・助成金申請 /太陽光発電などの許認可申請 / 建設業許可 / 古物商許可 / 相続・遺言サポート なども対応しております。</p>
 </div>
+<p>所属：兵庫県行政書士会</p>
+<p>登録番号：第24303656号</p>
 </footer>
 <script>
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav");
-
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  nav.classList.toggle("show");
+hamburger.classList.toggle("active");
+nav.classList.toggle("show");
 });
-</script>
-<script>
-const translations = {
-  jp: {
-    hero_title: "フィリピン人 特定技能 専門サポート 全国対応 行政書士",
-    hero_sub: "特定技能・在留資格の申請を一括サポート",
-    hero_cta: "無料相談はこちら",
-    for_company: "企業様へ",
-    for_worker: "フィリピン人の方へ",
-    pricing: "料金",
-    office: "事務所",
-    contact: "お問い合わせ"
-  },
-  en: {
-    hero_title: "Philippine Specified Skilled Worker Visa Support Nationwide",
-    hero_sub: "Comprehensive support for visa and residence applications",
-    hero_cta: "Free Consultation",
-    for_company: "For Companies",
-    for_worker: "For Filipino Workers",
-    pricing: "Pricing",
-    office: "Office",
-    contact: "Contact"
-  },
-  tl: {
-    hero_title: "Suporta sa Specified Skilled Worker Visa para sa mga Pilipino sa buong Japan",
-    hero_sub: "Komprehensibong suporta para sa visa at residence application",
-    hero_cta: "Libreng Konsultasyon",
-    for_company: "Para sa mga Kumpanya",
-    for_worker: "Para sa mga Pilipino",
-    pricing: "Presyo",
-    office: "Opisina",
-    contact: "Makipag-ugnayan"
-  }
-};
-
-function switchLang(lang) {
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
-    }
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.innerText.toLowerCase() === lang.toLowerCase()) {
-      btn.classList.add('active');
-    }
-  });
-
-  document.documentElement.lang = lang;
-}
-</script>
 </body>
 </html>
