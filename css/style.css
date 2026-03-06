@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
 :root {
     --primary: #1f2f3a;
     --accent: #b89b5e;
@@ -365,16 +370,18 @@ h2::after {
     bottom: 160px;
     background: var(--primary);
     color: white;
-    padding: 10px;
-    border-radius: 50%;
+    padding: 10px 20px;    /* 上下10px、左右20pxで内側に余白を作る */
+    border-radius: 30px;   /* 十分に大きな値を指定することで両端が半円の楕円になります */
     text-decoration: none;
-    z-index: 1001; /* 他の要素(1000)より上に持ってくる */
+    z-index: 1001;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;  /* サイズを固定すると押しやすくなります */
-    height: 50px;
+    /* width: 50px;  ← 削除：中身に合わせて横に広がるようにします */
+    height: 40px;          /* 高さを少し抑えるとより楕円らしくなります */
     transition: 0.3s;
+    font-size: 0.8rem;     /* 文字を入れる場合はサイズを調整 */
+    font-weight: bold;
 }
 
 .back-to-top:hover {
