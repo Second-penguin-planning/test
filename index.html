@@ -9,17 +9,6 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 auto;
-    background: #fff;
-    font-size: 8.5pt;
-    color: #222;
-  }
-
-  /* ===== カラー変数 ===== */
   :root {
     --navy:   #0D2B55;
     --orange: #F4801A;
@@ -29,10 +18,25 @@
     --text:   #222222;
   }
 
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    font-size: 8.5pt;
+    color: #222;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
   /* ===== ヘッダー ===== */
   .header {
-    background: var(--navy);
-    color: var(--white);
+    background: #0D2B55 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color: #FFFFFF;
     padding: 10px 16px 8px;
     position: relative;
     overflow: hidden;
@@ -42,7 +46,9 @@
     position: absolute;
     top: 0; right: 0;
     width: 6px; height: 100%;
-    background: var(--orange);
+    background: #F4801A;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .header-top {
     font-size: 8pt;
@@ -55,8 +61,9 @@
     font-weight: 900;
     line-height: 1.3;
     margin-bottom: 4px;
+    color: #FFFFFF;
   }
-  .header-catch span { color: var(--orange); }
+  .header-catch span { color: #F4801A; }
   .header-sub {
     font-size: 8.5pt;
     font-weight: 700;
@@ -72,8 +79,9 @@
     font-weight: 900;
     line-height: 1.4;
     margin-bottom: 4px;
+    color: #FFFFFF;
   }
-  .header-title span { color: var(--orange); }
+  .header-title span { color: #F4801A; }
   .header-desc {
     font-size: 7.5pt;
     line-height: 1.6;
@@ -96,8 +104,8 @@
   .section-title {
     font-size: 9pt;
     font-weight: 900;
-    color: var(--navy);
-    border-left: 4px solid var(--orange);
+    color: #0D2B55;
+    border-left: 4px solid #F4801A;
     padding-left: 6px;
     margin-bottom: 6px;
     line-height: 1.3;
@@ -111,13 +119,13 @@
 
   /* ===== 課題セクション ===== */
   .issues {
-    background: var(--white);
+    background: #FFFFFF;
     border-bottom: 1px solid #e0e0e0;
   }
   .issues-q {
     font-size: 8.5pt;
     font-weight: 700;
-    color: var(--navy);
+    color: #0D2B55;
     margin-bottom: 4px;
   }
   .check-list {
@@ -132,7 +140,7 @@
   }
   .check-list li::before {
     content: '☑';
-    color: var(--orange);
+    color: #F4801A;
     position: absolute;
     left: 0;
     font-size: 8pt;
@@ -142,11 +150,13 @@
     line-height: 1.65;
     color: #333;
   }
-  .issues-body strong { color: var(--navy); font-weight: 700; }
+  .issues-body strong { color: #0D2B55; font-weight: 700; }
 
   /* ===== 強みセクション ===== */
   .strengths {
-    background: var(--yellow);
+    background: #FFFBE6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-bottom: 1px solid #e8e0b0;
   }
   .strength-item {
@@ -156,7 +166,9 @@
     align-items: flex-start;
   }
   .strength-num {
-    background: var(--orange);
+    background: #F4801A !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     color: white;
     font-weight: 900;
     font-size: 9pt;
@@ -172,7 +184,7 @@
   .strength-text h4 {
     font-size: 7.5pt;
     font-weight: 700;
-    color: var(--navy);
+    color: #0D2B55;
     margin-bottom: 1px;
   }
   .strength-text p {
@@ -186,7 +198,9 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: #e8f0fb;
+    background: #e8f0fb !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-radius: 6px;
     padding: 5px 8px;
     margin-top: 5px;
@@ -198,12 +212,12 @@
   }
   .balloon {
     background: white;
-    border: 1.5px solid var(--navy);
+    border: 1.5px solid #0D2B55;
     border-radius: 8px;
     padding: 4px 8px;
     font-size: 6.5pt;
     line-height: 1.5;
-    color: var(--navy);
+    color: #0D2B55;
     font-weight: 500;
     position: relative;
   }
@@ -213,7 +227,7 @@
     left: -8px; top: 50%;
     transform: translateY(-50%);
     border: 5px solid transparent;
-    border-right-color: var(--navy);
+    border-right-color: #0D2B55;
   }
   .balloon::after {
     content: '';
@@ -226,7 +240,7 @@
 
   /* ===== 人材の質セクション ===== */
   .quality {
-    background: var(--white);
+    background: #FFFFFF;
     border-bottom: 1px solid #e0e0e0;
   }
   .stat-row {
@@ -236,7 +250,9 @@
   }
   .stat-card {
     flex: 1;
-    background: var(--navy);
+    background: #0D2B55 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     color: white;
     border-radius: 4px;
     padding: 5px 6px;
@@ -245,15 +261,18 @@
   .stat-card .num {
     font-size: 14pt;
     font-weight: 900;
-    color: var(--orange);
+    color: #F4801A;
     line-height: 1.1;
   }
   .stat-card .label {
     font-size: 6pt;
     line-height: 1.3;
+    color: #FFFFFF;
   }
   .photo-placeholder {
-    background: linear-gradient(135deg, #0D2B55 0%, #1a4a8a 100%);
+    background: linear-gradient(135deg, #0D2B55 0%, #1a4a8a 100%) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-radius: 4px;
     height: 38mm;
     display: flex;
@@ -284,15 +303,15 @@
     left: 0;
     font-size: 7pt;
   }
-  .quality-list li strong { color: var(--navy); font-weight: 700; }
+  .quality-list li strong { color: #0D2B55; font-weight: 700; }
   .quality-list li .highlight {
-    color: var(--orange);
+    color: #F4801A;
     font-weight: 900;
   }
 
   /* ===== サポート・料金 ===== */
   .support {
-    background: var(--white);
+    background: #FFFFFF;
   }
   .support-grid {
     display: grid;
@@ -301,15 +320,17 @@
     margin-bottom: 5px;
   }
   .support-item {
-    background: var(--gray);
+    background: #F5F5F5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-radius: 4px;
     padding: 4px 6px;
-    border-left: 3px solid var(--navy);
+    border-left: 3px solid #0D2B55;
   }
   .support-item h5 {
     font-size: 7pt;
     font-weight: 700;
-    color: var(--navy);
+    color: #0D2B55;
     margin-bottom: 1px;
   }
   .support-item p {
@@ -319,15 +340,17 @@
   }
 
   .price-box {
-    border: 2px solid var(--orange);
+    border: 2px solid #F4801A;
     border-radius: 6px;
     padding: 6px 8px;
-    background: #FFF8F0;
+    background: #FFF8F0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .price-box h4 {
     font-size: 8pt;
     font-weight: 900;
-    color: var(--orange);
+    color: #F4801A;
     margin-bottom: 4px;
     text-align: center;
   }
@@ -340,21 +363,30 @@
   .price-table tr:last-child { border-bottom: none; }
   .price-table td { padding: 2.5px 4px; vertical-align: middle; }
   .price-table .plan { color: #333; font-weight: 500; }
-  .price-table .price { color: var(--orange); font-weight: 900; text-align: right; white-space: nowrap; }
+  .price-table .price { color: #F4801A; font-weight: 900; text-align: right; white-space: nowrap; }
   .price-table .recommended {
-    background: var(--orange);
+    background: #F4801A !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     color: white;
     font-size: 5.5pt;
     padding: 1px 4px;
     border-radius: 2px;
     white-space: nowrap;
   }
+  .price-row-highlight {
+    background: #fff3e0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   /* ===== フッター ===== */
   .footer {
-    background: var(--navy);
-    color: var(--white);
-    padding: 8px 14px;
+    background: #0D2B55 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color: #FFFFFF;
+    padding: 10px 14px;
   }
   .footer-top {
     text-align: center;
@@ -368,8 +400,8 @@
   .footer-top .free {
     font-size: 10pt;
     font-weight: 900;
-    color: var(--orange);
-    border: 2px solid var(--orange);
+    color: #F4801A;
+    border: 2px solid #F4801A;
     display: inline-block;
     padding: 2px 16px;
     border-radius: 20px;
@@ -383,7 +415,7 @@
   .footer-body {
     display: flex;
     gap: 10px;
-    align-items: flex-start;
+    align-items: center;
   }
   .footer-info { flex: 1; }
   .footer-info .company {
@@ -402,38 +434,43 @@
     line-height: 1.6;
     color: #ccd9ec;
   }
-  .contact-item .icon { color: var(--orange); }
+  .contact-item .icon { color: #F4801A; }
   .contact-item a { color: #7eb8f7; text-decoration: none; }
 
+  /* ===== QRエリア（大きく） ===== */
   .qr-area {
     display: flex;
-    gap: 8px;
+    gap: 18px;
     flex-shrink: 0;
+    align-items: center;
   }
   .qr-block {
     text-align: center;
   }
-  .qr-box {
-    width: 42px;
-    height: 42px;
+  .qr-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 6px;
+    display: block;
     background: white;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18pt;
-    margin-bottom: 2px;
+    object-fit: contain;
+    padding: 3px;
   }
   .qr-label {
-    font-size: 5.5pt;
+    font-size: 6.5pt;
     color: #aac4e8;
     text-align: center;
+    margin-top: 3px;
+    line-height: 1.4;
+    font-weight: 700;
   }
 
   /* ===== 仕切り線 ===== */
   .divider {
     height: 3px;
-    background: linear-gradient(90deg, var(--orange), var(--navy));
+    background: linear-gradient(90deg, #F4801A, #0D2B55) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .divider-thin {
     height: 1px;
@@ -441,9 +478,23 @@
     margin: 0 12px;
   }
 
+  /* ===== 印刷設定 ===== */
   @media print {
-    body { margin: 0; width: 210mm; }
-    @page { size: A4; margin: 0; }
+    body {
+      margin: 0;
+      width: 210mm;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
   }
 </style>
 </head>
@@ -463,10 +514,10 @@
 </div>
 <div class="divider"></div>
 
-<!-- ===== 2カラム：課題＋強み（左）／ 人材の質（右） ===== -->
+<!-- ===== 2カラム ===== -->
 <div class="two-col">
 
-  <!-- ===== 左カラム ===== -->
+  <!-- 左カラム -->
   <div class="col-left">
 
     <!-- 課題 -->
@@ -524,7 +575,7 @@
 
   </div><!-- /col-left -->
 
-  <!-- ===== 右カラム ===== -->
+  <!-- 右カラム -->
   <div class="col-right" style="border-left: 2px solid #e0e0e0;">
 
     <!-- 人材の質 -->
@@ -534,7 +585,6 @@
         <span class="sub">失踪率0.2%の誇り</span>
       </div>
 
-      <!-- 統計カード -->
       <div class="stat-row">
         <div class="stat-card">
           <div class="num">80%</div>
@@ -550,7 +600,6 @@
         </div>
       </div>
 
-      <!-- 写真プレースホルダー -->
       <div class="photo-placeholder">
         <div class="icon">📸</div>
         <div>OWJLCの活気ある授業風景<br>・笑顔の候補者たちの写真<br><span style="font-size:5.5pt;opacity:0.7;">（実際の写真に差し替えてください）</span></div>
@@ -611,7 +660,7 @@
             <td class="plan">特定技能サポートプラン（基本）</td>
             <td class="price">月額 15,000円〜/人</td>
           </tr>
-          <tr style="background:#fff3e0;">
+          <tr class="price-row-highlight">
             <td class="plan">
               <span class="recommended">推奨</span>
               教育付きサポートプラン（日本語コース付）
@@ -666,13 +715,14 @@
       </div>
     </div>
 
+    <!-- QRコード（実画像） -->
     <div class="qr-area">
       <div class="qr-block">
-        <div class="qr-box">💬</div>
+        <img src="images/QR_LINE.png" alt="LINE QRコード" class="qr-img">
         <div class="qr-label">LINE<br>お問い合わせ</div>
       </div>
       <div class="qr-block">
-        <div class="qr-box">🌐</div>
+        <img src="images/QR_second_penguin.png" alt="WEBサイト QRコード" class="qr-img">
         <div class="qr-label">WEB<br>サイト</div>
       </div>
     </div>
