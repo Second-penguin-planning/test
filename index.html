@@ -9,15 +9,6 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --navy:   #0D2B55;
-    --orange: #F4801A;
-    --yellow: #FFFBE6;
-    --white:  #FFFFFF;
-    --gray:   #F5F5F5;
-    --text:   #222222;
-  }
-
   body {
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
     width: 210mm;
@@ -29,6 +20,28 @@
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     color-adjust: exact;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== hotel.png 背景透過オーバーレイ ===== */
+  .hotel-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* z-index で全コンテンツを前面へ */
+  .header, .divider, .two-col, .section, .footer {
+    position: relative;
+    z-index: 1;
   }
 
   /* ===== ヘッダー ===== */
@@ -46,7 +59,7 @@
     position: absolute;
     top: 0; right: 0;
     width: 6px; height: 100%;
-    background: #F4801A;
+    background: #F4801A !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -56,14 +69,6 @@
     margin-bottom: 3px;
     letter-spacing: 0.05em;
   }
-  .header-catch {
-    font-size: 14.5pt;
-    font-weight: 900;
-    line-height: 1.3;
-    margin-bottom: 4px;
-    color: #FFFFFF;
-  }
-  .header-catch span { color: #F4801A; }
   .header-sub {
     font-size: 8.5pt;
     font-weight: 700;
@@ -119,7 +124,9 @@
 
   /* ===== 課題セクション ===== */
   .issues {
-    background: #FFFFFF;
+    background: rgba(255,255,255,0.92) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-bottom: 1px solid #e0e0e0;
   }
   .issues-q {
@@ -154,7 +161,7 @@
 
   /* ===== 強みセクション ===== */
   .strengths {
-    background: #FFFBE6 !important;
+    background: rgba(255,251,230,0.95) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     border-bottom: 1px solid #e8e0b0;
@@ -211,7 +218,9 @@
     line-height: 1;
   }
   .balloon {
-    background: white;
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border: 1.5px solid #0D2B55;
     border-radius: 8px;
     padding: 4px 8px;
@@ -240,7 +249,9 @@
 
   /* ===== 人材の質セクション ===== */
   .quality {
-    background: #FFFFFF;
+    background: rgba(255,255,255,0.92) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     border-bottom: 1px solid #e0e0e0;
   }
   .stat-row {
@@ -269,23 +280,18 @@
     line-height: 1.3;
     color: #FFFFFF;
   }
-  .photo-placeholder {
-    background: linear-gradient(135deg, #0D2B55 0%, #1a4a8a 100%) !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    border-radius: 4px;
+
+  /* ===== 授業風景写真 ===== */
+  .class-photo {
+    width: 100%;
     height: 38mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 7pt;
-    text-align: center;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
     margin-bottom: 5px;
-    border: 2px dashed rgba(255,255,255,0.3);
+    border: 2px solid #0D2B55;
   }
-  .photo-placeholder .icon { font-size: 20pt; margin-bottom: 3px; }
+
   .quality-list {
     list-style: none;
   }
@@ -311,7 +317,9 @@
 
   /* ===== サポート・料金 ===== */
   .support {
-    background: #FFFFFF;
+    background: rgba(255,255,255,0.93) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .support-grid {
     display: grid;
@@ -387,6 +395,8 @@
     print-color-adjust: exact;
     color: #FFFFFF;
     padding: 10px 14px;
+    position: relative;
+    z-index: 1;
   }
   .footer-top {
     text-align: center;
@@ -411,7 +421,6 @@
     font-size: 6.5pt;
     color: #aac4e8;
   }
-
   .footer-body {
     display: flex;
     gap: 10px;
@@ -437,22 +446,22 @@
   .contact-item .icon { color: #F4801A; }
   .contact-item a { color: #7eb8f7; text-decoration: none; }
 
-  /* ===== QRエリア（大きく） ===== */
+  /* ===== QRエリア ===== */
   .qr-area {
     display: flex;
     gap: 18px;
     flex-shrink: 0;
     align-items: center;
   }
-  .qr-block {
-    text-align: center;
-  }
+  .qr-block { text-align: center; }
   .qr-img {
     width: 72px;
     height: 72px;
     border-radius: 6px;
     display: block;
-    background: white;
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     object-fit: contain;
     padding: 3px;
   }
@@ -471,11 +480,15 @@
     background: linear-gradient(90deg, #F4801A, #0D2B55) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    position: relative;
+    z-index: 1;
   }
   .divider-thin {
     height: 1px;
     background: #ddd;
     margin: 0 12px;
+    position: relative;
+    z-index: 1;
   }
 
   /* ===== 印刷設定 ===== */
@@ -495,10 +508,17 @@
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
+    .hotel-bg {
+      position: fixed;
+      opacity: 0.07 !important;
+    }
   }
 </style>
 </head>
 <body>
+
+<!-- ===== hotel.png 透過背景ウォーターマーク ===== -->
+<img src="images/hotel.png" class="hotel-bg" alt="">
 
 <!-- ===== ヘッダー ===== -->
 <div class="header">
@@ -517,7 +537,7 @@
 <!-- ===== 2カラム ===== -->
 <div class="two-col">
 
-  <!-- 左カラム -->
+  <!-- ===== 左カラム ===== -->
   <div class="col-left">
 
     <!-- 課題 -->
@@ -543,7 +563,10 @@
         <span class="sub">なぜ、私たちの紹介は「質」が違うのか</span>
       </div>
 
-      <p style="font-size:6.5pt;color:#555;margin-bottom:6px;">代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>他の業者には真似できない<strong>3つの信頼の柱</strong>があります。</p>
+      <p style="font-size:6.5pt;color:#555;margin-bottom:6px;">
+        代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>
+        他の業者には真似できない<strong>3つの信頼の柱</strong>があります。
+      </p>
 
       <div class="strength-item">
         <div class="strength-num">①</div>
@@ -575,7 +598,7 @@
 
   </div><!-- /col-left -->
 
-  <!-- 右カラム -->
+  <!-- ===== 右カラム ===== -->
   <div class="col-right" style="border-left: 2px solid #e0e0e0;">
 
     <!-- 人材の質 -->
@@ -600,15 +623,26 @@
         </div>
       </div>
 
-      <div class="photo-placeholder">
-        <div class="icon">📸</div>
-        <div>OWJLCの活気ある授業風景<br>・笑顔の候補者たちの写真<br><span style="font-size:5.5pt;opacity:0.7;">（実際の写真に差し替えてください）</span></div>
-      </div>
+      <!-- 授業風景写真 -->
+      <img
+        src="images/授業風景.png"
+        alt="OWJLCの授業風景"
+        class="class-photo"
+      >
 
       <ul class="quality-list">
-        <li><strong>提携校 OWJLC</strong>（フィリピン）<br>18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。</li>
-        <li><span class="highlight">失踪率わずか0.2%</span>を実現<br>フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。</li>
-        <li><strong>内田クレペリン検査</strong>を導入<br>日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。</li>
+        <li>
+          <strong>提携校 OWJLC</strong>（フィリピン）<br>
+          18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。
+        </li>
+        <li>
+          <span class="highlight">失踪率わずか0.2%</span>を実現<br>
+          フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。
+        </li>
+        <li>
+          <strong>内田クレペリン検査</strong>を導入<br>
+          日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。
+        </li>
       </ul>
 
       <div class="penguin-box" style="margin-top:4px;">
@@ -680,7 +714,9 @@
             <td class="price">月額 30,000円〜</td>
           </tr>
         </table>
-        <p style="font-size:6pt;color:#888;text-align:center;margin-top:4px;">貴社の規模に合わせて最適なプランをご提案します。</p>
+        <p style="font-size:6pt;color:#888;text-align:center;margin-top:4px;">
+          貴社の規模に合わせて最適なプランをご提案します。
+        </p>
       </div>
     </div>
 
@@ -707,15 +743,20 @@
           神戸ファッションマート 4N-07-01
         </div>
         <div class="contact-item">
-          <span class="icon">📞</span> <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong><br>（担当直通）<br>
-          <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
-          <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
-          <span style="margin-left:12px;"><a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a></span>
+          <span class="icon">📞</span>
+          <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong>（担当直通）<br>
+          <span class="icon">✉️</span>
+          <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
+          <span class="icon">🌐</span>
+          <a href="https://second-penguin.com">second-penguin.com</a><br>
+          <span style="margin-left:12px;">
+            <a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a>
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- QRコード（実画像） -->
+    <!-- QRコード -->
     <div class="qr-area">
       <div class="qr-block">
         <img src="images/QR_LINE.png" alt="LINE QRコード" class="qr-img">
