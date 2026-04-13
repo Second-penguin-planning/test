@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>セコンドペンギン企画 チラシ</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+    /* Noto Sans(ゴシック体)の極太(900)を最大限活用しインパクトを出す */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap');
+
+    :root {
+      /* ==== 黄土色・ブラウン系のカラーパレット ==== */
+      --color-dark: #362410;       /* 深いこげ茶（文字色） */
+      --color-main: #b8860b;       /* 黄土色（ダークゴールデンロッド） */
+      --color-accent: #ffae00;     /* 鮮やかなイエローゴールド（強調色） */
+      --color-light: #fdf8ef;      /* 温かみのある背景白 */
+      --color-border: #e6dac6;     /* 枠線用の薄い茶色 */
+    }
 
     * {
       margin: 0;
@@ -15,7 +25,7 @@
 
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      background: #f0f4f8;
+      background: #e0e0e0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,16 +39,17 @@
       background: #ffffff;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      color: var(--color-dark);
     }
 
-    /* ===== ヘッダービジュアルエリア（写真背景） ===== */
+    /* ===== ヘッダービジュアルエリア（写真＋黄土色グラデーション） ===== */
     .hero {
       width: 100%;
-      height: 98mm; /* インパクトを出すため少し拡大 */
-      /* 背景に学校・授業のイメージ画像を設定し、上に濃いグラデーションを重ねて文字を読みやすくする */
+      height: 105mm; /* 高さを広げて写真のインパクトを最大化 */
+      /* 黄土色〜ブラウンの濃いグラデーションを重ねることで、写真全体をセピア・ゴールド調に */
       background: 
-        linear-gradient(135deg, rgba(10, 35, 66, 0.85) 0%, rgba(41, 128, 185, 0.65) 100%),
+        linear-gradient(135deg, rgba(40, 25, 5, 0.85) 0%, rgba(160, 110, 15, 0.7) 100%),
         url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
       position: relative;
       overflow: hidden;
@@ -47,7 +58,6 @@
       justify-content: center;
     }
 
-    /* 斜めストライプ装飾（写真の質感を上げる） */
     .stripe-overlay {
       position: absolute;
       top: 0;
@@ -58,12 +68,11 @@
         -45deg,
         transparent,
         transparent 20px,
-        rgba(255,255,255,0.02) 20px,
-        rgba(255,255,255,0.02) 40px
+        rgba(255,255,255,0.03) 20px,
+        rgba(255,255,255,0.03) 40px
       );
     }
 
-    /* 背景の波形装飾 */
     .wave-decoration {
       position: absolute;
       bottom: 0;
@@ -76,90 +85,95 @@
       position: relative;
       z-index: 2;
       text-align: left;
-      padding: 0 14mm;
+      padding: 0 12mm;
       width: 100%;
     }
 
-    /* 追加：ロゴマークのスタイル */
+    /* ロゴを少し大きく */
     .hero-logo {
-      width: 18mm;
-      height: 18mm;
+      width: 24mm;
+      height: 24mm;
       object-fit: contain;
       background: #ffffff;
       border-radius: 50%;
       padding: 2px;
-      margin-bottom: 4mm;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-bottom: 5mm;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
 
     .hero-eyebrow {
       display: inline-block;
-      background: rgba(61, 184, 245, 0.3);
-      border: 1px solid rgba(61, 184, 245, 0.6);
-      color: #a8d8f0;
-      font-size: 9px;
-      letter-spacing: 3px;
-      padding: 4px 12px;
+      background: rgba(255, 174, 0, 0.2);
+      border: 1px solid rgba(255, 174, 0, 0.5);
+      color: var(--color-accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 14px;
       border-radius: 20px;
-      margin-bottom: 10px;
-      font-weight: 500;
+      margin-bottom: 12px;
+      font-weight: 900;
     }
 
+    /* タイトルのインパクトを最大化 */
     .hero-title-jp {
       font-family: 'Noto Serif JP', serif;
-      font-size: 30px;
-      font-weight: 700;
+      font-size: 38px;
+      font-weight: 900; /* 極太 */
       color: #ffffff;
-      line-height: 1.3;
-      margin-bottom: 6px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
 
+    /* 「日本で」の部分をさらに巨大化＆ゴールド色に */
     .hero-title-jp span {
-      color: #3db8f5;
+      font-size: 52px;
+      color: var(--color-accent);
+      display: inline-block;
+      transform: translateY(2px);
+      text-shadow: 0 0 20px rgba(255, 174, 0, 0.4);
     }
 
     .hero-subtitle {
-      font-size: 11px;
-      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
       letter-spacing: 1px;
-      margin-bottom: 14px;
-      font-weight: 400;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+      font-weight: 500;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(184, 134, 11, 0.7);
       backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid var(--color-accent);
       border-radius: 6px;
-      padding: 6px 14px;
+      padding: 6px 16px;
       color: #ffffff;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .hero-badge::before {
-      content: '⚖️';
       font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     /* ===== メインコンテンツエリア ===== */
     .main-content {
-      padding: 8mm 12mm;
+      padding: 8mm 10mm; /* 左右の余白を調整してコンテンツ幅を確保 */
     }
 
     /* ===== ミッションセクション ===== */
     .mission-section {
-      background: linear-gradient(135deg, #f8fbff, #eef5ff);
-      border-left: 5px solid #2980b9;
-      border-radius: 0 10px 10px 0;
-      padding: 8px 14px;
-      margin-bottom: 7mm;
+      background: linear-gradient(135deg, var(--color-light), #fff);
+      border-left: 8px solid var(--color-main);
+      border-radius: 0 12px 12px 0;
+      padding: 12px 18px;
+      margin-bottom: 8mm;
       position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
     .mission-section::before {
@@ -167,51 +181,53 @@
       position: absolute;
       top: -10px;
       left: 10px;
-      font-size: 60px;
-      color: rgba(41, 128, 185, 0.15);
+      font-size: 70px;
+      color: rgba(184, 134, 11, 0.15); /* 黄土色 */
       font-family: Georgia, serif;
       line-height: 1;
     }
 
     .mission-label {
-      font-size: 8px;
-      color: #2980b9;
+      font-size: 10px;
+      color: var(--color-main);
       letter-spacing: 3px;
-      font-weight: 700;
-      margin-bottom: 4px;
+      font-weight: 900;
+      margin-bottom: 6px;
     }
 
     .mission-text {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #0a2342;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 18px; /* 文字を大きく */
+      font-weight: 900; /* 極太でインパクト */
+      color: var(--color-dark);
       line-height: 1.6;
+      letter-spacing: -0.5px;
     }
 
+    /* 蛍光ペン風のハイライトに変更 */
     .mission-text span {
-      color: #2980b9;
-      border-bottom: 2px solid #3db8f5;
+      background: linear-gradient(transparent 60%, rgba(255, 174, 0, 0.4) 60%);
+      padding: 0 2px;
     }
 
     /* ===== サービスグリッド ===== */
     .section-title {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 4mm;
     }
 
     .section-title-line {
       flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, #2980b9, transparent);
+      height: 2px;
+      background: linear-gradient(to right, var(--color-main), transparent);
     }
 
     .section-title-text {
-      font-size: 10px;
-      font-weight: 700;
-      color: #1a4a7a;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--color-dark);
       letter-spacing: 3px;
       white-space: nowrap;
     }
@@ -220,71 +236,73 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 4mm;
-      margin-bottom: 6mm;
+      margin-bottom: 7mm;
     }
 
     .service-card {
       background: #ffffff;
-      border: 1px solid #e0eaf5;
-      border-radius: 10px;
-      padding: 5mm 4mm;
+      border: 2px solid var(--color-border);
+      border-radius: 12px;
+      padding: 6mm 4mm;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
+    /* カード上部のアクセントラインも暖色系に統一 */
     .service-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(to right, #2980b9, #3db8f5);
+      height: 4px;
+      background: linear-gradient(to right, #b8860b, #daa520);
     }
-
     .service-card:nth-child(2)::before {
-      background: linear-gradient(to right, #16a085, #1abc9c);
+      background: linear-gradient(to right, #cd853f, #d2b48c);
     }
-
     .service-card:nth-child(3)::before {
-      background: linear-gradient(to right, #8e44ad, #9b59b6);
+      background: linear-gradient(to right, #8b4513, #a0522d);
     }
 
     .service-icon {
-      font-size: 28px;
-      margin-bottom: 6px;
+      font-size: 34px;
+      margin-bottom: 8px;
       display: block;
     }
 
     .service-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #0a2342;
-      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--color-dark);
+      margin-bottom: 6px;
     }
 
     .service-desc {
-      font-size: 9px;
+      font-size: 10px;
       color: #555;
       line-height: 1.6;
+      font-weight: 500;
     }
 
-    /* ===== 対象者セクション ===== */
+    /* ===== 対象者セクション（ブラウン系で引き締め） ===== */
     .target-section {
-      background: linear-gradient(135deg, #0a2342, #1a4a7a);
+      background: linear-gradient(135deg, #4a330a, #8b6508);
       border-radius: 12px;
-      padding: 6mm 8mm;
-      margin-bottom: 6mm;
+      padding: 7mm 8mm;
+      margin-bottom: 7mm;
       color: white;
+      box-shadow: 0 5px 15px rgba(139, 101, 8, 0.3);
     }
 
     .target-title {
-      font-size: 10px;
+      font-size: 13px;
       letter-spacing: 3px;
-      color: #3db8f5;
-      margin-bottom: 4mm;
-      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 5mm;
+      font-weight: 900;
     }
 
     .target-list {
@@ -295,10 +313,11 @@
 
     .target-tag {
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(61, 184, 245, 0.4);
+      border: 1px solid rgba(255, 174, 0, 0.4);
       border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 10px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -307,17 +326,19 @@
 
     .target-tag::before {
       content: '✓';
-      color: #3db8f5;
-      font-weight: 700;
+      color: var(--color-accent);
+      font-weight: 900;
+      font-size: 13px;
     }
 
     .target-note {
-      margin-top: 4mm;
-      font-size: 9px;
-      color: rgba(255,255,255,0.7);
+      margin-top: 5mm;
+      font-size: 10px;
+      color: rgba(255,255,255,0.8);
       line-height: 1.7;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px dashed rgba(255,255,255,0.2);
       padding-top: 4mm;
+      font-weight: 500;
     }
 
     /* ===== 特徴セクション ===== */
@@ -330,35 +351,38 @@
 
     .feature-item {
       text-align: center;
-      padding: 4mm 2mm;
-      border-radius: 8px;
-      background: #f8fbff;
-      border: 1px solid #e0eaf5;
+      padding: 5mm 2mm;
+      border-radius: 10px;
+      background: var(--color-light);
+      border: 1px solid var(--color-border);
     }
 
     .feature-num {
-      font-size: 22px;
+      font-size: 28px; /* 数字を巨大化 */
       font-weight: 900;
-      color: #2980b9;
+      color: var(--color-main);
       line-height: 1;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+      font-family: 'Noto Serif JP', serif;
     }
 
     .feature-num sup {
-      font-size: 10px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
     }
 
     .feature-label {
-      font-size: 8px;
-      color: #444;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-dark);
       line-height: 1.5;
     }
 
     /* ===== フッターCTA ===== */
     .cta-section {
-      background: linear-gradient(135deg, #f0f7ff, #e8f4fc);
-      border: 2px solid #2980b9;
+      background: linear-gradient(135deg, var(--color-light), #fff);
+      border: 3px solid var(--color-main);
       border-radius: 12px;
       padding: 5mm 6mm;
       display: grid;
@@ -372,27 +396,28 @@
     }
 
     .cta-label {
-      font-size: 8px;
-      color: #2980b9;
+      font-size: 10px;
+      color: var(--color-main);
       letter-spacing: 2px;
-      font-weight: 700;
+      font-weight: 900;
       margin-bottom: 3px;
     }
 
     .cta-org-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #0a2342;
+      font-size: 18px; /* 組織名を大きく */
+      font-weight: 900;
+      color: var(--color-dark);
       line-height: 1.4;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .cta-org-sub {
-      font-size: 9px;
-      color: #555;
-      background: rgba(41, 128, 185, 0.1);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-dark);
+      background: rgba(184, 134, 11, 0.15);
       display: inline-block;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 4px;
     }
 
@@ -401,56 +426,58 @@
     }
 
     .cta-contact {
-      font-size: 8px;
+      font-size: 9px;
+      font-weight: 700;
       color: #666;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .cta-website {
-      font-size: 9px;
-      font-weight: 700;
-      background: #2980b9;
+      font-size: 12px;
+      font-weight: 900;
+      background: var(--color-main);
       color: white;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 20px;
       display: inline-block;
+      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.4);
     }
 
-    /* 追加：LINE QRコードエリア */
+    /* LINE QRコードエリア */
     .cta-qr-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
-      padding-left: 3mm;
-      border-left: 1px dashed rgba(41, 128, 185, 0.3);
+      gap: 4px;
+      padding-left: 4mm;
+      border-left: 2px dashed var(--color-border);
     }
 
     .cta-qr-box img {
-      width: 17mm;
-      height: 17mm;
+      width: 18mm;
+      height: 18mm;
       border-radius: 4px;
       border: 1px solid #ddd;
       background: #fff;
     }
 
     .cta-qr-text {
-      font-size: 8px;
+      font-size: 9px;
       color: #fff;
-      background: #06C755; /* LINEグリーン */
-      padding: 2px 6px;
+      background: #06C755;
+      padding: 3px 8px;
       border-radius: 10px;
-      font-weight: 700;
+      font-weight: 900;
       text-align: center;
       white-space: nowrap;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     }
 
     /* ===== 底部カラーバー ===== */
     .bottom-bar {
       width: 100%;
-      height: 6px;
-      background: linear-gradient(to right, #0a2342, #2980b9, #3db8f5, #1abc9c);
+      height: 8px;
+      background: linear-gradient(to right, #4a330a, #8b6508, #daa520, #ffc107);
       position: absolute;
       bottom: 0;
     }
@@ -462,26 +489,24 @@
         padding: 0;
         margin: 0;
       }
-
       .flyer {
         box-shadow: none;
         width: 210mm;
         height: 297mm;
         page-break-after: avoid;
       }
-
       @page {
         size: A4;
         margin: 0;
       }
     }
 
-    /* ===== アクセントドット ===== */
+    /* アクセントドット */
     .dot-pattern {
       position: absolute;
       top: 10mm;
       right: 10mm;
-      opacity: 0.15;
+      opacity: 0.2;
     }
 
   </style>
@@ -490,7 +515,6 @@
   <div class="flyer">
 
     <!-- ========== ヒーローセクション ========== -->
-    <!-- 変更点：背景を「学校の授業風景画像」に変更し、インパクトを強化しました -->
     <div class="hero">
       <div class="stripe-overlay"></div>
 
@@ -516,7 +540,6 @@
 
       <!-- テキストコンテンツ & ロゴ -->
       <div class="hero-content">
-        <!-- 変更点：ペンギンロゴを指定の画像ファイルに変更して上部に配置 -->
         <img src="gyosei_logo_192.png" alt="Second Penguin Logo" class="hero-logo">
         <br>
         <div class="hero-eyebrow">SECOND PENGUIN PROJECT</div>
@@ -529,8 +552,8 @@
       </div>
 
       <!-- 下部の波形 -->
-      <svg class="wave-decoration" height="30" viewBox="0 0 793 30" preserveAspectRatio="none">
-        <path d="M0,0 C200,30 400,0 600,20 C700,30 750,10 793,15 L793,30 L0,30Z" fill="white"/>
+      <svg class="wave-decoration" height="35" viewBox="0 0 793 35" preserveAspectRatio="none">
+        <path d="M0,0 C200,35 400,0 600,25 C700,35 750,10 793,15 L793,35 L0,35Z" fill="white"/>
       </svg>
     </div>
 
@@ -633,7 +656,7 @@
           <div class="cta-contact">ウェブサイト・お問い合わせ</div>
           <div class="cta-website">🌐 second-penguing.com</div>
         </div>
-        <!-- 変更点：LINE QRコードの追加 -->
+        <!-- LINE QRコード -->
         <div class="cta-qr-box">
           <img src="images/QR_LINE.png" alt="LINE QRコード">
           <div class="cta-qr-text">LINEで無料相談</div>
