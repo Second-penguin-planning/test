@@ -1,673 +1,861 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>セコンドペンギン企画 チラシ</title>
-  <style>
-    /* Noto Sans(ゴシック体)の極太(900)を最大限活用しインパクトを出す */
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Penguin Project | セコンドペンギン企画</title>
 
+  <!-- 本番運用・印刷入稿時はフォントのローカル化推奨 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
     :root {
-      /* ==== 黄土色・ブラウン系のカラーパレット ==== */
-      --color-dark: #362410;       /* 深いこげ茶（文字色） */
-      --color-main: #b8860b;       /* 黄土色（ダークゴールデンロッド） */
-      --color-accent: #ffae00;     /* 鮮やかなイエローゴールド（強調色） */
-      --color-light: #fdf8ef;      /* 温かみのある背景白 */
-      --color-border: #e6dac6;     /* 枠線用の薄い茶色 */
+      --color-main: #9c6b11;
+      --color-main-dark: #6b4a12;
+      --color-main-soft: #c8922e;
+      --color-sub: #f5eddc;
+      --color-sub-deep: #e8dcc4;
+      --color-accent: #4a3420;
+      --color-brown: #5f4630;
+      --color-text: #2b241d;
+      --color-muted: #6f6254;
+      --color-white: #ffffff;
+      --color-line: rgba(107, 74, 18, 0.18);
+      --shadow-soft: 0 2mm 5mm rgba(60, 35, 5, 0.12);
+      --shadow-card: 0 1.5mm 4mm rgba(60, 35, 5, 0.10);
+      --radius-lg: 4mm;
+      --radius-md: 3mm;
+      --radius-sm: 2mm;
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #e9e3db;
+      color: var(--color-text);
       font-family: 'Noto Sans JP', sans-serif;
-      background: #e0e0e0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      padding: 12px;
     }
 
     .flyer {
       width: 210mm;
-      min-height: 297mm;
-      background: #ffffff;
+      height: 297mm;
+      margin: 0 auto;
+      background: var(--color-white);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      color: var(--color-dark);
+      box-shadow: 0 0 20px rgba(0,0,0,.12);
     }
 
-    /* ===== ヘッダービジュアルエリア（写真＋黄土色グラデーション） ===== */
-    .hero {
-      width: 100%;
-      height: 105mm; /* 高さを広げて写真のインパクトを最大化 */
-      /* 黄土色〜ブラウンの濃いグラデーションを重ねることで、写真全体をセピア・ゴールド調に */
-      background: 
-        linear-gradient(135deg, rgba(40, 25, 5, 0.85) 0%, rgba(160, 110, 15, 0.7) 100%),
-        url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    /* 印刷用の安全エリアを意識 */
+    .inner {
       position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .stripe-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 20px,
-        rgba(255,255,255,0.03) 20px,
-        rgba(255,255,255,0.03) 40px
-      );
+      padding: 8mm;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(200, 146, 46, 0.10), transparent 28%),
+        radial-gradient(circle at left bottom, rgba(156, 107, 17, 0.08), transparent 30%),
+        linear-gradient(180deg, #fffefc 0%, #ffffff 100%);
     }
 
-    .wave-decoration {
+    .bg-shape-top,
+    .bg-shape-bottom {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0.15;
+      pointer-events: none;
+      opacity: .22;
+      z-index: 0;
+    }
+
+    .bg-shape-top {
+      top: -8mm;
+      right: -10mm;
+      width: 70mm;
+      height: 70mm;
+    }
+
+    .bg-shape-bottom {
+      bottom: -12mm;
+      left: -10mm;
+      width: 75mm;
+      height: 75mm;
+      opacity: .15;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      height: 100%;
+      gap: 5mm;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 74mm;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: #6b4a12;
+      background-image:
+        linear-gradient(135deg, rgba(38, 22, 3, 0.88) 0%, rgba(110, 72, 8, 0.68) 55%, rgba(185, 133, 41, 0.48) 100%),
+        url('./images/hero.jpg');
+      background-size: cover;
+      background-position: center center;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(90deg, rgba(0,0,0,0.10), transparent 55%);
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
-      z-index: 2;
-      text-align: left;
-      padding: 0 12mm;
+      z-index: 1;
       width: 100%;
+      padding: 7mm 8mm 7mm 8mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    /* ロゴを少し大きく */
-    .hero-logo {
-      width: 24mm;
-      height: 24mm;
-      object-fit: contain;
-      background: #ffffff;
-      border-radius: 50%;
-      padding: 2px;
-      margin-bottom: 5mm;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4mm;
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      background: rgba(255, 174, 0, 0.2);
-      border: 1px solid rgba(255, 174, 0, 0.5);
-      color: var(--color-accent);
-      font-size: 11px;
-      letter-spacing: 4px;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      font-weight: 900;
-    }
-
-    /* タイトルのインパクトを最大化 */
-    .hero-title-jp {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 38px;
-      font-weight: 900; /* 極太 */
-      color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 8px;
-      letter-spacing: -1px;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
-
-    /* 「日本で」の部分をさらに巨大化＆ゴールド色に */
-    .hero-title-jp span {
-      font-size: 52px;
-      color: var(--color-accent);
-      display: inline-block;
-      transform: translateY(2px);
-      text-shadow: 0 0 20px rgba(255, 174, 0, 0.4);
-    }
-
-    .hero-subtitle {
-      font-size: 13px;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      font-weight: 500;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
-    }
-
-    .hero-badge {
-      display: inline-flex;
+    .brand {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(184, 134, 11, 0.7);
-      backdrop-filter: blur(4px);
-      border: 1px solid var(--color-accent);
-      border-radius: 6px;
-      padding: 6px 16px;
-      color: #ffffff;
-      font-size: 12px;
+      gap: 3mm;
+      background: rgba(255,255,255,0.14);
+      border: 0.4mm solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 2.2mm 3.2mm;
+      backdrop-filter: none;
+      max-width: 95mm;
+    }
+
+    .brand img {
+      width: 11mm;
+      height: 11mm;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #fff;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .brand-ja {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-en {
+      font-size: 6.4px;
+      opacity: .92;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .office-badge {
+      flex-shrink: 0;
+      color: #fff;
+      text-align: right;
+      background: rgba(255,255,255,0.12);
+      border: 0.35mm solid rgba(255,255,255,0.16);
+      border-radius: 3mm;
+      padding: 2.5mm 3mm;
+      min-width: 45mm;
+    }
+
+    .office-badge .small {
+      display: block;
+      font-size: 6.4px;
+      opacity: .9;
+      margin-bottom: 0.7mm;
+      letter-spacing: 0.2px;
+    }
+
+    .office-badge .name {
+      display: block;
+      font-size: 8.8px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .hero-copy {
+      margin-top: 4mm;
+      max-width: 120mm;
+      color: #fff;
+    }
+
+    .hero-lead {
+      display: inline-block;
+      font-size: 8px;
       font-weight: 700;
       letter-spacing: 1px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      padding: 1.4mm 2.6mm;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 0.35mm solid rgba(255,255,255,0.16);
+      margin-bottom: 3mm;
     }
 
-    /* ===== メインコンテンツエリア ===== */
-    .main-content {
-      padding: 8mm 10mm; /* 左右の余白を調整してコンテンツ幅を確保 */
-    }
-
-    /* ===== ミッションセクション ===== */
-    .mission-section {
-      background: linear-gradient(135deg, var(--color-light), #fff);
-      border-left: 8px solid var(--color-main);
-      border-radius: 0 12px 12px 0;
-      padding: 12px 18px;
-      margin-bottom: 8mm;
-      position: relative;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-    }
-
-    .mission-section::before {
-      content: '"';
-      position: absolute;
-      top: -10px;
-      left: 10px;
-      font-size: 70px;
-      color: rgba(184, 134, 11, 0.15); /* 黄土色 */
-      font-family: Georgia, serif;
-      line-height: 1;
-    }
-
-    .mission-label {
-      font-size: 10px;
-      color: var(--color-main);
-      letter-spacing: 3px;
+    .hero-title-jp {
+      margin: 0;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 36px;
       font-weight: 900;
-      margin-bottom: 6px;
+      line-height: 1.34;
+      letter-spacing: -0.4px;
+      text-shadow: 0 1.2mm 2.4mm rgba(0,0,0,0.18);
+    }
+
+    .hero-title-jp .em {
+      font-size: 47px;
+      color: #ffd879;
+      text-shadow: 0 1.2mm 3mm rgba(0,0,0,0.22);
+    }
+
+    .hero-sub {
+      margin-top: 3mm;
+      font-size: 9.2px;
+      line-height: 1.72;
+      max-width: 100mm;
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* MISSION */
+    .mission-panel {
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      gap: 4mm;
+      align-items: stretch;
+      background: linear-gradient(90deg, #fff8ec 0%, #fffdf8 100%);
+      border: 0.35mm solid rgba(156, 107, 17, 0.14);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .mission-side {
+      background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-dark) 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4mm 2mm;
+      text-align: center;
+    }
+
+    .mission-side span {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .mission-body {
+      padding: 4.2mm 5mm 4mm 1mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 1.8mm;
+      color: var(--color-main-dark);
+      font-size: 6.8px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 1mm 2mm;
+      border-radius: 999px;
+      background: rgba(156, 107, 17, 0.08);
     }
 
     .mission-text {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 18px; /* 文字を大きく */
-      font-weight: 900; /* 極太でインパクト */
-      color: var(--color-dark);
-      line-height: 1.6;
-      letter-spacing: -0.5px;
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.8;
+      color: var(--color-text);
     }
 
-    /* 蛍光ペン風のハイライトに変更 */
-    .mission-text span {
-      background: linear-gradient(transparent 60%, rgba(255, 174, 0, 0.4) 60%);
-      padding: 0 2px;
+    .mission-text strong {
+      color: var(--color-main-dark);
     }
 
-    /* ===== サービスグリッド ===== */
-    .section-title {
+    /* MAIN GRID */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.16fr 0.84fr;
+      gap: 5mm;
+      min-height: 0;
+    }
+
+    .left-col, .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+      min-height: 0;
+    }
+
+    .panel {
+      background: #fff;
+      border: 0.35mm solid var(--color-line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 4.5mm;
+    }
+
+    .panel-title {
+      margin: 0 0 3mm 0;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 4mm;
-    }
-
-    .section-title-line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--color-main), transparent);
-    }
-
-    .section-title-text {
-      font-size: 14px;
+      gap: 2.2mm;
+      color: var(--color-main-dark);
+      font-size: 11px;
       font-weight: 900;
-      color: var(--color-dark);
-      letter-spacing: 3px;
-      white-space: nowrap;
+      line-height: 1.4;
     }
 
+    .panel-title .icon {
+      width: 7mm;
+      height: 7mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #d9ac4f, #a46f16);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 4mm;
-      margin-bottom: 7mm;
+      gap: 3mm;
     }
 
     .service-card {
-      background: #ffffff;
-      border: 2px solid var(--color-border);
-      border-radius: 12px;
-      padding: 6mm 4mm;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border-radius: 3mm;
+      padding: 3.2mm;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,242,230,0.95));
+      border: 0.3mm solid rgba(156, 107, 17, 0.14);
+      display: flex;
+      flex-direction: column;
+      min-height: 48mm;
     }
 
-    /* カード上部のアクセントラインも暖色系に統一 */
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(to right, #b8860b, #daa520);
-    }
-    .service-card:nth-child(2)::before {
-      background: linear-gradient(to right, #cd853f, #d2b48c);
-    }
-    .service-card:nth-child(3)::before {
-      background: linear-gradient(to right, #8b4513, #a0522d);
-    }
-
-    .service-icon {
-      font-size: 34px;
-      margin-bottom: 8px;
-      display: block;
+    .service-no {
+      display: inline-flex;
+      width: 6.5mm;
+      height: 6.5mm;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--color-main-dark);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 900;
+      margin-bottom: 2.2mm;
     }
 
     .service-title {
-      font-size: 13px;
+      margin: 0 0 1.8mm 0;
+      font-size: 9.5px;
       font-weight: 900;
-      color: var(--color-dark);
-      margin-bottom: 6px;
+      color: var(--color-main-dark);
+      line-height: 1.45;
     }
 
-    .service-desc {
-      font-size: 10px;
-      color: #555;
-      line-height: 1.6;
-      font-weight: 500;
+    .service-copy {
+      margin: 0;
+      font-size: 7.7px;
+      line-height: 1.65;
+      color: var(--color-text);
     }
 
-    /* ===== 対象者セクション（ブラウン系で引き締め） ===== */
-    .target-section {
-      background: linear-gradient(135deg, #4a330a, #8b6508);
-      border-radius: 12px;
-      padding: 7mm 8mm;
-      margin-bottom: 7mm;
-      color: white;
-      box-shadow: 0 5px 15px rgba(139, 101, 8, 0.3);
-    }
-
-    .target-title {
-      font-size: 13px;
-      letter-spacing: 3px;
-      color: var(--color-accent);
-      margin-bottom: 5mm;
-      font-weight: 900;
-    }
-
-    .target-list {
+    /* TARGET */
+    .target-box {
       display: flex;
-      gap: 3mm;
       flex-wrap: wrap;
+      gap: 2mm;
+      margin-bottom: 2.5mm;
     }
 
-    .target-tag {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255, 174, 0, 0.4);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
+    .tag {
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
-    }
-
-    .target-tag::before {
-      content: '✓';
+      gap: 1mm;
+      padding: 1.5mm 2.6mm;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff6e4, #f8ecd5);
+      border: 0.3mm solid rgba(156, 107, 17, 0.18);
       color: var(--color-accent);
-      font-weight: 900;
-      font-size: 13px;
+      font-size: 7.4px;
+      font-weight: 700;
+      line-height: 1;
     }
 
     .target-note {
-      margin-top: 5mm;
-      font-size: 10px;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.7;
-      border-top: 1px dashed rgba(255,255,255,0.2);
-      padding-top: 4mm;
-      font-weight: 500;
+      margin: 0;
+      font-size: 7px;
+      line-height: 1.65;
+      color: var(--color-muted);
     }
 
-    /* ===== 特徴セクション ===== */
-    .features-row {
+    /* FEATURES */
+    .feature-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3mm;
-      margin-bottom: 7mm;
+      grid-template-columns: 1fr;
+      gap: 2.6mm;
     }
 
     .feature-item {
-      text-align: center;
-      padding: 5mm 2mm;
-      border-radius: 10px;
-      background: var(--color-light);
-      border: 1px solid var(--color-border);
-    }
-
-    .feature-num {
-      font-size: 28px; /* 数字を巨大化 */
-      font-weight: 900;
-      color: var(--color-main);
-      line-height: 1;
-      margin-bottom: 4px;
-      font-family: 'Noto Serif JP', serif;
-    }
-
-    .feature-num sup {
-      font-size: 12px;
-      font-weight: 700;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .feature-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--color-dark);
-      line-height: 1.5;
-    }
-
-    /* ===== フッターCTA ===== */
-    .cta-section {
-      background: linear-gradient(135deg, var(--color-light), #fff);
-      border: 3px solid var(--color-main);
-      border-radius: 12px;
-      padding: 5mm 6mm;
       display: grid;
-      grid-template-columns: 1fr auto auto;
+      grid-template-columns: 16mm 1fr;
+      gap: 3mm;
       align-items: center;
-      gap: 4mm;
+      padding: 2.6mm 2.4mm;
+      border-radius: 3mm;
+      background: linear-gradient(180deg, #fffdf9, #f9f3e9);
+      border: 0.3mm solid rgba(156, 107, 17, 0.12);
     }
 
-    .cta-left {
-      flex: 1;
-    }
-
-    .cta-label {
-      font-size: 10px;
+    .feature-key {
+      text-align: center;
       color: var(--color-main);
-      letter-spacing: 2px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
       font-weight: 900;
-      margin-bottom: 3px;
+      line-height: 1.05;
+      letter-spacing: -0.2px;
     }
 
-    .cta-org-name {
-      font-size: 18px; /* 組織名を大きく */
+    .feature-key span {
+      font-size: 9px;
+      vertical-align: super;
+      margin-left: 0.5mm;
+    }
+
+    .feature-text {
+      font-size: 8px;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+
+    .feature-text strong {
+      display: block;
+      font-size: 8.4px;
+      color: var(--color-main-dark);
+      margin-bottom: 0.5mm;
+    }
+
+    /* MESSAGE */
+    .message-panel {
+      background:
+        linear-gradient(135deg, rgba(156,107,17,0.06), rgba(255,255,255,0.95));
+    }
+
+    .message-text {
+      margin: 0;
+      font-size: 8px;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    /* CTA */
+    .cta {
+      background:
+        linear-gradient(135deg, #5c4022 0%, #845b18 55%, #b37b20 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      min-height: 42mm;
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 30mm;
+      gap: 4mm;
+      align-items: center;
+      padding: 5mm 6mm;
+    }
+
+    .cta-title {
+      margin: 0 0 2mm 0;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
       font-weight: 900;
-      color: var(--color-dark);
       line-height: 1.4;
-      margin-bottom: 6px;
+      color: #fff7e6;
     }
 
-    .cta-org-sub {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--color-dark);
-      background: rgba(184, 134, 11, 0.15);
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-
-    .cta-right {
-      text-align: right;
+    .cta-sub {
+      margin: 0 0 2.2mm 0;
+      font-size: 8.4px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
     }
 
     .cta-contact {
-      font-size: 9px;
+      margin-top: 1.8mm;
+      font-size: 10px;
       font-weight: 700;
-      color: #666;
-      margin-bottom: 4px;
+      line-height: 1.8;
     }
 
-    .cta-website {
-      font-size: 12px;
+    .cta-contact a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 0.25mm solid rgba(255,255,255,0.45);
+      word-break: break-all;
+    }
+
+    .cta-contact .site {
       font-weight: 900;
-      background: var(--color-main);
-      color: white;
-      padding: 5px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.4);
+      letter-spacing: 0.2px;
     }
 
-    /* LINE QRコードエリア */
-    .cta-qr-box {
+    .cta-mini {
+      margin-top: 1.6mm;
+      font-size: 7px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .cta-qr {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      padding-left: 4mm;
-      border-left: 2px dashed var(--color-border);
+      justify-content: center;
+      gap: 1.5mm;
+    }
+
+    .cta-qr-box {
+      background: #fff;
+      padding: 2.2mm;
+      border-radius: 3mm;
+      box-shadow: 0 1mm 2.5mm rgba(0,0,0,0.16);
     }
 
     .cta-qr-box img {
-      width: 18mm;
-      height: 18mm;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      background: #fff;
+      display: block;
+      width: 22mm;
+      height: 22mm;
+      object-fit: contain;
     }
 
     .cta-qr-text {
-      font-size: 9px;
-      color: #fff;
-      background: #06C755;
-      padding: 3px 8px;
-      border-radius: 10px;
+      font-size: 10px;
       font-weight: 900;
+      line-height: 1.3;
       text-align: center;
-      white-space: nowrap;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      color: #fff;
     }
 
-    /* ===== 底部カラーバー ===== */
-    .bottom-bar {
-      width: 100%;
-      height: 8px;
-      background: linear-gradient(to right, #4a330a, #8b6508, #daa520, #ffc107);
+    .footer-note {
       position: absolute;
-      bottom: 0;
+      right: 8mm;
+      bottom: 4mm;
+      font-size: 5.8px;
+      color: rgba(60, 40, 15, 0.52);
+      letter-spacing: 0.2px;
+      z-index: 1;
     }
 
-    /* ===== 印刷・PDF用スタイル ===== */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     @media print {
-      body {
-        background: white;
+      html, body {
+        background: #fff;
+        margin: 0;
         padding: 0;
-        margin: 0;
       }
+
+      body {
+        padding: 0;
+      }
+
       .flyer {
-        box-shadow: none;
-        width: 210mm;
-        height: 297mm;
-        page-break-after: avoid;
-      }
-      @page {
-        size: A4;
         margin: 0;
+        box-shadow: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
     }
-
-    /* アクセントドット */
-    .dot-pattern {
-      position: absolute;
-      top: 10mm;
-      right: 10mm;
-      opacity: 0.2;
-    }
-
   </style>
 </head>
 <body>
   <div class="flyer">
+    <div class="inner">
 
-    <!-- ========== ヒーローセクション ========== -->
-    <div class="hero">
-      <div class="stripe-overlay"></div>
-
-      <!-- 装飾ドット -->
-      <svg class="dot-pattern" width="80" height="80" viewBox="0 0 120 120">
-        <circle cx="10" cy="10" r="3" fill="white"/>
-        <circle cx="30" cy="10" r="3" fill="white"/>
-        <circle cx="50" cy="10" r="3" fill="white"/>
-        <circle cx="70" cy="10" r="3" fill="white"/>
-        <circle cx="10" cy="30" r="3" fill="white"/>
-        <circle cx="30" cy="30" r="3" fill="white"/>
-        <circle cx="50" cy="30" r="3" fill="white"/>
-        <circle cx="70" cy="30" r="3" fill="white"/>
-        <circle cx="10" cy="50" r="3" fill="white"/>
-        <circle cx="30" cy="50" r="3" fill="white"/>
-        <circle cx="50" cy="50" r="3" fill="white"/>
-        <circle cx="70" cy="50" r="3" fill="white"/>
-        <circle cx="10" cy="70" r="3" fill="white"/>
-        <circle cx="30" cy="70" r="3" fill="white"/>
-        <circle cx="50" cy="70" r="3" fill="white"/>
-        <circle cx="70" cy="70" r="3" fill="white"/>
+      <!-- decorative background -->
+      <svg class="bg-shape-top" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="50" fill="#C8922E"/>
+        <circle cx="72" cy="28" r="16" fill="#E8DCC4"/>
       </svg>
 
-      <!-- テキストコンテンツ & ロゴ -->
-      <div class="hero-content">
-        <img src="penguin_logo_192.png" alt="Second Penguin Logo" class="hero-logo">
-        <br>
-        <div class="hero-eyebrow">SECOND PENGUIN PROJECT</div>
-        <div class="hero-title-jp">
-          あなたの未来を、<br>
-          <span>日本で</span>咲かせよう。
-        </div>
-        <div class="hero-subtitle">For International Students in Japan — Toward a Brighter Future</div>
-        <div class="hero-badge">德永良雄行政書士事務所 併設</div>
-      </div>
-
-      <!-- 下部の波形 -->
-      <svg class="wave-decoration" height="35" viewBox="0 0 793 35" preserveAspectRatio="none">
-        <path d="M0,0 C200,35 400,0 600,25 C700,35 750,10 793,15 L793,35 L0,35Z" fill="white"/>
+      <svg class="bg-shape-bottom" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 70C18 30 54 0 100 0V100H0V70Z" fill="#9C6B11"/>
       </svg>
+
+      <div class="content">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-content">
+            <div class="hero-top">
+              <div class="brand">
+                <img src="./images/penguin_logo_192.png" alt="セコンドペンギン企画ロゴ">
+                <div class="brand-text">
+                  <div class="brand-ja">セコンドペンギン企画</div>
+                  <div class="brand-en">Second Penguin Project</div>
+                </div>
+              </div>
+
+              <div class="office-badge">
+                <span class="small">運営・監修</span>
+                <span class="name">德永良雄行政書士事務所</span>
+              </div>
+            </div>
+
+            <div class="hero-copy">
+              <div class="hero-lead">For International Students & Young Residents in Japan</div>
+              <h1 class="hero-title-jp">
+                あなたの未来を、<br>
+                <span class="em">日本で</span>咲かせよう。
+              </h1>
+              <p class="hero-sub">
+                在留資格、進学、就職、生活のことまで。<br>
+                外国人留学生・若い世代の皆さまが、日本で安心して次の一歩を踏み出せるよう支援します。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- MISSION -->
+        <section class="mission-panel">
+          <div class="mission-side">
+            <span>MISSION</span>
+          </div>
+          <div class="mission-body">
+            <div class="section-label">私たちの想い</div>
+            <p class="mission-text">
+              日本で学び、働き、<strong>将来を築きたい外国の方</strong>へ。<br>
+              セコンドペンギン企画は、<strong>在留資格の手続き</strong>から
+              <strong>進学・就職・暮らしの相談</strong>まで、
+              長く安心して生活できるよう伴走するサポートプロジェクトです。
+            </p>
+          </div>
+        </section>
+
+        <!-- MAIN -->
+        <section class="main-grid">
+          <div class="left-col">
+            <div class="panel">
+              <h2 class="panel-title">
+                <span class="icon">1</span>
+                サポート内容
+              </h2>
+              <div class="services-grid">
+                <article class="service-card">
+                  <div class="service-no">A</div>
+                  <h3 class="service-title">在留資格・ビザ申請サポート</h3>
+                  <p class="service-copy">
+                    留学・就職・家族滞在など、状況に応じた在留資格のご相談に対応。
+                    必要書類の確認から申請手続きまで丁寧にサポートします。
+                  </p>
+                </article>
+
+                <article class="service-card">
+                  <div class="service-no">B</div>
+                  <h3 class="service-title">進学・就職への橋渡し</h3>
+                  <p class="service-copy">
+                    卒業後の進路、就職活動、日本で働くための準備など、
+                    一人ひとりの希望や状況に合わせて次のステップを一緒に考えます。
+                  </p>
+                </article>
+
+                <article class="service-card">
+                  <div class="service-no">C</div>
+                  <h3 class="service-title">生活・定着の相談支援</h3>
+                  <p class="service-copy">
+                    日本での暮らしに関する不安や手続き、地域での生活のことなど、
+                    日常に近い困りごとについても相談できる体制を目指しています。
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2 class="panel-title">
+                <span class="icon">2</span>
+                こんな方に
+              </h2>
+              <div class="target-box">
+                <span class="tag">留学生</span>
+                <span class="tag">日本で就職したい方</span>
+                <span class="tag">進路に悩んでいる方</span>
+                <span class="tag">在留資格の相談をしたい方</span>
+                <span class="tag">生活面で不安がある方</span>
+                <span class="tag">アジア各国出身の方も歓迎</span>
+              </div>
+              <p class="target-note">
+                フィリピン、インドネシア、ミャンマー、ベトナム、ネパールなど、
+                アジア地域から日本に来て学ぶ・働く皆さまの相談を想定しています。<br>
+                ※対応言語・連携体制についてはお問い合わせください。
+              </p>
+            </div>
+
+            <div class="panel message-panel">
+              <h2 class="panel-title">
+                <span class="icon">3</span>
+                メッセージ
+              </h2>
+              <p class="message-text">
+                日本での暮らしには、制度や言葉、文化の違いなど、目に見えないハードルがあります。<br>
+                だからこそ、制度に強い専門家と、現場に寄り添う支援の両方が必要です。<br>
+                セコンドペンギン企画は、「相談してよかった」と感じてもらえる存在を目指しています。
+              </p>
+            </div>
+          </div>
+
+          <div class="right-col">
+            <div class="panel">
+              <h2 class="panel-title">
+                <span class="icon">+</span>
+                セコンドペンギン企画の強み
+              </h2>
+
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-key">行政<span>書士</span></div>
+                  <div class="feature-text">
+                    <strong>専門家が直接サポート</strong>
+                    在留資格や各種手続きについて、制度面を踏まえて丁寧にご案内します。
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <div class="feature-key">進路</div>
+                  <div class="feature-text">
+                    <strong>留学後のキャリアも相談</strong>
+                    卒業後の就職や定着も見据え、短期ではなく中長期の視点でサポートします。
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <div class="feature-key">生活</div>
+                  <div class="feature-text">
+                    <strong>暮らしに寄り添う支援</strong>
+                    申請手続きだけでなく、生活面での不安や困りごとにも目を向けます。
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <div class="feature-key">相談</div>
+                  <div class="feature-text">
+                    <strong>やさしく、わかりやすく</strong>
+                    初めての相談でも安心できるよう、難しい制度もできるだけ平易にお伝えします。
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <div class="feature-key">国際</div>
+                  <div class="feature-text">
+                    <strong>外国人支援を見据えた体制</strong>
+                    アジア各国の若い世代が日本で力を発揮できるよう、継続的な支援を目指します。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+          <div class="cta-inner">
+            <div>
+              <h2 class="cta-title">詳しく知りたい方・相談したい方へ</h2>
+              <p class="cta-sub">
+                ウェブサイトまたはLINEから、お気軽にお問い合わせください。<br>
+                ご本人はもちろん、学校関係者・支援者の方からのご相談も歓迎します。
+              </p>
+
+              <div class="cta-contact">
+                Web：
+                <a class="site" href="https://second-penguing.com" target="_blank" rel="noopener noreferrer">
+                  https://second-penguing.com
+                </a><br>
+                LINE：
+                <a href="https://lin.ee/your-link" target="_blank" rel="noopener noreferrer">
+                  右のQRコードからアクセス
+                </a>
+              </div>
+
+              <div class="cta-mini">
+                ※URL・LINEリンクは正式なものに差し替えてご利用ください。
+              </div>
+            </div>
+
+            <div class="cta-qr">
+              <div class="cta-qr-box">
+                <img src="./images/QR_LINE.png" alt="LINEお問い合わせQRコード">
+              </div>
+              <div class="cta-qr-text">LINEで相談</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer-note">
+        Second Penguin Project / Yoshio Tokunaga Administrative Scrivener Office
+      </div>
     </div>
-
-    <!-- ========== メインコンテンツ ========== -->
-    <div class="main-content">
-
-      <!-- ミッション -->
-      <div class="mission-section">
-        <div class="mission-label">OUR MISSION / プロジェクトの目的</div>
-        <div class="mission-text">
-          若くて<span>優秀な外国の方</span>が、日本で<span>長く・豊かに</span>暮らせるよう、<br>
-          在留資格から就職・生活まで、トータルでサポートします。
-        </div>
-      </div>
-
-      <!-- サービス -->
-      <div class="section-title">
-        <div class="section-title-text">◆ サポートメニュー</div>
-        <div class="section-title-line"></div>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <span class="service-icon">📋</span>
-          <div class="service-title">在留資格・ビザ申請</div>
-          <div class="service-desc">
-            留学・就労・定住など<br>
-            各種在留資格の申請・更新を行政書士がサポート
-          </div>
-        </div>
-        <div class="service-card">
-          <span class="service-icon">🎓</span>
-          <div class="service-title">進学・就職支援</div>
-          <div class="service-desc">
-            日本語学校から<br>
-            専門学校・大学・就職まで<br>
-            次のステップを一緒に考える
-          </div>
-        </div>
-        <div class="service-card">
-          <span class="service-icon">🏠</span>
-          <div class="service-title">生活・定住サポート</div>
-          <div class="service-desc">
-            住まい・手続き・<br>
-            日常生活の不安を<br>
-            丁寧に解消します
-          </div>
-        </div>
-      </div>
-
-      <!-- 対象者 -->
-      <div class="target-section">
-        <div class="target-title">◆ TARGET / こんな方を応援します</div>
-        <div class="target-list">
-          <div class="target-tag">日本語学校在学中の方</div>
-          <div class="target-tag">専門学校・大学の留学生</div>
-          <div class="target-tag">日本で就職を目指す方</div>
-          <div class="target-tag">永住・定住を考えている方</div>
-          <div class="target-tag">家族を日本に呼びたい方</div>
-        </div>
-        <div class="target-note">
-          ※フィリピン・インドネシア・ミャンマー・ベトナム・ネパール、その他アジア圏の方、歓迎します。<br>
-          ※相談は無料です。まずはお気軽にご連絡ください。
-        </div>
-      </div>
-
-      <!-- 特徴数字 -->
-      <div class="section-title">
-        <div class="section-title-text">◆ 私たちの強み</div>
-        <div class="section-title-line"></div>
-      </div>
-
-      <div class="features-row">
-        <div class="feature-item">
-          <div class="feature-num">行政<sup>書士</sup></div>
-          <div class="feature-label">国家資格者が<br>直接対応</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-num">無料<sup>相談</sup></div>
-          <div class="feature-label">まず話を<br>聞かせてください</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-num">多言語<sup>対応</sup></div>
-          <div class="feature-label">日本語が不安でも<br>安心してご相談を</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-num">伴走<sup>型</sup></div>
-          <div class="feature-label">手続きだけでなく<br>その先も寄り添う</div>
-        </div>
-      </div>
-
-      <!-- CTAフッター -->
-      <div class="cta-section">
-        <div class="cta-left">
-          <div class="cta-label">ORGANIZER / 主催</div>
-          <div class="cta-org-name">セコンドペンギン企画</div>
-          <div class="cta-org-sub">⚖️ 德永良雄行政書士事務所 併設</div>
-        </div>
-        <div class="cta-right">
-          <div class="cta-contact">ウェブサイト・お問い合わせ</div>
-          <div class="cta-website">🌐 second-penguing.com</div>
-        </div>
-        <!-- LINE QRコード -->
-        <div class="cta-qr-box">
-          <img src="images/QR_LINE.png" alt="LINE QRコード">
-          <div class="cta-qr-text">LINEで無料相談</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ボトムバー -->
-    <div class="bottom-bar"></div>
-
   </div>
 </body>
 </html>
