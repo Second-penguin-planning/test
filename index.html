@@ -1,861 +1,483 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Second Penguin Project | セコンドペンギン企画</title>
-
-  <!-- 本番運用・印刷入稿時はフォントのローカル化推奨 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-main: #9c6b11;
-      --color-main-dark: #6b4a12;
-      --color-main-soft: #c8922e;
-      --color-sub: #f5eddc;
-      --color-sub-deep: #e8dcc4;
-      --color-accent: #4a3420;
-      --color-brown: #5f4630;
-      --color-text: #2b241d;
-      --color-muted: #6f6254;
-      --color-white: #ffffff;
-      --color-line: rgba(107, 74, 18, 0.18);
-      --shadow-soft: 0 2mm 5mm rgba(60, 35, 5, 0.12);
-      --shadow-card: 0 1.5mm 4mm rgba(60, 35, 5, 0.10);
-      --radius-lg: 4mm;
-      --radius-md: 3mm;
-      --radius-sm: 2mm;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #e9e3db;
-      color: var(--color-text);
-      font-family: 'Noto Sans JP', sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-
-    body {
-      padding: 12px;
-    }
-
-    .flyer {
-      width: 210mm;
-      height: 297mm;
-      margin: 0 auto;
-      background: var(--color-white);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,.12);
-    }
-
-    /* 印刷用の安全エリアを意識 */
-    .inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding: 8mm;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(200, 146, 46, 0.10), transparent 28%),
-        radial-gradient(circle at left bottom, rgba(156, 107, 17, 0.08), transparent 30%),
-        linear-gradient(180deg, #fffefc 0%, #ffffff 100%);
-    }
-
-    .bg-shape-top,
-    .bg-shape-bottom {
-      position: absolute;
-      pointer-events: none;
-      opacity: .22;
-      z-index: 0;
-    }
-
-    .bg-shape-top {
-      top: -8mm;
-      right: -10mm;
-      width: 70mm;
-      height: 70mm;
-    }
-
-    .bg-shape-bottom {
-      bottom: -12mm;
-      left: -10mm;
-      width: 75mm;
-      height: 75mm;
-      opacity: .15;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      height: 100%;
-      gap: 5mm;
-    }
-
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 74mm;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background-color: #6b4a12;
-      background-image:
-        linear-gradient(135deg, rgba(38, 22, 3, 0.88) 0%, rgba(110, 72, 8, 0.68) 55%, rgba(185, 133, 41, 0.48) 100%),
-        url('./images/hero.jpg');
-      background-size: cover;
-      background-position: center center;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      align-items: stretch;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
-        linear-gradient(90deg, rgba(0,0,0,0.10), transparent 55%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      padding: 7mm 8mm 7mm 8mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 4mm;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 3mm;
-      background: rgba(255,255,255,0.14);
-      border: 0.4mm solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      padding: 2.2mm 3.2mm;
-      backdrop-filter: none;
-      max-width: 95mm;
-    }
-
-    .brand img {
-      width: 11mm;
-      height: 11mm;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: #fff;
-      object-fit: cover;
-    }
-
-    .brand-text {
-      color: #fff;
-      line-height: 1.2;
-    }
-
-    .brand-ja {
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.4px;
-    }
-
-    .brand-en {
-      font-size: 6.4px;
-      opacity: .92;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-
-    .office-badge {
-      flex-shrink: 0;
-      color: #fff;
-      text-align: right;
-      background: rgba(255,255,255,0.12);
-      border: 0.35mm solid rgba(255,255,255,0.16);
-      border-radius: 3mm;
-      padding: 2.5mm 3mm;
-      min-width: 45mm;
-    }
-
-    .office-badge .small {
-      display: block;
-      font-size: 6.4px;
-      opacity: .9;
-      margin-bottom: 0.7mm;
-      letter-spacing: 0.2px;
-    }
-
-    .office-badge .name {
-      display: block;
-      font-size: 8.8px;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .hero-copy {
-      margin-top: 4mm;
-      max-width: 120mm;
-      color: #fff;
-    }
-
-    .hero-lead {
-      display: inline-block;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 1.4mm 2.6mm;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.16);
-      border: 0.35mm solid rgba(255,255,255,0.16);
-      margin-bottom: 3mm;
-    }
-
-    .hero-title-jp {
-      margin: 0;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 36px;
-      font-weight: 900;
-      line-height: 1.34;
-      letter-spacing: -0.4px;
-      text-shadow: 0 1.2mm 2.4mm rgba(0,0,0,0.18);
-    }
-
-    .hero-title-jp .em {
-      font-size: 47px;
-      color: #ffd879;
-      text-shadow: 0 1.2mm 3mm rgba(0,0,0,0.22);
-    }
-
-    .hero-sub {
-      margin-top: 3mm;
-      font-size: 9.2px;
-      line-height: 1.72;
-      max-width: 100mm;
-      color: rgba(255,255,255,0.95);
-    }
-
-    /* MISSION */
-    .mission-panel {
-      display: grid;
-      grid-template-columns: 27mm 1fr;
-      gap: 4mm;
-      align-items: stretch;
-      background: linear-gradient(90deg, #fff8ec 0%, #fffdf8 100%);
-      border: 0.35mm solid rgba(156, 107, 17, 0.14);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-    }
-
-    .mission-side {
-      background: linear-gradient(180deg, var(--color-main) 0%, var(--color-main-dark) 100%);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4mm 2mm;
-      text-align: center;
-    }
-
-    .mission-side span {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .mission-body {
-      padding: 4.2mm 5mm 4mm 1mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .section-label {
-      display: inline-block;
-      align-self: flex-start;
-      margin-bottom: 1.8mm;
-      color: var(--color-main-dark);
-      font-size: 6.8px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      padding: 1mm 2mm;
-      border-radius: 999px;
-      background: rgba(156, 107, 17, 0.08);
-    }
-
-    .mission-text {
-      margin: 0;
-      font-size: 10px;
-      line-height: 1.8;
-      color: var(--color-text);
-    }
-
-    .mission-text strong {
-      color: var(--color-main-dark);
-    }
-
-    /* MAIN GRID */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1.16fr 0.84fr;
-      gap: 5mm;
-      min-height: 0;
-    }
-
-    .left-col, .right-col {
-      display: flex;
-      flex-direction: column;
-      gap: 4mm;
-      min-height: 0;
-    }
-
-    .panel {
-      background: #fff;
-      border: 0.35mm solid var(--color-line);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-      padding: 4.5mm;
-    }
-
-    .panel-title {
-      margin: 0 0 3mm 0;
-      display: flex;
-      align-items: center;
-      gap: 2.2mm;
-      color: var(--color-main-dark);
-      font-size: 11px;
-      font-weight: 900;
-      line-height: 1.4;
-    }
-
-    .panel-title .icon {
-      width: 7mm;
-      height: 7mm;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #d9ac4f, #a46f16);
-      color: #fff;
-      font-size: 9px;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3mm;
-    }
-
-    .service-card {
-      border-radius: 3mm;
-      padding: 3.2mm;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,242,230,0.95));
-      border: 0.3mm solid rgba(156, 107, 17, 0.14);
-      display: flex;
-      flex-direction: column;
-      min-height: 48mm;
-    }
-
-    .service-no {
-      display: inline-flex;
-      width: 6.5mm;
-      height: 6.5mm;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--color-main-dark);
-      color: #fff;
-      font-size: 8px;
-      font-weight: 900;
-      margin-bottom: 2.2mm;
-    }
-
-    .service-title {
-      margin: 0 0 1.8mm 0;
-      font-size: 9.5px;
-      font-weight: 900;
-      color: var(--color-main-dark);
-      line-height: 1.45;
-    }
-
-    .service-copy {
-      margin: 0;
-      font-size: 7.7px;
-      line-height: 1.65;
-      color: var(--color-text);
-    }
-
-    /* TARGET */
-    .target-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2mm;
-      margin-bottom: 2.5mm;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 1mm;
-      padding: 1.5mm 2.6mm;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #fff6e4, #f8ecd5);
-      border: 0.3mm solid rgba(156, 107, 17, 0.18);
-      color: var(--color-accent);
-      font-size: 7.4px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .target-note {
-      margin: 0;
-      font-size: 7px;
-      line-height: 1.65;
-      color: var(--color-muted);
-    }
-
-    /* FEATURES */
-    .feature-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.6mm;
-    }
-
-    .feature-item {
-      display: grid;
-      grid-template-columns: 16mm 1fr;
-      gap: 3mm;
-      align-items: center;
-      padding: 2.6mm 2.4mm;
-      border-radius: 3mm;
-      background: linear-gradient(180deg, #fffdf9, #f9f3e9);
-      border: 0.3mm solid rgba(156, 107, 17, 0.12);
-    }
-
-    .feature-key {
-      text-align: center;
-      color: var(--color-main);
-      font-family: 'Noto Serif JP', serif;
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.2px;
-    }
-
-    .feature-key span {
-      font-size: 9px;
-      vertical-align: super;
-      margin-left: 0.5mm;
-    }
-
-    .feature-text {
-      font-size: 8px;
-      line-height: 1.6;
-      color: var(--color-text);
-    }
-
-    .feature-text strong {
-      display: block;
-      font-size: 8.4px;
-      color: var(--color-main-dark);
-      margin-bottom: 0.5mm;
-    }
-
-    /* MESSAGE */
-    .message-panel {
-      background:
-        linear-gradient(135deg, rgba(156,107,17,0.06), rgba(255,255,255,0.95));
-    }
-
-    .message-text {
-      margin: 0;
-      font-size: 8px;
-      line-height: 1.8;
-      color: var(--color-text);
-    }
-
-    /* CTA */
-    .cta {
-      background:
-        linear-gradient(135deg, #5c4022 0%, #845b18 55%, #b37b20 100%);
-      color: #fff;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      min-height: 42mm;
-    }
-
-    .cta-inner {
-      display: grid;
-      grid-template-columns: 1fr 30mm;
-      gap: 4mm;
-      align-items: center;
-      padding: 5mm 6mm;
-    }
-
-    .cta-title {
-      margin: 0 0 2mm 0;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 15px;
-      font-weight: 900;
-      line-height: 1.4;
-      color: #fff7e6;
-    }
-
-    .cta-sub {
-      margin: 0 0 2.2mm 0;
-      font-size: 8.4px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .cta-contact {
-      margin-top: 1.8mm;
-      font-size: 10px;
-      font-weight: 700;
-      line-height: 1.8;
-    }
-
-    .cta-contact a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 0.25mm solid rgba(255,255,255,0.45);
-      word-break: break-all;
-    }
-
-    .cta-contact .site {
-      font-weight: 900;
-      letter-spacing: 0.2px;
-    }
-
-    .cta-mini {
-      margin-top: 1.6mm;
-      font-size: 7px;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .cta-qr {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5mm;
-    }
-
-    .cta-qr-box {
-      background: #fff;
-      padding: 2.2mm;
-      border-radius: 3mm;
-      box-shadow: 0 1mm 2.5mm rgba(0,0,0,0.16);
-    }
-
-    .cta-qr-box img {
-      display: block;
-      width: 22mm;
-      height: 22mm;
-      object-fit: contain;
-    }
-
-    .cta-qr-text {
-      font-size: 10px;
-      font-weight: 900;
-      line-height: 1.3;
-      text-align: center;
-      color: #fff;
-    }
-
-    .footer-note {
-      position: absolute;
-      right: 8mm;
-      bottom: 4mm;
-      font-size: 5.8px;
-      color: rgba(60, 40, 15, 0.52);
-      letter-spacing: 0.2px;
-      z-index: 1;
-    }
-
-    @page {
-      size: A4;
-      margin: 0;
-    }
-
-    @media print {
-      html, body {
-        background: #fff;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        padding: 0;
-      }
-
-      .flyer {
-        margin: 0;
-        box-shadow: none;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セコンドペンギン企画 チラシ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Poppins', sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .flyer {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        /* ===== チラシ1: 外国人向け ===== */
+        .flyer-1 {
+            background: linear-gradient(135deg, #e8f4fc 0%, #fff 50%, #fff5e6 100%);
+        }
+
+        .flyer-1 .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a90d9 100%);
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+        }
+
+        .flyer-1 .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a90d9 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
+        }
+
+        .penguin-icon {
+            font-size: 50px;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .flyer-1 .main-catch {
+            text-align: center;
+            padding: 50px 30px 30px;
+        }
+
+        .flyer-1 .main-catch .en {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #2c5aa0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .flyer-1 .main-catch .jp {
+            font-size: 26px;
+            font-weight: 900;
+            color: #e67e22;
+            margin-top: 10px;
+        }
+
+        .flyer-1 .content {
+            padding: 20px 35px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #4a90d9;
+            position: relative;
+        }
+
+        .service-card.highlight {
+            border-left-color: #e67e22;
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+        }
+
+        .service-card .service-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c5aa0;
+        }
+
+        .service-card .service-title-jp {
+            font-size: 15px;
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .service-card .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #e67e22;
+            margin-top: 8px;
+        }
+
+        .service-card .price .small {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .free-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .flyer-1 .office-info {
+            background: #2c5aa0;
+            color: white;
+            padding: 20px 35px;
+            margin-top: 15px;
+        }
+
+        .office-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .office-name-sub {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 3px;
+        }
+
+        .qr-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 25px 35px;
+            background: #f8f9fa;
+        }
+
+        .qr-box {
+            text-align: center;
+        }
+
+        .qr-box .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border: 3px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .qr-box .qr-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c5aa0;
+        }
+
+        .qr-box .qr-label-jp {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* ===== チラシ2: 企業向け ===== */
+        .flyer-2 {
+            background: #fff;
+        }
+
+        .flyer-2 .header {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
+            color: white;
+            padding: 30px 35px;
+            position: relative;
+        }
+
+        .flyer-2 .header .company-badge {
+            display: inline-block;
+            background: #e67e22;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .flyer-2 .main-catch {
+            padding: 40px 35px 30px;
+            text-align: center;
+            background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .flyer-2 .main-catch h1 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #1a3a5c;
+            line-height: 1.4;
+        }
+
+        .flyer-2 .main-catch h1 .highlight-price {
+            color: #e67e22;
+            font-size: 42px;
+        }
+
+        .flyer-2 .main-catch h1 .underline {
+            background: linear-gradient(transparent 60%, #ffeaa7 60%);
+        }
+
+        .flyer-2 .content {
+            padding: 20px 35px;
+        }
+
+        .biz-service {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .biz-service:hover {
+            border-color: #2c5282;
+        }
+
+        .biz-service .number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .biz-service .service-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+
+        .biz-service .service-content .price-tag {
+            font-size: 26px;
+            font-weight: 800;
+            color: #e67e22;
+            margin-top: 5px;
+        }
+
+        .biz-service .service-content .desc {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .trust-banner {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 35px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .trust-banner .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .flyer-2 .office-info {
+            background: #1a3a5c;
+            color: white;
+            padding: 25px 35px;
+            margin-top: 20px;
+        }
+
+        .flyer-2 .office-info .office-name {
+            font-size: 22px;
+        }
+
+        .flyer-2 .office-info .trust-note {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+
+        .flyer-2 .qr-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .flyer-2 .qr-section .qr-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-right: 30px;
+        }
+
+        .flyer-2 .qr-section .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border: 3px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 装飾 */
+        .decorative-dots {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .flyer {
+                box-shadow: none;
+                page-break-after: always;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="flyer">
-    <div class="inner">
 
-      <!-- decorative background -->
-      <svg class="bg-shape-top" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="50" cy="50" r="50" fill="#C8922E"/>
-        <circle cx="72" cy="28" r="16" fill="#E8DCC4"/>
-      </svg>
+    <!-- チラシ1: 外国人向け（英語・日本語併記） -->
+    <div class="flyer flyer-1">
+        <div class="header">
+            <div style="font-size: 14px; opacity: 0.9;">For Foreign Residents in Japan</div>
+            <div style="font-size: 22px; font-weight: 700; margin-top: 5px;">Immigration & Life Support</div>
+            <div class="penguin-icon">🐧</div>
+        </div>
 
-      <svg class="bg-shape-bottom" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 70C18 30 54 0 100 0V100H0V70Z" fill="#9C6B11"/>
-      </svg>
+        <div class="main-catch">
+            <div class="en">Support for your<br>Life in Japan!</div>
+            <div class="jp">日本での生活・ビザをサポートします！</div>
+        </div>
 
-      <div class="content">
-        <!-- HERO -->
-        <section class="hero">
-          <div class="hero-content">
-            <div class="hero-top">
-              <div class="brand">
-                <img src="penguin_logo_192.png" alt="セコンドペンギン企画ロゴ">
-                <div class="brand-text">
-                  <div class="brand-ja">セコンドペンギン企画</div>
-                  <div class="brand-en">Second Penguin Project</div>
-                </div>
-              </div>
-
-              <div class="office-badge">
-                <span class="small">運営・監修</span>
-                <span class="name">德永良雄行政書士事務所</span>
-              </div>
+        <div class="content">
+            <div class="service-card">
+                <div class="service-title">Permanent Residency & Other Visas</div>
+                <div class="service-title-jp">永住・各種ビザ申請</div>
+                <div class="price">80,000<span class="small"> yen (+tax) 〜</span></div>
             </div>
 
-            <div class="hero-copy">
-              <div class="hero-lead">For International Students & Young Residents in Japan</div>
-              <h1 class="hero-title-jp">
-                あなたの未来を、<br>
-                <span class="em">日本で</span>咲かせよう。
-              </h1>
-              <p class="hero-sub">
-                在留資格、進学、就職、生活のことまで。<br>
-                外国人留学生・若い世代の皆さまが、日本で安心して次の一歩を踏み出せるよう支援します。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- MISSION -->
-        <section class="mission-panel">
-          <div class="mission-side">
-            <span>MISSION</span>
-          </div>
-          <div class="mission-body">
-            <div class="section-label">私たちの想い</div>
-            <p class="mission-text">
-              日本で学び、働き、<strong>将来を築きたい外国の方</strong>へ。<br>
-              セコンドペンギン企画は、<strong>在留資格の手続き</strong>から
-              <strong>進学・就職・暮らしの相談</strong>まで、
-              長く安心して生活できるよう伴走するサポートプロジェクトです。
-            </p>
-          </div>
-        </section>
-
-        <!-- MAIN -->
-        <section class="main-grid">
-          <div class="left-col">
-            <div class="panel">
-              <h2 class="panel-title">
-                <span class="icon">1</span>
-                サポート内容
-              </h2>
-              <div class="services-grid">
-                <article class="service-card">
-                  <div class="service-no">A</div>
-                  <h3 class="service-title">在留資格・ビザ申請サポート</h3>
-                  <p class="service-copy">
-                    留学・就職・家族滞在など、状況に応じた在留資格のご相談に対応。
-                    必要書類の確認から申請手続きまで丁寧にサポートします。
-                  </p>
-                </article>
-
-                <article class="service-card">
-                  <div class="service-no">B</div>
-                  <h3 class="service-title">進学・就職への橋渡し</h3>
-                  <p class="service-copy">
-                    卒業後の進路、就職活動、日本で働くための準備など、
-                    一人ひとりの希望や状況に合わせて次のステップを一緒に考えます。
-                  </p>
-                </article>
-
-                <article class="service-card">
-                  <div class="service-no">C</div>
-                  <h3 class="service-title">生活・定着の相談支援</h3>
-                  <p class="service-copy">
-                    日本での暮らしに関する不安や手続き、地域での生活のことなど、
-                    日常に近い困りごとについても相談できる体制を目指しています。
-                  </p>
-                </article>
-              </div>
+            <div class="service-card highlight">
+                <div class="service-title">Visa Consultation</div>
+                <div class="service-title-jp">ビザの相談</div>
+                <div class="free-badge">First time FREE! / 初回無料！</div>
             </div>
 
-            <div class="panel">
-              <h2 class="panel-title">
-                <span class="icon">2</span>
-                こんな方に
-              </h2>
-              <div class="target-box">
-                <span class="tag">留学生</span>
-                <span class="tag">日本で就職したい方</span>
-                <span class="tag">進路に悩んでいる方</span>
-                <span class="tag">在留資格の相談をしたい方</span>
-                <span class="tag">生活面で不安がある方</span>
-                <span class="tag">アジア各国出身の方も歓迎</span>
-              </div>
-              <p class="target-note">
-                フィリピン、インドネシア、ミャンマー、ベトナム、ネパールなど、
-                アジア地域から日本に来て学ぶ・働く皆さまの相談を想定しています。<br>
-                ※対応言語・連携体制についてはお問い合わせください。
-              </p>
+            <div class="service-card highlight">
+                <div class="service-title">Job Seeking & Employment Support</div>
+                <div class="service-title-jp">就職・雇用相談</div>
+                <div class="free-badge">First time FREE! / 初回無料！</div>
             </div>
+        </div>
 
-            <div class="panel message-panel">
-              <h2 class="panel-title">
-                <span class="icon">3</span>
-                メッセージ
-              </h2>
-              <p class="message-text">
-                日本での暮らしには、制度や言葉、文化の違いなど、目に見えないハードルがあります。<br>
-                だからこそ、制度に強い専門家と、現場に寄り添う支援の両方が必要です。<br>
-                セコンドペンギン企画は、「相談してよかった」と感じてもらえる存在を目指しています。
-              </p>
+        <div class="office-info">
+            <div class="office-name">🐧 Second Penguin Planning / セコンドペンギン企画</div>
+            <div class="office-name-sub">Yoshio Tokunaga Gyoseishoshi Office / 徳永良雄行政書士事務所</div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-box">
+                <div class="qr-placeholder">QR Code</div>
+                <div class="qr-label">Contact in English</div>
             </div>
-          </div>
-
-          <div class="right-col">
-            <div class="panel">
-              <h2 class="panel-title">
-                <span class="icon">+</span>
-                セコンドペンギン企画の強み
-              </h2>
-
-              <div class="feature-list">
-                <div class="feature-item">
-                  <div class="feature-key">行政<span>書士</span></div>
-                  <div class="feature-text">
-                    <strong>専門家が直接サポート</strong>
-                    在留資格や各種手続きについて、制度面を踏まえて丁寧にご案内します。
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-key">進路</div>
-                  <div class="feature-text">
-                    <strong>留学後のキャリアも相談</strong>
-                    卒業後の就職や定着も見据え、短期ではなく中長期の視点でサポートします。
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-key">生活</div>
-                  <div class="feature-text">
-                    <strong>暮らしに寄り添う支援</strong>
-                    申請手続きだけでなく、生活面での不安や困りごとにも目を向けます。
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-key">相談</div>
-                  <div class="feature-text">
-                    <strong>やさしく、わかりやすく</strong>
-                    初めての相談でも安心できるよう、難しい制度もできるだけ平易にお伝えします。
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-key">国際</div>
-                  <div class="feature-text">
-                    <strong>外国人支援を見据えた体制</strong>
-                    アジア各国の若い世代が日本で力を発揮できるよう、継続的な支援を目指します。
-                  </div>
-                </div>
-              </div>
+            <div class="qr-box">
+                <div class="qr-placeholder">QR Code</div>
+                <div class="qr-label-jp">日本語でのお問い合わせ</div>
             </div>
-          </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-          <div class="cta-inner">
-            <div>
-              <h2 class="cta-title">詳しく知りたい方・相談したい方へ</h2>
-              <p class="cta-sub">
-                ウェブサイトまたはLINEから、お気軽にお問い合わせください。<br>
-                ご本人はもちろん、学校関係者・支援者の方からのご相談も歓迎します。
-              </p>
-
-              <div class="cta-contact">
-                Web：
-                <a class="site" href="https://second-penguing.com" target="_blank" rel="noopener noreferrer">
-                  https://second-penguing.com
-                </a><br>
-                LINE：
-                <a href="https://lin.ee/your-link" target="_blank" rel="noopener noreferrer">
-                  右のQRコードからアクセス
-                </a>
-              </div>
-
-              <div class="cta-mini">
-                ※URL・LINEリンクは正式なものに差し替えてご利用ください。
-              </div>
-            </div>
-
-            <div class="cta-qr">
-              <div class="cta-qr-box">
-                <img src="./images/QR_LINE.png" alt="LINEお問い合わせQRコード">
-              </div>
-              <div class="cta-qr-text">LINEで相談</div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="footer-note">
-        Second Penguin Project / Yoshio Tokunaga Administrative Scrivener Office
-      </div>
+        </div>
     </div>
-  </div>
+
+    <!-- チラシ2: 企業向け（日本語） -->
+    <div class="flyer flyer-2">
+        <div class="header">
+            <div class="company-badge">企業様向け</div>
+            <div style="font-size: 24px; font-weight: 700;">外国人雇用サポートサービス</div>
+            <div style="font-size: 14px; margin-top: 8px; opacity: 0.9;">🐧 セコンドペンギン企画</div>
+        </div>
+
+        <div class="main-catch">
+            <h1>
+                外国人の<span class="underline">雇用と定着</span>を、<br>
+                プロが<span class="highlight-price">月額15,000円</span>から<br>
+                サポート。
+            </h1>
+        </div>
+
+        <div class="content">
+            <div class="biz-service">
+                <div class="number">1</div>
+                <div class="service-content">
+                    <h3>特定技能外国人の登録支援</h3>
+                    <div class="price-tag">月額 15,000円〜</div>
+                </div>
+            </div>
+
+            <div class="biz-service">
+                <div class="number">2</div>
+                <div class="service-content">
+                    <h3>外国人雇用・生活支援相談</h3>
+                    <div class="price-tag" style="color: #27ae60;">初回相談無料</div>
+                </div>
+            </div>
+
+            <div class="biz-service">
+                <div class="number">3</div>
+                <div class="service-content">
+                    <h3>就職・採用コンサルティング</h3>
+                    <div class="desc">貴社に最適な人材活用をご提案します。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trust-banner">
+            <span class="icon">✓</span>行政書士が直接対応するため、コンプライアンス面も安心です
+        </div>
+
+        <div class="office-info">
+            <div class="office-name">🐧 セコンドペンギン企画</div>
+            <div class="office-name-sub">徳永良雄行政書士事務所</div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-text">詳細・お問い合わせはこちら →</div>
+            <div class="qr-placeholder">QR Code</div>
+        </div>
+    </div>
+
 </body>
 </html>
