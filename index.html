@@ -23,338 +23,248 @@
         .flyer {
             width: 210mm;
             height: 297mm;
-            background: white;
-            margin: 0 auto 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            margin: 0 auto;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
-        /* ===== チラシ1: 外国人向け ===== */
-        .flyer-1 {
-            background: linear-gradient(135deg, #e8f4fc 0%, #fff 50%, #fff5e6 100%);
-        }
-
-        .flyer-1 .header {
-            background: linear-gradient(135deg, #2c5aa0 0%, #4a90d9 100%);
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #1e4a7a 0%, #2d6eb5 100%);
             color: white;
-            padding: 25px 30px;
-            position: relative;
-        }
-
-        .flyer-1 .header::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(135deg, #2c5aa0 0%, #4a90d9 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%);
-        }
-
-        .penguin-icon {
-            font-size: 50px;
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .flyer-1 .main-catch {
+            padding: 28px 40px;
             text-align: center;
-            padding: 50px 30px 30px;
         }
 
-        .flyer-1 .main-catch .en {
+        .main-catch-en {
             font-family: 'Poppins', sans-serif;
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 800;
-            color: #2c5aa0;
             line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .flyer-1 .main-catch .jp {
-            font-size: 26px;
-            font-weight: 900;
-            color: #e67e22;
-            margin-top: 10px;
+        .main-catch-jp {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 8px;
+            color: #ffd93d;
         }
 
-        .flyer-1 .content {
-            padding: 20px 35px;
+        /* メインコンテンツ */
+        .content {
+            padding: 25px 40px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e4a7a;
+            border-bottom: 3px solid #1e4a7a;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* サービスカード */
+        .services {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .service-card {
             background: white;
-            border-radius: 15px;
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-left: 5px solid #4a90d9;
-            position: relative;
+            border-radius: 12px;
+            padding: 18px 24px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #2d6eb5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .service-card.highlight {
-            border-left-color: #e67e22;
-            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+        .service-card.free {
+            border-left-color: #27ae60;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
         }
 
-        .service-card .service-title {
+        .service-info h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 18px;
             font-weight: 700;
-            color: #2c5aa0;
+            color: #1e4a7a;
         }
 
-        .service-card .service-title-jp {
-            font-size: 15px;
+        .service-info .jp {
+            font-size: 14px;
             color: #555;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
-        .service-card .price {
+        .price {
+            text-align: right;
+        }
+
+        .price .amount {
             font-family: 'Poppins', sans-serif;
             font-size: 28px;
             font-weight: 800;
             color: #e67e22;
-            margin-top: 8px;
         }
 
-        .service-card .price .small {
+        .price .unit {
             font-size: 14px;
-            font-weight: 400;
+            color: #666;
         }
 
         .free-badge {
-            display: inline-block;
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
-            padding: 8px 20px;
+            padding: 10px 20px;
             border-radius: 25px;
-            font-size: 18px;
-            font-weight: 700;
-            margin-top: 8px;
-        }
-
-        .flyer-1 .office-info {
-            background: #2c5aa0;
-            color: white;
-            padding: 20px 35px;
-            margin-top: 15px;
-        }
-
-        .office-name {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .office-name-sub {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-top: 3px;
-        }
-
-        .qr-section {
-            display: flex;
-            justify-content: space-around;
-            padding: 25px 35px;
-            background: #f8f9fa;
-        }
-
-        .qr-box {
-            text-align: center;
-        }
-
-        .qr-box .qr-placeholder {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border: 3px dashed #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            font-size: 12px;
-            color: #999;
-        }
-
-        .qr-box .qr-label {
-            font-size: 14px;
-            font-weight: 700;
-            color: #2c5aa0;
-        }
-
-        .qr-box .qr-label-jp {
-            font-size: 13px;
-            color: #555;
-        }
-
-        /* ===== チラシ2: 企業向け ===== */
-        .flyer-2 {
-            background: #fff;
-        }
-
-        .flyer-2 .header {
-            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
-            color: white;
-            padding: 30px 35px;
-            position: relative;
-        }
-
-        .flyer-2 .header .company-badge {
-            display: inline-block;
-            background: #e67e22;
-            padding: 5px 15px;
-            border-radius: 3px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .flyer-2 .main-catch {
-            padding: 40px 35px 30px;
-            text-align: center;
-            background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .flyer-2 .main-catch h1 {
-            font-size: 32px;
-            font-weight: 900;
-            color: #1a3a5c;
-            line-height: 1.4;
-        }
-
-        .flyer-2 .main-catch h1 .highlight-price {
-            color: #e67e22;
-            font-size: 42px;
-        }
-
-        .flyer-2 .main-catch h1 .underline {
-            background: linear-gradient(transparent 60%, #ffeaa7 60%);
-        }
-
-        .flyer-2 .content {
-            padding: 20px 35px;
-        }
-
-        .biz-service {
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-
-        .biz-service:hover {
-            border-color: #2c5282;
-        }
-
-        .biz-service .number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 800;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .biz-service .service-content h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a3a5c;
-        }
-
-        .biz-service .service-content .price-tag {
-            font-size: 26px;
-            font-weight: 800;
-            color: #e67e22;
-            margin-top: 5px;
-        }
-
-        .biz-service .service-content .desc {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .trust-banner {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin: 20px 35px;
-            border-radius: 10px;
             font-size: 16px;
             font-weight: 700;
         }
 
-        .trust-banner .icon {
-            font-size: 24px;
-            margin-right: 10px;
+        .free-badge .en {
+            font-family: 'Poppins', sans-serif;
         }
 
-        .flyer-2 .office-info {
-            background: #1a3a5c;
+        /* 企業向けセクション */
+        .business-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin: 25px 40px;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border: 2px solid #1e4a7a;
+        }
+
+        .business-section .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .business-section .badge {
+            background: #1e4a7a;
             color: white;
-            padding: 25px 35px;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .business-section .title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #1e4a7a;
+        }
+
+        .business-services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .biz-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .biz-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e4a7a;
+            margin-bottom: 8px;
+        }
+
+        .biz-item .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: #e67e22;
+        }
+
+        .biz-item .note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* 信頼バナー */
+        .trust-banner {
+            background: #1e4a7a;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin: 0 40px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* フッター */
+        .footer {
+            background: linear-gradient(135deg, #1e4a7a 0%, #2d6eb5 100%);
+            color: white;
+            padding: 20px 40px;
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .flyer-2 .office-info .office-name {
-            font-size: 22px;
+        .office-info .office-name-en {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
         }
 
-        .flyer-2 .office-info .trust-note {
+        .office-info .office-name-jp {
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .office-info .sub-name {
             font-size: 13px;
             opacity: 0.9;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
+            margin-top: 5px;
         }
 
-        .flyer-2 .qr-section {
+        .qr-area {
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 30px;
-            background: #f8f9fa;
+            gap: 20px;
         }
 
-        .flyer-2 .qr-section .qr-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a3a5c;
-            margin-right: 30px;
+        .qr-area .qr-text {
+            text-align: right;
         }
 
-        .flyer-2 .qr-section .qr-placeholder {
-            width: 120px;
-            height: 120px;
+        .qr-area .qr-text .en {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .qr-area .qr-text .jp {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .qr-area img {
+            width: 90px;
+            height: 90px;
             background: white;
-            border: 3px dashed #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #999;
-        }
-
-        /* 装飾 */
-        .decorative-dots {
-            position: absolute;
-            opacity: 0.1;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         @media print {
@@ -364,7 +274,6 @@
             }
             .flyer {
                 box-shadow: none;
-                page-break-after: always;
                 margin: 0;
             }
         }
@@ -372,110 +281,94 @@
 </head>
 <body>
 
-    <!-- チラシ1: 外国人向け（英語・日本語併記） -->
-    <div class="flyer flyer-1">
+    <div class="flyer">
+        <!-- ヘッダー -->
         <div class="header">
-            <div style="font-size: 14px; opacity: 0.9;">For Foreign Residents in Japan</div>
-            <div style="font-size: 22px; font-weight: 700; margin-top: 5px;">Immigration & Life Support</div>
-            <div class="penguin-icon">🐧</div>
+            <div class="main-catch-en">Support for your Life in Japan!</div>
+            <div class="main-catch-jp">日本での生活・ビザをサポートします！</div>
         </div>
 
-        <div class="main-catch">
-            <div class="en">Support for your<br>Life in Japan!</div>
-            <div class="jp">日本での生活・ビザをサポートします！</div>
-        </div>
-
+        <!-- 個人向けサービス -->
         <div class="content">
-            <div class="service-card">
-                <div class="service-title">Permanent Residency & Other Visas</div>
-                <div class="service-title-jp">永住・各種ビザ申請</div>
-                <div class="price">80,000<span class="small"> yen (+tax) 〜</span></div>
+            <div class="section-title">
+                <span>Services / サービス内容</span>
             </div>
 
-            <div class="service-card highlight">
-                <div class="service-title">Visa Consultation</div>
-                <div class="service-title-jp">ビザの相談</div>
-                <div class="free-badge">First time FREE! / 初回無料！</div>
-            </div>
-
-            <div class="service-card highlight">
-                <div class="service-title">Job Seeking & Employment Support</div>
-                <div class="service-title-jp">就職・雇用相談</div>
-                <div class="free-badge">First time FREE! / 初回無料！</div>
-            </div>
-        </div>
-
-        <div class="office-info">
-            <div class="office-name">🐧 Second Penguin Planning / セコンドペンギン企画</div>
-            <div class="office-name-sub">Yoshio Tokunaga Gyoseishoshi Office / 徳永良雄行政書士事務所</div>
-        </div>
-
-        <div class="qr-section">
-            <div class="qr-box">
-                <div class="qr-placeholder">QR Code</div>
-                <div class="qr-label">Contact in English</div>
-            </div>
-            <div class="qr-box">
-                <div class="qr-placeholder">QR Code</div>
-                <div class="qr-label-jp">日本語でのお問い合わせ</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- チラシ2: 企業向け（日本語） -->
-    <div class="flyer flyer-2">
-        <div class="header">
-            <div class="company-badge">企業様向け</div>
-            <div style="font-size: 24px; font-weight: 700;">外国人雇用サポートサービス</div>
-            <div style="font-size: 14px; margin-top: 8px; opacity: 0.9;">🐧 セコンドペンギン企画</div>
-        </div>
-
-        <div class="main-catch">
-            <h1>
-                外国人の<span class="underline">雇用と定着</span>を、<br>
-                プロが<span class="highlight-price">月額15,000円</span>から<br>
-                サポート。
-            </h1>
-        </div>
-
-        <div class="content">
-            <div class="biz-service">
-                <div class="number">1</div>
-                <div class="service-content">
-                    <h3>特定技能外国人の登録支援</h3>
-                    <div class="price-tag">月額 15,000円〜</div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>Permanent Residency & Other Visas</h3>
+                        <div class="jp">永住・各種ビザ申請</div>
+                    </div>
+                    <div class="price">
+                        <span class="amount">80,000</span>
+                        <span class="unit">yen (+tax) 〜</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="biz-service">
-                <div class="number">2</div>
-                <div class="service-content">
-                    <h3>外国人雇用・生活支援相談</h3>
-                    <div class="price-tag" style="color: #27ae60;">初回相談無料</div>
+                <div class="service-card free">
+                    <div class="service-info">
+                        <h3>Visa Consultation</h3>
+                        <div class="jp">ビザの相談</div>
+                    </div>
+                    <div class="free-badge">
+                        <span class="en">First time FREE!</span> / 初回無料！
+                    </div>
                 </div>
-            </div>
 
-            <div class="biz-service">
-                <div class="number">3</div>
-                <div class="service-content">
-                    <h3>就職・採用コンサルティング</h3>
-                    <div class="desc">貴社に最適な人材活用をご提案します。</div>
+                <div class="service-card free">
+                    <div class="service-info">
+                        <h3>Job Seeking & Employment Support</h3>
+                        <div class="jp">就職・雇用相談</div>
+                    </div>
+                    <div class="free-badge">
+                        <span class="en">First time FREE!</span> / 初回無料！
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- 企業向けセクション -->
+        <div class="business-section">
+            <div class="section-header">
+                <span class="badge">For Business / 企業様向け</span>
+                <span class="title">外国人雇用サポート</span>
+            </div>
+            <div class="business-services">
+                <div class="biz-item">
+                    <h4>特定技能外国人の<br>登録支援</h4>
+                    <div class="price">15,000<span style="font-size:12px;">円〜/月</span></div>
+                </div>
+                <div class="biz-item">
+                    <h4>外国人雇用・<br>生活支援相談</h4>
+                    <div class="price" style="color:#27ae60;">初回無料</div>
+                </div>
+                <div class="biz-item">
+                    <h4>就職・採用<br>コンサルティング</h4>
+                    <div class="note">貴社に最適な<br>人材活用をご提案</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 信頼バナー -->
         <div class="trust-banner">
-            <span class="icon">✓</span>行政書士が直接対応するため、コンプライアンス面も安心です
+            ✓ 行政書士が直接対応 ─ コンプライアンス面も安心です / Licensed Administrative Scrivener
         </div>
 
-        <div class="office-info">
-            <div class="office-name">🐧 セコンドペンギン企画</div>
-            <div class="office-name-sub">徳永良雄行政書士事務所</div>
-        </div>
-
-        <div class="qr-section">
-            <div class="qr-text">詳細・お問い合わせはこちら →</div>
-            <div class="qr-placeholder">QR Code</div>
+        <!-- フッター -->
+        <div class="footer">
+            <div class="office-info">
+                <div class="office-name-en">Second Penguin Planning</div>
+                <div class="office-name-jp">セコンドペンギン企画</div>
+                <div class="sub-name">Yoshio Tokunaga Gyoseishoshi Office / 徳永良雄行政書士事務所</div>
+            </div>
+            <div class="qr-area">
+                <div class="qr-text">
+                    <div class="en">Contact Us</div>
+                    <div class="jp">お問い合わせはこちら</div>
+                </div>
+                <img src="images/QR_second_penguin.png" alt="QR Code">
+            </div>
         </div>
     </div>
 
