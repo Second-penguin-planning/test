@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>セコンドペンギン企画 チラシ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>VISAサポート チラシ - セカンドペンギン行政書士事務所</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,363 +12,478 @@
             box-sizing: border-box;
         }
 
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
         body {
-            font-family: 'Noto Sans JP', 'Poppins', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
             background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
 
         .flyer {
             width: 210mm;
             height: 297mm;
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-            margin: 0 auto;
+            background: linear-gradient(180deg, #1a237e 0%, #283593 50%, #3949ab 100%);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
-        /* ヘッダー */
+        /* 装飾パターン */
+        .pattern-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255,215,0,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 30%, rgba(255,215,0,0.08) 0%, transparent 25%);
+        }
+
+        /* ヘッダーエリア */
         .header {
-            background: linear-gradient(135deg, #1e4a7a 0%, #2d6eb5 100%);
-            color: white;
-            padding: 28px 40px;
+            padding: 25px 30px 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .visa-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb300 50%, #ffd700 100%);
+            padding: 8px 50px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+            position: relative;
+        }
+
+        .visa-badge::before,
+        .visa-badge::after {
+            content: '★';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1a237e;
+            font-size: 14px;
+        }
+
+        .visa-badge::before { left: 15px; }
+        .visa-badge::after { right: 15px; }
+
+        .visa-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 900;
+            color: #1a237e;
+            letter-spacing: 15px;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
+        }
+
+        .main-catch {
+            color: #fff;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sub-catch {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* メイン画像エリア */
+        .image-section {
+            position: relative;
+            margin: 15px 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .main-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="50" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.1)">🏯</text></svg>');
+            opacity: 0.3;
+        }
+
+        .image-placeholder {
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .image-placeholder .icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .image-placeholder p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: #fff;
+        }
+
+        .image-overlay p {
+            font-size: 13px;
             text-align: center;
         }
 
-        .main-catch-en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 38px;
-            font-weight: 800;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        /* 無料相談バナー */
+        .free-banner {
+            background: linear-gradient(90deg, #d32f2f, #f44336, #d32f2f);
+            padding: 12px;
+            text-align: center;
+            margin: 0 20px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(211,47,47,0.4);
         }
 
-        .main-catch-jp {
-            font-size: 24px;
+        .free-banner::before,
+        .free-banner::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.5);
+        }
+
+        .free-banner::before { left: 10px; }
+        .free-banner::after { right: 10px; transform: translateY(-50%) rotate(180deg); }
+
+        .free-banner span {
+            color: #fff;
+            font-size: 20px;
             font-weight: 700;
-            margin-top: 8px;
-            color: #ffd93d;
+            letter-spacing: 3px;
         }
 
-        /* メインコンテンツ */
-        .content {
-            padding: 25px 40px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1e4a7a;
-            border-bottom: 3px solid #1e4a7a;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* サービスカード */
+        /* サービス一覧 */
         .services {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            padding: 20px 25px;
+        }
+
+        .services-title {
+            text-align: center;
+            color: #ffd700;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
         .service-card {
-            background: white;
+            background: rgba(255,255,255,0.95);
             border-radius: 12px;
-            padding: 18px 24px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            border-left: 5px solid #2d6eb5;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .service-card.free {
-            border-left-color: #27ae60;
-            background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
-        }
-
-        .service-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e4a7a;
-        }
-
-        .service-info .jp {
-            font-size: 14px;
-            color: #555;
-            margin-top: 2px;
-        }
-
-        .price {
-            text-align: right;
-        }
-
-        .price .amount {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: #e67e22;
-        }
-
-        .price .unit {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .free-badge {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .free-badge .en {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* 企業向けセクション */
-        .business-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            margin: 25px 40px;
-            padding: 20px 25px;
-            border-radius: 12px;
-            border: 2px solid #1e4a7a;
-        }
-
-        .business-section .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .business-section .badge {
-            background: #1e4a7a;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-right: 15px;
-        }
-
-        .business-section .title {
-            font-size: 20px;
-            font-weight: 900;
-            color: #1e4a7a;
-        }
-
-        .business-services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .biz-item {
-            background: white;
             padding: 15px;
-            border-radius: 8px;
             text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .biz-item h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1e4a7a;
+        .service-card .icon {
+            font-size: 32px;
             margin-bottom: 8px;
         }
 
-        .biz-item .price {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 800;
-            color: #e67e22;
+        .service-card .title-jp {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 3px;
         }
 
-        .biz-item .note {
-            font-size: 12px;
+        .service-card .title-en {
+            font-size: 10px;
             color: #666;
-            margin-top: 5px;
+            letter-spacing: 1px;
         }
 
-        /* 信頼バナー */
-        .trust-banner {
-            background: #1e4a7a;
-            color: white;
+        .service-card .desc {
+            font-size: 11px;
+            color: #555;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        /* 強みセクション */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.1);
+            margin: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .feature-item {
             text-align: center;
-            padding: 12px;
-            margin: 0 40px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-item .icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .feature-item .text {
+            font-size: 12px;
+            font-weight: 700;
         }
 
         /* フッター */
         .footer {
-            background: linear-gradient(135deg, #1e4a7a 0%, #2d6eb5 100%);
-            color: white;
-            padding: 20px 40px;
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #0d1442;
+            padding: 20px 25px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
-        .office-info .office-name-en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
+        .office-name {
+            text-align: center;
+            margin-bottom: 15px;
         }
 
-        .office-info .office-name-jp {
-            font-size: 16px;
+        .office-name .main {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .office-name .sub {
+            font-size: 11px;
+            color: #ffd700;
+            letter-spacing: 1px;
             margin-top: 3px;
         }
 
-        .office-info .sub-name {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-top: 5px;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
         }
 
-        .qr-area {
+        .contact-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .contact-item .label {
+            font-size: 10px;
+            color: #aaa;
+            margin-bottom: 3px;
+        }
+
+        .contact-item .value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .contact-item .value.phone {
+            font-size: 22px;
+            color: #ffd700;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+        }
+
+        .qr-placeholder {
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            margin: 0 auto;
         }
 
-        .qr-area .qr-text {
-            text-align: right;
+        .qr-placeholder span {
+            font-size: 10px;
+            color: #333;
+            text-align: center;
         }
 
-        .qr-area .qr-text .en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
+        .footer-note {
+            text-align: center;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
 
-        .qr-area .qr-text .jp {
-            font-size: 13px;
-            opacity: 0.9;
+        .footer-note p {
+            color: rgba(255,255,255,0.7);
+            font-size: 10px;
         }
 
-        .qr-area img {
-            width: 90px;
-            height: 90px;
-            background: white;
-            padding: 5px;
-            border-radius: 8px;
-        }
-
+        /* 印刷用スタイル */
         @media print {
             body {
-                background: white;
+                background: none;
                 padding: 0;
             }
             .flyer {
                 box-shadow: none;
-                margin: 0;
             }
         }
     </style>
 </head>
 <body>
-
     <div class="flyer">
+        <div class="pattern-top"></div>
+        
         <!-- ヘッダー -->
         <div class="header">
-            <div class="main-catch-en">Support for your Life in Japan!</div>
-            <div class="main-catch-jp">日本での生活・ビザをサポートします！</div>
+            <div class="visa-badge">
+                <span class="visa-text">VISA</span>
+            </div>
+            <h1 class="main-catch">日本での生活を、プロが全力サポート</h1>
+            <p class="sub-catch">Professional Support for Your Life in Japan</p>
         </div>
 
-        <!-- 個人向けサービス -->
-        <div class="content">
-            <div class="section-title">
-                <span>Services / サービス内容</span>
+        <!-- メイン画像 -->
+        <div class="image-section">
+            <div class="main-image">
+                <div class="image-placeholder">
+                    <div class="icon">🌸👥🏯</div>
+                    <p>ここにメイン画像を配置<br>（日本で楽しく暮らす外国人の写真）</p>
+                </div>
             </div>
+            <div class="image-overlay">
+                <p>日本で暮らす、働く、学ぶ。あなたの夢を実現するお手伝いをします。</p>
+            </div>
+        </div>
 
-            <div class="services">
+        <!-- 無料相談バナー -->
+        <div class="free-banner">
+            <span>📞 初回相談 無 料 ／ FREE CONSULTATION</span>
+        </div>
+
+        <!-- サービス一覧 -->
+        <div class="services">
+            <h2 class="services-title">― 対応業務 SERVICES ―</h2>
+            <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-info">
-                        <h3>Permanent Residency & Other Visas</h3>
-                        <div class="jp">永住・各種ビザ申請</div>
-                    </div>
-                    <div class="price">
-                        <span class="amount">80,000</span>
-                        <span class="unit">yen (+tax) 〜</span>
-                    </div>
+                    <div class="icon">💼</div>
+                    <div class="title-jp">就労ビザ</div>
+                    <div class="title-en">WORK VISA</div>
+                    <div class="desc">技術・人文知識・国際業務など</div>
                 </div>
-
-                <div class="service-card free">
-                    <div class="service-info">
-                        <h3>Visa Consultation</h3>
-                        <div class="jp">ビザの相談</div>
-                    </div>
-                    <div class="free-badge">
-                        <span class="en">First time FREE!</span> / 初回無料！
-                    </div>
+                <div class="service-card">
+                    <div class="icon">💑</div>
+                    <div class="title-jp">配偶者ビザ</div>
+                    <div class="title-en">SPOUSE VISA</div>
+                    <div class="desc">日本人・永住者の配偶者</div>
                 </div>
-
-                <div class="service-card free">
-                    <div class="service-info">
-                        <h3>Job Seeking & Employment Support</h3>
-                        <div class="jp">就職・雇用相談</div>
-                    </div>
-                    <div class="free-badge">
-                        <span class="en">First time FREE!</span> / 初回無料！
-                    </div>
+                <div class="service-card">
+                    <div class="icon">🏠</div>
+                    <div class="title-jp">永住許可</div>
+                    <div class="title-en">PERMANENT RESIDENCY</div>
+                    <div class="desc">ずっと日本に住みたい方</div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🇯🇵</div>
+                    <div class="title-jp">帰化申請</div>
+                    <div class="title-en">NATURALIZATION</div>
+                    <div class="desc">日本国籍を取得したい方</div>
                 </div>
             </div>
         </div>
 
-        <!-- 企業向けセクション -->
-        <div class="business-section">
-            <div class="section-header">
-                <span class="badge">For Business / 企業様向け</span>
-                <span class="title">外国人雇用サポート</span>
+        <!-- 強み -->
+        <div class="features">
+            <div class="feature-item">
+                <div class="icon">⚡</div>
+                <div class="text">迅速対応</div>
             </div>
-            <div class="business-services">
-                <div class="biz-item">
-                    <h4>特定技能外国人の<br>登録支援</h4>
-                    <div class="price">15,000<span style="font-size:12px;">円〜/月</span></div>
-                </div>
-                <div class="biz-item">
-                    <h4>外国人雇用・<br>生活支援相談</h4>
-                    <div class="price" style="color:#27ae60;">初回無料</div>
-                </div>
-                <div class="biz-item">
-                    <h4>就職・採用<br>コンサルティング</h4>
-                    <div class="note">貴社に最適な<br>人材活用をご提案</div>
-                </div>
+            <div class="feature-item">
+                <div class="icon">📝</div>
+                <div class="text">書類作成代行</div>
             </div>
-        </div>
-
-        <!-- 信頼バナー -->
-        <div class="trust-banner">
-            ✓ 行政書士が直接対応 ─ コンプライアンス面も安心です / Licensed Administrative Scrivener
+            <div class="feature-item">
+                <div class="icon">🌐</div>
+                <div class="text">多言語対応</div>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🤝</div>
+                <div class="text">安心サポート</div>
+            </div>
         </div>
 
         <!-- フッター -->
         <div class="footer">
-            <div class="office-info">
-                <div class="office-name-en">Second Penguin Planning</div>
-                <div class="office-name-jp">セコンドペンギン企画</div>
-                <div class="sub-name">Yoshio Tokunaga Gyoseishoshi Office / 徳永良雄行政書士事務所</div>
+            <div class="office-name">
+                <div class="main">セカンドペンギン行政書士事務所</div>
+                <div class="sub">SECOND PENGUIN ADMINISTRATIVE SCRIVENER OFFICE</div>
             </div>
-            <div class="qr-area">
-                <div class="qr-text">
-                    <div class="en">Contact Us</div>
-                    <div class="jp">お問い合わせはこちら</div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="label">EMAIL</div>
+                    <div class="value">info@example.com</div>
+                    <div class="label" style="margin-top:8px;">WEB</div>
+                    <div class="value">second-penguin.com</div>
                 </div>
-                <img src="images/QR_second_penguin.png" alt="QR Code">
+                
+                <div class="qr-placeholder">
+                    <span>QR<br>CODE</span>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="label">お電話でのお問い合わせ</div>
+                    <div class="value phone">000-0000-0000</div>
+                    <div class="label" style="margin-top:5px;">受付時間 9:00〜18:00（土日祝休）</div>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <p>外国人のビザ申請・在留資格のことなら、お気軽にご相談ください。</p>
             </div>
         </div>
     </div>
-
 </body>
 </html>
