@@ -5,31 +5,38 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&display=swap');
 
+  * { box-sizing: border-box; }
   body { font-family: 'Zen Kaku Gothic New', sans-serif; width: 210mm; height: 297mm; margin: 0 auto; background: #eee; }
-  .sheet { width: 100%; height: 100%; background: #fff; padding: 15mm; display: flex; flex-direction: column; gap: 8mm; }
+  .sheet { width: 100%; height: 100%; background: #fff; padding: 10mm; display: flex; flex-direction: column; justify-content: space-between; }
 
   /* キャッチコピー */
-  .hero { background: #0D2B55; color: white; padding: 10mm; text-align: center; border-radius: 10px; position: relative; overflow: hidden; }
-  .hero h1 { font-size: 32pt; line-height: 1.2; margin-bottom: 5mm; }
-  .hero h1 span { color: #F4801A; display: block; font-size: 45pt; }
-  .sub-catch { font-size: 14pt; background: #F4801A; display: inline-block; padding: 2px 20px; border-radius: 50px; }
+  .hero { background: #0D2B55; color: white; padding: 8mm; text-align: center; border-radius: 10px; }
+  .hero h1 { font-size: 28pt; line-height: 1.2; margin: 2mm 0; }
+  .hero h1 span { color: #F4801A; display: block; font-size: 40pt; }
+  .sub-catch { font-size: 12pt; background: #F4801A; display: inline-block; padding: 2px 20px; border-radius: 50px; }
 
-  /* 3つの強み */
-  .features { display: flex; gap: 5mm; }
-  .feat-box { flex: 1; border: 2px solid #0D2B55; padding: 5mm; border-radius: 8px; text-align: center; }
-  .feat-box b { color: #0D2B55; font-size: 12pt; display: block; margin-bottom: 2mm; }
+  /* コンテンツエリア */
+  .content-wrap { display: flex; flex-direction: column; gap: 6mm; }
+  
+  /* 画像と強み */
+  .feat-row { display: flex; gap: 4mm; align-items: center; }
+  .img-box { width: 30%; height: 40mm; object-fit: cover; border-radius: 8px; border: 2px solid #ddd; }
+  .features { display: flex; gap: 4mm; width: 70%; }
+  .feat-box { flex: 1; border: 2px solid #0D2B55; padding: 3mm; border-radius: 8px; text-align: center; font-size: 9pt; }
+  .feat-box b { color: #0D2B55; display: block; margin-bottom: 1mm; font-size: 10pt; }
 
   /* メインコンテンツ */
-  .main-content { display: flex; gap: 8mm; }
+  .main-content { display: flex; gap: 8mm; align-items: center; }
   .col { flex: 1; }
-  h2 { border-bottom: 4px solid #F4801A; margin-bottom: 5mm; font-size: 16pt; padding-bottom: 1mm; }
+  h2 { border-bottom: 4px solid #F4801A; margin-bottom: 4mm; font-size: 14pt; padding-bottom: 1mm; }
   
   /* 料金強調 */
-  .price-highlight { background: #FFF8F0; border: 3px solid #F4801A; padding: 5mm; text-align: center; font-size: 18pt; font-weight: 900; }
+  .price-highlight { background: #FFF8F0; border: 3px solid #F4801A; padding: 4mm; text-align: center; font-size: 16pt; font-weight: 900; }
   
-  /* フッター連絡先 */
-  .footer { margin-top: auto; background: #0D2B55; color: white; padding: 5mm; display: flex; justify-content: space-between; align-items: center; }
-  .tel { font-size: 24pt; font-weight: 900; color: #FFD580; }
+  /* フッター */
+  .footer { background: #0D2B55; color: white; padding: 5mm; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; }
+  .tel { font-size: 20pt; font-weight: 900; color: #FFD580; }
+  .qr-img { width: 25mm; height: 25mm; background: #fff; padding: 1mm; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -37,39 +44,46 @@
     <div class="hero">
       <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
       <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
-      <p style="font-size: 14pt;">「採用から定着まで」行政書士がフルサポート</p>
+      <p>「採用から定着まで」行政書士がフルサポート</p>
     </div>
 
-    <div class="features">
-      <div class="feat-box"><b>① 行政書士の法務知見</b>複雑な入管・ビザ申請をプロが完遂</div>
-      <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
-      <div class="feat-box"><b>③ 驚異の失踪率0.2%</b>適性検査で選抜された即戦力</div>
-    </div>
-
-    <div class="main-content">
-      <div class="col">
-        <h2>こんなお悩み、ありませんか？</h2>
-        <ul style="font-size: 12pt; line-height: 2;">
-          <li>✅ 求人を出しても応募がゼロ</li>
-          <li>✅ 現場が疲弊し、接客の質が低下</li>
-          <li>✅ 外国人雇用は手続きが不安</li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="price-highlight">
-          月額 15,000円〜/人<br>
-          <span style="font-size: 10pt; font-weight: 400;">※教育付きプランは 20,000円〜</span>
+    <div class="content-wrap">
+      <div class="feat-row">
+        <img src="images/foto_hotel.png" class="img-box" alt="ホテル風景">
+        <div class="features">
+          <div class="feat-box"><b>① 行政書士の法務知見</b>入管・ビザ申請をプロが完遂</div>
+          <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
+          <div class="feat-box"><b>③ 驚異の失踪率0.2%</b>適性検査で選抜された即戦力</div>
         </div>
-        <p style="text-align: center; margin-top: 3mm;">まずは初回無料相談で、貴社の課題をお聞かせください。</p>
+      </div>
+
+      <div class="main-content">
+        <div class="col">
+          <img src="images/授業風景.png" style="width: 100%; height: 50mm; object-fit: cover; border-radius: 8px; margin-bottom: 3mm;">
+          <h2>こんなお悩み、ありませんか？</h2>
+          <ul style="font-size: 11pt; line-height: 1.8; margin: 0; padding-left: 5mm;">
+            <li>✅ 人手不足で予約を制限している</li>
+            <li>✅ 現場が疲弊し、おもてなしが疎かに</li>
+            <li>✅ 外国人雇用は手続きが不安</li>
+          </ul>
+        </div>
+        <div class="col">
+          <div class="price-highlight">
+            月額 15,000円〜/人<br>
+            <span style="font-size: 10pt; font-weight: 400;">※教育付きプランは 20,000円〜</span>
+          </div>
+          <p style="text-align: center; margin-top: 5mm; font-size: 11pt;">まずは初回無料相談で<br>貴社の課題をお聞かせください。</p>
+        </div>
       </div>
     </div>
 
     <div class="footer">
       <div>
-        <div style="font-size: 10pt;">お問い合わせ・ご相談は直通ダイヤルまで</div>
+        <div style="font-size: 9pt;">お問い合わせは直通ダイヤルまで</div>
         <div class="tel">078-600-9814</div>
       </div>
-      <div style="text-align: right; font-size: 10pt;">
+      <img src="QR_second_penguin.png" class="qr-img" alt="QRコード">
+      <div style="text-align: right; font-size: 9pt;">
         セコンドペンギン企画 ／ 徳永良雄行政書士事務所<br>
         second-penguin.com
       </div>
