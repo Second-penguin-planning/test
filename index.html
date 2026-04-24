@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>セコンドペンギン企画 チラシ</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
@@ -15,807 +15,818 @@
     print-color-adjust: exact;
   }
 
-  :root{
-    --navy:#0D2B55;
-    --orange:#F4801A;
-    --yellow:#FFF7DA;
-    --text:#222;
-    --line:#d8d8d8;
+  :root {
+    --navy: #0D2B55;
+    --orange: #F4801A;
+    --yellow: #FFF7DA;
+    --light: #f7f7f7;
+    --line: #dcdcdc;
+    --text: #222;
   }
 
-  html, body{
-    width:210mm;
-    height:297mm;
-    margin:0;
-    padding:0;
-    overflow:hidden;
-    background:#fff;
-    font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
-    color:var(--text);
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    color: var(--text);
   }
 
-  @page{
-    size:A4;
-    margin:0;
+  @page {
+    size: A4;
+    margin: 0;
   }
 
-  .page{
-    width:210mm;
-    height:297mm;
-    overflow:hidden;
-    position:relative;
-    background:#fff;
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
   }
 
-  .content{
-    width:100%;
-    height:100%;
-    padding:3.5mm 3.5mm 2.5mm;
+  .content {
+    width: 100%;
+    height: 100%;
+    padding: 3mm 3mm 2.2mm;
   }
 
   /* ===== HEADER ===== */
-  .header{
-    position:relative;
-    min-height:63mm;
-    padding:12px 14px 10px;
-    background:linear-gradient(135deg,#f8efe4 0%, #efe2d2 100%);
-    border-bottom:2px solid #d7c3ad;
-    overflow:hidden;
+  .header {
+    position: relative;
+    min-height: 69mm;
+    padding: 12px 14px 11px;
+    background: linear-gradient(135deg, #f8efe4 0%, #efe2d2 100%);
+    border-bottom: 2px solid #d7c3ad;
+    overflow: hidden;
   }
 
-  .header::before{
-    content:'';
-    position:absolute;
-    right:0;
-    top:0;
-    width:10px;
-    height:100%;
-    background:var(--orange);
-    z-index:2;
+  .header::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--orange);
+    z-index: 2;
   }
 
-  .header-hotel{
-    position:absolute;
-    right:-2mm;
-    top:-1mm;
-    width:108mm;
-    opacity:.24;
-    z-index:0;
-    pointer-events:none;
-    user-select:none;
-    filter:contrast(1.14) saturate(1.05) brightness(1.01);
+  .header-hotel {
+    position: absolute;
+    right: -1mm;
+    top: -2mm;
+    width: 116mm;
+    opacity: .23;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    filter: contrast(1.16) saturate(1.04) brightness(1.02);
   }
 
-  .header-hotel img{
-    width:100%;
-    height:auto;
-    display:block;
+  .header-hotel img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
-  .header-inner{
-    position:relative;
-    z-index:1;
-    padding-right:58mm;
+  .header-inner {
+    position: relative;
+    z-index: 1;
+    padding-right: 60mm;
   }
 
-  .header-top{
-    font-size:9pt;
-    line-height:1.3;
-    font-weight:500;
-    color:#6d5a49;
-    margin-bottom:3px;
+  .header-top {
+    font-size: 9.4pt;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #6d5a49;
+    margin-bottom: 4px;
   }
 
-  .header-sub{
-    display:inline-block;
-    font-size:9pt;
-    font-weight:700;
-    color:#8c5c22;
-    border:1px solid #c8ad8b;
-    background:rgba(255,255,255,.38);
-    padding:2px 8px;
-    border-radius:2px;
-    margin-bottom:6px;
+  .header-sub {
+    display: inline-block;
+    font-size: 9.2pt;
+    font-weight: 700;
+    color: #8c5c22;
+    border: 1px solid #c8ad8b;
+    background: rgba(255,255,255,.4);
+    padding: 2px 9px;
+    border-radius: 2px;
+    margin-bottom: 7px;
   }
 
-  .header-title{
-    font-size:15.2pt;
-    font-weight:900;
-    line-height:1.27;
-    color:#2e251d;
-    margin-bottom:4px;
+  .header-title {
+    font-size: 16.2pt;
+    font-weight: 900;
+    line-height: 1.24;
+    color: #2e251d;
+    margin-bottom: 5px;
+    letter-spacing: .2px;
   }
 
-  .header-title span{
-    color:var(--orange);
+  .header-title span {
+    color: var(--orange);
   }
 
-  .header-desc{
-    font-size:7.85pt;
-    line-height:1.5;
-    color:#4e4033;
+  .header-desc {
+    font-size: 8.15pt;
+    line-height: 1.52;
+    color: #4e4033;
   }
 
-  .header-desc strong{
-    color:#7d4d13;
-    font-weight:700;
+  .header-desc strong {
+    color: #7d4d13;
+    font-weight: 700;
   }
 
-  /* ===== COMMON ===== */
-  .divider{
-    height:3px;
-    background:linear-gradient(90deg,var(--orange),var(--navy));
+  /* ===== DIVIDER ===== */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--navy));
   }
 
-  .divider-thin{
-    height:1px;
-    background:#ddd;
-    margin:0 10px;
+  .divider-thin {
+    height: 1px;
+    background: #ddd;
+    margin: 0 9px;
   }
 
-  .two-col{
-    display:flex;
-    align-items:stretch;
+  /* ===== TWO COLUMN ===== */
+  .two-col {
+    display: flex;
+    align-items: stretch;
   }
 
-  .col-left{ width:55%; }
-  .col-right{ width:45%; border-left:2px solid #e1e1e1; }
-
-  .section{
-    padding:6.5px 10px;
+  .col-left {
+    width: 55%;
   }
 
-  .section-title{
-    font-size:8.7pt;
-    font-weight:900;
-    color:var(--navy);
-    line-height:1.25;
-    border-left:4px solid var(--orange);
-    padding-left:6px;
-    margin-bottom:6px;
+  .col-right {
+    width: 45%;
+    border-left: 2px solid #e1e1e1;
   }
 
-  .section-title .sub{
-    display:block;
-    font-size:6.95pt;
-    font-weight:500;
-    color:#666;
-    margin-top:1px;
+  .section {
+    padding: 7px 10px;
+  }
+
+  .section-title {
+    font-size: 9.1pt;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.22;
+    border-left: 4px solid var(--orange);
+    padding-left: 6px;
+    margin-bottom: 6px;
+  }
+
+  .section-title .sub {
+    display: block;
+    font-size: 7.15pt;
+    font-weight: 500;
+    color: #666;
+    margin-top: 1px;
   }
 
   /* ===== ISSUES ===== */
-  .issues{
-    border-bottom:1px solid #e0e0e0;
+  .issues {
+    border-bottom: 1px solid #e0e0e0;
   }
 
-  .check-list{
-    list-style:none;
-    margin-bottom:5px;
+  .check-list {
+    list-style: none;
+    margin-bottom: 5px;
   }
 
-  .check-list li{
-    position:relative;
-    padding-left:15px;
-    font-size:7.15pt;
-    line-height:1.42;
+  .check-list li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 7.45pt;
+    line-height: 1.42;
+    margin-bottom: 2px;
   }
 
-  .check-list li::before{
-    content:'☑';
-    position:absolute;
-    left:0;
-    top:0;
-    color:var(--orange);
-    font-size:8pt;
+  .check-list li::before {
+    content: '☑';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--orange);
+    font-size: 8.2pt;
   }
 
-  .issues-body{
-    font-size:6.85pt;
-    line-height:1.5;
-    color:#333;
+  .issues-body {
+    font-size: 7.15pt;
+    line-height: 1.5;
+    color: #333;
   }
 
-  .issues-body strong{
-    color:var(--navy);
-    font-weight:700;
+  .issues-body strong {
+    color: var(--navy);
+    font-weight: 700;
   }
 
   /* ===== STRENGTHS ===== */
-  .strengths{
-    background:var(--yellow);
-    border-bottom:1px solid #e8deae;
+  .strengths {
+    background: var(--yellow);
+    border-bottom: 1px solid #e8deae;
   }
 
-  .strength-item{
-    display:flex;
-    gap:6px;
-    margin-bottom:5px;
-    align-items:flex-start;
+  .strength-item {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 5px;
+    align-items: flex-start;
   }
 
-  .strength-num{
-    width:20px;
-    height:20px;
-    flex-shrink:0;
-    border-radius:50%;
-    background:var(--orange);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:8.5pt;
-    font-weight:900;
-    margin-top:1px;
+  .strength-num {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8.7pt;
+    font-weight: 900;
+    margin-top: 1px;
   }
 
-  .strength-text h4{
-    font-size:7.2pt;
-    line-height:1.33;
-    color:var(--navy);
-    font-weight:700;
-    margin-bottom:1px;
+  .strength-text h4 {
+    font-size: 7.55pt;
+    line-height: 1.33;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 1px;
   }
 
-  .strength-text p{
-    font-size:6.55pt;
-    line-height:1.42;
-    color:#444;
+  .strength-text p {
+    font-size: 6.9pt;
+    line-height: 1.42;
+    color: #444;
   }
 
-  .penguin-box{
-    display:flex;
-    gap:6px;
-    align-items:center;
-    background:#e8f0fb;
-    border-radius:6px;
-    padding:5px 8px;
-    margin-top:5px;
+  .penguin-box {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background: #e8f0fb;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-top: 5px;
   }
 
-  .penguin-icon{
-    font-size:24pt;
-    line-height:1;
-    flex-shrink:0;
+  .penguin-icon {
+    font-size: 24pt;
+    line-height: 1;
+    flex-shrink: 0;
   }
 
-  .balloon{
-    position:relative;
-    background:#fff;
-    border:1.5px solid var(--navy);
-    border-radius:8px;
-    padding:4px 8px;
-    color:var(--navy);
-    font-size:6.35pt;
-    line-height:1.42;
-    font-weight:500;
+  .balloon {
+    position: relative;
+    background: #fff;
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: var(--navy);
+    font-size: 6.7pt;
+    line-height: 1.38;
+    font-weight: 500;
   }
 
-  .balloon::before{
-    content:'';
-    position:absolute;
-    left:-8px;
-    top:50%;
-    transform:translateY(-50%);
-    border:5px solid transparent;
-    border-right-color:var(--navy);
+  .balloon::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: var(--navy);
   }
 
-  .balloon::after{
-    content:'';
-    position:absolute;
-    left:-5.5px;
-    top:50%;
-    transform:translateY(-50%);
-    border:4px solid transparent;
-    border-right-color:#fff;
+  .balloon::after {
+    content: '';
+    position: absolute;
+    left: -5.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 4px solid transparent;
+    border-right-color: #fff;
   }
 
   /* ===== QUALITY ===== */
-  .quality{
-    border-bottom:1px solid #e0e0e0;
+  .quality {
+    border-bottom: 1px solid #e0e0e0;
   }
 
-  .stat-row{
-    display:flex;
-    gap:5px;
-    margin-bottom:6px;
+  .stat-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 6px;
   }
 
-  .stat-card{
-    flex:1;
-    background:var(--navy);
-    border-radius:4px;
-    padding:5px 3px;
-    text-align:center;
-    color:#fff;
+  .stat-card {
+    flex: 1;
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 5px 3px;
+    text-align: center;
+    color: #fff;
   }
 
-  .stat-card .num{
-    font-size:13.4pt;
-    font-weight:900;
-    line-height:1.03;
-    color:var(--orange);
+  .stat-card .num {
+    font-size: 14pt;
+    font-weight: 900;
+    line-height: 1.02;
+    color: var(--orange);
   }
 
-  .stat-card .label{
-    font-size:5.8pt;
-    line-height:1.28;
+  .stat-card .label {
+    font-size: 6pt;
+    line-height: 1.3;
   }
 
-  .photo-placeholder{
-    position:relative;
-    height:45mm;
-    overflow:hidden;
-    border-radius:4px;
-    margin-bottom:5px;
-    border:2px solid rgba(13,43,85,.18);
-    background:#ddd;
+  .photo-placeholder {
+    position: relative;
+    height: 46mm;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 2px solid rgba(13,43,85,.18);
+    background: #ddd;
   }
 
-  .photo-placeholder img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .photo-placeholder .overlay-text{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:8px 6px 5px;
-    font-size:6.8pt;
-    line-height:1.32;
-    color:#fff;
-    text-align:center;
-    background:linear-gradient(transparent, rgba(0,0,0,.45));
+  .photo-placeholder .overlay-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8px 6px 5px;
+    font-size: 7pt;
+    line-height: 1.3;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(transparent, rgba(0,0,0,.45));
   }
 
-  .quality-list{
-    list-style:none;
+  .quality-list {
+    list-style: none;
   }
 
-  .quality-list li{
-    position:relative;
-    padding-left:14px;
-    font-size:6.8pt;
-    line-height:1.42;
-    margin-bottom:3px;
-    color:#333;
+  .quality-list li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 7.05pt;
+    line-height: 1.42;
+    margin-bottom: 3px;
+    color: #333;
   }
 
-  .quality-list li::before{
-    content:'✅';
-    position:absolute;
-    left:0;
-    top:0;
-    font-size:7pt;
+  .quality-list li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 7.2pt;
   }
 
-  .quality-list li strong{
-    color:var(--navy);
-    font-weight:700;
+  .quality-list li strong {
+    color: var(--navy);
+    font-weight: 700;
   }
 
-  .quality-list li .highlight{
-    color:var(--orange);
-    font-weight:900;
+  .quality-list li .highlight {
+    color: var(--orange);
+    font-weight: 900;
   }
 
   /* ===== SUPPORT / PRICE ===== */
-  .support{
-    padding-top:6px;
-    padding-bottom:6px;
+  .support {
+    padding-top: 6px;
+    padding-bottom: 5px;
   }
 
-  .support-flex{
-    display:flex;
-    gap:8px;
-    align-items:flex-start;
+  .support-flex {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
   }
 
   .support-left,
-  .support-right{
-    flex:1;
+  .support-right {
+    flex: 1;
   }
 
-  .support-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:4px;
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
   }
 
-  .support-item{
-    background:#f5f5f5;
-    border-radius:4px;
-    border-left:3px solid var(--navy);
-    padding:4px 6px;
+  .support-item {
+    background: #f5f5f5;
+    border-radius: 4px;
+    border-left: 3px solid var(--navy);
+    padding: 4px 6px;
   }
 
-  .support-item h5{
-    font-size:6.85pt;
-    line-height:1.25;
-    font-weight:700;
-    color:var(--navy);
-    margin-bottom:1px;
+  .support-item h5 {
+    font-size: 7pt;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1px;
   }
 
-  .support-item p{
-    font-size:5.95pt;
-    line-height:1.34;
-    color:#444;
+  .support-item p {
+    font-size: 6.15pt;
+    line-height: 1.34;
+    color: #444;
   }
 
-  .price-box{
-    height:100%;
-    border:2px solid var(--orange);
-    border-radius:6px;
-    padding:6px 8px;
-    background:#FFF8F0;
+  .price-box {
+    height: 100%;
+    border: 2px solid var(--orange);
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: #FFF8F0;
   }
 
-  .price-box h4{
-    font-size:7.7pt;
-    line-height:1.25;
-    font-weight:900;
-    color:var(--orange);
-    text-align:center;
-    margin-bottom:4px;
+  .price-box h4 {
+    font-size: 8pt;
+    line-height: 1.25;
+    font-weight: 900;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 4px;
   }
 
-  .price-table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:6.15pt;
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 6.35pt;
   }
 
-  .price-table tr{
-    border-bottom:1px solid #f0d8b0;
+  .price-table tr {
+    border-bottom: 1px solid #f0d8b0;
   }
 
-  .price-table tr:last-child{
-    border-bottom:none;
+  .price-table tr:last-child {
+    border-bottom: none;
   }
 
-  .price-table td{
-    padding:2px 4px;
-    vertical-align:middle;
+  .price-table td {
+    padding: 2px 4px;
+    vertical-align: middle;
   }
 
-  .price-table .plan{
-    color:#333;
-    font-weight:500;
+  .price-table .plan {
+    color: #333;
+    font-weight: 500;
   }
 
-  .price-table .price{
-    text-align:right;
-    color:var(--orange);
-    font-weight:900;
-    white-space:nowrap;
+  .price-table .price {
+    text-align: right;
+    color: var(--orange);
+    font-weight: 900;
+    white-space: nowrap;
   }
 
-  .recommended{
-    display:inline-block;
-    background:var(--orange);
-    color:#fff;
-    font-size:5.2pt;
-    line-height:1;
-    padding:1px 4px;
-    border-radius:2px;
-    margin-right:3px;
-    vertical-align:middle;
+  .recommended {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-size: 5.4pt;
+    line-height: 1;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-right: 3px;
+    vertical-align: middle;
   }
 
-  .price-note{
-    margin-top:4px;
-    font-size:5.9pt;
-    text-align:center;
-    color:#888;
-    line-height:1.25;
+  .price-note {
+    margin-top: 4px;
+    font-size: 6pt;
+    text-align: center;
+    color: #888;
+    line-height: 1.25;
   }
 
   /* ===== FOOTER ===== */
-  .footer{
-    min-height:72mm;
-    background:var(--navy);
-    color:#fff;
-    padding:9px 11px 10px;
+  .footer {
+    min-height: 60mm;
+    background: var(--navy);
+    color: #fff;
+    padding: 8px 10px 8px;
   }
 
-  .footer-top{
-    text-align:center;
-    margin-bottom:5px;
+  .footer-top {
+    text-align: center;
+    margin-bottom: 4px;
   }
 
-  .footer-top .catch{
-    font-size:7.45pt;
-    line-height:1.32;
-    color:#aac4e8;
-    margin-bottom:2px;
+  .footer-top .catch {
+    font-size: 7.1pt;
+    line-height: 1.3;
+    color: #aac4e8;
+    margin-bottom: 2px;
   }
 
-  .footer-top .free{
-    display:inline-block;
-    font-size:9.1pt;
-    font-weight:900;
-    color:var(--orange);
-    border:1px solid var(--orange);
-    padding:2px 14px;
-    border-radius:20px;
-    margin-bottom:2px;
+  .footer-top .free {
+    display: inline-block;
+    font-size: 8.7pt;
+    font-weight: 900;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 2px 12px;
+    border-radius: 20px;
+    margin-bottom: 2px;
   }
 
-  .footer-top .note{
-    font-size:6pt;
-    color:#aac4e8;
+  .footer-top .note {
+    font-size: 5.8pt;
+    color: #aac4e8;
   }
 
-  .footer-body{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
+  .footer-body {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
   }
 
-  .footer-info{
-    flex:1;
+  .footer-info {
+    flex: 1;
   }
 
-  .company{
-    font-size:7.7pt;
-    font-weight:700;
-    color:#FFD580;
-    margin-bottom:3px;
-    line-height:1.25;
+  .company {
+    font-size: 7.65pt;
+    font-weight: 700;
+    color: #FFD580;
+    margin-bottom: 3px;
+    line-height: 1.25;
   }
 
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:2px;
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
   }
 
-  .contact-item{
-    font-size:6.1pt;
-    line-height:1.45;
-    color:#ccd9ec;
+  .contact-item {
+    font-size: 6.05pt;
+    line-height: 1.42;
+    color: #ccd9ec;
   }
 
-  .contact-item .icon{
-    color:var(--orange);
+  .contact-item .icon {
+    color: var(--orange);
   }
 
-  .contact-item a{
-    color:#7eb8f7;
-    text-decoration:none;
+  .contact-item a {
+    color: #7eb8f7;
+    text-decoration: none;
   }
 
-  .qr-area{
-    display:flex;
-    gap:10px;
-    flex-shrink:0;
+  .qr-area {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
   }
 
-  .qr-block{
-    width:74px;
-    text-align:center;
+  .qr-block {
+    width: 72px;
+    text-align: center;
   }
 
-  .qr-box{
-    width:74px;
-    height:74px;
-    border-radius:3px;
-    overflow:hidden;
-    background:#fff;
-    border:1px solid rgba(255,255,255,.45);
-    margin-bottom:3px;
+  .qr-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.45);
+    margin-bottom: 3px;
   }
 
-  .qr-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+  .qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .qr-label{
-    font-size:5.65pt;
-    line-height:1.15;
-    color:#aac4e8;
+  .qr-label {
+    font-size: 5.55pt;
+    line-height: 1.15;
+    color: #aac4e8;
   }
 
-  @media print{
-    html, body{
-      width:210mm;
-      height:297mm;
-      margin:0;
-      padding:0;
-      overflow:hidden;
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
     }
-    .page{
-      width:210mm;
-      height:297mm;
+    .page {
+      width: 210mm;
+      height: 297mm;
     }
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="content">
+  <div class="page">
+    <div class="content">
 
-    <div class="header">
-      <div class="header-hotel">
-        <img src="images/foto_hotel.png" alt="ホテル画像">
-      </div>
-      <div class="header-inner">
-        <div class="header-top">▶ 観光・サービス業界の「おもてなし」を止めてはいけない。</div>
-        <div class="header-sub">【人手不足に悩むホテル・旅館・飲食経営者様へ】</div>
-        <div class="header-title">人手不足を解消し、現場に活気を取り戻す<br><span>「外国人材活用」</span>の最適解</div>
-        <div class="header-desc">
-          観光産業の未来を創る「即戦力」と「安心」のパートナーシップを。<br>
-          <strong>「明るく、誠実。そしてホスピタリティ溢れる」フィリピン・インドネシアの優れた人材</strong>と、<br>
-          法務のプロによる伴走で、貴社のサービスを次ステージへ導きます。
+      <div class="header">
+        <div class="header-hotel">
+          <img src="images/foto_hotel.png" alt="ホテル画像">
+        </div>
+        <div class="header-inner">
+          <div class="header-top">▶ 観光・サービス業界の「おもてなし」を止めてはいけない。</div>
+          <div class="header-sub">【人手不足に悩むホテル・旅館・飲食経営者様へ】</div>
+          <div class="header-title">人手不足を解消し、現場に活気を取り戻す<br><span>「外国人材活用」</span>の最適解</div>
+          <div class="header-desc">
+            観光産業の未来を創る「即戦力」と「安心」のパートナーシップを。<br>
+            <strong>「明るく、誠実。そしてホスピタリティ溢れる」フィリピン・インドネシアの優れた人材</strong>と、<br>
+            法務のプロによる伴走で、貴社のサービスを次ステージへ導きます。
+          </div>
         </div>
       </div>
+
+      <div class="divider"></div>
+
+      <div class="two-col">
+        <div class="col-left">
+          <div class="section issues">
+            <div class="section-title">こんな危機感を抱いていませんか？</div>
+            <ul class="check-list">
+              <li>人手が足りず、予約を制限せざるを得ない</li>
+              <li>現場が疲弊し、自慢のおもてなしが疎かになっている</li>
+            </ul>
+            <p class="issues-body">
+              私たちは、単なる人材紹介会社ではありません。<br>
+              行政書士としての<strong>「法務的信頼」</strong>と、現地政府・教育機関との<strong>「外交的パイプ」</strong>を武器に、
+              貴社のコンプライアンスを守り抜き、即戦力となる人材を「線」で支える<strong>専門家集団</strong>です。
+            </p>
+          </div>
+
+          <div class="divider-thin"></div>
+
+          <div class="section strengths">
+            <div class="section-title">徳永良雄の圧倒的な強み<span class="sub">なぜ、私たちの紹介は「質」が違うのか</span></div>
+            <p style="font-size:6.55pt;color:#555;margin-bottom:5px;line-height:1.42;">
+              代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>
+              他の業者には真似できない<strong>3つの信頼の柱</strong>があります。
+            </p>
+
+            <div class="strength-item">
+              <div class="strength-num">①</div>
+              <div class="strength-text">
+                <h4>🌏 日本大使館・現地政府派遣の「外交的パイプ」</h4>
+                <p>在インドネシア日本大使館勤務経験、フィリピン政府への専門家派遣実績。現地の動向や制度の深部まで熟知。</p>
+              </div>
+            </div>
+
+            <div class="strength-item">
+              <div class="strength-num">②</div>
+              <div class="strength-text">
+                <h4>⚖️ 行政書士の法務知見 × 31年の公務員実務</h4>
+                <p>入管業務（ビザ申請）のプロフェッショナル。複雑な特定技能の手続きを、行政実務の裏側まで知り尽くした知見でスムーズに完結。</p>
+              </div>
+            </div>
+
+            <div class="strength-item">
+              <div class="strength-num">③</div>
+              <div class="strength-text">
+                <h4>🗣️ 言語と文化の壁を壊す「現場目線」</h4>
+                <p>ビジネス英語・中級インドネシア語を操り、現地で直接指導した経験。外国人の「困りごと」を肌で理解しているからこそ、ミスマッチのないマッチングを実現。</p>
+              </div>
+            </div>
+
+            <div class="penguin-box">
+              <div class="penguin-icon">🐧</div>
+              <div class="balloon">複雑な入管手続きは、<br>法務のプロである僕たちに<br>全部任せてくださいね！</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-right">
+          <div class="section quality">
+            <div class="section-title">圧倒的な「人材の質」と「安全性」<span class="sub">失踪率0.2%の誇り</span></div>
+
+            <div class="stat-row">
+              <div class="stat-card"><div class="num">80%</div><div class="label">N4<br>合格率</div></div>
+              <div class="stat-card"><div class="num">0.2%</div><div class="label">驚異の<br>失踪率</div></div>
+              <div class="stat-card"><div class="num">1,200+</div><div class="label">累計<br>卒業生</div></div>
+            </div>
+
+            <div class="photo-placeholder">
+              <img src="images/授業風景.png" alt="授業風景">
+              <div class="overlay-text">OWJLCの活気ある授業風景<br>笑顔の候補者たちの写真</div>
+            </div>
+
+            <ul class="quality-list">
+              <li><strong>提携校 OWJLC</strong>（フィリピン）<br>18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。</li>
+              <li><span class="highlight">失踪率わずか0.2%</span>を実現<br>フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。</li>
+              <li><strong>内田クレペリン検査</strong>を導入<br>日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。</li>
+            </ul>
+
+            <div class="penguin-box" style="margin-top:4px;">
+              <div class="penguin-icon">🐧</div>
+              <div class="balloon">フィリピンの子たちは本当に<br>お年寄りに優しくて、<br>現場が明るくなりますよ！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section support">
+        <div class="support-flex">
+          <div class="support-left">
+            <div class="section-title">一気通貫のフルサポートモデル<span class="sub">採用から定着まで一つの窓口で完結</span></div>
+            <div class="support-grid">
+              <div class="support-item"><h5>📋 採用・法務代行</h5><p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p></div>
+              <div class="support-item"><h5>🏠 生活セットアップ</h5><p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p></div>
+              <div class="support-item"><h5>📈 定着・ステップアップ</h5><p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p></div>
+              <div class="support-item"><h5>🤝 顧問サービス</h5><p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p></div>
+            </div>
+          </div>
+
+          <div class="support-right">
+            <div class="price-box">
+              <h4>💴 料金プランの目安（税別）</h4>
+              <table class="price-table">
+                <tr><td class="plan">特定技能サポートプラン（基本）</td><td class="price">月額 15,000円〜/人</td></tr>
+                <tr style="background:#fff3e0;"><td class="plan"><span class="recommended">推奨</span>教育付きサポートプラン（日本語コース付）</td><td class="price" style="color:#c05800;">月額 20,000円〜/人</td></tr>
+                <tr><td class="plan">入国・採用準備費用</td><td class="price">150,000円〜</td></tr>
+                <tr><td class="plan">生活セットアップ費用</td><td class="price">50,000円〜</td></tr>
+                <tr><td class="plan">外国人雇用アドバイザー（顧問）</td><td class="price">月額 30,000円〜</td></tr>
+              </table>
+              <p class="price-note">貴社の規模に合わせて最適なプランをご提案します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footer">
+        <div class="footer-top">
+          <p class="catch">「制度がよくわからない」「まずは適性を見てみたい」といったご相談も大歓迎です。</p>
+          <div class="free">✨ 初回相談無料・全国オンライン対応 ✨</div><br>
+          <span class="note">通常24時間以内に回答いたします。</span>
+        </div>
+
+        <div class="footer-body">
+          <div class="footer-info">
+            <div class="company">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <span class="icon">📍</span> 〒658-0032<br>
+                兵庫県神戸市東灘区向洋町中6-9<br>
+                神戸ファッションマート 4N-07-01
+              </div>
+              <div class="contact-item">
+                <span class="icon">📞</span> <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong><br>
+                （担当直通）<br>
+                <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
+                <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
+                <span style="margin-left:12px;"><a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="qr-area">
+            <div class="qr-block">
+              <div class="qr-box"><img src="images/QR_second_penguin.png" alt="HPはコチラ"></div>
+              <div class="qr-label">HPはコチラ</div>
+            </div>
+            <div class="qr-block">
+              <div class="qr-box"><img src="images/QR_LINE.png" alt="LINE問合せ"></div>
+              <div class="qr-label">LINE問合せ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <div class="divider"></div>
-
-    <div class="two-col">
-      <div class="col-left">
-        <div class="section issues">
-          <div class="section-title">こんな危機感を抱いていませんか？</div>
-          <ul class="check-list">
-            <li>人手が足りず、予約を制限せざるを得ない</li>
-            <li>現場が疲弊し、自慢のおもてなしが疎かになっている</li>
-          </ul>
-          <p class="issues-body">
-            私たちは、単なる人材紹介会社ではありません。<br>
-            行政書士としての<strong>「法務的信頼」</strong>と、現地政府・教育機関との<strong>「外交的パイプ」</strong>を武器に、
-            貴社のコンプライアンスを守り抜き、即戦力となる人材を「線」で支える<strong>専門家集団</strong>です。
-          </p>
-        </div>
-
-        <div class="divider-thin"></div>
-
-        <div class="section strengths">
-          <div class="section-title">徳永良雄の圧倒的な強み<span class="sub">なぜ、私たちの紹介は「質」が違うのか</span></div>
-          <p style="font-size:6.35pt;color:#555;margin-bottom:5px;line-height:1.42;">
-            代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>
-            他の業者には真似できない<strong>3つの信頼の柱</strong>があります。
-          </p>
-
-          <div class="strength-item">
-            <div class="strength-num">①</div>
-            <div class="strength-text">
-              <h4>🌏 日本大使館・現地政府派遣の「外交的パイプ」</h4>
-              <p>在インドネシア日本大使館勤務経験、フィリピン政府への専門家派遣実績。現地の動向や制度の深部まで熟知。</p>
-            </div>
-          </div>
-
-          <div class="strength-item">
-            <div class="strength-num">②</div>
-            <div class="strength-text">
-              <h4>⚖️ 行政書士の法務知見 × 31年の公務員実務</h4>
-              <p>入管業務（ビザ申請）のプロフェッショナル。複雑な特定技能の手続きを、行政実務の裏側まで知り尽くした知見でスムーズに完結。</p>
-            </div>
-          </div>
-
-          <div class="strength-item">
-            <div class="strength-num">③</div>
-            <div class="strength-text">
-              <h4>🗣️ 言語と文化の壁を壊す「現場目線」</h4>
-              <p>ビジネス英語・中級インドネシア語を操り、現地で直接指導した経験。外国人の「困りごと」を肌で理解しているからこそ、ミスマッチのないマッチングを実現。</p>
-            </div>
-          </div>
-
-          <div class="penguin-box">
-            <div class="penguin-icon">🐧</div>
-            <div class="balloon">複雑な入管手続きは、<br>法務のプロである僕たちに<br>全部任せてくださいね！</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-right">
-        <div class="section quality">
-          <div class="section-title">圧倒的な「人材の質」と「安全性」<span class="sub">失踪率0.2%の誇り</span></div>
-
-          <div class="stat-row">
-            <div class="stat-card"><div class="num">80%</div><div class="label">N4<br>合格率</div></div>
-            <div class="stat-card"><div class="num">0.2%</div><div class="label">驚異の<br>失踪率</div></div>
-            <div class="stat-card"><div class="num">1,200+</div><div class="label">累計<br>卒業生</div></div>
-          </div>
-
-          <div class="photo-placeholder">
-            <img src="images/授業風景.png" alt="授業風景">
-            <div class="overlay-text">OWJLCの活気ある授業風景<br>・笑顔の候補者たちの写真</div>
-          </div>
-
-          <ul class="quality-list">
-            <li><strong>提携校 OWJLC</strong>（フィリピン）<br>18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。</li>
-            <li><span class="highlight">失踪率わずか0.2%</span>を実現<br>フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。</li>
-            <li><strong>内田クレペリン検査</strong>を導入<br>日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。</li>
-          </ul>
-
-          <div class="penguin-box" style="margin-top:4px;">
-            <div class="penguin-icon">🐧</div>
-            <div class="balloon">フィリピンの子たちは本当に<br>お年寄りに優しくて、<br>現場が明るくなりますよ！</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section support">
-      <div class="support-flex">
-        <div class="support-left">
-          <div class="section-title">一気通貫のフルサポートモデル<span class="sub">採用から定着まで一つの窓口で完結</span></div>
-          <div class="support-grid">
-            <div class="support-item"><h5>📋 採用・法務代行</h5><p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p></div>
-            <div class="support-item"><h5>🏠 生活セットアップ</h5><p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p></div>
-            <div class="support-item"><h5>📈 定着・ステップアップ</h5><p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p></div>
-            <div class="support-item"><h5>🤝 顧問サービス</h5><p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p></div>
-          </div>
-        </div>
-
-        <div class="support-right">
-          <div class="price-box">
-            <h4>💴 料金プランの目安（税別）</h4>
-            <table class="price-table">
-              <tr><td class="plan">特定技能サポートプラン（基本）</td><td class="price">月額 15,000円〜/人</td></tr>
-              <tr style="background:#fff3e0;"><td class="plan"><span class="recommended">推奨</span>教育付きサポートプラン（日本語コース付）</td><td class="price" style="color:#c05800;">月額 20,000円〜/人</td></tr>
-              <tr><td class="plan">入国・採用準備費用</td><td class="price">150,000円〜</td></tr>
-              <tr><td class="plan">生活セットアップ費用</td><td class="price">50,000円〜</td></tr>
-              <tr><td class="plan">外国人雇用アドバイザー（顧問）</td><td class="price">月額 30,000円〜</td></tr>
-            </table>
-            <p class="price-note">貴社の規模に合わせて最適なプランをご提案します。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="footer">
-      <div class="footer-top">
-        <p class="catch">「制度がよくわからない」「まずは適性を見てみたい」といったご相談も大歓迎です。</p>
-        <div class="free">✨ 初回相談無料・全国オンライン対応 ✨</div><br>
-        <span class="note">通常24時間以内に回答いたします。</span>
-      </div>
-
-      <div class="footer-body">
-        <div class="footer-info">
-          <div class="company">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
-          <div class="contact-grid">
-            <div class="contact-item">
-              <span class="icon">📍</span> 〒658-0032<br>
-              兵庫県神戸市東灘区向洋町中6-9<br>
-              神戸ファッションマート 4N-07-01
-            </div>
-            <div class="contact-item">
-              <span class="icon">📞</span> <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong><br>（担当直通）<br>
-              <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
-              <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
-              <span style="margin-left:12px;"><a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="qr-area">
-          <div class="qr-block">
-            <div class="qr-box"><img src="images/QR_second_penguin.png" alt="HPはコチラ"></div>
-            <div class="qr-label">HPはコチラ</div>
-          </div>
-          <div class="qr-block">
-            <div class="qr-box"><img src="images/QR_LINE.png" alt="LINE問合せ"></div>
-            <div class="qr-label">LINE問合せ</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-</div>
 </body>
 </html>
