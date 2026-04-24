@@ -31,7 +31,7 @@
     min-height: 297mm;
     margin: 0 auto;
     background: #fff;
-    font-size: 8.5pt;
+    font-size: 8.4pt;
     color: #222;
     overflow-x: hidden;
     -webkit-print-color-adjust: exact;
@@ -65,13 +65,13 @@
     width: 100%;
   }
 
-  /* ===== ヘッダー（薄いセピア色） ===== */
+  /* ===== ヘッダー ===== */
   .header {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f8efe4 0%, #efe2d2 100%);
     color: #2d241c;
-    padding: 11px 16px 9px;
+    padding: 11px 16px 10px;
     border-bottom: 2px solid #d7c3ad;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -87,16 +87,17 @@
     z-index: 2;
   }
 
-  /* 右に透過画像を少し大きく */
+  /* 写真をよりくっきり・少し大きく */
   .header-hotel {
     position: absolute;
-    right: -2mm;
-    top: 0.5mm;
-    width: 84mm;
-    opacity: 0.22;
+    right: -1mm;
+    top: -1mm;
+    width: 92mm;
+    opacity: 0.32;
     z-index: 0;
     pointer-events: none;
     user-select: none;
+    filter: contrast(1.08) saturate(1.02) brightness(1.01);
   }
   .header-hotel img {
     width: 100%;
@@ -107,7 +108,7 @@
   .header-inner {
     position: relative;
     z-index: 1;
-    padding-right: 50mm;
+    padding-right: 54mm;
   }
 
   .header-top {
@@ -154,7 +155,16 @@
     font-weight: 700;
   }
 
-  /* ===== 2カラムレイアウト ===== */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--navy));
+  }
+  .divider-thin {
+    height: 1px;
+    background: #ddd;
+    margin: 0 12px;
+  }
+
   .two-col {
     display: flex;
     gap: 0;
@@ -162,10 +172,10 @@
   .col-left  { width: 55%; }
   .col-right { width: 45%; }
 
-  /* ===== セクション共通 ===== */
   .section {
     padding: 8px 12px;
   }
+
   .section-title {
     font-size: 9pt;
     font-weight: 900;
@@ -182,7 +192,6 @@
     color: #555;
   }
 
-  /* ===== 課題セクション ===== */
   .issues {
     background: var(--white);
     border-bottom: 1px solid #e0e0e0;
@@ -217,7 +226,6 @@
   }
   .issues-body strong { color: var(--navy); font-weight: 700; }
 
-  /* ===== 強みセクション ===== */
   .strengths {
     background: var(--yellow);
     border-bottom: 1px solid #e8e0b0;
@@ -298,7 +306,6 @@
     border-right-color: white;
   }
 
-  /* ===== 人材の質セクション ===== */
   .quality {
     background: var(--white);
     border-bottom: 1px solid #e0e0e0;
@@ -329,7 +336,7 @@
 
   .photo-placeholder {
     border-radius: 4px;
-    height: 40mm;
+    height: 42mm;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -385,7 +392,6 @@
     font-weight: 900;
   }
 
-  /* ===== サポート・料金 ===== */
   .support {
     background: var(--white);
   }
@@ -445,7 +451,6 @@
     white-space: nowrap;
   }
 
-  /* ===== フッター ===== */
   .footer {
     background: var(--navy);
     color: var(--white);
@@ -506,17 +511,17 @@
 
   .qr-area {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-shrink: 0;
     margin-left: 4px;
   }
   .qr-block {
     text-align: center;
-    width: 68px;
+    width: 74px;
   }
   .qr-box {
-    width: 68px;
-    height: 68px;
+    width: 74px;
+    height: 74px;
     background: white;
     border: 1px solid rgba(255,255,255,0.45);
     border-radius: 3px;
@@ -540,17 +545,8 @@
     letter-spacing: 0.02em;
   }
 
-  .divider {
-    height: 3px;
-    background: linear-gradient(90deg, var(--orange), var(--navy));
-  }
-  .divider-thin {
-    height: 1px;
-    background: #ddd;
-    margin: 0 12px;
-  }
-
   @media print {
+    @page { size: A4; margin: 0; }
     html, body {
       width: 210mm;
       height: 297mm;
@@ -560,10 +556,6 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    @page {
-      size: A4;
-      margin: 0;
-    }
   }
 </style>
 </head>
@@ -572,7 +564,6 @@
 <div class="page">
   <div class="content">
 
-    <!-- ===== ヘッダー ===== -->
     <div class="header">
       <div class="header-hotel">
         <img src="images/foto_hotel.png" alt="ホテル画像">
@@ -593,10 +584,8 @@
 
     <div class="divider"></div>
 
-    <!-- ===== 2カラム：課題＋強み（左）／ 人材の質（右） ===== -->
     <div class="two-col">
       <div class="col-left">
-
         <div class="section issues">
           <div class="section-title">こんな危機感を抱いていませんか？</div>
           <ul class="check-list">
@@ -647,7 +636,6 @@
             <div class="balloon">複雑な入管手続きは、<br>法務のプロである僕たちに<br>全部任せてくださいね！</div>
           </div>
         </div>
-
       </div>
 
       <div class="col-right" style="border-left: 2px solid #e0e0e0;">
@@ -658,18 +646,9 @@
           </div>
 
           <div class="stat-row">
-            <div class="stat-card">
-              <div class="num">80%</div>
-              <div class="label">N4<br>合格率</div>
-            </div>
-            <div class="stat-card">
-              <div class="num">0.2%</div>
-              <div class="label">驚異の<br>失踪率</div>
-            </div>
-            <div class="stat-card">
-              <div class="num">1,200+</div>
-              <div class="label">累計<br>卒業生</div>
-            </div>
+            <div class="stat-card"><div class="num">80%</div><div class="label">N4<br>合格率</div></div>
+            <div class="stat-card"><div class="num">0.2%</div><div class="label">驚異の<br>失踪率</div></div>
+            <div class="stat-card"><div class="num">1,200+</div><div class="label">累計<br>卒業生</div></div>
           </div>
 
           <div class="photo-placeholder">
@@ -693,32 +672,18 @@
 
     <div class="divider"></div>
 
-    <!-- ===== サポート・料金 ===== -->
     <div class="section support">
       <div style="display:flex;gap:10px;">
-
         <div style="flex:1;">
           <div class="section-title">
             一気通貫のフルサポートモデル
             <span class="sub">採用から定着まで一つの窓口で完結</span>
           </div>
           <div class="support-grid">
-            <div class="support-item">
-              <h5>📋 採用・法務代行</h5>
-              <p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p>
-            </div>
-            <div class="support-item">
-              <h5>🏠 生活セットアップ</h5>
-              <p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p>
-            </div>
-            <div class="support-item">
-              <h5>📈 定着・ステップアップ</h5>
-              <p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p>
-            </div>
-            <div class="support-item">
-              <h5>🤝 顧問サービス</h5>
-              <p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p>
-            </div>
+            <div class="support-item"><h5>📋 採用・法務代行</h5><p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p></div>
+            <div class="support-item"><h5>🏠 生活セットアップ</h5><p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p></div>
+            <div class="support-item"><h5>📈 定着・ステップアップ</h5><p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p></div>
+            <div class="support-item"><h5>🤝 顧問サービス</h5><p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p></div>
           </div>
         </div>
 
@@ -726,40 +691,20 @@
           <div class="price-box">
             <h4>💴 料金プランの目安（税別）</h4>
             <table class="price-table">
-              <tr>
-                <td class="plan">特定技能サポートプラン（基本）</td>
-                <td class="price">月額 15,000円〜/人</td>
-              </tr>
-              <tr style="background:#fff3e0;">
-                <td class="plan">
-                  <span class="recommended">推奨</span>
-                  教育付きサポートプラン（日本語コース付）
-                </td>
-                <td class="price" style="color:#c05800;">月額 20,000円〜/人</td>
-              </tr>
-              <tr>
-                <td class="plan">入国・採用準備費用</td>
-                <td class="price">150,000円〜</td>
-              </tr>
-              <tr>
-                <td class="plan">生活セットアップ費用</td>
-                <td class="price">50,000円〜</td>
-              </tr>
-              <tr>
-                <td class="plan">外国人雇用アドバイザー（顧問）</td>
-                <td class="price">月額 30,000円〜</td>
-              </tr>
+              <tr><td class="plan">特定技能サポートプラン（基本）</td><td class="price">月額 15,000円〜/人</td></tr>
+              <tr style="background:#fff3e0;"><td class="plan"><span class="recommended">推奨</span> 教育付きサポートプラン（日本語コース付）</td><td class="price" style="color:#c05800;">月額 20,000円〜/人</td></tr>
+              <tr><td class="plan">入国・採用準備費用</td><td class="price">150,000円〜</td></tr>
+              <tr><td class="plan">生活セットアップ費用</td><td class="price">50,000円〜</td></tr>
+              <tr><td class="plan">外国人雇用アドバイザー（顧問）</td><td class="price">月額 30,000円〜</td></tr>
             </table>
             <p style="font-size:6pt;color:#888;text-align:center;margin-top:4px;">貴社の規模に合わせて最適なプランをご提案します。</p>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- ===== フッター ===== -->
     <div class="footer">
       <div class="footer-top">
         <p class="catch">「制度がよくわからない」「まずは適性を見てみたい」といったご相談も大歓迎です。</p>
@@ -787,15 +732,11 @@
 
         <div class="qr-area">
           <div class="qr-block">
-            <div class="qr-box">
-              <img src="images/QR_second_penguin.png" alt="HPはコチラ">
-            </div>
+            <div class="qr-box"><img src="images/QR_second_penguin.png" alt="HPはコチラ"></div>
             <div class="qr-label">HPはコチラ</div>
           </div>
           <div class="qr-block">
-            <div class="qr-box">
-              <img src="images/QR_LINE.png" alt="LINE問合せ">
-            </div>
+            <div class="qr-box"><img src="images/QR_LINE.png" alt="LINE問合せ"></div>
             <div class="qr-label">LINE問合せ</div>
           </div>
         </div>
