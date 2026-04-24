@@ -2,91 +2,465 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セコンドペンギン企画 チラシ</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 
-  * { box-sizing: border-box; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; width: 210mm; height: 297mm; margin: 0 auto; background: #ddd; color: #333; }
-  .sheet { width: 100%; height: 100%; background: #F9F7F2; padding: 10mm; display: flex; flex-direction: column; gap: 8mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* ヒーローエリア */
-  .hero { 
-    height: 85mm; background: url('images/foto_hotel.png') center/cover; 
-    filter: sepia(50%) brightness(120%) contrast(1.1);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; color: #1a1a1a; border-radius: 12px;
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    font-size: 8.5pt;
+    color: #222;
   }
-  .hero h1 { font-size: 32pt; font-weight: 900; line-height: 1.3; margin: 0; text-shadow: 0 2px 4px rgba(255,255,255,0.5); }
-  .hero h1 span { color: #D35400; display: block; font-size: 48pt; }
-  .sub-catch { font-size: 14pt; font-weight: 700; background: rgba(255,255,255,0.8); padding: 4px 20px; border-radius: 50px; margin-bottom: 5mm; }
 
-  /* コンテンツ */
-  .content-body { display: flex; flex-direction: column; gap: 8mm; flex-grow: 1; }
-  
-  .features { display: flex; gap: 5mm; }
-  .feat-box { flex: 1; background: #fff; padding: 5mm; border-left: 6px solid #D35400; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-  .feat-box b { color: #0D2B55; display: block; font-size: 11pt; margin-bottom: 2mm; }
+  :root {
+    --navy:   #0D2B55;
+    --orange: #F4801A;
+    --yellow: #FFFBE6;
+    --white:  #FFFFFF;
+    --gray:   #F5F5F5;
+    --text:   #222222;
+  }
 
-  .main-content { display: flex; gap: 10mm; }
-  .col-left { flex: 1.2; }
-  .col-right { flex: 0.8; }
-  
-  h2 { font-size: 16pt; color: #0D2B55; border-bottom: 2px solid #0D2B55; padding-bottom: 2mm; margin-bottom: 4mm; }
-  
-  .price-box { background: #0D2B55; color: #fff; padding: 6mm; border-radius: 8px; text-align: center; }
-  .price-val { font-size: 22pt; font-weight: 900; color: #FFD580; margin: 2mm 0; }
+  /* ===== ヘッダー ===== */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 16px 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 6px; height: 100%;
+    background: var(--orange);
+  }
+  .header-top {
+    font-size: 8pt;
+    color: #aac4e8;
+    margin-bottom: 3px;
+    letter-spacing: 0.05em;
+  }
+  .header-catch {
+    font-size: 14.5pt;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .header-catch span { color: var(--orange); }
+  .header-sub {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #FFD580;
+    border: 1px solid #FFD580;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+  .header-title {
+    font-size: 13pt;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-desc {
+    font-size: 7.5pt;
+    line-height: 1.6;
+    color: #ccd9ec;
+  }
+  .header-desc strong { color: #FFD580; font-weight: 700; }
 
-  /* フッター */
-  .footer { border-top: 2px solid #ccc; padding-top: 5mm; display: flex; justify-content: space-between; align-items: center; }
-  .qr-container { display: flex; gap: 5mm; }
-  .qr-item { text-align: center; font-size: 8pt; }
-  .qr-img { width: 20mm; height: 20mm; display: block; margin-bottom: 1mm; }
+  /* ===== 2カラムレイアウト ===== */
+  .two-col {
+    display: flex;
+    gap: 0;
+  }
+  .col-left  { width: 55%; }
+  .col-right { width: 45%; }
+
+  /* ===== セクション共通 ===== */
+  .section {
+    padding: 8px 12px;
+  }
+  .section-title {
+    font-size: 9pt;
+    font-weight: 900;
+    color: var(--navy);
+    border-left: 4px solid var(--orange);
+    padding-left: 6px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .section-title .sub {
+    font-size: 7pt;
+    font-weight: 500;
+    display: block;
+    color: #555;
+  }
+
+  /* ===== 課題セクション ===== */
+  .issues {
+    background: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .check-list {
+    list-style: none;
+    margin-bottom: 5px;
+  }
+  .check-list li {
+    font-size: 7.5pt;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+  .check-list li::before {
+    content: '☑';
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+    font-size: 8pt;
+  }
+  .issues-body {
+    font-size: 7pt;
+    line-height: 1.65;
+    color: #333;
+  }
+  .issues-body strong { color: var(--navy); font-weight: 700; }
+
+  /* ===== 強みセクション ===== */
+  .strengths {
+    background: var(--yellow);
+    border-bottom: 1px solid #e8e0b0;
+  }
+  .strength-item {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  .strength-num {
+    background: var(--orange);
+    color: white;
+    font-weight: 900;
+    font-size: 9pt;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .strength-text h4 {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1px;
+  }
+  .strength-text p {
+    font-size: 6.8pt;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  /* ===== ペンギンバルーン ===== */
+  .penguin-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #e8f0fb;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-top: 5px;
+  }
+  .penguin-icon {
+    font-size: 24pt;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .balloon {
+    background: white;
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 6.5pt;
+    line-height: 1.5;
+    color: var(--navy);
+    font-weight: 500;
+    position: relative;
+  }
+  .balloon::before {
+    content: '';
+    position: absolute;
+    left: -8px; top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: var(--navy);
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    left: -5.5px; top: 50%;
+    transform: translateY(-50%);
+    border: 4px solid transparent;
+    border-right-color: white;
+  }
+
+  /* ===== 人材の質セクション ===== */
+  .quality {
+    background: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .stat-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .stat-card {
+    flex: 1;
+    background: var(--navy);
+    color: white;
+    border-radius: 4px;
+    padding: 5px 6px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 14pt;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1.1;
+  }
+  .stat-card .label {
+    font-size: 6pt;
+    line-height: 1.3;
+  }
+
+  /* ===== 授業風景写真 ===== */
+  .class-photo {
+    width: 100%;
+    height: 38mm;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .quality-list {
+    list-style: none;
+  }
+  .quality-list li {
+    font-size: 7pt;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    color: #333;
+  }
+  .quality-list li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    font-size: 7pt;
+  }
+  .quality-list li strong { color: var(--navy); font-weight: 700; }
+  .quality-list li .highlight {
+    color: var(--orange);
+    font-weight: 900;
+  }
+
+  /* ===== サポート・料金 ===== */
+  .support {
+    background: var(--white);
+  }
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+  .support-item {
+    background: var(--gray);
+    border-radius: 4px;
+    padding: 4px 6px;
+    border-left: 3px solid var(--navy);
+  }
+  .support-item h5 {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1px;
+  }
+  .support-item p {
+    font-size: 6.2pt;
+    line-height: 1.4;
+    color: #444;
+  }
+
+  .price-box {
+    border: 2px solid var(--orange);
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: #FFF8F0;
+  }
+  .price-box h4 {
+    font-size: 8pt;
+    font-weight: 900;
+    color: var(--orange);
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 6.5pt;
+  }
+  .price-table tr { border-bottom: 1px solid #f0d8b0; }
+  .price-table tr:last-child { border-bottom: none; }
+  .price-table td { padding: 2.5px 4px; vertical-align: middle; }
+  .price-table .plan { color: #333; font-weight: 500; }
+  .price-table .price { color: var(--orange); font-weight: 900; text-align: right; white-space: nowrap; }
+  .price-table .recommended {
+    background: var(--orange);
+    color: white;
+    font-size: 5.5pt;
+    padding: 1px 4px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* ===== 下半分ホテル背景ラッパー ===== */
+  .bottom-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bottom-wrap > .divider,
+  .bottom-wrap > .section,
+  .bottom-wrap > .footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== フッター ===== */
+  .footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-top {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .footer-top .catch {
+    font-size: 8pt;
+    color: #aac4e8;
+    margin-bottom: 2px;
+  }
+  .footer-top .free {
+    font-size: 10pt;
+    font-weight: 900;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+    display: inline-block;
+    padding: 2px 16px;
+    border-radius: 20px;
+    margin-bottom: 2px;
+  }
+  .footer-top .note {
+    font-size: 6.5pt;
+    color: #aac4e8;
+  }
+
+  .footer-body {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .footer-info { flex: 1; }
+  .footer-info .company {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #FFD580;
+    margin-bottom: 3px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .contact-item {
+    font-size: 6.5pt;
+    line-height: 1.6;
+    color: #ccd9ec;
+  }
+  .contact-item .icon { color: var(--orange); }
+  .contact-item a { color: #7eb8f7; text-decoration: none; }
+
+  .qr-area {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  .qr-block {
+    text-align: center;
+  }
+  .qr-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+    display: block;
+    background: white;
+  }
+  .qr-label {
+    font-size: 5.5pt;
+    color: #aac4e8;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  /* ===== 仕切り線 ===== */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--navy));
+  }
+  .divider-thin {
+    height: 1px;
+    background: #ddd;
+    margin: 0 12px;
+  }
+
+  @media print {
+    body { margin: 0; width: 210mm; }
+    @page { size: A4; margin: 0; }
+  }
 </style>
 </head>
 <body>
-  <div class="sheet">
-    <div class="hero">
-      <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
-      <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
-      <p style="font-size: 16pt; font-weight: 700;">「採用から定着まで」行政書士がフルサポート</p>
-    </div>
 
-    <div class="content-body">
-      <div class="features">
-        <div class="feat-box"><b>① 行政書士の法務知見</b>入管・ビザ申請をプロが完遂</div>
-        <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
-        <div class="feat-box"><b>③ 驚異の失踪率0.2%</b>適性検査で選抜された即戦力</div>
-      </div>
-
-      <div class="main-content">
-        <div class="col-left">
-          <img src="images/授業風景.png" style="width: 100%; height: 50mm; object-fit: cover; border-radius: 8px;" alt="授業風景">
-        </div>
-        <div class="col-right">
-          <h2>選ばれる理由</h2>
-          <ul style="line-height: 2; list-style: none; padding: 0;">
-            <li>✅ 1,200名以上の輩出実績</li>
-            <li>✅ 内田クレペリン検査による厳選採用</li>
-            <li>✅ 150,000円〜のリーズナブルな初期費用</li>
-          </ul>
-          <div class="price-box">
-            月額サポート 15,000円〜
-            <div style="font-size: 9pt;">※教育付きは 20,000円〜</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div>
-        <div style="font-size: 10pt; font-weight: 700;">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
-        <div style="font-size: 14pt; font-weight: 900; color: #D35400;">TEL: 078-600-9814</div>
-      </div>
-      <div class="qr-container">
-        <div class="qr-item"><img src="images/QR_second_penguin.png" class="qr-img">HPを見る</div>
-        <div class="qr-item"><img src="images/QR_LINE.png" class="qr-img">LINE相談</div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+<!-- ===== ヘッダー ===== -->
+<div class="header">
+  <div class="header-top">▶ 観光・サービス業界の「お
