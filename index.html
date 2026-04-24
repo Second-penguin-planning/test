@@ -1,489 +1,696 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VISAサポート チラシ - セカンドペンギン行政書士事務所</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セコンドペンギン企画 チラシ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
 
-        @page {
-            size: A4;
-            margin: 0;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    color: #222;
+    overflow: hidden;
+  }
 
-        .flyer {
-            width: 210mm;
-            height: 297mm;
-            background: linear-gradient(180deg, #1a237e 0%, #283593 50%, #3949ab 100%);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
+  :root {
+    --navy:   #0D2B55;
+    --orange: #F4801A;
+    --yellow: #FFFBE6;
+    --white:  #FFFFFF;
+  }
 
-        /* 装飾パターン */
-        .pattern-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(255,215,0,0.1) 0%, transparent 30%),
-                radial-gradient(circle at 90% 30%, rgba(255,215,0,0.08) 0%, transparent 25%);
-        }
+  /* ===== ヒーローヘッダー ===== */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    height: 88mm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-        /* ヘッダーエリア */
-        .header {
-            padding: 25px 30px 15px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
+  /* 背景：グラデーション＋疑似写真風オーバーレイ */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(244,128,26,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(13,43,85,0.95) 0%, transparent 70%),
+      linear-gradient(135deg, #0a1e3d 0%, #0D2B55 40%, #1a4a8a 100%);
+  }
 
-        .visa-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700 0%, #ffb300 50%, #ffd700 100%);
-            padding: 8px 50px;
-            border-radius: 50px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
-            position: relative;
-        }
+  /* デコレーション丸 */
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -20mm;
+    top: -20mm;
+    width: 80mm;
+    height: 80mm;
+    border-radius: 50%;
+    background: rgba(244,128,26,0.12);
+    border: 6mm solid rgba(244,128,26,0.18);
+  }
 
-        .visa-badge::before,
-        .visa-badge::after {
-            content: '★';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #1a237e;
-            font-size: 14px;
-        }
+  /* 左側オレンジ縦ライン */
+  .hero-accent {
+    position: absolute;
+    left: 0; top: 0;
+    width: 7px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--orange), #ffb347);
+  }
 
-        .visa-badge::before { left: 15px; }
-        .visa-badge::after { right: 15px; }
+  /* 右上装飾テキスト */
+  .hero-bg-text {
+    position: absolute;
+    right: 8mm;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80pt;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    letter-spacing: -2px;
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
 
-        .visa-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            font-weight: 900;
-            color: #1a237e;
-            letter-spacing: 15px;
-            text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
-        }
+  /* ペンギン装飾 */
+  .hero-penguin {
+    position: absolute;
+    right: 14mm;
+    bottom: 6mm;
+    font-size: 52pt;
+    opacity: 0.85;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    z-index: 2;
+  }
 
-        .main-catch {
-            color: #fff;
-            font-family: 'Noto Serif JP', serif;
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 24mm 0 16mm;
+  }
 
-        .sub-catch {
-            color: rgba(255,255,255,0.9);
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
+  .hero-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.08em;
+  }
 
-        /* メイン画像エリア */
-        .image-section {
-            position: relative;
-            margin: 15px 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-        }
+  .hero-catch {
+    font-size: 30pt;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    letter-spacing: -0.5px;
+  }
 
-        .main-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+  .hero-catch .accent {
+    color: var(--orange);
+    display: block;
+    font-size: 38pt;
+  }
 
-        .main-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="50" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.1)">🏯</text></svg>');
-            opacity: 0.3;
-        }
+  .hero-sub {
+    font-size: 10pt;
+    color: #aac4e8;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
 
-        .image-placeholder {
-            text-align: center;
-            color: #fff;
-            z-index: 1;
-        }
+  .hero-sub strong { color: #FFD580; }
 
-        .image-placeholder .icon {
-            font-size: 60px;
-            margin-bottom: 10px;
-        }
+  /* ===== オレンジ仕切り ===== */
+  .divider-main {
+    height: 5px;
+    background: linear-gradient(90deg, var(--orange) 0%, #ffb347 50%, var(--navy) 100%);
+  }
 
-        .image-placeholder p {
-            font-size: 12px;
-            opacity: 0.9;
-        }
+  /* ===== 3つの強みバー ===== */
+  .strength-bar {
+    background: var(--navy);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+  }
 
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 15px 20px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: #fff;
-        }
+  .sb-item {
+    flex: 1;
+    text-align: center;
+    padding: 7px 8px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .sb-item:last-child { border-right: none; }
 
-        .image-overlay p {
-            font-size: 13px;
-            text-align: center;
-        }
+  .sb-num {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 7pt;
+    font-weight: 900;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    line-height: 18px;
+    margin-bottom: 2px;
+  }
 
-        /* 無料相談バナー */
-        .free-banner {
-            background: linear-gradient(90deg, #d32f2f, #f44336, #d32f2f);
-            padding: 12px;
-            text-align: center;
-            margin: 0 20px;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(211,47,47,0.4);
-        }
+  .sb-title {
+    font-size: 8.5pt;
+    font-weight: 900;
+    color: var(--white);
+    display: block;
+    margin-bottom: 1px;
+  }
 
-        .free-banner::before,
-        .free-banner::after {
-            content: '▶';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255,255,255,0.5);
-        }
+  .sb-desc {
+    font-size: 6.2pt;
+    color: #aac4e8;
+    line-height: 1.4;
+  }
 
-        .free-banner::before { left: 10px; }
-        .free-banner::after { right: 10px; transform: translateY(-50%) rotate(180deg); }
+  /* ===== 2カラム ===== */
+  .two-col {
+    display: flex;
+    height: 118mm;
+  }
 
-        .free-banner span {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
+  .col-left {
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #e8e0b0;
+  }
 
-        /* サービス一覧 */
-        .services {
-            padding: 20px 25px;
-        }
+  .col-right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+  }
 
-        .services-title {
-            text-align: center;
-            color: #ffd700;
-            font-size: 16px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+  /* ===== 統計エリア ===== */
+  .stat-area {
+    background: var(--yellow);
+    padding: 10px 14px 8px;
+    flex-shrink: 0;
+  }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+  .stat-title {
+    font-size: 8.5pt;
+    font-weight: 900;
+    color: var(--navy);
+    border-left: 4px solid var(--orange);
+    padding-left: 7px;
+    margin-bottom: 7px;
+  }
 
-        .service-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+  .stat-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
 
-        .service-card .icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
+  .stat-card {
+    flex: 1;
+    background: var(--navy);
+    color: white;
+    border-radius: 6px;
+    padding: 6px 5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .service-card .title-jp {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a237e;
-            margin-bottom: 3px;
-        }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--orange);
+  }
 
-        .service-card .title-en {
-            font-size: 10px;
-            color: #666;
-            letter-spacing: 1px;
-        }
+  .stat-card .big {
+    font-size: 18pt;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    display: block;
+  }
 
-        .service-card .desc {
-            font-size: 11px;
-            color: #555;
-            margin-top: 5px;
-            line-height: 1.4;
-        }
+  .stat-card .lbl {
+    font-size: 6pt;
+    color: #aac4e8;
+    line-height: 1.3;
+    margin-top: 2px;
+  }
 
-        /* 強みセクション */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px 20px;
-            background: rgba(255,255,255,0.1);
-            margin: 10px 20px;
-            border-radius: 10px;
-        }
+  /* ===== 写真エリア ===== */
+  .photo-main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(244,128,26,0.25) 0%, transparent 55%),
+      linear-gradient(160deg, #1a4a8a 0%, #0D2B55 60%, #061428 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-        .feature-item {
-            text-align: center;
-            color: #fff;
-        }
+  .photo-main::after {
+    content: '🌏';
+    position: absolute;
+    font-size: 70pt;
+    opacity: 0.08;
+    right: -5mm;
+    bottom: -5mm;
+  }
 
-        .feature-item .icon {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
+  .photo-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 8px;
+  }
 
-        .feature-item .text {
-            font-size: 12px;
-            font-weight: 700;
-        }
+  .photo-icon-row {
+    font-size: 28pt;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
 
-        /* フッター */
-        .footer {
-            background: #0d1442;
-            padding: 20px 25px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
+  .photo-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+  }
 
-        .office-name {
-            text-align: center;
-            margin-bottom: 15px;
-        }
+  .photo-caption {
+    font-size: 7pt;
+    color: #aac4e8;
+    line-height: 1.5;
+  }
 
-        .office-name .main {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 22px;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 2px;
-        }
+  .photo-caption strong { color: #FFD580; }
 
-        .office-name .sub {
-            font-size: 11px;
-            color: #ffd700;
-            letter-spacing: 1px;
-            margin-top: 3px;
-        }
+  /* ===== チェックリスト ===== */
+  .check-area {
+    background: white;
+    padding: 10px 14px;
+    flex: 1;
+  }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            align-items: center;
-        }
+  .check-title {
+    font-size: 8.5pt;
+    font-weight: 900;
+    color: var(--navy);
+    border-left: 4px solid var(--orange);
+    padding-left: 7px;
+    margin-bottom: 7px;
+  }
 
-        .contact-item {
-            text-align: center;
-            color: #fff;
-        }
+  .check-list {
+    list-style: none;
+    margin-bottom: 8px;
+  }
 
-        .contact-item .label {
-            font-size: 10px;
-            color: #aaa;
-            margin-bottom: 3px;
-        }
+  .check-list li {
+    font-size: 7.5pt;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 3px;
+    color: #333;
+  }
 
-        .contact-item .value {
-            font-size: 14px;
-            font-weight: 700;
-        }
+  .check-list li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    font-size: 7.5pt;
+  }
 
-        .contact-item .value.phone {
-            font-size: 22px;
-            color: #ffd700;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 2px;
-        }
+  .check-list li strong { color: var(--navy); }
+  .check-list li .hl { color: var(--orange); font-weight: 900; }
 
-        .qr-placeholder {
-            width: 70px;
-            height: 70px;
-            background: #fff;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-        }
+  /* ===== 料金＋CTA エリア ===== */
+  .bottom-area {
+    background: #f8f8f8;
+    padding: 8px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    border-top: 2px solid #e0e0e0;
+  }
 
-        .qr-placeholder span {
-            font-size: 10px;
-            color: #333;
-            text-align: center;
-        }
+  .price-box {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
 
-        .footer-note {
-            text-align: center;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
+  .price-box h4 {
+    font-size: 8pt;
+    font-weight: 900;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 6px;
+  }
 
-        .footer-note p {
-            color: rgba(255,255,255,0.7);
-            font-size: 10px;
-        }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7pt;
+    padding: 3px 0;
+    border-bottom: 1px dashed #f0d8b0;
+    color: #333;
+  }
 
-        /* 印刷用スタイル */
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            .flyer {
-                box-shadow: none;
-            }
-        }
-    </style>
+  .price-row:last-child { border-bottom: none; }
+
+  .price-row .amount {
+    font-weight: 900;
+    color: var(--orange);
+    font-size: 8pt;
+    white-space: nowrap;
+  }
+
+  .price-row .badge {
+    background: var(--orange);
+    color: white;
+    font-size: 5.5pt;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-right: 4px;
+  }
+
+  /* ===== CTA ===== */
+  .cta-box {
+    flex: 1;
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '🐧';
+    position: absolute;
+    font-size: 48pt;
+    opacity: 0.08;
+    right: -5px;
+    bottom: -8px;
+  }
+
+  .cta-free {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 900;
+    padding: 4px 18px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-tel {
+    font-size: 17pt;
+    font-weight: 900;
+    color: #FFD580;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .cta-tel span {
+    font-size: 7.5pt;
+    color: #aac4e8;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .cta-info {
+    font-size: 6.5pt;
+    color: #aac4e8;
+    line-height: 1.5;
+  }
+
+  .cta-info a { color: #7eb8f7; text-decoration: none; }
+
+  /* ===== フッター ===== */
+  .footer {
+    background: #07183a;
+    color: var(--white);
+    padding: 7px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .footer-company {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #FFD580;
+    margin-bottom: 2px;
+  }
+
+  .footer-address {
+    font-size: 6pt;
+    color: #aac4e8;
+    line-height: 1.5;
+  }
+
+  .footer-qr {
+    display: flex;
+    gap: 8px;
+  }
+
+  .qr-block { text-align: center; }
+
+  .qr-box {
+    width: 36px; height: 36px;
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+    margin-bottom: 2px;
+  }
+
+  .qr-label { font-size: 5.5pt; color: #aac4e8; }
+
+  @media print {
+    body { margin: 0; width: 210mm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
 </head>
 <body>
-    <div class="flyer">
-        <div class="pattern-top"></div>
-        
-        <!-- ヘッダー -->
-        <div class="header">
-            <div class="visa-badge">
-                <span class="visa-text">VISA</span>
-            </div>
-            <h1 class="main-catch">日本での生活を、プロが全力サポート</h1>
-            <p class="sub-catch">Professional Support for Your Life in Japan</p>
-        </div>
 
-        <!-- メイン画像 -->
-        <div class="image-section">
-            <div class="main-image">
-                <div class="image-placeholder">
-                    <div class="icon">🌸👥🏯</div>
-                    <p>ここにメイン画像を配置<br>（日本で楽しく暮らす外国人の写真）</p>
-                </div>
-            </div>
-            <div class="image-overlay">
-                <p>日本で暮らす、働く、学ぶ。あなたの夢を実現するお手伝いをします。</p>
-            </div>
-        </div>
+<!-- ===== ヒーローヘッダー ===== -->
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-bg-text">HOSPITALITY</div>
+  <div class="hero-penguin">🐧</div>
 
-        <!-- 無料相談バナー -->
-        <div class="free-banner">
-            <span>📞 初回相談 無 料 ／ FREE CONSULTATION</span>
-        </div>
-
-        <!-- サービス一覧 -->
-        <div class="services">
-            <h2 class="services-title">― 対応業務 SERVICES ―</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">💼</div>
-                    <div class="title-jp">就労ビザ</div>
-                    <div class="title-en">WORK VISA</div>
-                    <div class="desc">技術・人文知識・国際業務など</div>
-                </div>
-                <div class="service-card">
-                    <div class="icon">💑</div>
-                    <div class="title-jp">配偶者ビザ</div>
-                    <div class="title-en">SPOUSE VISA</div>
-                    <div class="desc">日本人・永住者の配偶者</div>
-                </div>
-                <div class="service-card">
-                    <div class="icon">🏠</div>
-                    <div class="title-jp">永住許可</div>
-                    <div class="title-en">PERMANENT RESIDENCY</div>
-                    <div class="desc">ずっと日本に住みたい方</div>
-                </div>
-                <div class="service-card">
-                    <div class="icon">🇯🇵</div>
-                    <div class="title-jp">帰化申請</div>
-                    <div class="title-en">NATURALIZATION</div>
-                    <div class="desc">日本国籍を取得したい方</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 強み -->
-        <div class="features">
-            <div class="feature-item">
-                <div class="icon">⚡</div>
-                <div class="text">迅速対応</div>
-            </div>
-            <div class="feature-item">
-                <div class="icon">📝</div>
-                <div class="text">書類作成代行</div>
-            </div>
-            <div class="feature-item">
-                <div class="icon">🌐</div>
-                <div class="text">多言語対応</div>
-            </div>
-            <div class="feature-item">
-                <div class="icon">🤝</div>
-                <div class="text">安心サポート</div>
-            </div>
-        </div>
-
-        <!-- フッター -->
-        <div class="footer">
-            <div class="office-name">
-                <div class="main">セカンドペンギン行政書士事務所</div>
-                <div class="sub">SECOND PENGUIN ADMINISTRATIVE SCRIVENER OFFICE</div>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="label">EMAIL</div>
-                    <div class="value">info@example.com</div>
-                    <div class="label" style="margin-top:8px;">WEB</div>
-                    <div class="value">second-penguin.com</div>
-                </div>
-                
-                <div class="qr-placeholder">
-                    <span>QR<br>CODE</span>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="label">お電話でのお問い合わせ</div>
-                    <div class="value phone">000-0000-0000</div>
-                    <div class="label" style="margin-top:5px;">受付時間 9:00〜18:00（土日祝休）</div>
-                </div>
-            </div>
-
-            <div class="footer-note">
-                <p>外国人のビザ申請・在留資格のことなら、お気軽にご相談ください。</p>
-            </div>
-        </div>
+  <div class="hero-content">
+    <div class="hero-badge">ホテル・旅館・飲食経営者様へ</div>
+    <div class="hero-catch">
+      人手不足、<br>もう限界ですか？
+      <span class="accent">即戦力が来る。</span>
     </div>
+    <div class="hero-sub">
+      フィリピン・インドネシアの<strong>笑顔と誠実さ</strong>が、<br>
+      あなたの現場に活気を取り戻します。
+    </div>
+  </div>
+</div>
+
+<div class="divider-main"></div>
+
+<!-- ===== 3つの強みバー ===== -->
+<div class="strength-bar">
+  <div class="sb-item">
+    <div class="sb-num">①</div>
+    <span class="sb-title">⚖️ 行政書士の法務知見</span>
+    <div class="sb-desc">ビザ申請・入管手続きを<br>プロが完全サポート</div>
+  </div>
+  <div class="sb-item">
+    <div class="sb-num">②</div>
+    <span class="sb-title">🌏 国際ネットワーク</span>
+    <div class="sb-desc">現地教育機関との<br>直接パイプで質を保証</div>
+  </div>
+  <div class="sb-item">
+    <div class="sb-num">③</div>
+    <span class="sb-title">🏠 採用〜定着まで一貫</span>
+    <div class="sb-desc">生活支援・日本語教育まで<br>ワンストップ対応</div>
+  </div>
+</div>
+
+<!-- ===== 2カラム ===== -->
+<div class="two-col">
+
+  <!-- 左：写真風 + チェックリスト -->
+  <div class="col-left">
+
+    <div class="photo-main">
+      <div class="photo-overlay">
+        <div class="photo-icon-row">👩‍🍳👨‍💼🧹</div>
+        <div class="photo-tag">📸 笑顔の人材たちの写真</div>
+        <div class="photo-caption">
+          提携校 OWJLC（フィリピン）<br>
+          <strong>18教室・360名収容</strong> TESDA認証校<br>
+          ※実際の写真に差し替えてください
+        </div>
+      </div>
+    </div>
+
+    <div class="check-area">
+      <div class="check-title">選ばれる3つの理由</div>
+      <ul class="check-list">
+        <li><strong>行政書士</strong>が法務を全て代行<br>複雑な手続きはおまかせ</li>
+        <li><span class="hl">失踪率わずか0.2%</span> の安心実績<br>厳格な審査と手厚いフォロー</li>
+        <li><strong>内田クレペリン検査</strong>で適性を厳選<br>メンタル面も安定した人材を採用</li>
+        <li>就労後も<strong>日本語コース</strong>で成長を支援</li>
+      </ul>
+    </div>
+
+  </div><!-- /col-left -->
+
+  <!-- 右：統計 -->
+  <div class="col-right">
+
+    <div class="stat-area">
+      <div class="stat-title">📊 数字で見る「人材の質」</div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <span class="big">80%</span>
+          <div class="lbl">日本語<br>N4合格率</div>
+        </div>
+        <div class="stat-card">
+          <span class="big">0.2%</span>
+          <div class="lbl">驚異の<br>失踪率</div>
+        </div>
+        <div class="stat-card">
+          <span class="big">1,200+</span>
+          <div class="lbl">累計<br>卒業生数</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-main" style="flex:1;">
+      <div class="photo-overlay">
+        <div style="font-size:36pt;margin-bottom:6px;">🌺</div>
+        <div class="photo-tag">フィリピン・インドネシア</div>
+        <div class="photo-caption">
+          <strong>「おもてなし」の心を持つ人材</strong><br>
+          ホスピタリティ精神が<br>現場に笑顔と活気をもたらします
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /col-right -->
+
+</div>
+
+<!-- ===== 料金＋CTA ===== -->
+<div class="bottom-area">
+
+  <div class="price-box">
+    <h4>💴 料金プランの目安（税別）</h4>
+    <div class="price-row">
+      <span>特定技能サポートプラン</span>
+      <span class="amount">月額 15,000円〜/人</span>
+    </div>
+    <div class="price-row">
+      <span><span class="badge">推奨</span>日本語コース付プラン</span>
+      <span class="amount">月額 20,000円〜/人</span>
+    </div>
+    <div class="price-row">
+      <span>入国・採用準備費用</span>
+      <span class="amount">150,000円〜</span>
+    </div>
+    <div class="price-row">
+      <span>外国人雇用顧問</span>
+      <span class="amount">月額 30,000円〜</span>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <div class="cta-free">✨ 初回相談 無料</div>
+    <div class="cta-tel">
+      <span>📞 お気軽にお電話ください</span>
+      078-600-9814
+      <span>全国オンライン対応・24h以内返答</span>
+    </div>
+    <div class="cta-info">
+      ✉️ <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
+      🌐 <a href="https://second-penguin.com">second-penguin.com</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <div>
+    <div class="footer-company">🐧 セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
+    <div class="footer-address">
+      〒658-0032 兵庫県神戸市東灘区向洋町中6-9 神戸ファッションマート 4N-07-01
+    </div>
+  </div>
+  <div class="footer-qr">
+    <div class="qr-block">
+      <div class="qr-box">💬</div>
+      <div class="qr-label">LINE</div>
+    </div>
+    <div class="qr-block">
+      <div class="qr-box">🌐</div>
+      <div class="qr-label">WEB</div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
