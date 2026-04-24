@@ -11,6 +11,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   html, body {
@@ -19,6 +21,8 @@
     margin: 0;
     padding: 0;
     background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   body {
@@ -30,6 +34,8 @@
     font-size: 8.5pt;
     color: #222;
     overflow-x: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   :root {
@@ -39,8 +45,8 @@
     --white:  #FFFFFF;
     --gray:   #F5F5F5;
     --text:   #222222;
-    --sepia:  #f3eadf;
-    --sepia2: #e9dccd;
+    --sepia:  #f6ece0;
+    --sepia2: #ead9c5;
   }
 
   .page {
@@ -49,6 +55,8 @@
     min-height: 297mm;
     overflow: hidden;
     background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .content {
@@ -61,29 +69,31 @@
   .header {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #f7efe5 0%, #efe3d5 100%);
+    background: linear-gradient(135deg, #f8efe4 0%, #efe2d2 100%);
     color: #2d241c;
-    padding: 10px 16px 8px;
+    padding: 11px 16px 9px;
     border-bottom: 2px solid #d7c3ad;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .header::before {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
-    width: 8px;
+    width: 10px;
     height: 100%;
     background: var(--orange);
     z-index: 2;
   }
 
-  /* 右に透過画像 */
+  /* 右に透過画像を少し大きく */
   .header-hotel {
     position: absolute;
-    right: -6mm;
-    top: 2mm;
-    width: 72mm;
-    opacity: 0.18;
+    right: -2mm;
+    top: 0.5mm;
+    width: 84mm;
+    opacity: 0.22;
     z-index: 0;
     pointer-events: none;
     user-select: none;
@@ -97,7 +107,7 @@
   .header-inner {
     position: relative;
     z-index: 1;
-    padding-right: 42mm;
+    padding-right: 50mm;
   }
 
   .header-top {
@@ -319,7 +329,7 @@
 
   .photo-placeholder {
     border-radius: 4px;
-    height: 38mm;
+    height: 40mm;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -439,7 +449,9 @@
   .footer {
     background: var(--navy);
     color: var(--white);
-    padding: 8px 14px;
+    padding: 8px 14px 10px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .footer-top {
     text-align: center;
@@ -467,7 +479,7 @@
 
   .footer-body {
     display: flex;
-    gap: 10px;
+    gap: 14px;
     align-items: flex-start;
   }
   .footer-info {
@@ -494,16 +506,17 @@
 
   .qr-area {
     display: flex;
-    gap: 8px;
+    gap: 14px;
     flex-shrink: 0;
+    margin-left: 4px;
   }
   .qr-block {
     text-align: center;
-    width: 56px;
+    width: 68px;
   }
   .qr-box {
-    width: 54px;
-    height: 54px;
+    width: 68px;
+    height: 68px;
     background: white;
     border: 1px solid rgba(255,255,255,0.45);
     border-radius: 3px;
@@ -511,7 +524,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
   .qr-box img {
     width: 100%;
@@ -520,10 +533,11 @@
     display: block;
   }
   .qr-label {
-    font-size: 5.5pt;
+    font-size: 5.8pt;
     color: #aac4e8;
     text-align: center;
     line-height: 1.2;
+    letter-spacing: 0.02em;
   }
 
   .divider {
@@ -542,6 +556,9 @@
       height: 297mm;
       margin: 0;
       padding: 0;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
     @page {
       size: A4;
