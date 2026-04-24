@@ -9,8 +9,22 @@
   body { font-family: 'Zen Kaku Gothic New', sans-serif; width: 210mm; height: 297mm; margin: 0 auto; background: #eee; }
   .sheet { width: 100%; height: 100%; background: #fff; padding: 10mm; display: flex; flex-direction: column; justify-content: space-between; }
 
-  /* キャッチコピー */
-  .hero { background: #0D2B55; color: white; padding: 8mm; text-align: center; border-radius: 10px; }
+  /* ヒーローエリア（背景写真付き） */
+  .hero { 
+    position: relative; 
+    background: url('images/foto_hotel.png') center/cover; 
+    color: white; 
+    padding: 12mm; 
+    text-align: center; 
+    border-radius: 10px; 
+    overflow: hidden;
+  }
+  /* 透過フィルター */
+  .hero::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(13, 43, 85, 0.85); /* 紺色の透過レイヤー */
+  }
+  .hero-content { position: relative; z-index: 1; }
   .hero h1 { font-size: 28pt; line-height: 1.2; margin: 2mm 0; }
   .hero h1 span { color: #F4801A; display: block; font-size: 40pt; }
   .sub-catch { font-size: 12pt; background: #F4801A; display: inline-block; padding: 2px 20px; border-radius: 50px; }
@@ -18,15 +32,13 @@
   /* コンテンツエリア */
   .content-wrap { display: flex; flex-direction: column; gap: 6mm; }
   
-  /* 画像と強み */
-  .feat-row { display: flex; gap: 4mm; align-items: center; }
-  .img-box { width: 30%; height: 40mm; object-fit: cover; border-radius: 8px; border: 2px solid #ddd; }
-  .features { display: flex; gap: 4mm; width: 70%; }
+  /* 3つの強み */
+  .features { display: flex; gap: 4mm; }
   .feat-box { flex: 1; border: 2px solid #0D2B55; padding: 3mm; border-radius: 8px; text-align: center; font-size: 9pt; }
   .feat-box b { color: #0D2B55; display: block; margin-bottom: 1mm; font-size: 10pt; }
 
   /* メインコンテンツ */
-  .main-content { display: flex; gap: 8mm; align-items: center; }
+  .main-content { display: flex; gap: 8mm; align-items: start; }
   .col { flex: 1; }
   h2 { border-bottom: 4px solid #F4801A; margin-bottom: 4mm; font-size: 14pt; padding-bottom: 1mm; }
   
@@ -36,30 +48,29 @@
   /* フッター */
   .footer { background: #0D2B55; color: white; padding: 5mm; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; }
   .tel { font-size: 20pt; font-weight: 900; color: #FFD580; }
-  .qr-img { width: 25mm; height: 25mm; background: #fff; padding: 1mm; border-radius: 4px; }
+  .qr-img { width: 22mm; height: 22mm; background: #fff; padding: 1mm; border-radius: 4px; }
 </style>
 </head>
 <body>
   <div class="sheet">
     <div class="hero">
-      <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
-      <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
-      <p>「採用から定着まで」行政書士がフルサポート</p>
+      <div class="hero-content">
+        <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
+        <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
+        <p style="font-size: 14pt; margin: 0;">「採用から定着まで」行政書士がフルサポート</p>
+      </div>
     </div>
 
     <div class="content-wrap">
-      <div class="feat-row">
-        <img src="images/foto_hotel.png" class="img-box" alt="ホテル風景">
-        <div class="features">
-          <div class="feat-box"><b>① 行政書士の法務知見</b>入管・ビザ申請をプロが完遂</div>
-          <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
-          <div class="feat-box"><b>③ 驚異の失踪率0.2%</b>適性検査で選抜された即戦力</div>
-        </div>
+      <div class="features">
+        <div class="feat-box"><b>① 行政書士の法務知見</b>入管・ビザ申請をプロが完遂</div>
+        <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
+        <div class="feat-box"><b>③ 驚異の失踪率0.2%</b>適性検査で選抜された即戦力</div>
       </div>
 
       <div class="main-content">
         <div class="col">
-          <img src="images/授業風景.png" style="width: 100%; height: 50mm; object-fit: cover; border-radius: 8px; margin-bottom: 3mm;">
+          <img src="images/授業風景.png" style="width: 100%; height: 45mm; object-fit: cover; border-radius: 8px; margin-bottom: 3mm;" alt="授業風景">
           <h2>こんなお悩み、ありませんか？</h2>
           <ul style="font-size: 11pt; line-height: 1.8; margin: 0; padding-left: 5mm;">
             <li>✅ 人手不足で予約を制限している</li>
