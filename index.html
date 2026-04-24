@@ -19,8 +19,6 @@
     --navy: #0D2B55;
     --orange: #F4801A;
     --yellow: #FFF7DA;
-    --light: #f7f7f7;
-    --line: #dcdcdc;
     --text: #222;
   }
 
@@ -44,21 +42,20 @@
     width: 210mm;
     height: 297mm;
     overflow: hidden;
-    position: relative;
     background: #fff;
   }
 
   .content {
     width: 100%;
     height: 100%;
-    padding: 3mm 3mm 2.2mm;
+    padding: 2.6mm 2.8mm 2mm;
   }
 
   /* ===== HEADER ===== */
   .header {
     position: relative;
-    min-height: 69mm;
-    padding: 12px 14px 11px;
+    min-height: 76mm;
+    padding: 13px 14px 12px;
     background: linear-gradient(135deg, #f8efe4 0%, #efe2d2 100%);
     border-bottom: 2px solid #d7c3ad;
     overflow: hidden;
@@ -79,12 +76,12 @@
     position: absolute;
     right: -1mm;
     top: -2mm;
-    width: 116mm;
-    opacity: .23;
+    width: 122mm;
+    opacity: .22;
     z-index: 0;
     pointer-events: none;
     user-select: none;
-    filter: contrast(1.16) saturate(1.04) brightness(1.02);
+    filter: contrast(1.16) saturate(1.03) brightness(1.02);
   }
 
   .header-hotel img {
@@ -96,36 +93,36 @@
   .header-inner {
     position: relative;
     z-index: 1;
-    padding-right: 60mm;
+    padding-right: 62mm;
   }
 
   .header-top {
-    font-size: 9.4pt;
-    line-height: 1.3;
+    font-size: 10.1pt;
+    line-height: 1.28;
     font-weight: 700;
     color: #6d5a49;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
 
   .header-sub {
     display: inline-block;
-    font-size: 9.2pt;
+    font-size: 10pt;
     font-weight: 700;
     color: #8c5c22;
     border: 1px solid #c8ad8b;
-    background: rgba(255,255,255,.4);
-    padding: 2px 9px;
+    background: rgba(255,255,255,.45);
+    padding: 2px 10px;
     border-radius: 2px;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
 
   .header-title {
-    font-size: 16.2pt;
+    font-size: 17.6pt;
     font-weight: 900;
-    line-height: 1.24;
+    line-height: 1.2;
     color: #2e251d;
-    margin-bottom: 5px;
-    letter-spacing: .2px;
+    margin-bottom: 6px;
+    letter-spacing: .15px;
   }
 
   .header-title span {
@@ -133,8 +130,8 @@
   }
 
   .header-desc {
-    font-size: 8.15pt;
-    line-height: 1.52;
+    font-size: 8.45pt;
+    line-height: 1.48;
     color: #4e4033;
   }
 
@@ -168,6 +165,7 @@
   .col-right {
     width: 45%;
     border-left: 2px solid #e1e1e1;
+    padding-left: 1mm;
   }
 
   .section {
@@ -175,7 +173,7 @@
   }
 
   .section-title {
-    font-size: 9.1pt;
+    font-size: 9.15pt;
     font-weight: 900;
     color: var(--navy);
     line-height: 1.22;
@@ -186,7 +184,7 @@
 
   .section-title .sub {
     display: block;
-    font-size: 7.15pt;
+    font-size: 7.05pt;
     font-weight: 500;
     color: #666;
     margin-top: 1px;
@@ -220,8 +218,8 @@
   }
 
   .issues-body {
-    font-size: 7.15pt;
-    line-height: 1.5;
+    font-size: 7.1pt;
+    line-height: 1.47;
     color: #333;
   }
 
@@ -234,6 +232,7 @@
   .strengths {
     background: var(--yellow);
     border-bottom: 1px solid #e8deae;
+    padding-left: 8px;
   }
 
   .strength-item {
@@ -259,7 +258,7 @@
   }
 
   .strength-text h4 {
-    font-size: 7.55pt;
+    font-size: 7.5pt;
     line-height: 1.33;
     color: var(--navy);
     font-weight: 700;
@@ -267,7 +266,7 @@
   }
 
   .strength-text p {
-    font-size: 6.9pt;
+    font-size: 6.85pt;
     line-height: 1.42;
     color: #444;
   }
@@ -295,7 +294,7 @@
     border-radius: 8px;
     padding: 4px 8px;
     color: var(--navy);
-    font-size: 6.7pt;
+    font-size: 6.65pt;
     line-height: 1.38;
     font-weight: 500;
   }
@@ -320,9 +319,15 @@
     border-right-color: #fff;
   }
 
-  /* ===== QUALITY ===== */
+  /* 右カラムを少し左寄せに見せる */
   .quality {
     border-bottom: 1px solid #e0e0e0;
+    padding-left: 7px;
+    padding-right: 8px;
+  }
+
+  .quality .section-title {
+    margin-left: -1mm;
   }
 
   .stat-row {
@@ -341,20 +346,20 @@
   }
 
   .stat-card .num {
-    font-size: 14pt;
+    font-size: 13.8pt;
     font-weight: 900;
     line-height: 1.02;
     color: var(--orange);
   }
 
   .stat-card .label {
-    font-size: 6pt;
+    font-size: 5.95pt;
     line-height: 1.3;
   }
 
   .photo-placeholder {
     position: relative;
-    height: 46mm;
+    height: 44.5mm;
     overflow: hidden;
     border-radius: 4px;
     margin-bottom: 5px;
@@ -375,7 +380,7 @@
     right: 0;
     bottom: 0;
     padding: 8px 6px 5px;
-    font-size: 7pt;
+    font-size: 6.9pt;
     line-height: 1.3;
     color: #fff;
     text-align: center;
@@ -389,8 +394,8 @@
   .quality-list li {
     position: relative;
     padding-left: 15px;
-    font-size: 7.05pt;
-    line-height: 1.42;
+    font-size: 7.02pt;
+    line-height: 1.41;
     margin-bottom: 3px;
     color: #333;
   }
@@ -411,6 +416,10 @@
   .quality-list li .highlight {
     color: var(--orange);
     font-weight: 900;
+  }
+
+  .quality .penguin-box {
+    margin-top: 4px;
   }
 
   /* ===== SUPPORT / PRICE ===== */
@@ -444,7 +453,7 @@
   }
 
   .support-item h5 {
-    font-size: 7pt;
+    font-size: 6.95pt;
     line-height: 1.25;
     font-weight: 700;
     color: var(--navy);
@@ -452,8 +461,8 @@
   }
 
   .support-item p {
-    font-size: 6.15pt;
-    line-height: 1.34;
+    font-size: 6.1pt;
+    line-height: 1.33;
     color: #444;
   }
 
@@ -466,7 +475,7 @@
   }
 
   .price-box h4 {
-    font-size: 8pt;
+    font-size: 7.9pt;
     line-height: 1.25;
     font-weight: 900;
     color: var(--orange);
@@ -477,7 +486,7 @@
   .price-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 6.35pt;
+    font-size: 6.25pt;
   }
 
   .price-table tr {
@@ -509,7 +518,7 @@
     display: inline-block;
     background: var(--orange);
     color: #fff;
-    font-size: 5.4pt;
+    font-size: 5.3pt;
     line-height: 1;
     padding: 1px 4px;
     border-radius: 2px;
@@ -519,7 +528,7 @@
 
   .price-note {
     margin-top: 4px;
-    font-size: 6pt;
+    font-size: 5.85pt;
     text-align: center;
     color: #888;
     line-height: 1.25;
@@ -527,43 +536,43 @@
 
   /* ===== FOOTER ===== */
   .footer {
-    min-height: 60mm;
+    min-height: 54mm;
     background: var(--navy);
     color: #fff;
-    padding: 8px 10px 8px;
+    padding: 7px 9px 6px;
   }
 
   .footer-top {
     text-align: center;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .footer-top .catch {
-    font-size: 7.1pt;
-    line-height: 1.3;
+    font-size: 6.85pt;
+    line-height: 1.28;
     color: #aac4e8;
     margin-bottom: 2px;
   }
 
   .footer-top .free {
     display: inline-block;
-    font-size: 8.7pt;
+    font-size: 8.2pt;
     font-weight: 900;
     color: var(--orange);
     border: 1px solid var(--orange);
-    padding: 2px 12px;
+    padding: 2px 10px;
     border-radius: 20px;
     margin-bottom: 2px;
   }
 
   .footer-top .note {
-    font-size: 5.8pt;
+    font-size: 5.6pt;
     color: #aac4e8;
   }
 
   .footer-body {
     display: flex;
-    gap: 10px;
+    gap: 9px;
     align-items: flex-start;
   }
 
@@ -572,11 +581,11 @@
   }
 
   .company {
-    font-size: 7.65pt;
+    font-size: 7.25pt;
     font-weight: 700;
     color: #FFD580;
     margin-bottom: 3px;
-    line-height: 1.25;
+    line-height: 1.22;
   }
 
   .contact-grid {
@@ -586,8 +595,8 @@
   }
 
   .contact-item {
-    font-size: 6.05pt;
-    line-height: 1.42;
+    font-size: 5.9pt;
+    line-height: 1.38;
     color: #ccd9ec;
   }
 
@@ -607,13 +616,13 @@
   }
 
   .qr-block {
-    width: 72px;
+    width: 70px;
     text-align: center;
   }
 
   .qr-box {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
     border-radius: 3px;
     overflow: hidden;
     background: #fff;
@@ -629,7 +638,7 @@
   }
 
   .qr-label {
-    font-size: 5.55pt;
+    font-size: 5.45pt;
     line-height: 1.15;
     color: #aac4e8;
   }
@@ -690,7 +699,7 @@
 
           <div class="section strengths">
             <div class="section-title">徳永良雄の圧倒的な強み<span class="sub">なぜ、私たちの紹介は「質」が違うのか</span></div>
-            <p style="font-size:6.55pt;color:#555;margin-bottom:5px;line-height:1.42;">
+            <p style="font-size:6.45pt;color:#555;margin-bottom:5px;line-height:1.4;">
               代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>
               他の業者には真似できない<strong>3つの信頼の柱</strong>があります。
             </p>
@@ -804,7 +813,7 @@
                 神戸ファッションマート 4N-07-01
               </div>
               <div class="contact-item">
-                <span class="icon">📞</span> <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong><br>
+                <span class="icon">📞</span> <strong style="color:#FFD580;font-size:7.8pt;">070-9192-2524</strong><br>
                 （担当直通）<br>
                 <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
                 <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
