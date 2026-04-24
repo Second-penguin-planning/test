@@ -1,490 +1,761 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>外国人材受入れ支援チラシ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セコンドペンギン企画 チラシ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    font-size: 8.5pt;
+    color: #222;
+    overflow-x: hidden;
+  }
+
+  :root {
+    --navy:   #0D2B55;
+    --orange: #F4801A;
+    --yellow: #FFFBE6;
+    --white:  #FFFFFF;
+    --gray:   #F5F5F5;
+    --text:   #222222;
+  }
+
+  /* ===== 全体の余白対策 ===== */
+  .page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  /* 透過で大きく入れるホテル画像 */
+  .bg-hotel {
+    position: absolute;
+    top: 55mm;
+    right: -8mm;
+    width: 125mm;
+    opacity: 0.14;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  .bg-hotel img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  /* ===== ヘッダー ===== */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 16px 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--orange);
+  }
+  .header-top {
+    font-size: 8pt;
+    color: #aac4e8;
+    margin-bottom: 3px;
+    letter-spacing: 0.05em;
+  }
+  .header-catch {
+    font-size: 14.5pt;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .header-catch span { color: var(--orange); }
+  .header-sub {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #FFD580;
+    border: 1px solid #FFD580;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+  .header-title {
+    font-size: 13pt;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-desc {
+    font-size: 7.5pt;
+    line-height: 1.6;
+    color: #ccd9ec;
+  }
+  .header-desc strong { color: #FFD580; font-weight: 700; }
+
+  /* ===== 2カラムレイアウト ===== */
+  .two-col {
+    display: flex;
+    gap: 0;
+  }
+  .col-left  { width: 55%; }
+  .col-right { width: 45%; }
+
+  /* ===== セクション共通 ===== */
+  .section {
+    padding: 8px 12px;
+  }
+  .section-title {
+    font-size: 9pt;
+    font-weight: 900;
+    color: var(--navy);
+    border-left: 4px solid var(--orange);
+    padding-left: 6px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .section-title .sub {
+    font-size: 7pt;
+    font-weight: 500;
+    display: block;
+    color: #555;
+  }
+
+  /* ===== 課題セクション ===== */
+  .issues {
+    background: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .issues-q {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .check-list {
+    list-style: none;
+    margin-bottom: 5px;
+  }
+  .check-list li {
+    font-size: 7.5pt;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+  .check-list li::before {
+    content: '☑';
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+    font-size: 8pt;
+  }
+  .issues-body {
+    font-size: 7pt;
+    line-height: 1.65;
+    color: #333;
+  }
+  .issues-body strong { color: var(--navy); font-weight: 700; }
+
+  /* ===== 強みセクション ===== */
+  .strengths {
+    background: var(--yellow);
+    border-bottom: 1px solid #e8e0b0;
+  }
+  .strength-item {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  .strength-num {
+    background: var(--orange);
+    color: white;
+    font-weight: 900;
+    font-size: 9pt;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .strength-text h4 {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1px;
+  }
+  .strength-text p {
+    font-size: 6.8pt;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  /* ===== ペンギンバルーン ===== */
+  .penguin-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #e8f0fb;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-top: 5px;
+  }
+  .penguin-icon {
+    font-size: 24pt;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .balloon {
+    background: white;
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 6.5pt;
+    line-height: 1.5;
+    color: var(--navy);
+    font-weight: 500;
+    position: relative;
+  }
+  .balloon::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: var(--navy);
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    left: -5.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 4px solid transparent;
+    border-right-color: white;
+  }
+
+  /* ===== 人材の質セクション ===== */
+  .quality {
+    background: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .stat-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .stat-card {
+    flex: 1;
+    background: var(--navy);
+    color: white;
+    border-radius: 4px;
+    padding: 5px 6px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 14pt;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1.1;
+  }
+  .stat-card .label {
+    font-size: 6pt;
+    line-height: 1.3;
+  }
+
+  .photo-placeholder {
+    background: linear-gradient(135deg, rgba(13,43,85,0.95) 0%, rgba(26,74,138,0.92) 100%);
+    border-radius: 4px;
+    height: 38mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 7pt;
+    text-align: center;
+    margin-bottom: 5px;
+    border: 2px dashed rgba(255,255,255,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-placeholder .icon {
+    font-size: 20pt;
+    margin-bottom: 3px;
+  }
+  .quality-list {
+    list-style: none;
+  }
+  .quality-list li {
+    font-size: 7pt;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    color: #333;
+  }
+  .quality-list li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    font-size: 7pt;
+  }
+  .quality-list li strong { color: var(--navy); font-weight: 700; }
+  .quality-list li .highlight {
+    color: var(--orange);
+    font-weight: 900;
+  }
+
+  /* ===== サポート・料金 ===== */
+  .support {
+    background: var(--white);
+  }
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+  .support-item {
+    background: var(--gray);
+    border-radius: 4px;
+    padding: 4px 6px;
+    border-left: 3px solid var(--navy);
+  }
+  .support-item h5 {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1px;
+  }
+  .support-item p {
+    font-size: 6.2pt;
+    line-height: 1.4;
+    color: #444;
+  }
+
+  .price-box {
+    border: 2px solid var(--orange);
+    border-radius: 6px;
+    padding: 6px 8px;
+    background: #FFF8F0;
+  }
+  .price-box h4 {
+    font-size: 8pt;
+    font-weight: 900;
+    color: var(--orange);
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 6.5pt;
+  }
+  .price-table tr { border-bottom: 1px solid #f0d8b0; }
+  .price-table tr:last-child { border-bottom: none; }
+  .price-table td { padding: 2.5px 4px; vertical-align: middle; }
+  .price-table .plan { color: #333; font-weight: 500; }
+  .price-table .price { color: var(--orange); font-weight: 900; text-align: right; white-space: nowrap; }
+  .price-table .recommended {
+    background: var(--orange);
+    color: white;
+    font-size: 5.5pt;
+    padding: 1px 4px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* ===== フッター ===== */
+  .footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 14px;
+  }
+  .footer-top {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .footer-top .catch {
+    font-size: 8pt;
+    color: #aac4e8;
+    margin-bottom: 2px;
+  }
+  .footer-top .free {
+    font-size: 10pt;
+    font-weight: 900;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    display: inline-block;
+    padding: 2px 16px;
+    border-radius: 20px;
+    margin-bottom: 2px;
+  }
+  .footer-top .note {
+    font-size: 6.5pt;
+    color: #aac4e8;
+  }
+
+  .footer-body {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .footer-info {
+    flex: 1;
+  }
+  .footer-info .company {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #FFD580;
+    margin-bottom: 3px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .contact-item {
+    font-size: 6.5pt;
+    line-height: 1.6;
+    color: #ccd9ec;
+  }
+  .contact-item .icon { color: var(--orange); }
+  .contact-item a { color: #7eb8f7; text-decoration: none; }
+
+  .qr-area {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .qr-block {
+    text-align: center;
+    width: 56px;
+  }
+  .qr-box {
+    width: 54px;
+    height: 54px;
+    background: white;
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 2px;
+  }
+  .qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .qr-label {
+    font-size: 5.5pt;
+    color: #aac4e8;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* ===== 仕切り線 ===== */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--navy));
+  }
+  .divider-thin {
+    height: 1px;
+    background: #ddd;
+    margin: 0 12px;
+  }
+
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      padding: 0;
+    }
     @page {
       size: A4;
       margin: 0;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #ddd;
-      font-family: "Noto Sans JP", sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-
-    .flyer {
-      width: 210mm;
-      height: 297mm;
-      margin: 0 auto;
-      background: #fff;
-      position: relative;
-      overflow: hidden;
-      color: #222;
-    }
-
-    /* Header */
-    .header {
-      background: linear-gradient(135deg, #0d2a4d 0%, #123b6e 100%);
-      color: #fff;
-      padding: 14mm 12mm 10mm;
-      position: relative;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8mm;
-    }
-
-    .brand {
-      flex: 1;
-    }
-
-    .brand .sub {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      opacity: 0.9;
-      margin-bottom: 4px;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1.25;
-      font-weight: 900;
-    }
-
-    .brand .lead {
-      margin-top: 8px;
-      font-size: 12px;
-      line-height: 1.7;
-      max-width: 120mm;
-      opacity: 0.95;
-    }
-
-    .badge {
-      min-width: 54mm;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 10px;
-      padding: 10px 12px;
-      text-align: center;
-      backdrop-filter: blur(2px);
-    }
-
-    .badge .big {
-      font-size: 18px;
-      font-weight: 900;
-      color: #ffd166;
-      line-height: 1.1;
-    }
-
-    .badge .small {
-      font-size: 10px;
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin-top: 10mm;
-    }
-
-    .stat {
-      background: #fff;
-      color: #123b6e;
-      border-radius: 10px;
-      padding: 8px 8px 9px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .stat .num {
-      display: block;
-      font-size: 18px;
-      font-weight: 900;
-      color: #e86d1f;
-      line-height: 1.1;
-    }
-
-    .stat .label {
-      display: block;
-      margin-top: 4px;
-      font-size: 10px;
-      line-height: 1.35;
-      color: #334;
-    }
-
-    /* Main sections */
-    .content {
-      padding: 10mm 12mm 0;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin: 0 0 6px;
-      font-size: 16px;
-      font-weight: 900;
-      color: #123b6e;
-    }
-
-    .section-title::before {
-      content: "";
-      width: 5px;
-      height: 18px;
-      background: #e86d1f;
-      border-radius: 4px;
-      flex: 0 0 auto;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 8mm;
-      margin-bottom: 8mm;
-    }
-
-    .card {
-      border: 1px solid #d7dfeb;
-      border-radius: 12px;
-      padding: 8mm;
-      background: #fff;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 11.5px;
-      line-height: 1.8;
-      color: #333;
-    }
-
-    .profile {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
-
-    .profile-item {
-      background: #f6f9fc;
-      border: 1px solid #e1e8f2;
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 11px;
-      line-height: 1.55;
-    }
-
-    .profile-item strong {
-      color: #123b6e;
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #fff6ea 0%, #fff 100%);
-      border: 1px solid #ffd4a8;
-      border-radius: 12px;
-      padding: 8mm;
-      margin-bottom: 8mm;
-    }
-
-    .highlight-box ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 11.5px;
-      line-height: 1.8;
-      color: #333;
-    }
-
-    .highlight-box li + li {
-      margin-top: 3px;
-    }
-
-    /* Bottom background area */
-    .bottom-bg {
-      position: relative;
-      overflow: hidden;
-      padding: 8mm 12mm 8mm;
-      margin-top: 0;
-      min-height: 122mm;
-    }
-
-    .bottom-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("images/foto_hotel.png") center center / cover no-repeat;
-      opacity: 0.10;
-      transform: scale(1.08);
-      filter: sepia(0.35) brightness(1.15);
-      z-index: 0;
-    }
-
-    .bottom-bg > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin-top: 5px;
-    }
-
-    .price-card {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid #d7dfeb;
-      border-radius: 10px;
-      padding: 7px 8px;
-      min-height: 44mm;
-    }
-
-    .price-card h4 {
-      margin: 0 0 5px;
-      font-size: 11px;
-      line-height: 1.35;
-      color: #123b6e;
-    }
-
-    .price {
-      font-size: 16px;
-      font-weight: 900;
-      color: #e86d1f;
-      margin-bottom: 4px;
-      line-height: 1.1;
-    }
-
-    .price-card p {
-      margin: 0;
-      font-size: 10px;
-      line-height: 1.55;
-      color: #333;
-    }
-
-    .bottom-row {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 8mm;
-      margin-top: 7mm;
-      align-items: start;
-    }
-
-    .contact-box {
-      background: rgba(255,255,255,0.93);
-      border: 1px solid #d7dfeb;
-      border-radius: 12px;
-      padding: 7mm;
-    }
-
-    .contact-box h3 {
-      margin: 0 0 5px;
-      font-size: 14px;
-      color: #123b6e;
-    }
-
-    .contact-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 11.5px;
-      line-height: 1.75;
-    }
-
-    .contact-list strong {
-      color: #123b6e;
-    }
-
-    .qr-box {
-      background: rgba(255,255,255,0.93);
-      border: 1px solid #d7dfeb;
-      border-radius: 12px;
-      padding: 7mm;
-    }
-
-    .qr-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .qr {
-      text-align: center;
-      font-size: 10px;
-      color: #334;
-    }
-
-    .qr img {
-      width: 100%;
-      max-width: 36mm;
-      display: block;
-      margin: 0 auto 4px;
-      border: 1px solid #d7dfeb;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .footer-note {
-      margin-top: 6mm;
-      font-size: 9px;
-      line-height: 1.6;
-      color: #555;
-      text-align: center;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="flyer">
-    <div class="header">
-      <div class="header-top">
-        <div class="brand">
-          <div class="sub">SECOND PENGUIN PLANNING / 行政書士 徳永義生事務所</div>
-          <h1>外国人材受入れ支援<br>日本で働きたい人と、採用したい企業をつなぐ</h1>
-          <div class="lead">
-            31年の公務員経験と、インドネシア大使館での外交経験、フィリピン政府への専門家派遣実績を活かし、<br>
-            受入れ準備・教育・定着・在留手続まで一貫して支援します。
-          </div>
-        </div>
-        <div class="badge">
-          <div class="big">安心・定着・実績</div>
-          <div class="small">日本語教育／採用／在留／生活支援まで<br>ワンストップ対応</div>
-        </div>
-      </div>
 
-      <div class="stats">
-        <div class="stat">
-          <span class="num">0.2%</span>
-          <span class="label">失踪率<br>継続的な定着支援</span>
-        </div>
-        <div class="stat">
-          <span class="num">80%</span>
-          <span class="label">N4合格率<br>日本語教育の成果</span>
-        </div>
-        <div class="stat">
-          <span class="num">1,200+</span>
-          <span class="label">TESDA認定<br>OWJLC卒業生</span>
-        </div>
+<div class="page">
+
+  <!-- 背景画像 -->
+  <div class="bg-hotel">
+    <img src="images/foto_hotel.png" alt="ホテル背景">
+  </div>
+
+  <div class="content">
+
+    <!-- ===== ヘッダー ===== -->
+    <div class="header">
+      <div class="header-top">▶ 観光・サービス業界の「おもてなし」を止めてはいけない。</div>
+      <div class="header-sub">【人手不足に悩むホテル・旅館・飲食経営者様へ】</div>
+      <div class="header-title">人手不足を解消し、現場に活気を取り戻す<br>
+        <span>「外国人材活用」</span>の最適解</div>
+      <div class="header-desc">
+        観光産業の未来を創る「即戦力」と「安心」のパートナーシップを。<br>
+        <strong>「明るく、誠実。そしてホスピタリティ溢れる」フィリピン・インドネシアの優れた人材</strong>と、<br>
+        法務のプロによる伴走で、貴社のサービスを次ステージへ導きます。
       </div>
     </div>
+    <div class="divider"></div>
 
-    <div class="content">
-      <div class="grid-2">
-        <div class="card">
-          <h2 class="section-title">代表プロフィール</h2>
-          <p>
-            徳永義生は、31年間にわたり公務に従事し、国際協力・外交・制度運用の現場を経験してきました。<br>
-            日本の行政手続に精通しているだけでなく、外国人材の受入れに必要な「現場理解」「生活支援」「教育設計」を重視し、企業と人材の双方にとって持続可能な仕組みづくりを行います。
+    <!-- ===== 2カラム：課題＋強み（左）／ 人材の質（右） ===== -->
+    <div class="two-col">
+      <div class="col-left">
+
+        <div class="section issues">
+          <div class="section-title">こんな危機感を抱いていませんか？</div>
+          <ul class="check-list">
+            <li>人手が足りず、予約を制限せざるを得ない</li>
+            <li>現場が疲弊し、自慢のおもてなしが疎かになっている</li>
+          </ul>
+          <p class="issues-body">
+            私たちは、単なる人材紹介会社ではありません。<br>
+            行政書士としての<strong>「法務的信頼」</strong>と、現地政府・教育機関との<strong>「外交的パイプ」</strong>を武器に、
+            貴社のコンプライアンスを守り抜き、即戦力となる人材を「線」で支える<strong>専門家集団</strong>です。
           </p>
         </div>
 
-        <div class="profile">
-          <div class="profile-item"><strong>主な経歴：</strong> 31年の公務員経験</div>
-          <div class="profile-item"><strong>外交経験：</strong> 在インドネシア日本国大使館勤務</div>
-          <div class="profile-item"><strong>国際協力：</strong> フィリピン政府への専門家派遣</div>
-          <div class="profile-item"><strong>採用適性：</strong> 内田クレペリン検査による適性確認</div>
+        <div class="divider-thin"></div>
+
+        <div class="section strengths">
+          <div class="section-title">
+            徳永良雄の圧倒的な強み
+            <span class="sub">なぜ、私たちの紹介は「質」が違うのか</span>
+          </div>
+
+          <p style="font-size:6.5pt;color:#555;margin-bottom:6px;">代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>他の業者には真似できない<strong>3つの信頼の柱</strong>があります。</p>
+
+          <div class="strength-item">
+            <div class="strength-num">①</div>
+            <div class="strength-text">
+              <h4>🌏 日本大使館・現地政府派遣の「外交的パイプ」</h4>
+              <p>在インドネシア日本大使館勤務経験、フィリピン政府への専門家派遣実績。現地の動向や制度の深部まで熟知。</p>
+            </div>
+          </div>
+          <div class="strength-item">
+            <div class="strength-num">②</div>
+            <div class="strength-text">
+              <h4>⚖️ 行政書士の法務知見 × 31年の公務員実務</h4>
+              <p>入管業務（ビザ申請）のプロフェッショナル。複雑な特定技能の手続きを、行政実務の裏側まで知り尽くした知見でスムーズに完結。</p>
+            </div>
+          </div>
+          <div class="strength-item">
+            <div class="strength-num">③</div>
+            <div class="strength-text">
+              <h4>🗣️ 言語と文化の壁を壊す「現場目線」</h4>
+              <p>ビジネス英語・中級インドネシア語を操り、現地で直接指導した経験。外国人の「困りごと」を肌で理解しているからこそ、ミスマッチのないマッチングを実現。</p>
+            </div>
+          </div>
+
+          <div class="penguin-box">
+            <div class="penguin-icon">🐧</div>
+            <div class="balloon">複雑な入管手続きは、<br>法務のプロである僕たちに<br>全部任せてくださいね！</div>
+          </div>
         </div>
+
       </div>
 
-      <div class="highlight-box">
-        <h2 class="section-title" style="margin-top:0;">支援の特長</h2>
-        <ul>
-          <li>在留資格・各種書類・法的手続までフルサポート</li>
-          <li>採用前の適性確認、面接支援、受入れ準備を一体化</li>
-          <li>日本語教育と生活支援を組み合わせ、早期離職を防止</li>
-          <li>企業の負担を軽減しながら、安定した人材確保を実現</li>
-        </ul>
-      </div>
-    </div>
+      <div class="col-right" style="border-left: 2px solid #e0e0e0;">
+        <div class="section quality">
+          <div class="section-title">
+            圧倒的な「人材の質」と「安全性」
+            <span class="sub">失踪率0.2%の誇り</span>
+          </div>
 
-    <div class="bottom-bg">
-      <h2 class="section-title">支援内容・料金</h2>
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="num">80%</div>
+              <div class="label">N4<br>合格率</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">0.2%</div>
+              <div class="label">驚異の<br>失踪率</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">1,200+</div>
+              <div class="label">累計<br>卒業生</div>
+            </div>
+          </div>
 
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h4>基本支援</h4>
-          <div class="price">15,000円/月</div>
-          <p>在留管理、連絡調整、日常的な相談対応など、基本的な定着支援を行います。</p>
-        </div>
+          <div class="photo-placeholder">
+            <div class="icon">📸</div>
+            <div>OWJLCの活気ある授業風景<br>・笑顔の候補者たちの写真<br><span style="font-size:5.5pt;opacity:0.7;">（実際の写真に差し替えてください）</span></div>
+          </div>
 
-        <div class="price-card">
-          <h4>教育込み支援</h4>
-          <div class="price">20,000円/月</div>
-          <p>基本支援に加え、日本語教育・生活指導・定着フォローを含めたプランです。</p>
-        </div>
-
-        <div class="price-card">
-          <h4>採用準備支援</h4>
-          <div class="price">150,000円</div>
-          <p>採用計画、募集条件整理、面接準備、受入れ体制設計などをサポートします。</p>
-        </div>
-
-        <div class="price-card">
-          <h4>受入れ体制構築</h4>
-          <div class="price">50,000円</div>
-          <p>初期設計、社内説明、受入れフロー作成、実務運用の整備を行います。</p>
-        </div>
-
-        <div class="price-card">
-          <h4>顧問・相談業務</h4>
-          <div class="price">30,000円/月</div>
-          <p>継続相談、制度確認、運用改善、企業ごとの個別課題に対応します。</p>
-        </div>
-
-        <div class="price-card">
-          <h4>個別対応</h4>
-          <div class="price">要相談</div>
-          <p>業種・人数・国籍・教育内容に応じて最適な支援内容をご提案します。</p>
-        </div>
-      </div>
-
-      <div class="bottom-row">
-        <div class="contact-box">
-          <h3>お問い合わせ</h3>
-          <ul class="contact-list">
-            <li><strong>事務所：</strong> ヨシオ・トクナガ 行政書士事務所</li>
-            <li><strong>所在地：</strong> 神戸ファッションマート</li>
-            <li><strong>電話：</strong> 070-9192-2524</li>
-            <li><strong>Email：</strong> info@second-penguin.com</li>
-            <li><strong>Web：</strong> second-penguin.com</li>
+          <ul class="quality-list">
+            <li><strong>提携校 OWJLC</strong>（フィリピン）<br>18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。</li>
+            <li><span class="highlight">失踪率わずか0.2%</span>を実現<br>フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。</li>
+            <li><strong>内田クレペリン検査</strong>を導入<br>日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。</li>
           </ul>
-        </div>
 
-        <div class="qr-box">
-          <h3 class="section-title" style="margin-bottom:6px;">QRコード</h3>
-          <div class="qr-wrap">
-            <div class="qr">
-              <img src="images/qr_web.png" alt="Website QR Code">
-              ホームページ
-            </div>
-            <div class="qr">
-              <img src="images/qr_line.png" alt="LINE QR Code">
-              LINE相談
-            </div>
+          <div class="penguin-box" style="margin-top:4px;">
+            <div class="penguin-icon">🐧</div>
+            <div class="balloon">フィリピンの子たちは本当に<br>お年寄りに優しくて、<br>現場が明るくなりますよ！</div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="footer-note">
-        ※掲載内容は作成時点のものです。支援内容・価格はご相談に応じて調整可能です。
+    <div class="divider"></div>
+
+    <!-- ===== サポート・料金 ===== -->
+    <div class="section support">
+      <div style="display:flex;gap:10px;">
+
+        <div style="flex:1;">
+          <div class="section-title">
+            一気通貫のフルサポートモデル
+            <span class="sub">採用から定着まで一つの窓口で完結</span>
+          </div>
+          <div class="support-grid">
+            <div class="support-item">
+              <h5>📋 採用・法務代行</h5>
+              <p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p>
+            </div>
+            <div class="support-item">
+              <h5>🏠 生活セットアップ</h5>
+              <p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p>
+            </div>
+            <div class="support-item">
+              <h5>📈 定着・ステップアップ</h5>
+              <p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p>
+            </div>
+            <div class="support-item">
+              <h5>🤝 顧問サービス</h5>
+              <p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div class="price-box">
+            <h4>💴 料金プランの目安（税別）</h4>
+            <table class="price-table">
+              <tr>
+                <td class="plan">特定技能サポートプラン（基本）</td>
+                <td class="price">月額 15,000円〜/人</td>
+              </tr>
+              <tr style="background:#fff3e0;">
+                <td class="plan">
+                  <span class="recommended">推奨</span>
+                  教育付きサポートプラン（日本語コース付）
+                </td>
+                <td class="price" style="color:#c05800;">月額 20,000円〜/人</td>
+              </tr>
+              <tr>
+                <td class="plan">入国・採用準備費用</td>
+                <td class="price">150,000円〜</td>
+              </tr>
+              <tr>
+                <td class="plan">生活セットアップ費用</td>
+                <td class="price">50,000円〜</td>
+              </tr>
+              <tr>
+                <td class="plan">外国人雇用アドバイザー（顧問）</td>
+                <td class="price">月額 30,000円〜</td>
+              </tr>
+            </table>
+            <p style="font-size:6pt;color:#888;text-align:center;margin-top:4px;">貴社の規模に合わせて最適なプランをご提案します。</p>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== フッター ===== -->
+    <div class="footer">
+      <div class="footer-top">
+        <p class="catch">「制度がよくわからない」「まずは適性を見てみたい」といったご相談も大歓迎です。</p>
+        <div class="free">✨ 初回相談無料・全国オンライン対応 ✨</div><br>
+        <span class="note">通常24時間以内に回答いたします。</span>
+      </div>
+
+      <div class="footer-body">
+        <div class="footer-info">
+          <div class="company">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <span class="icon">📍</span> 〒658-0032<br>
+              兵庫県神戸市東灘区向洋町中6-9<br>
+              神戸ファッションマート 4N-07-01
+            </div>
+            <div class="contact-item">
+              <span class="icon">📞</span> <strong style="color:#FFD580;font-size:8pt;">070-9192-2524</strong><br>（担当直通）<br>
+              <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
+              <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
+              <span style="margin-left:12px;"><a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="qr-area">
+          <div class="qr-block">
+            <div class="qr-box">
+              <img src="images/QR_second_penguin.png" alt="HPはコチラ">
+            </div>
+            <div class="qr-label">HPはコチラ</div>
+          </div>
+          <div class="qr-block">
+            <div class="qr-box">
+              <img src="images/QR_LINE.png" alt="LINE問合せ">
+            </div>
+            <div class="qr-label">LINE問合せ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
+
 </body>
 </html>
