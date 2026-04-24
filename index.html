@@ -3,65 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
 
   * { box-sizing: border-box; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; width: 210mm; height: 297mm; margin: 0 auto; background: #eee; }
-  .sheet { width: 100%; height: 100%; background: #fff; padding: 10mm; display: flex; flex-direction: column; justify-content: space-between; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; width: 210mm; height: 297mm; margin: 0 auto; background: #ddd; color: #333; }
+  .sheet { width: 100%; height: 100%; background: #F9F7F2; padding: 10mm; display: flex; flex-direction: column; gap: 8mm; }
 
-  /* ヒーローエリア（背景写真付き） */
+  /* ヒーローエリア */
   .hero { 
-    position: relative; 
-    background: url('images/foto_hotel.png') center/cover; 
-    color: white; 
-    padding: 12mm; 
-    text-align: center; 
-    border-radius: 10px; 
-    overflow: hidden;
+    height: 85mm; background: url('images/foto_hotel.png') center/cover; 
+    filter: sepia(50%) brightness(120%) contrast(1.1);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; color: #1a1a1a; border-radius: 12px;
   }
-  /* 透過フィルター */
-  .hero::before {
-    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(13, 43, 85, 0.85); /* 紺色の透過レイヤー */
-  }
-  .hero-content { position: relative; z-index: 1; }
-  .hero h1 { font-size: 28pt; line-height: 1.2; margin: 2mm 0; }
-  .hero h1 span { color: #F4801A; display: block; font-size: 40pt; }
-  .sub-catch { font-size: 12pt; background: #F4801A; display: inline-block; padding: 2px 20px; border-radius: 50px; }
+  .hero h1 { font-size: 32pt; font-weight: 900; line-height: 1.3; margin: 0; text-shadow: 0 2px 4px rgba(255,255,255,0.5); }
+  .hero h1 span { color: #D35400; display: block; font-size: 48pt; }
+  .sub-catch { font-size: 14pt; font-weight: 700; background: rgba(255,255,255,0.8); padding: 4px 20px; border-radius: 50px; margin-bottom: 5mm; }
 
-  /* コンテンツエリア */
-  .content-wrap { display: flex; flex-direction: column; gap: 6mm; }
+  /* コンテンツ */
+  .content-body { display: flex; flex-direction: column; gap: 8mm; flex-grow: 1; }
   
-  /* 3つの強み */
-  .features { display: flex; gap: 4mm; }
-  .feat-box { flex: 1; border: 2px solid #0D2B55; padding: 3mm; border-radius: 8px; text-align: center; font-size: 9pt; }
-  .feat-box b { color: #0D2B55; display: block; margin-bottom: 1mm; font-size: 10pt; }
+  .features { display: flex; gap: 5mm; }
+  .feat-box { flex: 1; background: #fff; padding: 5mm; border-left: 6px solid #D35400; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+  .feat-box b { color: #0D2B55; display: block; font-size: 11pt; margin-bottom: 2mm; }
 
-  /* メインコンテンツ */
-  .main-content { display: flex; gap: 8mm; align-items: start; }
-  .col { flex: 1; }
-  h2 { border-bottom: 4px solid #F4801A; margin-bottom: 4mm; font-size: 14pt; padding-bottom: 1mm; }
+  .main-content { display: flex; gap: 10mm; }
+  .col-left { flex: 1.2; }
+  .col-right { flex: 0.8; }
   
-  /* 料金強調 */
-  .price-highlight { background: #FFF8F0; border: 3px solid #F4801A; padding: 4mm; text-align: center; font-size: 16pt; font-weight: 900; }
+  h2 { font-size: 16pt; color: #0D2B55; border-bottom: 2px solid #0D2B55; padding-bottom: 2mm; margin-bottom: 4mm; }
   
+  .price-box { background: #0D2B55; color: #fff; padding: 6mm; border-radius: 8px; text-align: center; }
+  .price-val { font-size: 22pt; font-weight: 900; color: #FFD580; margin: 2mm 0; }
+
   /* フッター */
-  .footer { background: #0D2B55; color: white; padding: 5mm; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; }
-  .tel { font-size: 20pt; font-weight: 900; color: #FFD580; }
-  .qr-img { width: 22mm; height: 22mm; background: #fff; padding: 1mm; border-radius: 4px; }
+  .footer { border-top: 2px solid #ccc; padding-top: 5mm; display: flex; justify-content: space-between; align-items: center; }
+  .qr-container { display: flex; gap: 5mm; }
+  .qr-item { text-align: center; font-size: 8pt; }
+  .qr-img { width: 20mm; height: 20mm; display: block; margin-bottom: 1mm; }
 </style>
 </head>
 <body>
   <div class="sheet">
     <div class="hero">
-      <div class="hero-content">
-        <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
-        <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
-        <p style="font-size: 14pt; margin: 0;">「採用から定着まで」行政書士がフルサポート</p>
-      </div>
+      <div class="sub-catch">ホテル・旅館・飲食経営者様へ</div>
+      <h1>人手不足の救世主。<br><span>外国人材活用</span>の最適解</h1>
+      <p style="font-size: 16pt; font-weight: 700;">「採用から定着まで」行政書士がフルサポート</p>
     </div>
 
-    <div class="content-wrap">
+    <div class="content-body">
       <div class="features">
         <div class="feat-box"><b>① 行政書士の法務知見</b>入管・ビザ申請をプロが完遂</div>
         <div class="feat-box"><b>② 圧倒的採用力</b>現地政府・学校との太いパイプ</div>
@@ -69,34 +59,32 @@
       </div>
 
       <div class="main-content">
-        <div class="col">
-          <img src="images/授業風景.png" style="width: 100%; height: 45mm; object-fit: cover; border-radius: 8px; margin-bottom: 3mm;" alt="授業風景">
-          <h2>こんなお悩み、ありませんか？</h2>
-          <ul style="font-size: 11pt; line-height: 1.8; margin: 0; padding-left: 5mm;">
-            <li>✅ 人手不足で予約を制限している</li>
-            <li>✅ 現場が疲弊し、おもてなしが疎かに</li>
-            <li>✅ 外国人雇用は手続きが不安</li>
-          </ul>
+        <div class="col-left">
+          <img src="images/授業風景.png" style="width: 100%; height: 50mm; object-fit: cover; border-radius: 8px;" alt="授業風景">
         </div>
-        <div class="col">
-          <div class="price-highlight">
-            月額 15,000円〜/人<br>
-            <span style="font-size: 10pt; font-weight: 400;">※教育付きプランは 20,000円〜</span>
+        <div class="col-right">
+          <h2>選ばれる理由</h2>
+          <ul style="line-height: 2; list-style: none; padding: 0;">
+            <li>✅ 1,200名以上の輩出実績</li>
+            <li>✅ 内田クレペリン検査による厳選採用</li>
+            <li>✅ 150,000円〜のリーズナブルな初期費用</li>
+          </ul>
+          <div class="price-box">
+            月額サポート 15,000円〜
+            <div style="font-size: 9pt;">※教育付きは 20,000円〜</div>
           </div>
-          <p style="text-align: center; margin-top: 5mm; font-size: 11pt;">まずは初回無料相談で<br>貴社の課題をお聞かせください。</p>
         </div>
       </div>
     </div>
 
     <div class="footer">
       <div>
-        <div style="font-size: 9pt;">お問い合わせは直通ダイヤルまで</div>
-        <div class="tel">078-600-9814</div>
+        <div style="font-size: 10pt; font-weight: 700;">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
+        <div style="font-size: 14pt; font-weight: 900; color: #D35400;">TEL: 078-600-9814</div>
       </div>
-      <img src="images/QR_second_penguin.png" class="qr-img" alt="QRコード">
-      <div style="text-align: right; font-size: 9pt;">
-        セコンドペンギン企画 ／ 徳永良雄行政書士事務所<br>
-        second-penguin.com
+      <div class="qr-container">
+        <div class="qr-item"><img src="images/QR_second_penguin.png" class="qr-img">HPを見る</div>
+        <div class="qr-item"><img src="images/QR_LINE.png" class="qr-img">LINE相談</div>
       </div>
     </div>
   </div>
