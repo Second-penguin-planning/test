@@ -1,833 +1,862 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>セコンドペンギン企画 チラシ</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  :root {
-    --navy: #0D2B55;
-    --orange: #F4801A;
-    --yellow: #FFF7DA;
-    --text: #222;
-  }
-
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #fff;
-    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-    color: var(--text);
-  }
-
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  .page {
-    width: 210mm;
-    height: 297mm;
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .content {
-    width: 100%;
-    height: 100%;
-    padding: 2.4mm 2.5mm 1.8mm;
-  }
-
-  /* ===== HEADER ===== */
-  .header {
-    position: relative;
-    min-height: 81mm;
-    padding: 14px 15px 12px;
-    background: linear-gradient(135deg, #f8efe4 0%, #efe2d2 100%);
-    border-bottom: 2px solid #d7c3ad;
-    overflow: hidden;
-  }
-
-  .header::before {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 10px;
-    height: 100%;
-    background: var(--orange);
-    z-index: 2;
-  }
-
-  .header-hotel {
-    position: absolute;
-    right: -1mm;
-    top: -1mm;
-    width: 132mm;
-    opacity: .23;
-    z-index: 0;
-    pointer-events: none;
-    user-select: none;
-    filter: contrast(1.16) saturate(1.03) brightness(1.02);
-  }
-
-  .header-hotel img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .header-inner {
-    position: relative;
-    z-index: 1;
-    padding-right: 56mm;
-  }
-
-  .header-top {
-    font-size: 10.8pt;
-    line-height: 1.28;
-    font-weight: 700;
-    color: #6d5a49;
-    margin-bottom: 5px;
-  }
-
-  .header-sub {
-    display: inline-block;
-    font-size: 10.8pt;
-    font-weight: 700;
-    color: #8c5c22;
-    border: 1px solid #c8ad8b;
-    background: rgba(255,255,255,.45);
-    padding: 2px 10px;
-    border-radius: 2px;
-    margin-bottom: 8px;
-  }
-
-  .header-title {
-    font-size: 19.2pt;
-    font-weight: 900;
-    line-height: 1.18;
-    color: #2e251d;
-    margin-bottom: 6px;
-    letter-spacing: .1px;
-  }
-
-  .header-title span {
-    color: var(--orange);
-  }
-
-  .header-desc {
-    font-size: 8.85pt;
-    line-height: 1.48;
-    color: #4e4033;
-  }
-
-  .header-desc strong {
-    color: #7d4d13;
-    font-weight: 700;
-  }
-
-  /* ===== DIVIDER ===== */
-  .divider {
-    height: 3px;
-    background: linear-gradient(90deg, var(--orange), var(--navy));
-  }
-
-  .divider-thin {
-    height: 1px;
-    background: #ddd;
-    margin: 0 9px;
-  }
-
-  /* ===== TWO COLUMN ===== */
-  .two-col {
-    display: flex;
-    align-items: stretch;
-  }
-
-  .col-left {
-    width: 55%;
-  }
-
-  .col-right {
-    width: 45%;
-    border-left: 2px solid #e1e1e1;
-    padding-left: 1mm;
-  }
-
-  .section {
-    padding: 7px 10px;
-  }
-
-  .section-title {
-    font-size: 9.15pt;
-    font-weight: 900;
-    color: var(--navy);
-    line-height: 1.22;
-    border-left: 4px solid var(--orange);
-    padding-left: 6px;
-    margin-bottom: 6px;
-  }
-
-  .section-title .sub {
-    display: block;
-    font-size: 7.05pt;
-    font-weight: 500;
-    color: #666;
-    margin-top: 1px;
-  }
-
-  .issues {
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  .check-list {
-    list-style: none;
-    margin-bottom: 5px;
-  }
-
-  .check-list li {
-    position: relative;
-    padding-left: 15px;
-    font-size: 7.8pt;
-    line-height: 1.42;
-    margin-bottom: 2px;
-  }
-
-  .check-list li::before {
-    content: '☑';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--orange);
-    font-size: 8.2pt;
-  }
-
-  .issues-body {
-    font-size: 7.45pt;
-    line-height: 1.47;
-    color: #333;
-  }
-
-  .issues-body strong {
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  .strengths {
-    background: var(--yellow);
-    border-bottom: 1px solid #e8deae;
-    padding-left: 8px;
-  }
-
-  .strength-item {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 5px;
-    align-items: flex-start;
-  }
-
-  .strength-num {
-    width: 21px;
-    height: 21px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--orange);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8.7pt;
-    font-weight: 900;
-    margin-top: 1px;
-  }
-
-  .strength-text h4 {
-    font-size: 7.5pt;
-    line-height: 1.33;
-    color: var(--navy);
-    font-weight: 700;
-    margin-bottom: 1px;
-  }
-
-  .strength-text p {
-    font-size: 6.85pt;
-    line-height: 1.42;
-    color: #444;
-  }
-
-  .penguin-box {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    background: #e8f0fb;
-    border-radius: 6px;
-    padding: 5px 8px;
-    margin-top: 5px;
-  }
-
-  .penguin-icon {
-    font-size: 24pt;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .balloon {
-    position: relative;
-    background: #fff;
-    border: 1.5px solid var(--navy);
-    border-radius: 8px;
-    padding: 4px 8px;
-    color: var(--navy);
-    font-size: 6.65pt;
-    line-height: 1.38;
-    font-weight: 500;
-  }
-
-  .balloon::before {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 5px solid transparent;
-    border-right-color: var(--navy);
-  }
-
-  .balloon::after {
-    content: '';
-    position: absolute;
-    left: -5.5px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 4px solid transparent;
-    border-right-color: #fff;
-  }
-
-  .quality {
-    border-bottom: 1px solid #e0e0e0;
-    padding-left: 7px;
-    padding-right: 8px;
-  }
-
-  .quality .section-title {
-    margin-left: -1mm;
-  }
-
-  .stat-row {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 6px;
-  }
-
-  .stat-card {
-    flex: 1;
-    background: var(--navy);
-    border-radius: 4px;
-    padding: 5px 3px;
-    text-align: center;
-    color: #fff;
-  }
-
-  .stat-card .num {
-    font-size: 13.8pt;
-    font-weight: 900;
-    line-height: 1.02;
-    color: var(--orange);
-  }
-
-  .stat-card .label {
-    font-size: 5.95pt;
-    line-height: 1.3;
-  }
-
-  .photo-placeholder {
-    position: relative;
-    height: 46.5mm;
-    overflow: hidden;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    border: 2px solid rgba(13,43,85,.18);
-    background: #ddd;
-  }
-
-  .photo-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .photo-placeholder .overlay-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 8px 6px 5px;
-    font-size: 6.9pt;
-    line-height: 1.3;
-    color: #fff;
-    text-align: center;
-    background: linear-gradient(transparent, rgba(0,0,0,.45));
-  }
-
-  .quality-list {
-    list-style: none;
-  }
-
-  .quality-list li {
-    position: relative;
-    padding-left: 15px;
-    font-size: 7.02pt;
-    line-height: 1.41;
-    margin-bottom: 3px;
-    color: #333;
-  }
-
-  .quality-list li::before {
-    content: '✅';
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 7.2pt;
-  }
-
-  .quality-list li strong {
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  .quality-list li .highlight {
-    color: var(--orange);
-    font-weight: 900;
-  }
-
-  .support {
-    padding-top: 6px;
-    padding-bottom: 5px;
-  }
-
-  .support-flex {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .support-left,
-  .support-right {
-    flex: 1;
-  }
-
-  .support-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-  }
-
-  .support-item {
-    background: #f5f5f5;
-    border-radius: 4px;
-    border-left: 3px solid var(--navy);
-    padding: 4px 6px;
-  }
-
-  .support-item h5 {
-    font-size: 6.95pt;
-    line-height: 1.25;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 1px;
-  }
-
-  .support-item p {
-    font-size: 6.1pt;
-    line-height: 1.33;
-    color: #444;
-  }
-
-  .price-box {
-    height: 100%;
-    border: 2px solid var(--orange);
-    border-radius: 6px;
-    padding: 6px 8px;
-    background: #FFF8F0;
-  }
-
-  .price-box h4 {
-    font-size: 7.9pt;
-    line-height: 1.25;
-    font-weight: 900;
-    color: var(--orange);
-    text-align: center;
-    margin-bottom: 4px;
-  }
-
-  .price-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 6.25pt;
-  }
-
-  .price-table tr {
-    border-bottom: 1px solid #f0d8b0;
-  }
-
-  .price-table tr:last-child {
-    border-bottom: none;
-  }
-
-  .price-table td {
-    padding: 2px 4px;
-    vertical-align: middle;
-  }
-
-  .price-table .plan {
-    color: #333;
-    font-weight: 500;
-  }
-
-  .price-table .price {
-    text-align: right;
-    color: var(--orange);
-    font-weight: 900;
-    white-space: nowrap;
-  }
-
-  .recommended {
-    display: inline-block;
-    background: var(--orange);
-    color: #fff;
-    font-size: 5.3pt;
-    line-height: 1;
-    padding: 1px 4px;
-    border-radius: 2px;
-    margin-right: 3px;
-    vertical-align: middle;
-  }
-
-  .price-note {
-    margin-top: 4px;
-    font-size: 5.85pt;
-    text-align: center;
-    color: #888;
-    line-height: 1.25;
-  }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    min-height: 50mm;
-    background: var(--navy);
-    color: #fff;
-    padding: 6px 8px 5px;
-  }
-
-  .footer-top {
-    text-align: center;
-    margin-bottom: 2px;
-  }
-
-  .footer-top .catch {
-    font-size: 6.55pt;
-    line-height: 1.26;
-    color: #aac4e8;
-    margin-bottom: 1px;
-  }
-
-  .footer-top .free {
-    display: inline-block;
-    font-size: 7.8pt;
-    font-weight: 900;
-    color: var(--orange);
-    border: 1px solid var(--orange);
-    padding: 2px 9px;
-    border-radius: 20px;
-    margin-bottom: 1px;
-  }
-
-  .footer-top .note {
-    font-size: 5.3pt;
-    color: #aac4e8;
-  }
-
-  .footer-body {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .footer-info {
-    flex: 1;
-  }
-
-  .company {
-    font-size: 7pt;
-    font-weight: 700;
-    color: #FFD580;
-    margin-bottom: 3px;
-    line-height: 1.22;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .contact-item {
-    font-size: 5.8pt;
-    line-height: 1.36;
-    color: #ccd9ec;
-  }
-
-  .contact-item .icon {
-    color: var(--orange);
-  }
-
-  .contact-item a {
-    color: #7eb8f7;
-    text-decoration: none;
-  }
-
-  .qr-area {
-    display: flex;
-    gap: 7px;
-    flex-shrink: 0;
-  }
-
-  .qr-block {
-    width: 66px;
-    text-align: center;
-  }
-
-  .qr-box {
-    width: 66px;
-    height: 66px;
-    border-radius: 3px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid rgba(255,255,255,.45);
-    margin-bottom: 3px;
-  }
-
-  .qr-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .qr-label {
-    font-size: 5.25pt;
-    line-height: 1.15;
-    color: #aac4e8;
-  }
-
-  @media print {
-    html, body {
-      width: 210mm;
-      height: 297mm;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>外国人材活用サポート｜セコンドペンギン企画</title>
+  <meta name="description" content="宿泊業・外食業向けの外国人従業員雇用・生活支援・定着支援ならセコンドペンギン企画。" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #001F3F;
+      --ochre: #B8860B;
+      --gold: #D4AF37;
+      --cream: #FFF8E8;
+      --bg: #F7F7F5;
+      --text: #1A1A1A;
+      --muted: #666;
+      --white: #fff;
+      --line: rgba(0,31,63,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.08);
+      --radius: 20px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       margin: 0;
-      padding: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f7f7f5 100%);
+      line-height: 1.8;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .page {
+      padding: 48px 0;
+    }
+
+    .section-title {
+      font-family: "Noto Serif JP", serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 2.2vw, 2.6rem);
+      color: var(--navy);
+      line-height: 1.3;
+      margin: 0 0 18px;
+      letter-spacing: .03em;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(0,31,63,.98) 0%, rgba(0,31,63,.92) 60%, rgba(184,134,11,.88) 100%);
+      color: var(--white);
+      padding: 54px 0 46px;
+      position: relative;
       overflow: hidden;
     }
-    .page {
-      width: 210mm;
-      height: 297mm;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.12), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,.08), transparent 28%);
+      pointer-events: none;
     }
-  }
-</style>
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 28px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .92rem;
+      margin-bottom: 16px;
+      letter-spacing: .08em;
+    }
+
+    .hero h1 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(2.2rem, 4.2vw, 4.6rem);
+      line-height: 1.12;
+      margin: 0 0 14px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .hero h1 .accent {
+      color: #FFE8A3;
+    }
+
+    .hero .lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.95);
+      max-width: 38em;
+    }
+
+    .hero .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #FFF4C1;
+      background: rgba(184,134,11,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 12px 16px;
+      border-radius: 14px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 1.25rem;
+      color: #FFE8A3;
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-card li {
+      background: rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      position: relative;
+      padding-left: 42px;
+    }
+
+    .hero-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      color: #FFE8A3;
+      font-weight: 900;
+    }
+
+    /* Common blocks */
+    .box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .box-head {
+      background: linear-gradient(90deg, rgba(0,31,63,.06), rgba(184,134,11,.10));
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .box-body {
+      padding: 24px;
+    }
+
+    /* empathy */
+    .empathy {
+      margin-top: 28px;
+    }
+
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .check-card {
+      background: linear-gradient(180deg, #fff 0%, #fffdf8 100%);
+      border: 2px solid rgba(184,134,11,.28);
+      border-radius: 18px;
+      padding: 20px 18px;
+      min-height: 128px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .check-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ochre);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-weight: 900;
+    }
+
+    .check-card p {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    /* services */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf1 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(0,31,63,.12);
+      padding: 22px;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-num {
+      font-family: "Noto Serif JP", serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,31,63,.12);
+      position: absolute;
+      right: 14px;
+      top: 8px;
+      line-height: 1;
+    }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      padding-right: 50px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #333;
+    }
+
+    /* strong point */
+    .strong {
+      margin-top: 28px;
+    }
+
+    .strong-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .strong-photo {
+      min-height: 360px;
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,31,63,.10), rgba(0,31,63,.30)),
+        url("https://images.unsplash.com/photo-1563610508-8838f4a0e5d3?auto=format&fit=crop&w=1200&q=80") center/cover;
+      position: relative;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .strong-photo .caption {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: rgba(0,31,63,.84);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      max-width: 90%;
+    }
+
+    .strong-panel {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 6px;
+    }
+
+    .stat .value {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--ochre);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .stat .desc {
+      margin-top: 8px;
+      color: #333;
+      font-size: .98rem;
+    }
+
+    /* back side blocks */
+    .reason-grid,
+    .school-grid,
+    .flow-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .reason-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .reason-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .reason-card .rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .reason-card h3 {
+      margin: 0 0 10px;
+      font-family: "Noto Serif JP", serif;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .reason-card p {
+      margin: 0;
+    }
+
+    .school-grid {
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+    }
+
+    .school-photo {
+      min-height: 320px;
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,31,63,.08), rgba(184,134,11,.18)),
+        url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80") center/cover;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .flow-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .flow-card {
+      background: linear-gradient(180deg, #fff 0%, #fffdf7 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .flow-card .step {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--ochre);
+      letter-spacing: .08em;
+    }
+
+    .flow-card h3 {
+      margin: 8px 0 10px;
+      color: var(--navy);
+      font-family: "Noto Serif JP", serif;
+      font-size: 1.05rem;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, var(--navy) 0%, #002b57 60%, #001428 100%);
+      color: #fff;
+      padding: 40px 0;
+      margin-top: 30px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-family: "Noto Serif JP", serif;
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+    }
+
+    .contact .note {
+      color: rgba(255,255,255,.92);
+      margin: 0 0 16px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .qr-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .qr {
+      background: #fff;
+      color: #333;
+      border-radius: 14px;
+      min-height: 140px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 14px;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .footer-info {
+      margin-top: 14px;
+      font-size: .95rem;
+      line-height: 1.9;
+    }
+
+    .footer-info strong {
+      color: #FFE8A3;
+    }
+
+    /* animations */
+    .count {
+      display: inline-block;
+      animation: pop .9s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(.75); opacity: .2; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* responsive */
+    @media (max-width: 960px) {
+      .hero-grid,
+      .strong-grid,
+      .school-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .empathy-grid,
+      .service-grid,
+      .reason-grid,
+      .flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .qr-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 34px 0;
+      }
+
+      .box-body {
+        padding: 18px;
+      }
+
+      .hero h1 {
+        font-size: 2.15rem;
+      }
+
+      .hero .lead {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+
+      .service-card,
+      .check-card,
+      .reason-card,
+      .flow-card {
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="page">
-    <div class="content">
 
-      <div class="header">
-        <div class="header-hotel">
-          <img src="images/foto_hotel.png" alt="ホテル画像">
+  <!-- 表面 -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">外国人材活用サポート</div>
+          <h1>
+            <span class="accent">宿泊業、外食業</span>の皆様へ。<br>
+            外国人従業員雇用の伴走者。
+          </h1>
+          <p class="lead">
+            企業様の実情に応じたプランをご提供いたします。<br>
+            採用・法務・生活支援・定着支援まで、一気通貫でサポート。
+          </p>
+          <div class="tagline">企業様の実情に応じたプランをご提供いたします。</div>
         </div>
-        <div class="header-inner">
-          <div class="header-top">▶ 観光・サービス業界の「おもてなし」を止めてはいけない。</div>
-          <div class="header-sub">【人手不足に悩むホテル・旅館・飲食経営者様へ】</div>
-          <div class="header-title">人手不足を解消し、現場に活気を取り戻す<br><span>「外国人材活用」</span>の最適解</div>
-          <div class="header-desc">
-            観光産業の未来を創る「即戦力」と「安心」のパートナーシップを。<br>
-            <strong>「明るく、誠実。そしてホスピタリティ溢れる」フィリピン・インドネシアの優れた人材</strong>と、<br>
-            法務のプロによる伴走で、貴社のサービスを次ステージへ導きます。
-          </div>
-        </div>
+
+        <aside class="hero-card">
+          <h2>こんなお悩みにお答えします</h2>
+          <ul>
+            <li>長く働いてくれる従業員を見つけたい</li>
+            <li>若くて優秀な外国人を雇用したい</li>
+            <li>仕事を手伝ってくれる人を早く見つけたい</li>
+          </ul>
+        </aside>
       </div>
-
-      <div class="divider"></div>
-
-      <div class="two-col">
-        <div class="col-left">
-          <div class="section issues">
-            <div class="section-title">こんな危機感を抱いていませんか？</div>
-            <ul class="check-list">
-              <li>人手が足りず、予約を制限せざるを得ない</li>
-              <li>現場が疲弊し、自慢のおもてなしが疎かになっている</li>
-            </ul>
-            <p class="issues-body">
-              私たちは、単なる人材紹介会社ではありません。<br>
-              行政書士としての<strong>「法務的信頼」</strong>と、現地政府・教育機関との<strong>「外交的パイプ」</strong>を武器に、
-              貴社のコンプライアンスを守り抜き、即戦力となる人材を「線」で支える<strong>専門家集団</strong>です。
-            </p>
-          </div>
-
-          <div class="divider-thin"></div>
-
-          <div class="section strengths">
-            <div class="section-title">徳永良雄の圧倒的な強み<span class="sub">なぜ、私たちの紹介は「質」が違うのか</span></div>
-            <p style="font-size:6.45pt;color:#555;margin-bottom:5px;line-height:1.4;">
-              代表の徳永良雄は、<strong>31年間の公務員経験</strong>と国際協力の最前線で培った独自ネットワークを保有。<br>
-              他の業者には真似できない<strong>3つの信頼の柱</strong>があります。
-            </p>
-
-            <div class="strength-item">
-              <div class="strength-num">①</div>
-              <div class="strength-text">
-                <h4>🌏 日本大使館・現地政府派遣の「外交的パイプ」</h4>
-                <p>在インドネシア日本大使館勤務経験、フィリピン政府への専門家派遣実績。現地の動向や制度の深部まで熟知。</p>
-              </div>
-            </div>
-
-            <div class="strength-item">
-              <div class="strength-num">②</div>
-              <div class="strength-text">
-                <h4>⚖️ 行政書士の法務知見 × 31年の公務員実務</h4>
-                <p>入管業務（ビザ申請）のプロフェッショナル。複雑な特定技能の手続きを、行政実務の裏側まで知り尽くした知見でスムーズに完結。</p>
-              </div>
-            </div>
-
-            <div class="strength-item">
-              <div class="strength-num">③</div>
-              <div class="strength-text">
-                <h4>🗣️ 言語と文化の壁を壊す「現場目線」</h4>
-                <p>ビジネス英語・中級インドネシア語を操り、現地で直接指導した経験。外国人の「困りごと」を肌で理解しているからこそ、ミスマッチのないマッチングを実現。</p>
-              </div>
-            </div>
-
-            <div class="penguin-box">
-              <div class="penguin-icon">🐧</div>
-              <div class="balloon">複雑な入管手続きは、<br>法務のプロである僕たちに<br>全部任せてくださいね！</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-right">
-          <div class="section quality">
-            <div class="section-title">圧倒的な「人材の質」と「安全性」<span class="sub">失踪率0.2%の誇り</span></div>
-
-            <div class="stat-row">
-              <div class="stat-card"><div class="num">80%</div><div class="label">N4<br>合格率</div></div>
-              <div class="stat-card"><div class="num">0.2%</div><div class="label">驚異の<br>失踪率</div></div>
-              <div class="stat-card"><div class="num">1,200+</div><div class="label">累計<br>卒業生</div></div>
-            </div>
-
-            <div class="photo-placeholder">
-              <img src="images/授業風景.png" alt="授業風景">
-              <div class="overlay-text">OWJLCの活気ある授業風景<br>笑顔の候補者たちの写真</div>
-            </div>
-
-            <ul class="quality-list">
-              <li><strong>提携校 OWJLC</strong>（フィリピン）<br>18教室・360名収容のTESDA認証校。会話重視の教材で「現場で動ける」人材を育成。</li>
-              <li><span class="highlight">失踪率わずか0.2%</span>を実現<br>フィリピンDMW/MWOの厳格な管理体制遵守と手厚いフォロー。</li>
-              <li><strong>内田クレペリン検査</strong>を導入<br>日本の鉄道運転士免許取得にも使われる適性検査。メンタル面でも安定した「サービス業向き人材」を選抜。</li>
-            </ul>
-
-            <div class="penguin-box" style="margin-top:4px;">
-              <div class="penguin-icon">🐧</div>
-              <div class="balloon">フィリピンの子たちは本当に<br>お年寄りに優しくて、<br>現場が明るくなりますよ！</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="section support">
-        <div class="support-flex">
-          <div class="support-left">
-            <div class="section-title">一気通貫のフルサポートモデル<span class="sub">採用から定着まで一つの窓口で完結</span></div>
-            <div class="support-grid">
-              <div class="support-item"><h5>📋 採用・法務代行</h5><p>ニーズに合った人材選定、在留資格申請・現地手続きの完全代行。</p></div>
-              <div class="support-item"><h5>🏠 生活セットアップ</h5><p>空港送迎、住居手配、役所・銀行・携帯などの煩雑な手続き支援。</p></div>
-              <div class="support-item"><h5>📈 定着・ステップアップ</h5><p>定期面談 ＋ 就労しながらN3/N2を目指せる「オンデマンド日本語コース」。</p></div>
-              <div class="support-item"><h5>🤝 顧問サービス</h5><p>外国人雇用全般の相談窓口。制度改正にも即時対応。</p></div>
-            </div>
-          </div>
-
-          <div class="support-right">
-            <div class="price-box">
-              <h4>💴 料金プランの目安（税別）</h4>
-              <table class="price-table">
-                <tr><td class="plan">特定技能サポートプラン（基本）</td><td class="price">月額 15,000円〜/人</td></tr>
-                <tr style="background:#fff3e0;"><td class="plan"><span class="recommended">推奨</span>教育付きサポートプラン（日本語コース付）</td><td class="price" style="color:#c05800;">月額 20,000円〜/人</td></tr>
-                <tr><td class="plan">入国・採用準備費用</td><td class="price">150,000円〜</td></tr>
-                <tr><td class="plan">生活セットアップ費用</td><td class="price">50,000円〜</td></tr>
-                <tr><td class="plan">外国人雇用アドバイザー（顧問）</td><td class="price">月額 30,000円〜</td></tr>
-              </table>
-              <p class="price-note">貴社の規模に合わせて最適なプランをご提案します。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="footer">
-        <div class="footer-top">
-          <p class="catch">「制度がよくわからない」「まずは適性を見てみたい」といったご相談も大歓迎です。</p>
-          <div class="free">✨ 初回相談無料・全国オンライン対応 ✨</div><br>
-          <span class="note">通常24時間以内に回答いたします。</span>
-        </div>
-
-        <div class="footer-body">
-          <div class="footer-info">
-            <div class="company">セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <span class="icon">📍</span> 〒658-0032<br>
-                兵庫県神戸市東灘区向洋町中6-9<br>
-                神戸ファッションマート 4N-07-01
-              </div>
-              <div class="contact-item">
-                <span class="icon">📞</span> <strong style="color:#FFD580;font-size:7.8pt;">078-600-9814</strong><br>
-              
-                <span class="icon">✉️</span> <a href="mailto:info@second-penguin.com">info@second-penguin.com</a><br>
-                <span class="icon">🌐</span> <a href="https://second-penguin.com">second-penguin.com</a><br>
-                <span style="margin-left:12px;"><a href="https://tokunaga-gyosei.jp">tokunaga-gyosei.jp</a></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="qr-area">
-            <div class="qr-block">
-              <div class="qr-box"><img src="images/QR_second_penguin.png" alt="HPはコチラ"></div>
-              <div class="qr-label">HPはコチラ</div>
-            </div>
-            <div class="qr-block">
-              <div class="qr-box"><img src="images/QR_LINE.png" alt="LINE問合せ"></div>
-              <div class="qr-label">LINE問合せ</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section class="page">
+      <div class="wrap">
+        <div class="box">
+          <div class="box-head">
+            <h2 class="section-title">セコンドペンギン企画のメインの仕事</h2>
+            <p class="section-subtitle">採用から定着まで、現場に必要な支援をまとめて対応します。</p>
+          </div>
+          <div class="box-body">
+            <div class="service-grid">
+              <article class="service-card">
+                <div class="service-num">1</div>
+                <h3>企業様の外国人雇用のお手伝い</h3>
+                <p>採用準備から選別、在留資格関連の法務手続きまで、スムーズな雇用導入を支援します。</p>
+              </article>
+              <article class="service-card">
+                <div class="service-num">2</div>
+                <h3>外国人雇用者の生活支援</h3>
+                <p>住居・役所・銀行・生活ルールなど、日本での生活基盤を最短で整え、安心して働ける環境へ導きます。</p>
+              </article>
+              <article class="service-card">
+                <div class="service-num">3</div>
+                <h3>外国人雇用環境整備支援</h3>
+                <p>定着のための受入体制づくり、現場アドバイス、継続フォローを通じて離職リスクを抑えます。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <section class="empathy">
+          <div class="box">
+            <div class="box-head">
+              <h2 class="section-title">こんなお悩みにお答えします</h2>
+            </div>
+            <div class="box-body">
+              <div class="empathy-grid">
+                <div class="check-card"><div class="check-icon">✓</div><p>長く働いてくれる従業員を見つけたい</p></div>
+                <div class="check-card"><div class="check-icon">✓</div><p>若くて優秀な外国人を雇用したい</p></div>
+                <div class="check-card"><div class="check-icon">✓</div><p>仕事を手伝ってくれる人を早く見つけたい</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="strong">
+          <div class="box">
+            <div class="box-head">
+              <h2 class="section-title">フィリピン・インドネシア国籍の方の「一気通貫」支援</h2>
+              <p class="section-subtitle">選別、手続き、就業準備、受入環境整備、生活支援まで、窓口一つで完結。</p>
+            </div>
+            <div class="box-body">
+              <div class="strong-grid">
+                <div class="strong-photo">
+                  <div class="caption">日本の現場で活躍するイメージ写真を配置</div>
+                </div>
+                <div class="strong-panel">
+                  <div class="stat">
+                    <div class="label">失踪率</div>
+                    <div class="value count" data-count="0.2">0.2%</div>
+                    <div class="desc">高い定着性で、現場の安定運営を支えます。</div>
+                  </div>
+                  <div class="stat">
+                    <div class="label">累計卒業生</div>
+                    <div class="value count" data-count="1200">1,200名以上</div>
+                    <div class="desc">実績に基づいた人材ネットワークがあります。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 裏面 -->
+    <section class="page" style="background:#fff;">
+      <div class="wrap">
+        <div class="box">
+          <div class="box-head">
+            <h2 class="section-title">セコンドペンギン企画が選ばれる理由</h2>
+          </div>
+          <div class="box-body">
+            <div class="reason-grid">
+              <article class="reason-card">
+                <div class="rank">1</div>
+                <h3>行政書士による法務知見 × 31年の公務員実務</h3>
+                <p>入管業務のプロとして、コンプライアンスを徹底遵守した支援を行います。</p>
+              </article>
+              <article class="reason-card">
+                <div class="rank">2</div>
+                <h3>圧倒的な定着率</h3>
+                <p><strong>失踪率わずか0.2%</strong>、累計卒業生1,200名以上の実績。現場で使える支援にこだわります。</p>
+              </article>
+              <article class="reason-card">
+                <div class="rank">3</div>
+                <h3>現地との直接パイプ</h3>
+                <p>在日本大使館勤務経験等に基づく「外交的パイプ」で、高品質な人材確保につなげます。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <section style="margin-top:28px;">
+          <div class="box">
+            <div class="box-head">
+              <h2 class="section-title">提携学校情報｜OWJLC（フィリピン）</h2>
+              <p class="section-subtitle">18教室・360名収容。TESDA認証校。サービス業向き人材を育成。</p>
+            </div>
+            <div class="box-body">
+              <div class="school-grid">
+                <div class="school-photo"></div>
+                <div>
+                  <ul class="info-list">
+                    <li><strong>名称：</strong> 提携校 OWJLC（フィリピン）</li>
+                    <li><strong>規模：</strong> 18教室・360名収容</li>
+                    <li><strong>認証：</strong> TESDA（フィリピン労働雇用省）認証校</li>
+                    <li><strong>特徴：</strong> 内田クレペリン検査を導入し、適性を見極めた育成</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-top:28px;">
+          <div class="box">
+            <div class="box-head">
+              <h2 class="section-title">手続きとサポートの流れ</h2>
+            </div>
+            <div class="box-body">
+              <div class="flow-grid">
+                <article class="flow-card">
+                  <div class="step">STEP 1</div>
+                  <h3>採用準備・選別</h3>
+                  <p>企業ニーズに合った人材をスクリーニングします。</p>
+                </article>
+                <article class="flow-card">
+                  <div class="step">STEP 2</div>
+                  <h3>法務手続き</h3>
+                  <p>在留資格申請や現地政府手続きを代行します。</p>
+                </article>
+                <article class="flow-card">
+                  <div class="step">STEP 3</div>
+                  <h3>入国・生活セットアップ</h3>
+                  <p>空港送迎、住居確保、役所・銀行の手続き同行まで。</p>
+                </article>
+                <article class="flow-card">
+                  <div class="step">STEP 4</div>
+                  <h3>就業・定着支援</h3>
+                  <p>定期面談、日本語学習支援、生活相談で定着を支えます。</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <h2>初回相談無料・全国オンライン対応</h2>
+          <p class="note">
+            宿泊業・外食業を中心に、外国人材活用をトータルサポートします。<br>
+            まずはお気軽にご相談ください。
+          </p>
+          <div class="contact-box">
+            <div class="footer-info">
+              <div><strong>事務所名：</strong> セコンドペンギン企画 ／ 徳永良雄行政書士事務所</div>
+              <div><strong>所在地：</strong> 兵庫県神戸市東灘区向洋町中6-9 神戸ファッションマート 4N-07-01</div>
+              <div><strong>連絡先：</strong> 070-9192-2524 / info@second-penguin.com</div>
+            </div>
+            <p style="margin:14px 0 0; color:#FFE8A3; font-weight:700;">「手続きは全部任せてください！」</p>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="qr-row">
+            <div class="qr">
+              <div>
+                <div style="font-size:1.05rem; margin-bottom:8px;">HP QRコード</div>
+                <div>ここにQRを配置</div>
+              </div>
+            </div>
+            <div class="qr">
+              <div>
+                <div style="font-size:1.05rem; margin-bottom:8px;">LINE QRコード</div>
+                <div>ここにQRを配置</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:14px; font-size:.92rem; color:rgba(255,255,255,.88);">
+            ※ QRコード画像に差し替える場合は、上記枠内を `<img>` に変更してください。
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // カウントアップ風の演出
+    function animateNumber(el, target, suffix = "") {
+      const duration = 1400;
+      const start = 0;
+      const startTime = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = target * (0.2 + 0.8 * progress);
+        if (target < 1) {
+          el.textContent = current.toFixed(1) + suffix;
+        } else {
+          el.textContent = Math.round(current).toLocaleString("ja-JP") + suffix;
+        }
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const countEls = document.querySelectorAll(".count");
+
+      countEls.forEach((el) => {
+        const text = el.textContent.trim();
+        if (text.includes("0.2%")) {
+          el.textContent = "0.2%";
+          el.style.color = "var(--gold)";
+          el.style.fontSize = "clamp(2.4rem, 4vw, 4rem)";
+        }
+        if (text.includes("1,200")) {
+          el.textContent = "1,200名以上";
+          el.style.color = "var(--gold)";
+          el.style.fontSize = "clamp(2.2rem, 3.7vw, 3.6rem)";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
