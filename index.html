@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Visa & Job Search Support Flyer</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 
     * {
       margin: 0;
@@ -14,8 +14,8 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #e0e0e0;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #c8c8c8;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,48 +30,44 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.28);
     }
 
-    /* ══════════════════════════════
-       TOP SECTION — Foreign Nationals
-    ══════════════════════════════ */
+    /* ══════════════════════════════════════
+       TOP SECTION — Foreign Nationals (70%)
+    ══════════════════════════════════════ */
     .top-section {
       position: relative;
-      flex: 0 0 68%;
+      flex: 0 0 70%;
       display: flex;
       flex-direction: column;
-      padding: 32px 44px 28px;
+      padding: 28px 42px 24px;
       overflow: hidden;
-      background: #0a2463;
     }
 
-    /* 背景写真（透明） */
-    .top-section::before {
-      content: '';
+    /* 背景写真（はっきり表示） */
+    .bg-photo {
       position: absolute;
       inset: 0;
       background: url('images/foto_hotel.png') center center / cover no-repeat;
-      opacity: 0.18;
       z-index: 0;
     }
 
-    /* 青グラデーションオーバーレイ */
-    .top-section::after {
-      content: '';
+    /* 暗めオーバーレイで文字を読みやすく */
+    .bg-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         160deg,
-        rgba(10,36,99,0.82) 0%,
-        rgba(26,79,160,0.72) 55%,
-        rgba(10,36,99,0.90) 100%
+        rgba(6, 20, 70, 0.78) 0%,
+        rgba(10, 45, 130, 0.62) 50%,
+        rgba(6, 20, 70, 0.82) 100%
       );
       z-index: 1;
     }
 
     /* 全子要素をオーバーレイの上に */
-    .top-section > * {
+    .top-section > *:not(.bg-photo):not(.bg-overlay) {
       position: relative;
       z-index: 2;
     }
@@ -79,16 +75,16 @@
     /* FOR FOREIGN NATIONALS バッジ */
     .tag-foreign {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.18);
       color: #cce0ff;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      padding: 6px 18px;
+      padding: 5px 16px;
       border-radius: 30px;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      margin-bottom: 16px;
+      border: 1.5px solid rgba(255,255,255,0.38);
+      margin-bottom: 14px;
       width: fit-content;
     }
 
@@ -96,47 +92,50 @@
     .hero-title {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      line-height: 0.95;
-      margin-bottom: 10px;
+      line-height: 0.92;
+      margin-bottom: 8px;
       letter-spacing: -1px;
     }
 
-    .hero-title .word-visa {
+    .word-visa {
       display: block;
-      font-size: 110px;
+      font-size: 118px;
       color: #ffffff;
       text-shadow:
-        0 0 40px rgba(126,200,247,0.6),
-        0 4px 24px rgba(0,0,0,0.5);
-      letter-spacing: -2px;
+        0 0 60px rgba(126,200,247,0.85),
+        0 0 20px rgba(126,200,247,0.5),
+        0 4px 28px rgba(0,0,0,0.6);
+      letter-spacing: -3px;
+      line-height: 1.0;
     }
 
-    .hero-title .word-slash {
-      display: inline;
-      font-size: 52px;
-      color: #7ec8f7;
-    }
-
-    .hero-title .word-job {
+    .word-job-line {
       display: block;
-      font-size: 64px;
+      font-size: 58px;
       color: #ffffff;
       letter-spacing: -1px;
+      line-height: 1.05;
     }
 
-    .hero-title .word-support {
-      display: block;
-      font-size: 48px;
+    .word-slash {
       color: #7ec8f7;
-      letter-spacing: 4px;
+    }
+
+    .word-support {
+      display: block;
+      font-size: 44px;
+      color: #7ec8f7;
+      letter-spacing: 6px;
+      line-height: 1.1;
     }
 
     .hero-sub {
-      color: #a8d0f5;
-      font-size: 14px;
+      color: #b8d8f8;
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 0.08em;
-      margin-bottom: 26px;
+      margin-top: 6px;
+      margin-bottom: 22px;
     }
 
     /* ── サービス一覧 ── */
@@ -146,14 +145,14 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 7px 20px;
-      margin-bottom: 24px;
+      gap: 6px 24px;
+      margin-bottom: 22px;
     }
 
     .service-item {
@@ -161,7 +160,7 @@
       align-items: center;
       gap: 8px;
       color: #ffffff;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
     }
 
@@ -175,27 +174,30 @@
       flex-shrink: 0;
     }
 
-    /* ── 料金 ── */
-    .pricing-row {
+    /* ── 料金 + CTA 行 ── */
+    .pricing-cta-row {
       display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      align-items: stretch;
+      gap: 14px;
     }
 
+    /* 料金ボックス */
     .price-box {
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.13);
+      border: 1.5px solid rgba(255,255,255,0.30);
       border-radius: 12px;
-      padding: 10px 22px;
+      padding: 10px 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .price-label {
       color: #a8d0f5;
       font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 2px;
     }
@@ -205,65 +207,92 @@
       font-family: 'Oswald', sans-serif;
       font-size: 30px;
       font-weight: 700;
+      line-height: 1;
     }
 
+    /* 無料相談バッジ */
     .free-badge {
       background: linear-gradient(135deg, #f7c948, #f0a500);
       color: #1a1a1a;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 800;
-      padding: 10px 22px;
+      padding: 10px 18px;
       border-radius: 12px;
-      line-height: 1.35;
+      line-height: 1.4;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .free-badge span {
+    .free-badge .badge-label {
       display: block;
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 2px;
+      opacity: 0.75;
     }
 
-    /* ── CTA ── */
-    .cta-row {
+    /* QRコードエリア */
+    .qr-area {
       display: flex;
       gap: 12px;
+      margin-left: auto;
     }
 
-    .cta-btn {
+    .qr-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .qr-frame {
+      width: 80px;
+      height: 80px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 5px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-size: 13.5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-label {
+      color: #cce0ff;
+      font-size: 10px;
       font-weight: 700;
-      text-decoration: none;
-      flex: 1;
+      letter-spacing: 0.06em;
+      text-align: center;
     }
 
-    .cta-line {
-      background: #06c755;
-      color: #ffffff;
+    .qr-sublabel {
+      color: #8ab8e8;
+      font-size: 9px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: -3px;
     }
 
-    .cta-web {
-      background: rgba(255,255,255,0.13);
-      color: #ffffff;
-      border: 1.5px solid rgba(255,255,255,0.38);
-    }
+    /* LINE アイコン色 */
+    .qr-label.line-label { color: #06c755; }
 
-    /* ══════════════════════════════
-       BOTTOM SECTION — Japanese Companies
-    ══════════════════════════════ */
+    /* ══════════════════════════════════════
+       BOTTOM SECTION — Japanese Companies (23%)
+    ══════════════════════════════════════ */
     .bottom-section {
-      background: #f7f9fc;
-      flex: 0 0 26%;
-      padding: 22px 44px 18px;
+      background: #f5f8fd;
+      flex: 0 0 23%;
+      padding: 16px 42px 14px;
       display: flex;
       flex-direction: column;
       border-top: 4px solid #1a4fa0;
@@ -273,75 +302,117 @@
       display: inline-block;
       background: #1a4fa0;
       color: #ffffff;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 4px 12px;
+      letter-spacing: 0.12em;
+      padding: 3px 12px;
       border-radius: 4px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       width: fit-content;
     }
 
     .company-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
       color: #0a2463;
-      margin-bottom: 8px;
-      line-height: 1.2;
+      margin-bottom: 7px;
+      line-height: 1.3;
     }
 
     .company-desc {
-      font-size: 13px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
       color: #444;
       font-weight: 400;
-      line-height: 1.65;
-      margin-bottom: 12px;
+      line-height: 1.7;
+      margin-bottom: 10px;
     }
 
     .company-services {
       display: flex;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
     }
 
     .company-tag {
-      background: #e8f0fb;
+      background: #e4edf9;
       color: #1a4fa0;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 11px;
-      font-weight: 600;
-      padding: 5px 13px;
+      font-weight: 700;
+      padding: 4px 12px;
       border-radius: 20px;
-      border: 1px solid #b8cef0;
+      border: 1px solid #b4cef0;
     }
 
     /* ══════════════════════════════
-       FOOTER
+       FOOTER (7%)
     ══════════════════════════════ */
     .footer {
       background: #0a2463;
-      flex: 0 0 6%;
-      padding: 0 44px;
+      flex: 0 0 7%;
+      padding: 0 42px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .footer-brand {
       color: #ffffff;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.06em;
     }
 
-    .footer-office {
+    .footer-brand-en {
       color: #7ec8f7;
-      font-size: 10.5px;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-office {
+      color: #a8d0f5;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+
+    .footer-right {
       text-align: right;
-      line-height: 1.5;
+    }
+
+    .footer-contact {
+      color: #cce0ff;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-contact a {
+      color: #7ec8f7;
+      text-decoration: none;
+    }
+
+    .footer-tagline {
+      color: #4a7abf;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      margin-top: 2px;
+      font-style: italic;
     }
   </style>
 </head>
@@ -351,12 +422,14 @@
 
   <!-- ── TOP: Foreign Nationals ── -->
   <div class="top-section">
+    <div class="bg-photo"></div>
+    <div class="bg-overlay"></div>
 
-    <div class="tag-foreign">✦ For Foreign Nationals</div>
+    <div class="tag-foreign">✦ For Foreign Nationals in Japan</div>
 
     <h1 class="hero-title">
       <span class="word-visa">VISA</span>
-      <span class="word-job">
+      <span class="word-job-line">
         <span class="word-slash">/ </span>JOB SEARCH
       </span>
       <span class="word-support">SUPPORT</span>
@@ -368,53 +441,78 @@
     <div class="services-grid">
       <div class="service-item">Permanent Residency</div>
       <div class="service-item">Change of Status of Residence</div>
-      <div class="service-item">Engineer / Humanities / Intl. Services</div>
+      <div class="service-item">Engineer / Humanities / International Services</div>
       <div class="service-item">Specified Skilled Worker</div>
       <div class="service-item">Work &amp; Study Support</div>
     </div>
 
-    <div class="pricing-row">
+    <div class="pricing-cta-row">
       <div class="price-box">
         <div class="price-label">Starting From</div>
         <div class="price-value">¥50,000</div>
       </div>
+
       <div class="free-badge">
-        <span>✦ Limited Offer</span>
+        <span class="badge-label">✦ Limited Offer</span>
         First Consultation<br><strong>FREE</strong>
       </div>
-    </div>
 
-    <div class="cta-row">
-      <a href="#" class="cta-btn cta-line">
-        💬 Free Consultation via LINE →
-      </a>
-      <a href="#" class="cta-btn cta-web">
-        🌐 Visit Our Website →
-      </a>
+      <div class="qr-area">
+        <!-- LINE QR -->
+        <div class="qr-item">
+          <div class="qr-frame">
+            <img src="images/QR_LINE.png" alt="LINE QR Code" />
+          </div>
+          <div class="qr-label line-label">💬 LINE</div>
+          <div class="qr-sublabel">Free Consultation</div>
+        </div>
+
+        <!-- Website QR -->
+        <div class="qr-item">
+          <div class="qr-frame">
+            <img src="images/QR_second_penguin.png" alt="Website QR Code" />
+          </div>
+          <div class="qr-label">🌐 Website</div>
+          <div class="qr-sublabel">second-penguin.com</div>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <!-- ── BOTTOM: Japanese Companies ── -->
+  <!-- ── BOTTOM: 日本企業向け ── -->
   <div class="bottom-section">
-    <div class="tag-company">For Japanese Companies</div>
-    <h2 class="company-title">Hiring Foreign Talent?<br>We've Got You Covered.</h2>
+    <div class="tag-company">日本企業の皆さまへ</div>
+    <h2 class="company-title">外国人雇用の手続き、<br>まるごとお任せください。</h2>
     <p class="company-desc">
-      From visa applications to compliance consulting —<br>
-      we handle the paperwork so you can focus on growing your team.
+      ビザ申請・在留資格の変更から、社内規程整備・コンプライアンス対応まで。<br>
+      採用後の定着支援も含め、外国人雇用に関するあらゆるお悩みをサポートします。
     </p>
     <div class="company-services">
-      <span class="company-tag">Hiring Procedures</span>
-      <span class="company-tag">Visa Application Support</span>
-      <span class="company-tag">HR Consulting</span>
-      <span class="company-tag">Compliance Guidance</span>
+      <span class="company-tag">採用・雇用手続き</span>
+      <span class="company-tag">在留資格申請代行</span>
+      <span class="company-tag">人事・労務コンサル</span>
+      <span class="company-tag">コンプライアンス対応</span>
+      <span class="company-tag">社内規程整備</span>
     </div>
   </div>
 
   <!-- ── FOOTER ── -->
   <div class="footer">
-    <div class="footer-brand">Second Penguin Planning</div>
-    <div class="footer-office">Yoshio Tokunaga<br>Administrative Scrivener Office</div>
+    <div class="footer-left">
+      <div class="footer-brand">セカンドペンギン企画</div>
+      <div class="footer-brand-en">Second Penguin Planning</div>
+      <div class="footer-office">徳永義雄行政書士事務所</div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-contact">
+        📍 〒814-0153 福岡県福岡市城南区友泉亭1-17<br>
+        📞 092-600-1067　✉ info@second-penguin.com<br>
+        🌐 <a href="https://second-penguin.com">https://second-penguin.com</a>
+      </div>
+      <div class="footer-tagline">— The second penguin dares to dive. —</div>
+    </div>
   </div>
 
 </div>
